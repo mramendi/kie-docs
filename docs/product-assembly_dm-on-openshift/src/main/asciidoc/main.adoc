@@ -12,18 +12,19 @@ include::product-shared-docs/author-group.adoc[]
 As a system administrator, you can deploy and manage Decision Manager in an OpenShift environment. The OpenShift platform automates container deployment and management. You can use the templates provided with Decision Manager to deploy it into OpenShift and to scale it as necessary.
 
 .Prerequisite
-You must have a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
+You must have a deployed OpenShift environment. For deta
+ils, see the documentation for the OpenShift product that you use.
 
 // Modules - concepts, procedures, refs, etc.
-include::dm-on-openshift-overview-con.adoc[leveloffset+=1]
-include::preparing-dm-openshift-con.adoc[leveloffset+=1]
-include::installing-images-file-proc.adoc[leveloffset+=2]
-include::creating-secrets-kie-proc.adoc[leveloffset+=2]
-include::creating-secrets-central-proc.adoc[leveloffset+=2]
-include::deploying-dm-openshift-con.adoc[leveloffset+=1]
-include::deploying-kieserver-central-proc.adoc[leveloffset+=2]
-include::deploying-kieserver-s2i-proc.adoc[leveloffset+=2]
-include::deploying-kieserver-nos2i-proc.adoc[leveloffset+=2]
-  
+include::dm-on-openshift-overview-con.adoc[leveloffset=+1]
+include::preparing-dm-openshift-con.adoc[leveloffset=+1]
+include::installing-images-file-proc.adoc[leveloffset=+2]
+include::creating-secrets-kie-proc.adoc[leveloffset=+2]
+include::creating-secrets-central-proc.adoc[leveloffset=+2]
+include::deploying-dm-openshift-con.adoc[leveloffset=+1]
+include::deploying-kieserver-central-proc.adoc[leveloffset=+2]
+include::deploying-kieserver-s2i-proc.adoc[leveloffset=+2]
+include::deploying-kieserver-nos2i-proc.adoc[leveloffset=+2]
+
 // Versioning info
 include::product-shared-docs/versioning-information.adoc[]
