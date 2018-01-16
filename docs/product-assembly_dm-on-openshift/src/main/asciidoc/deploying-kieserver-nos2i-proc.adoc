@@ -1,0 +1,39 @@
+[id='deploying-kieserver-nos2i-proc']
+= Deploying {KIE_SERVER} witout using S2I
+
+
+You can deploy {KIE_SERVER} on the OpenShift infrastructure without {CENTRAL} and without S2I. In this case, {KIE_SERVER} can pick up a decision service from a Maven repository. However, to load the service, you must manage the {KIE_SERVER} using one of the following tools:
+
+* {CENTRAL}, installed outside of the OpenShift environment
+* A stand-alone management console, installed outside of the OpenShift environment
+* The API.
+
+.Before you begin
+
+Ensure that the Maven repository for your decision service is available.
+
+If you are planning to use {CENTRAL} or a management console, ensure that it is installed and record its settings for controlling a KIE server.
+
+.Procedure
+.In the OpenShift Web UI, select *Import YAML / JSON* and then select or paste the `rhdm70-kieserver.yaml` file, which is supplied with {PRODUCT}.
+.In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
+.Set the following mandatory parameters:
+** *Application Name*: the name of the OpenShift application. It is used in the default URLs for {CENTRAL} and {KIE_SERVER}.
+** *KIE Server Certificate Name*: the name of the certificate in the keystore that you created in <<creating-secrets-kie-proc>>.
+** *KIE Server Keystore Password*: the password for the keystore that you created in <<creating-secrets-kie-proc>>.
+** *ImageStream Namespace*: the name of the OpenShift project.
+
+You can also set other parameters as necessary. In particular, if you want to use {CENTRAL} or a stand-alone management console, set the following parameters according to the settings available:
+
+** *KIE server controller protocol*
+** *KIE server controller service*
+** *KIE server controller host*
+** *KIE server controller port*
+
+If you want to set the Maven repository for retrieving the decision service, set the following parameters to point to the repository:
+
+** *Maven repository URL*
+** *Maven repository username*
+** *Maven repository password*
+
+. Click *Create*.

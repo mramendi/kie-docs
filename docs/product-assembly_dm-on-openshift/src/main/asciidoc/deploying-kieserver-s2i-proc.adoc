@@ -1,0 +1,23 @@
+[id='deploying-kieserver-s2i-proc']
+= Deploying {KIE_SERVER} using Source to Image (S2I)
+
+You can deploy {KIE_SERVER} on the OpenShift infrastructure using Source to Image (S2I). In this case, provide a Git repository with the source of your decision service. OpenShift automatically builds the source, installs the decision service into the {KIE_SERVER} image, and starts the service. No further management of the image is required. If you want to use a new version of the decision service, you can build a new image. This option is often preferable for typical version management approaches (DevOps) in a containerized infrastructure.
+
+.Before you begin
+
+Ensure that the complete source code for your decision service is available in a Git repository that the OpenShift server can access. The source code is built using a Maven process, so it must include a `pom.xml` file.
+
+.Procedure
+.In the OpenShift Web UI, select *Import YAML / JSON* and then select or paste the `rhdm70-kieserver-s2i.yaml` file, which is supplied with {PRODUCT}.
+.In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
+.Set the following mandatory parameters:
+** *Application Name*: the name of the OpenShift application. It is used in the default URLs for {CENTRAL} and {KIE_SERVER}.
+** *KIE Server Certificate Name*: the name of the certificate in the keystore that you created in <<creating-secrets-kie-proc>>.
+** *KIE Server Keystore Password*: the password for the keystore that you created in <<creating-secrets-kie-proc>>.
+** *Git Repository URL*: the URL for the Git repository that contains the source for your decision service.
+** *Git Reference*: the branch in the Git repository
+** *Context Directory*: the path to the source in the Git repository
+** *ImageStream Namespace*: the name of the OpenShift project.
+
+You can also set other parameters as necessary. In particular, if you want the built binaries to be saved in a Maven repository, set the *Maven mirror URL* parameter.
+. Click *Create*.
