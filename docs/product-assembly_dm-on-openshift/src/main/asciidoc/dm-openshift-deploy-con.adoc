@@ -1,0 +1,8 @@
+[id='dm-openshift-deploy-con']
+= Deploying {PRODUCT} in your OpenShift environment
+
+To deploy {PRODUCT} in your OpenShift environment, use the OpenShift templates that are provided with {PRODUCT}.
+
+.Prerequisites
+You must complete the preparatory tasks as described in <<dm-openshift-prepare-con>>.
+ 

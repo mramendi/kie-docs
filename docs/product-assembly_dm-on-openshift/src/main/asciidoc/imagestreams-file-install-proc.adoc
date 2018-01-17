@@ -1,10 +1,11 @@
-[id='installing-images-file-proc']
+[id='imagestreams-file-install-proc']
 = Installing the image streams file
 
 You must install the image streams file into the OpenShift environment. This file provides the required information for downloading necessary images from the Red Hat repository.
 
 The file is named `image_streams.json`. It is provided with {PRODUCT}.
 
+.Procedure
 Complete one of the following actions to install the file:
 
 * Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.

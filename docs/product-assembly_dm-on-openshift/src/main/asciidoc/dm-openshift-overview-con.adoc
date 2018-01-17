@@ -1,11 +1,11 @@
-[id='dm-on-openshift-overview-con']
+[id='dm-openshift-overview-con']
 = Overview
 
 If you have an OpenShift environment, you can deploy {PRODUCT} into this environment instead of a regular on-premises deployment. 
 
-In this solution, the {KIE_SERVER} is deployed as an OpenShift pod. You can scale the pod up and down, providing as few or as many containers as necessary. You can use all standard OpenShift methods to manage the pod, balance the load, and deploy new versions.
+In this solution, {KIE_SERVER} is deployed as an OpenShift pod. You can scale the pod up and down, providing as few or as many containers as necessary. You can use all standard OpenShift methods to manage the pod, balance the load, and deploy new versions.
 
-You can also deploy {CENTRAL} on the OpenShift infrastructure together with the {KIE_SERVER}. In this case, you can use {CENTRAL} to manage the {KIE_SERVER} and to develop new rules.
+You can also deploy {CENTRAL} on the OpenShift infrastructure together with {KIE_SERVER}. In this case, you can use {CENTRAL} to manage the {KIE_SERVER} and to develop new rules.
 
 Alternatively, you can deploy {KIE_SERVER} without {CENTRAL}. To manage {KIE_SERVER} in this case, you have two options:
 
