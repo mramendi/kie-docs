@@ -25,6 +25,7 @@ include::dm-openshift-deploy-con.adoc[leveloffset=+1]
 include::kieserver-central-deploy-proc.adoc[leveloffset=+2]
 include::kieserver-s2i-deploy-proc.adoc[leveloffset=+2]
 include::kieserver-nos2i-deploy-proc.adoc[leveloffset=+2]
+include::dm-openshift-manage-con.adoc[leveloffset=+1]
 
 // Versioning info
 include::product-shared-docs/versioning-information.adoc[]

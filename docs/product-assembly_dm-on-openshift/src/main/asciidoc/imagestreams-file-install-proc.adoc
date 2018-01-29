@@ -1,17 +1,23 @@
 [id='imagestreams-file-install-proc']
-= Installing the image streams file
+= Ensuring the availability of image streams 
 
-You must install the image streams file into the OpenShift environment. This file provides the required information for downloading necessary images from the Red Hat repository.
-
-The file is named `image_streams.json`. It is provided with {PRODUCT}.
+You must ensure that the image streams that are required for the deployment are available in your OpenShift environment. Some versions of the OpenShift environment include the necessary image streams. You must check if they are available. If they are not available, you must install the `image_streams.json` file that is provided with {PRODUCT}.
 
 .Procedure
-Complete one of the following actions to install the file:
+. Run the following commands:
+[subs="verbatim,macros"]
+----
+$ oc get imagestreamtag -n openshift | grep rhdm70-decisioncentral-openshift
+$ oc get imagestreamtag -n openshift | grep rhdm70-kieserver-openshift
+----
+If the output of both commands is not empty, the required image streams are available and no furtehr action is required.
+. If the output of one or both of the commands is empty, install the `image-streams.json` file. Complete one of the following actions:
 
-* Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.
-
-* Using the command line:
+** Run the following command:
 [subs="verbatim,macros"]
 ----
 $ oc create -f image_streams.json
 ----
+
+** Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.
+
