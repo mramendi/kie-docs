@@ -22,18 +22,18 @@ If you are planning to use {CENTRAL} or a management console, ensure that it is 
 ** *KIE Server Certificate Name*: the name of the certificate in the keystore that you created in <<secrets-kie-create-proc>>.
 ** *KIE Server Keystore Password*: the password for the keystore that you created in <<secrets-kie-create-proc>>.
 ** *ImageStream Namespace*: the name of the OpenShift project.
-
++
 You can also set other parameters as necessary. In particular:
 * If you want to use {CENTRAL} or a stand-alone management console to manage the {KIE_SERVER}, set the following parameters according to the URL that you use to access the web user interface of the {CENTRAL} or of the management console:
-
++
 ** *KIE server controller protocol* (http or https)
 ** *KIE server controller host*
 ** *KIE server controller port*
-
++
 * If you want to set the Maven repository for retrieving the decision service, set the following parameters to point to the repository:
-
++
 ** *Maven repository URL*
 ** *Maven repository username*
 ** *Maven repository password*
-
++
 . Click *Create*.
