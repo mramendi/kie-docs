@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book [
+<!ENTITY % sgml.features "IGNORE">
+<!ENTITY % xml.features "INCLUDE">
+<!ENTITY % DOCBOOK_ENTS PUBLIC "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/dbcentx.mod">
+%DOCBOOK_ENTS;
+]>
+<?asciidoc-toc?><?asciidoc-numbered?><book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+<info>
+<title>DRAFT Release Notes</title><subtitle>
+	For Red Hat Decision Manager 7.0
+
+</subtitle>
+
+<date>2018-01-31</date>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Author_Group.xml"/>
+<authorinitials>RC</authorinitials>
+<productname>Red Hat Decision Manager</productname>
+<productnumber>7.0</productnumber>
+<abstract>
+	<para>This document describes packaging and deploying decision services for Red Hat Decision Manager 7.0</para>
+</abstract>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Common_Content/Legal_Notice.xml"/>
+</info>
+<preface>
+<title>Preface</title>
+<simpara>After developing decision services using Decision Central, you need to deploy them in order to use them. You can use several ways to package decision servcis and deploy them onto instances of Decision Server.</simpara>
+</preface>
+<chapter xml:id="service-packaging-deploying-overview-con">
+<title>Overview</title>
+<simpara>You can develop decision services in Red Hat Decision Manager using Decision Central. To run a decision service, you need to deploy it onto a Decision Server.</simpara>
+<section xml:id="packaging_decision_services" remap="_packaging_decision_services">
+<title>Packaging decision services</title>
+<simpara>The decision service is always packaged into a <emphasis>KJAR file</emphasis>. This file is a version of a Java JAR file. A Decision Server runs the service from its KJAR file. However, you never need to work with KJAR files directly.</simpara>
+<simpara>Instead, Red Hat Decision Manager stores KJAR files in <emphasis>Maven repositories</emphasis>. Maven is a comprehensive system for automating Java package lifecycle and dependency management. Among other features, Maven supports a repository system where JAR files (including KJAR files) can be uploaded and downloaded.</simpara>
+<simpara>In Maven. a KJAR file is not identified by its name, but instead using the following three values: <emphasis>group ID</emphasis>, <emphasis>artifact ID</emphasis>, <emphasis>version</emphasis>. Normally, the group ID is the identifier for a project and the artifact identified a particular artifact (for example, a decision service) within the project. The version value must be unique for every new version that might need to be deployed.</simpara>
+<simpara>To identify an artifact (including a KJAR file) in Maven, you need all three of these variables. This set of information is often named GAV (for Group, Artifact, Version).</simpara>
+<simpara>When developing a decision service in Decision Central, you can set the GAV in the project settings screen.</simpara>
+</section>
+<section xml:id="deploying_decision_services" remap="_deploying_decision_services">
+<title>Deploying decision services</title>
+<simpara>The deployment process can vary based on the needs of your infrastructural.</simpara>
+<simpara>In a simple deployment of Red Hat Decision Manager, there is one Decision Central and one Decision Server. You use the Decision Central to develop your decision services and also to manage the Decision Server. You can simply build your project in Decision Central and it is automatically deployed onto the Decision Server.</simpara>
+<simpara>To enable automatic deployment, Decision Central includes a built-in Maven repository. You can use Decision Central to manage the Decision Server, deploying, removing, starting, and stopping any of the decision services and their versions that you have built.</simpara>
+<simpara>You can also connect several Decision Servers to the same Decision Central. You can group them into different <emphasis>server templates</emphasis>. The same decision services are automatically run servers belonging to the same server template. But you can deploy different decision services or different versions of decision services on different templates.</simpara>
+<simpara>For example, you could have test servers in the <literal>Test</literal> template and production servers in a <literal>Production</literal> template. When developing a decision service, deploy it on the <literal>Test</literal> template. Then, when a version of the service is sufficiently tested, you can deploy it on the <literal>Production</literal> template.</simpara>
+<simpara>In this case, to keep developing the service, change the version in the project settings. Then the new version and the old version are seen as different artifacts in the built-in Maven repository. You can deploy the new version on the <literal>Test</literal> template and keep running the old version on the  <literal>Production</literal> template.</simpara>
+<simpara>This deployment process is simple but has significant limitations. Notably, there is not enough access control; a developer can deploy a project directly into production.</simpara>
+<simpara>If you require a proper integration process, you can use an external Maven repository (for example, Nexus). You can configure Decision Central to push decision service files into the external repository instead of the built-in repository.</simpara>
+<simpara>You can still use Decision Central to deploy decision services on a test Decision Server. However, in this process, other Decision Servers (for example, staging and production) are not connected to Decision Central. Instead, they retrieve the decision service KJAR files and any necessary dependencies from your Maven repository. You can progress the KJAR versions through your repository as necessary, in line with the integration process that you want to implement.</simpara>
+<simpara>If you deploy a Decision Server on OpenShift, you can configure it to load and start a decision service from a Maven repository automatically. If you deploy a Decision Server on premises, you can configure access to a Maven repository when setting up the server; then you can use the REST API of the server to load and start a decision service from the repository. A Maven project and a Java client library for automating the API calls are available.</simpara>
+</section>
+</chapter>
+<chapter xml:id="service-gav-setting-proc">
+<title>Setting the Group ID, Artifact ID, and Version (GAV) values in a decision service</title>
+<simpara>When developing a decision service in Decision Central, you can set the GAV in the project settings screen.</simpara>
+<simpara>These values are the identifier for the decision service in a Maven repository. In any deployment method the decision service is identitied by the GAV. This means that if you build a new version without changing the GAV, it automatically displaces the old version in a Maven repository and on any Decision Servers. However, if you change any value in the GAV (usually the version), the result is seen as a different artifact and can exist alongside the old version.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>In the main menu, click <emphasis role="strong">Projects</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the project name.</simpara>
+<itemizedlist>
+<listitem>
+<simpara>Alternatively, click the <emphasis role="strong">Add Project</emphasis> button to create a new project.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Settings</emphasis> button.</simpara>
+</listitem>
+<listitem>
+<simpara>Modify the <emphasis role="strong">Group ID</emphasis>, <emphasis role="strong">Artifact ID</emphasis>, or <emphasis role="strong">Version</emphasis> fields as necessary. If you have deployed the decision service and are developing a new version, usually you need to increase the version number.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Save</emphasis> button.</simpara>
+</listitem>
+</orderedlist>
+</chapter>
+<chapter xml:id="service-build-deploy-proc">
+<title>Building and deploying a decision service in Decision Central</title>
+<simpara>You can build a decision service in Decision Central and automatically deploy it on a Decision Server.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>In the main menu, click <emphasis role="strong">Projects</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the project name.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Build &amp; Deploy</emphasis> button.</simpara>
+</listitem>
+<listitem>
+<simpara>Decision Central displays a dialog. In this dialog, set the following values:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">Container ID</emphasis> and <emphasis role="strong">Container Alias</emphasis> identify the container running the service within the Decision Server. You normally do not need to change these settings.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Start container?</emphasis> : if you clear this box, the service is deployed onto the server but not started. Normally. leave thos box checked.</simpara>
+</listitem>
+<listitem>
+<simpara>If several Decision Servers are connected to the Decision Central and configured for different server templates, you can also select the server template to deploy the service. You can deploy it to other templates later without rebuilding it.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</orderedlist>
+</chapter>
+<chapter xml:id="service-deploy-manage-central-proc">
+<title>Managing deployment of decision services in Decision Central</title>
+<simpara>You can use Decision Central to manage deployment of decision services on one or more Decision Servers. Each Decision Server must be configured to connect to the Decision Central.</simpara>
+<simpara>A decision service always runs in a <emphasis>container</emphasis> on a Decision Server. You can create containers and start them on Decision Servers; when you build and deploy a project, the container is created automatically. A container is always created in a particular server template.</simpara>
+<simpara>You can also start, stop, and delete containers.</simpara>
+<section xml:id="creating_a_container" remap="_creating_a_container">
+<title>Creating a container</title>
+<simpara>You can create a container from a decisionservice that was previusly built in Decision Central.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>In the main menu, click <emphasis role="strong">Execution servers</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">Server templates</emphasis>. select a template.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">KIE Containers</emphasis>, click <emphasis role="strong">Add Container</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Decision Central displays a dialog. In the table in the dialog, select a GAV and click the <emphasis role="strong">Select</emphasis> button next to the GAV.</simpara>
+</listitem>
+<listitem>
+<simpara>If you want to start the service immediately, select the <emphasis role="strong">Start container?</emphasis> box.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Finish</emphasis> button.</simpara>
+</listitem>
+</orderedlist>
+<formalpara>
+<title>Result</title>
+<para>A container is created for the service. This container is placed on the Decision Servers that are configured for this server template. If you have selected <emphasis role="strong">Start container?</emphasis>, the service is started.</para>
+</formalpara>
+</section>
+<section xml:id="managing_containers" remap="_managing_containers">
+<title>Managing containers</title>
+<simpara>When a container is started, the service in the container is available for use. You can start, stop, or delete containers with decision services as necessary.</simpara>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>In the main menu, click <emphasis role="strong">Execution servers</emphasis>.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">Server templates</emphasis>. select a template.</simpara>
+</listitem>
+<listitem>
+<simpara>Under <emphasis role="strong">KIE Containers</emphasis>, select a container.</simpara>
+</listitem>
+<listitem>
+<simpara>Click the <emphasis role="strong">Start</emphasis>, <emphasis role="strong">Stop</emphasis>, or <emphasis role="strong">Remove</emphasis> button.</simpara>
+</listitem>
+</orderedlist>
+</section>
+</chapter>
+<chapter xml:id="kieserver-configure-central-proc">
+<title>Configuring a Decision Server to connect to Decision Central</title>
+<simpara>You can configure a Decision Server to connect to an existing Decision Central. You can also configure the name of the server template. The server becomes a part of that server template; any decision services deployed on the template are deployed on this server.</simpara>
+<important>
+<simpara>if you are deploying the Decision Server on OpenShift, see ??? for instructions about configuring it to connect to a Decision Central</simpara>
+</important>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Install the Decision Server. See ??? for instructions.</simpara>
+</listitem>
+<listitem>
+<simpara>In the ??? file, set the following properties:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">org.kie.server.controller.user</emphasis>: user name of an account that can log on to the Decision Central.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">org.kie.server.controller.pwd</emphasis>: password for the account.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">org.kie.server.controller</emphasis>: the URL for the user interface of the Decision Central.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">org.kie.server.id</emphasis>: the name of a server template. If this server template does not exist on the Decision Central, it is created automatically when the Decision Server connects to the Decision Central.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Start or restart the Decision Server.</simpara>
+</listitem>
+</orderedlist>
+</chapter>
+<chapter xml:id="central-configure-maven-proc">
+<title>Configuring Decision Central to use an external Maven repository</title>
+<simpara>You can configure Decision Central to use an external Maven repository instead of its built-in repository. In this case, Decision Central pushes all the built KJAR files into this repository. You can progress these files through the repository as necessary to implement your integration process.</simpara>
+<important>
+<simpara>do not use this procedure for a Decision Central deployed on OpenShift. See ??? fr instructions about configuring Decision Central} onOpenShift, including setting a Maven repository.</simpara>
+</important>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Install the Decision Central. See ??? for instructions.</simpara>
+</listitem>
+<listitem>
+<simpara>In the ??? file, set the following properties:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: URL for the Maven repository.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: user name for the Maven repository.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: password for the Maven repository.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Start or restart the Decision Central.</simpara>
+</listitem>
+</orderedlist>
+</chapter>
+<chapter xml:id="kieserver-configure-runservice-proc">
+<title>Configuring a Decision Server to run a decision service</title>
+<simpara>You can configure a Decision Server to load and run a decision service automatically without using a Decision Central. The service must be present in a Maven repository. You need access information for the repository and the GAV values for the service.</simpara>
+<important>
+<simpara>do not use this procedure for a Decision Server deployed on OpenShift. See ??? fr instructions ablut configuring a a Decision Server to load and run a decision service from a Maven repository.</simpara>
+</important>
+<orderedlist numeration="arabic">
+<title>Procedure</title>
+<listitem>
+<simpara>Install the Decision Server. See ??? for instructions.</simpara>
+</listitem>
+<listitem>
+<simpara>In the ??? file, set the following properties:</simpara>
+<itemizedlist>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: URL for the Maven repository.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: user name for the Maven repository.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">???</emphasis>: password for the Maven repository.</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>
+<simpara>Start or restart the Decision Server.</simpara>
+</listitem>
+<listitem>
+<simpara>To load a service into a container in the Decision Server, run the following command to send an API request:</simpara>
+</listitem>
+</orderedlist>
+<screen>$ curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "&lt;containerID&gt;","release-id" : {"group-id" : "&lt;groupID&gt;","artifact-id" : "&lt;artifactID&gt;","version" : "&lt;version&gt;"}}' http://&lt;serverhost&gt;:&lt;serverport&gt;/kie-server/services/rest/server/containers/&lt;containerID&gt;</screen>
+<simpara>where:
+<emphasis role="strong"> <emphasis role="strong">&lt;containerID&gt;</emphasis> is the identifier for the container. You can use any random identifier but it must be the same in both places in the command (the URL and the data).
+</emphasis> <emphasis role="strong">&lt;groupID&gt;</emphasis>, <emphasis role="strong">&lt;artifactID&gt;</emphasis>, <emphasis role="strong">version</emphasis> are GAV values.
+<emphasis role="strong"> <emphasis role="strong">&lt;serverhost&gt;</emphasis> is the host name for the KIE server, or <literal>localhost</literal> if you are running the command on the same host as the KIE server.
+</emphasis> <emphasis role="strong">&lt;serverport&gt;</emphasis> is the port number for the KIE server
+For example:</simpara>
+<screen>curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "kie1","release-id" : {"group-id" : "org.kie.server.testing","artifact-id" : "container-crud-tests1","version" : "2.1.0.GA"}}' <link xlink:href="http://localhost:39043/kie-server/services/rest/server/containers/kie1">http://localhost:39043/kie-server/services/rest/server/containers/kie1</link></screen>
+<simpara>??? might need another command to start the container</simpara>
+</chapter>
+<appendix xml:id="versioning_information" remap="_versioning_information">
+<title>Versioning information</title>
+<simpara>Documentation last updated on: Fri Sep 29, 2017.</simpara>
+</appendix>
+</book>

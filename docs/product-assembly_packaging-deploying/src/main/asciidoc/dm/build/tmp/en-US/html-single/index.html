@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="chrometwo"><head><title>DRAFT Release Notes</title><link rel="stylesheet" type="text/css" href="Common_Content/css/default.css"/><meta name="generator" content="publican v4.3.4"/><meta name="description" content="This document describes packaging and deploying decision services for Red Hat Decision Manager 7.0"/><link rel="next" href="#idm46463287936032" title="Preface"/><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><script type="text/javascript" src="Common_Content/scripts/jquery-1.7.1.min.js"> </script><script type="text/javascript" src="Common_Content/scripts/utils.js"> </script><script type="text/javascript" src="Common_Content/scripts/highlight.js/highlight.pack.js"> </script></head><body><div id="chrometwo"><div id="main"><div xml:lang="en-US" class="book" id="idm46463289570112"><div class="titlepage"><div><div class="producttitle"><span class="productname">Red Hat Decision Manager</span> <span class="productnumber">7.0</span></div><div><h1 class="title">DRAFT Release Notes</h1></div><div><h2 class="subtitle"> For Red Hat Decision Manager 7.0 </h2></div><div><div xml:lang="en-US" class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Red Hat</span> <span class="surname">Customer Content Services</span></h3><code class="email"><a class="email" href="mailto:brms-docs@redhat.com">brms-docs@redhat.com</a></code></div></div></div><div><a href="#idm46463295284384">Legal Notice</a></div><div><div class="abstract"><p class="title"><strong>Abstract</strong></p><div class="para">
+				This document describes packaging and deploying decision services for Red Hat Decision Manager 7.0
+			</div></div></div></div><hr/></div><div class="toc"><ul class="toc"><li><span class="preface"><a href="#idm46463287936032">Preface</a></span></li><li><span class="chapter"><a href="#service-packaging-deploying-overview-con">1. Overview</a></span><ul><li><span class="section"><a href="#packaging_decision_services">1.1. Packaging decision services</a></span></li><li><span class="section"><a href="#deploying_decision_services">1.2. Deploying decision services</a></span></li></ul></li><li><span class="chapter"><a href="#service-gav-setting-proc">2. Setting the Group ID, Artifact ID, and Version (GAV) values in a decision service</a></span></li><li><span class="chapter"><a href="#service-build-deploy-proc">3. Building and deploying a decision service in Decision Central</a></span></li><li><span class="chapter"><a href="#service-deploy-manage-central-proc">4. Managing deployment of decision services in Decision Central</a></span><ul><li><span class="section"><a href="#creating_a_container">4.1. Creating a container</a></span></li><li><span class="section"><a href="#managing_containers">4.2. Managing containers</a></span></li></ul></li><li><span class="chapter"><a href="#kieserver-configure-central-proc">5. Configuring a Decision Server to connect to Decision Central</a></span></li><li><span class="chapter"><a href="#central-configure-maven-proc">6. Configuring Decision Central to use an external Maven repository</a></span></li><li><span class="chapter"><a href="#kieserver-configure-runservice-proc">7. Configuring a Decision Server to run a decision service</a></span></li><li><span class="appendix"><a href="#versioning_information">A. Versioning information</a></span></li></ul></div><section class="preface" id="idm46463287936032"><div class="titlepage"><div><div><h1 class="title">Preface</h1></div></div></div><p>
+			After developing decision services using Decision Central, you need to deploy them in order to use them. You can use several ways to package decision servcis and deploy them onto instances of Decision Server.
+		</p></section><section class="chapter" id="service-packaging-deploying-overview-con"><div class="titlepage"><div><div><h1 class="title">Chapter 1. Overview</h1></div></div></div><p>
+			You can develop decision services in Red Hat Decision Manager using Decision Central. To run a decision service, you need to deploy it onto a Decision Server.
+		</p><section class="section" id="packaging_decision_services"><div class="titlepage"><div><div><h2 class="title">1.1. Packaging decision services</h2></div></div></div><p>
+				The decision service is always packaged into a <span class="emphasis"><em>KJAR file</em></span>. This file is a version of a Java JAR file. A Decision Server runs the service from its KJAR file. However, you never need to work with KJAR files directly.
+			</p><p>
+				Instead, Red Hat Decision Manager stores KJAR files in <span class="emphasis"><em>Maven repositories</em></span>. Maven is a comprehensive system for automating Java package lifecycle and dependency management. Among other features, Maven supports a repository system where JAR files (including KJAR files) can be uploaded and downloaded.
+			</p><p>
+				In Maven. a KJAR file is not identified by its name, but instead using the following three values: <span class="emphasis"><em>group ID</em></span>, <span class="emphasis"><em>artifact ID</em></span>, <span class="emphasis"><em>version</em></span>. Normally, the group ID is the identifier for a project and the artifact identified a particular artifact (for example, a decision service) within the project. The version value must be unique for every new version that might need to be deployed.
+			</p><p>
+				To identify an artifact (including a KJAR file) in Maven, you need all three of these variables. This set of information is often named GAV (for Group, Artifact, Version).
+			</p><p>
+				When developing a decision service in Decision Central, you can set the GAV in the project settings screen.
+			</p></section><section class="section" id="deploying_decision_services"><div class="titlepage"><div><div><h2 class="title">1.2. Deploying decision services</h2></div></div></div><p>
+				The deployment process can vary based on the needs of your infrastructural.
+			</p><p>
+				In a simple deployment of Red Hat Decision Manager, there is one Decision Central and one Decision Server. You use the Decision Central to develop your decision services and also to manage the Decision Server. You can simply build your project in Decision Central and it is automatically deployed onto the Decision Server.
+			</p><p>
+				To enable automatic deployment, Decision Central includes a built-in Maven repository. You can use Decision Central to manage the Decision Server, deploying, removing, starting, and stopping any of the decision services and their versions that you have built.
+			</p><p>
+				You can also connect several Decision Servers to the same Decision Central. You can group them into different <span class="emphasis"><em>server templates</em></span>. The same decision services are automatically run servers belonging to the same server template. But you can deploy different decision services or different versions of decision services on different templates.
+			</p><p>
+				For example, you could have test servers in the <code class="literal">Test</code> template and production servers in a <code class="literal">Production</code> template. When developing a decision service, deploy it on the <code class="literal">Test</code> template. Then, when a version of the service is sufficiently tested, you can deploy it on the <code class="literal">Production</code> template.
+			</p><p>
+				In this case, to keep developing the service, change the version in the project settings. Then the new version and the old version are seen as different artifacts in the built-in Maven repository. You can deploy the new version on the <code class="literal">Test</code> template and keep running the old version on the <code class="literal">Production</code> template.
+			</p><p>
+				This deployment process is simple but has significant limitations. Notably, there is not enough access control; a developer can deploy a project directly into production.
+			</p><p>
+				If you require a proper integration process, you can use an external Maven repository (for example, Nexus). You can configure Decision Central to push decision service files into the external repository instead of the built-in repository.
+			</p><p>
+				You can still use Decision Central to deploy decision services on a test Decision Server. However, in this process, other Decision Servers (for example, staging and production) are not connected to Decision Central. Instead, they retrieve the decision service KJAR files and any necessary dependencies from your Maven repository. You can progress the KJAR versions through your repository as necessary, in line with the integration process that you want to implement.
+			</p><p>
+				If you deploy a Decision Server on OpenShift, you can configure it to load and start a decision service from a Maven repository automatically. If you deploy a Decision Server on premises, you can configure access to a Maven repository when setting up the server; then you can use the REST API of the server to load and start a decision service from the repository. A Maven project and a Java client library for automating the API calls are available.
+			</p></section></section><section class="chapter" id="service-gav-setting-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 2. Setting the Group ID, Artifact ID, and Version (GAV) values in a decision service</h1></div></div></div><p>
+			When developing a decision service in Decision Central, you can set the GAV in the project settings screen.
+		</p><p>
+			These values are the identifier for the decision service in a Maven repository. In any deployment method the decision service is identitied by the GAV. This means that if you build a new version without changing the GAV, it automatically displaces the old version in a Maven repository and on any Decision Servers. However, if you change any value in the GAV (usually the version), the result is seen as a different artifact and can exist alongside the old version.
+		</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					In the main menu, click <span class="strong strong"><strong>Projects</strong></span>.
+				</li><li class="listitem"><p class="simpara">
+					Click the project name.
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							Alternatively, click the <span class="strong strong"><strong>Add Project</strong></span> button to create a new project.
+						</li></ul></div></li><li class="listitem">
+					Click the <span class="strong strong"><strong>Settings</strong></span> button.
+				</li><li class="listitem">
+					Modify the <span class="strong strong"><strong>Group ID</strong></span>, <span class="strong strong"><strong>Artifact ID</strong></span>, or <span class="strong strong"><strong>Version</strong></span> fields as necessary. If you have deployed the decision service and are developing a new version, usually you need to increase the version number.
+				</li><li class="listitem">
+					Click the <span class="strong strong"><strong>Save</strong></span> button.
+				</li></ol></div></section><section class="chapter" id="service-build-deploy-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 3. Building and deploying a decision service in Decision Central</h1></div></div></div><p>
+			You can build a decision service in Decision Central and automatically deploy it on a Decision Server.
+		</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					In the main menu, click <span class="strong strong"><strong>Projects</strong></span>.
+				</li><li class="listitem">
+					Click the project name.
+				</li><li class="listitem">
+					Click the <span class="strong strong"><strong>Build &amp; Deploy</strong></span> button.
+				</li><li class="listitem"><p class="simpara">
+					Decision Central displays a dialog. In this dialog, set the following values:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							<span class="strong strong"><strong>Container ID</strong></span> and <span class="strong strong"><strong>Container Alias</strong></span> identify the container running the service within the Decision Server. You normally do not need to change these settings.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>Start container?</strong></span> : if you clear this box, the service is deployed onto the server but not started. Normally. leave thos box checked.
+						</li><li class="listitem">
+							If several Decision Servers are connected to the Decision Central and configured for different server templates, you can also select the server template to deploy the service. You can deploy it to other templates later without rebuilding it.
+						</li></ul></div></li></ol></div></section><section class="chapter" id="service-deploy-manage-central-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 4. Managing deployment of decision services in Decision Central</h1></div></div></div><p>
+			You can use Decision Central to manage deployment of decision services on one or more Decision Servers. Each Decision Server must be configured to connect to the Decision Central.
+		</p><p>
+			A decision service always runs in a <span class="emphasis"><em>container</em></span> on a Decision Server. You can create containers and start them on Decision Servers; when you build and deploy a project, the container is created automatically. A container is always created in a particular server template.
+		</p><p>
+			You can also start, stop, and delete containers.
+		</p><section class="section" id="creating_a_container"><div class="titlepage"><div><div><h2 class="title">4.1. Creating a container</h2></div></div></div><p>
+				You can create a container from a decisionservice that was previusly built in Decision Central.
+			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						In the main menu, click <span class="strong strong"><strong>Execution servers</strong></span>.
+					</li><li class="listitem">
+						Under <span class="strong strong"><strong>Server templates</strong></span>. select a template.
+					</li><li class="listitem">
+						Under <span class="strong strong"><strong>KIE Containers</strong></span>, click <span class="strong strong"><strong>Add Container</strong></span>.
+					</li><li class="listitem">
+						Decision Central displays a dialog. In the table in the dialog, select a GAV and click the <span class="strong strong"><strong>Select</strong></span> button next to the GAV.
+					</li><li class="listitem">
+						If you want to start the service immediately, select the <span class="strong strong"><strong>Start container?</strong></span> box.
+					</li><li class="listitem">
+						Click the <span class="strong strong"><strong>Finish</strong></span> button.
+					</li></ol></div><div class="formalpara"><p class="title"><strong>Result</strong></p><p>
+					A container is created for the service. This container is placed on the Decision Servers that are configured for this server template. If you have selected <span class="strong strong"><strong>Start container?</strong></span>, the service is started.
+				</p></div></section><section class="section" id="managing_containers"><div class="titlepage"><div><div><h2 class="title">4.2. Managing containers</h2></div></div></div><p>
+				When a container is started, the service in the container is available for use. You can start, stop, or delete containers with decision services as necessary.
+			</p><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+						In the main menu, click <span class="strong strong"><strong>Execution servers</strong></span>.
+					</li><li class="listitem">
+						Under <span class="strong strong"><strong>Server templates</strong></span>. select a template.
+					</li><li class="listitem">
+						Under <span class="strong strong"><strong>KIE Containers</strong></span>, select a container.
+					</li><li class="listitem">
+						Click the <span class="strong strong"><strong>Start</strong></span>, <span class="strong strong"><strong>Stop</strong></span>, or <span class="strong strong"><strong>Remove</strong></span> button.
+					</li></ol></div></section></section><section class="chapter" id="kieserver-configure-central-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 5. Configuring a Decision Server to connect to Decision Central</h1></div></div></div><p>
+			You can configure a Decision Server to connect to an existing Decision Central. You can also configure the name of the server template. The server becomes a part of that server template; any decision services deployed on the template are deployed on this server.
+		</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
+				if you are deploying the Decision Server on OpenShift, see ??? for instructions about configuring it to connect to a Decision Central
+			</p></div></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					Install the Decision Server. See ??? for instructions.
+				</li><li class="listitem"><p class="simpara">
+					In the ??? file, set the following properties:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							<span class="strong strong"><strong>org.kie.server.controller.user</strong></span>: user name of an account that can log on to the Decision Central.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>org.kie.server.controller.pwd</strong></span>: password for the account.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>org.kie.server.controller</strong></span>: the URL for the user interface of the Decision Central.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>org.kie.server.id</strong></span>: the name of a server template. If this server template does not exist on the Decision Central, it is created automatically when the Decision Server connects to the Decision Central.
+						</li></ul></div></li><li class="listitem">
+					Start or restart the Decision Server.
+				</li></ol></div></section><section class="chapter" id="central-configure-maven-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 6. Configuring Decision Central to use an external Maven repository</h1></div></div></div><p>
+			You can configure Decision Central to use an external Maven repository instead of its built-in repository. In this case, Decision Central pushes all the built KJAR files into this repository. You can progress these files through the repository as necessary to implement your integration process.
+		</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
+				do not use this procedure for a Decision Central deployed on OpenShift. See ??? fr instructions about configuring Decision Central} onOpenShift, including setting a Maven repository.
+			</p></div></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					Install the Decision Central. See ??? for instructions.
+				</li><li class="listitem"><p class="simpara">
+					In the ??? file, set the following properties:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: URL for the Maven repository.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: user name for the Maven repository.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: password for the Maven repository.
+						</li></ul></div></li><li class="listitem">
+					Start or restart the Decision Central.
+				</li></ol></div></section><section class="chapter" id="kieserver-configure-runservice-proc"><div class="titlepage"><div><div><h1 class="title">Chapter 7. Configuring a Decision Server to run a decision service</h1></div></div></div><p>
+			You can configure a Decision Server to load and run a decision service automatically without using a Decision Central. The service must be present in a Maven repository. You need access information for the repository and the GAV values for the service.
+		</p><div class="admonition important"><div class="admonition_header">Important</div><div><p>
+				do not use this procedure for a Decision Server deployed on OpenShift. See ??? fr instructions ablut configuring a a Decision Server to load and run a decision service from a Maven repository.
+			</p></div></div><div class="orderedlist"><p class="title"><strong>Procedure</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+					Install the Decision Server. See ??? for instructions.
+				</li><li class="listitem"><p class="simpara">
+					In the ??? file, set the following properties:
+				</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: URL for the Maven repository.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: user name for the Maven repository.
+						</li><li class="listitem">
+							<span class="strong strong"><strong>???</strong></span>: password for the Maven repository.
+						</li></ul></div></li><li class="listitem">
+					Start or restart the Decision Server.
+				</li><li class="listitem">
+					To load a service into a container in the Decision Server, run the following command to send an API request:
+				</li></ol></div><pre class="screen">$ curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "&lt;containerID&gt;","release-id" : {"group-id" : "&lt;groupID&gt;","artifact-id" : "&lt;artifactID&gt;","version" : "&lt;version&gt;"}}' http://&lt;serverhost&gt;:&lt;serverport&gt;/kie-server/services/rest/server/containers/&lt;containerID&gt;</pre><p>
+			where: <span class="strong strong"><strong> <span class="strong strong"><strong>&lt;containerID&gt;</strong></span> is the identifier for the container. You can use any random identifier but it must be the same in both places in the command (the URL and the data). </strong></span> <span class="strong strong"><strong>&lt;groupID&gt;</strong></span>, <span class="strong strong"><strong>&lt;artifactID&gt;</strong></span>, <span class="strong strong"><strong>version</strong></span> are GAV values. <span class="strong strong"><strong> <span class="strong strong"><strong>&lt;serverhost&gt;</strong></span> is the host name for the KIE server, or <code class="literal">localhost</code> if you are running the command on the same host as the KIE server. </strong></span> <span class="strong strong"><strong>&lt;serverport&gt;</strong></span> is the port number for the KIE server For example:
+		</p><pre class="screen">curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "kie1","release-id" : {"group-id" : "org.kie.server.testing","artifact-id" : "container-crud-tests1","version" : "2.1.0.GA"}}' <a class="link" href="http://localhost:39043/kie-server/services/rest/server/containers/kie1">http://localhost:39043/kie-server/services/rest/server/containers/kie1</a></pre><p>
+			??? might need another command to start the container
+		</p></section><section class="appendix" id="versioning_information"><div class="titlepage"><div><div><h1 class="title">Appendix A. Versioning information</h1></div></div></div><p>
+			Documentation last updated on: Fri Sep 29, 2017.
+		</p></section><div><div xml:lang="en-US" class="legalnotice" id="idm46463295284384"><h1 class="legalnotice">Legal Notice</h1><div class="para">
+		Copyright <span class="trademark"/>© 2018 Red Hat, Inc.
+	</div><div class="para">
+		The text of and illustrations in this document are licensed by Red Hat under a Creative Commons Attribution–Share Alike 3.0 Unported license ("CC-BY-SA"). An explanation of CC-BY-SA is available at <a class="uri" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a>. In accordance with CC-BY-SA, if you distribute this document or an adaptation of it, you must provide the URL for the original version.
+	</div><div class="para">
+		Red Hat, as the licensor of this document, waives the right to enforce, and agrees not to assert, Section 4d of CC-BY-SA to the fullest extent permitted by applicable law.
+	</div><div class="para">
+		Red Hat, Red Hat Enterprise Linux, the Shadowman logo, JBoss, OpenShift, Fedora, the Infinity logo, and RHCE are trademarks of Red Hat, Inc., registered in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Linux</span>® is the registered trademark of Linus Torvalds in the United States and other countries.
+	</div><div class="para">
+		<span class="trademark">Java</span>® is a registered trademark of Oracle and/or its affiliates.
+	</div><div class="para">
+		<span class="trademark">XFS</span>® is a trademark of Silicon Graphics International Corp. or its subsidiaries in the United States and/or other countries.
+	</div><div class="para">
+		<span class="trademark">MySQL</span>® is a registered trademark of MySQL AB in the United States, the European Union and other countries.
+	</div><div class="para">
+		<span class="trademark">Node.js</span>® is an official trademark of Joyent. Red Hat Software Collections is not formally related to or endorsed by the official Joyent Node.js open source or commercial project.
+	</div><div class="para">
+		The <span class="trademark">OpenStack</span>® Word Mark and OpenStack logo are either registered trademarks/service marks or trademarks/service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation's permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation, or the OpenStack community.
+	</div><div class="para">
+		All other trademarks are the property of their respective owners.
+	</div></div></div></div></div></div><script type="text/javascript">
+                        jQuery(document).ready(function() {
+                            initSwitchery();
+                            jQuery('pre[class*="language-"]').each(function(i, block){hljs.highlightBlock(block);});
+                        });
+                    </script></body></html>

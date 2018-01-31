@@ -15,4 +15,7 @@ You can deploy {CENTRAL} on the OpenShift infrastructure together with {KIE_SERV
 ** *ImageStream Namespace*: the namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 
 You can also set other parameters as necessary.
+
+IMPORTANT: if you change the *EAP Admin User* or *EAP Admin Password* parameters and do not change the Maven repository settings, you must set the *Maven Repository user name* and *Maven repository password* parameters to the same user account values.
+
 . Click *Create*.
