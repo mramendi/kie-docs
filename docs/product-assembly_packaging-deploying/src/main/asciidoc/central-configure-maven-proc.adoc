@@ -1,0 +1,16 @@
+[id='central-configure-maven-proc']
+= Configuring {CENTRAL} to use an external Maven repository
+
+You can configure {CENTRAL} to use an external Maven repository instead of its built-in repository. In this case, {CENTRAL} pushes all the built KJAR files into this repository. You can progress these files through the repository as necessary to implement your integration process.
+
+IMPORTANT: do not use this procedure for a {CENTRAL} deployed on OpenShift. See ??? fr instructions about configuring {CENTRAL}} onOpenShift, including setting a Maven repository.
+
+
+.Procedure
+
+. Install the {CENTRAL}. See ??? for instructions.
+. In the ??? file, set the following properties:
+** *???*: URL for the Maven repository.
+** *???*: user name for the Maven repository.
+** *???*: password for the Maven repository.
+. Start or restart the {CENTRAL}.
