@@ -1,4 +1,4 @@
-<productname>{PRODUCT}</productname>
+<productname>{PRODUCT} </productname>
 <productnumber>{PRODUCT_VERSION}</productnumber>
 <subtitle>
 	For {PRODUCT} {PRODUCT_VERSION}
