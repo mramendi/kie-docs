@@ -1,0 +1,6 @@
+[id='openshift-images-upgrade']
+= Upgrade to the new OpenShift images
+
+Upgrade to the new OpenShift images
+– point to the public repository and recommend looking into the provided templates
+

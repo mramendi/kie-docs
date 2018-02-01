@@ -1,4 +1,5 @@
-[[migration-about-con]]
+[id='migration-about-con']
+
 = About Patches, Updates, Upgrades, and Migrations
 
 When you move from one Red Hat JBoss BRMS or Red Hat JBoss BPM Suite version to another, your Red Hat JBoss environment must be updated or upgraded (or both), then, if necessary, you must migrate your data.  This section describes the differences between patches, updates, upgrades, and migrations. Patches, upgrades, and updates usually require little or no work by the user, while migrations can involve a lot of work by the user. 

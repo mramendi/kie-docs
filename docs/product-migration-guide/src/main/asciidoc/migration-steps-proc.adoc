@@ -1,23 +1,21 @@
-[[migration-steps-proc]]
+[id='migration-steps-proc']
 = Migration steps
+
 COMMENT: Can a user migrate from 6.3 or earlier?
+
 An upgrade is when an application is moved from one major release to another, for example, from Red Hat JBoss BRMS 6.3 to Red Hat JBoss BRMS 6.4. 
 
-Migrations involve moving data and other artifacts to a separate software environment. Migrations usually include upgrades or updates. However, you cannot upgrade from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}. To migrate from BRMS 6.x to {PRODUCT} {PRODUCT_VERSION}, perform the following steps:
+Migrations involve moving data and other artifacts to a separate software environment. Migrations usually include upgrades or updates. However, you cannot upgrade from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}. This guide describes how to migrate from BRMS 6.x to {PRODUCT} {PRODUCT_VERSION}.
 
 .Prerequisites
 You have installed {PRODUCT} {PRODUCT_VERSION}.
 
 .Procedure
-. Migrate KIE projects from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}
+. Migrate KIE projects from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}.
 . Migrate the local artifact repository.
 . Update the embedded engines.
-. Review changes in the engines
+. Review changes in the engines.
 . Upgrade to the new OpenShift images.
-
-. Upgrade Red Hat BRMS 6.x user applications.
-. Migrate user data.
-. Review sum functions.
 
 [NOTE]
 ====
