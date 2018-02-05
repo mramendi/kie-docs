@@ -8,13 +8,12 @@ include::product-shared-docs/document-attributes.adoc[]
 :context: installing-dm-on-premise
 include::product-shared-docs/author-group.adoc[]
 
-COMMENT: This guide is currently a draft outline only.
-
 // Purpose statement for the assembly
 If you have a Red Hat BRMS 6.4 project that you want to use in {PRODUCT} {PRODUCT_VERSION}, you must first migrate your APIs and data.
 
 .Prerequisite
-You have a Red Hat BRMS 6.4 project that you want to use in {PRODUCT} {PRODUCT_VERSION}.
+* You have installed {PRODUCT} {PRODUCT_VERSION}.
+* You have a Red Hat BRMS 6.4 installation that contains data and other artifacts that you want to migrate to {PRODUCT} {PRODUCT_VERSION}.
 
 For information about installing {PRODUCT}, see Installing {PRODUCT} on premise or Installing {PRODUCT} on OpenShift. COMMENT: add links.
 
@@ -28,6 +27,9 @@ include::product-migration-guide/upgrade-engines-proc.adoc[leveloffset=+1]
 include::product-migration-guide/review-engine-changes-proc.adoc[leveloffset=+1]
 include::product-migration-guide/migration-sum-accumulate-proc.adoc[leveloffset=+2]
 include::product-migration-guide/openshift-upgrade-images.adoc[leveloffset=+1]
+
+
+
 
 == Next Steps
 * For information about changes in the {CENTRAL} environment, see Getting started with {PRODUCT} {PRODUCT_VERSION}.
