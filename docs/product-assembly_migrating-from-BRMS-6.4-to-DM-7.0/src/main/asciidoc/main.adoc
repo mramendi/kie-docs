@@ -12,10 +12,15 @@ include::product-shared-docs/author-group.adoc[]
 If you have a Red Hat BRMS 6.4 project that you want to use in {PRODUCT} {PRODUCT_VERSION}, you must first migrate your APIs and data.
 
 .Prerequisite
-* You have installed {PRODUCT} {PRODUCT_VERSION}.
+* You have installed {PRODUCT} {PRODUCT_VERSION}, either on premise or on OpenShift.
 * You have a Red Hat BRMS 6.4 installation that contains data and other artifacts that you want to migrate to {PRODUCT} {PRODUCT_VERSION}.
 
 For information about installing {PRODUCT}, see Installing {PRODUCT} on premise or Installing {PRODUCT} on OpenShift. COMMENT: add links.
+
+[NOTE]
+====
+To upgrade Business Planner and address any backwards compatiblity issues, follow the instructions in the https://www.optaplanner.org/download/upgradeRecipe/[*Optaplanner Upgrade Recipe Archive*].
+====
 
 include::product-migration-guide/migration-steps-proc.adoc[leveloffset=+1]
 include::product-migration-guide/migrate-kie-projects-proc.adoc[leveloffset=+1]
@@ -25,8 +30,8 @@ include::product-migration-guide/migration-move-repo-proc.adoc[leveloffset=+2]
 include::product-migration-guide/migration-update-repo-contents-proc.adoc[leveloffset=+2]
 include::product-migration-guide/upgrade-engines-proc.adoc[leveloffset=+1]
 include::product-migration-guide/review-engine-changes-proc.adoc[leveloffset=+1]
-include::product-migration-guide/migration-sum-accumulate-proc.adoc[leveloffset=+2]
-include::product-migration-guide/openshift-upgrade-images.adoc[leveloffset=+1]
+//include::product-migration-guide/migration-sum-accumulate-proc.adoc[leveloffset=+2]
+//include::product-migration-guide/openshift-upgrade-images.adoc[leveloffset=+1]
 
 
 
