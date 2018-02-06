@@ -9,7 +9,7 @@ You can also start, stop, and delete containers.
 
 == Creating a container 
 
-You can create a container from a decisionservice that was previusly built in {CENTRAL}.
+You can create a container from a decision service that was previously built in {CENTRAL}.
 
 .Procedure
 
