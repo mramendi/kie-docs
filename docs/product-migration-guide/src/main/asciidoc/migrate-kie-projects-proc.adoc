@@ -4,18 +4,9 @@
 You must upgrade projects and applications created in Red Hat BRMS 6.4 before you run them in {PRODUCT} {PRODUCT_VERSION}.  
 COMMENT: Do we need to tell them how to upgrade their projects and applications?
 
-When you compile a Red Hat BRMS 6.4 project or application using KIE Manager {PRODUCT_VERSION} artifacts, the compilation might fail. If so, review the  following list of modules:
-
-[NOTE]
-====
-This list is list not exhaustive. For a complete list of all changes,COMMENT: should I tell them to run revampi?
-====
+When you compile a Red Hat BRMS 6.4 project or application using KIE Manager {PRODUCT_VERSION} artifacts, the compilation might fail. If so, check whether the package that is causing the issue is listed in this section. For more information, click the package heading to view the full Revampi report for that package.
  
 .kie-api
-The main API for all projects from the KIE group. The majority of changes occur in the following components:
-
-COMMENT: In some cases I have changed KIE Server to KIE Server in the descriptions. Please confirm that this is correct. What do the * specify in the list. Som items have them, some don't.
-
 * org.kie.api.task.* API
 * org.kie.api.executor.* API
 * org.kie.api.concurrent.* API
@@ -24,33 +15,23 @@ COMMENT: In some cases I have changed KIE Server to KIE Server in the descriptio
 * org.kie.api.runtime.* API
 
 .drools-core
-The rules engine at the core of {PRODUCT}.
-
 * org.drools.core.command.*
 * org.drools.core.common.*
 
 .kie-server-api
-The general API for KIE Server.
-
 * org.kie.server.api.commands.*
 * org.kie.server.api.marshalling.*
 * org.kie.server.api.model.*
 * org.kie.server.api.rest.RestURI constants slightly changed (omitted leading '/')
 
 .kie-server-controller-api
-The API for the KIE Server controller. 
-
 * org.kie.server.controller.api.service.*
 
 .kie-server-controller-rest
-This module contains the REST API for the KIE Server controller. 
-
 * org.kie.server.controller.rest.RestSpecManagementServiceImpl
 * org.kie.server.controller.rest.RestKieServerControllerImpl
 
 .kie-server-client
-The KIE Server client.
-
 * org.kie.server.client.SolverServicesClient
 * org.kie.server.client.UIServicesClient
 * org.kie.server.client.admin.ProcessAdminServicesClient
@@ -62,19 +43,13 @@ The KIE Server client.
 * org.kie.server.client.KieServicesConfiguration
 
 .kie-server-rest-optaplanner
-The Optaplanner KIE Server extension. 
-
 * org.kie.server.remote.rest.optaplanner.SolverResource
 
 .optaplanner-benchmark
-The benchmarking tool for Business Planner.
-
 * org.optaplanner.benchmark.api.PlannerBenchmarkFactory
 * org.optaplanner.benchmark.config.*
 
 .optaplanner-core
-The Business Planner engine.
-
 * org.optaplanner.core.api.score.*
 * org.optaplanner.core.api.domain.*
 * org.optaplanner.core.api.solver.*

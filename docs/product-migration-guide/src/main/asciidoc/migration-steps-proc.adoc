@@ -12,6 +12,7 @@ You cannot upgrade from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}. You must instal
 [NOTE]
 ====
 If your Red Hat BRMS installation is lower than 6.4, you must migrate to Red Hat BRMS 6.4 before you migrate to {PRODUCT} {PRODUCT_VERSION}. For details, see the _Red Hat JBoss BPM Suite Migration Guide 6.4_.
+====
 
 .Procedure
 . Migrate KIE projects from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}.
