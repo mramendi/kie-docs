@@ -34,8 +34,6 @@ include::product-migration-guide/review-engine-changes-proc.adoc[leveloffset=+1]
 //include::product-migration-guide/openshift-upgrade-images.adoc[leveloffset=+1]
 
 
-
-
 == Next Steps
 * For information about changes in the {CENTRAL} environment, see Getting started with {PRODUCT} {PRODUCT_VERSION}.
 * For information about users, roles, and groups, see Installing {PRODUCT} {PRODUCT_VERSION} on premise. COMMENT: Add links.
