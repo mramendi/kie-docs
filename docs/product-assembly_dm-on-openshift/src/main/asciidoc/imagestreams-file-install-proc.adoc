@@ -5,19 +5,22 @@ You must ensure that the image streams that are required for the deployment are 
 
 .Procedure
 . Run the following commands:
++
 [subs="verbatim,macros"]
 ----
 $ oc get imagestreamtag -n openshift | grep rhdm70-decisioncentral-openshift
 $ oc get imagestreamtag -n openshift | grep rhdm70-kieserver-openshift
 ----
-If the output of both commands is not empty, the required image streams are available and no further action is required.
-. If the output of one or both of the commands is empty, download the `rhdm70-image-streams.yaml` file from {URL_BASE_GITHUB_DM}. Complete one of the following actions:
++
+If the outputs of both commands are not empty, the required image streams are available and no further action is required.
 
+. If the output of one or both of the commands is empty, download the `rhdm70-image-streams.yaml` file from {URL_BASE_GITHUB_DM}. Complete one of the following actions:
++
 ** Run the following command:
++
 [subs="verbatim,macros"]
 ----
 $ oc create -f rhdm70-image-streams.yaml
 ----
-
++
 ** Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.
-

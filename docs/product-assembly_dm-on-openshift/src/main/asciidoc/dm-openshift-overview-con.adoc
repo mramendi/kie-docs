@@ -9,7 +9,7 @@ You can also deploy {CENTRAL} on the OpenShift infrastructure together with {KIE
 
 Alternatively, you can deploy {KIE_SERVER} without {CENTRAL}. To manage {KIE_SERVER} in this case, you have several options:
 
-* Use the _source to image_ (S2I) template and provide a Git repository with the source of your decision service. OpenShift automatically builds the source, installs the decision service into the {KIE_SERVER} image, and starts the service. No further management of the image is required. If you want to use a new version of the decision service, you can build a new image. This option is often preferable for typical integration approaches in a containerized infrastructure.
+* Use the _source to image_ (S2I) template and provide a Git repository with the source of your decision service. OpenShift automatically builds the source, installs the decision service into the {KIE_SERVER} image, and starts the service. You do not need to manage the {KIE_SERVER}. If you want to use a new version of the decision service, you can build a new image. This option is often preferable for typical integration approaches in a containerized infrastructure.
 
 * Configure the {KIE_SERVER} to load the service automatically from a Maven repository.
 

@@ -23,26 +23,26 @@ You can also set other parameters as necessary. In particular:
 +
 * If you want to set the Maven repository for retrieving the decision service, set the following parameters to point to the repository:
 +
-** *Maven repository URL*
-** *Maven repository username*
-** *Maven repository password*
+*** *Maven repository URL*
+*** *Maven repository username*
+*** *Maven repository password*
 +
 * If you want to configure the {KIE_SERVER} to load a decision service automatically, set the following parameter:
-** *KIE Server Container Deployment*: the identifying information of the decision service (KJAR file). The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. The {KIE_SERVER} pulls the files from the Maven repository.
+*** *KIE Server Container Deployment*: the identifying information of the decision service (KJAR file). The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. The {KIE_SERVER} pulls the files from the Maven repository.
 +
 * If you want to use {CENTRAL} deployed on the same OpenShift infrastructure to manage the {KIE_SERVER}, set the following parameter:
-** *KIE server controller service*: the OpenShift service name for the {CENTRAL}
-** *KIE server controller user*: a user name for logging onto the {CENTRAL}
-** *KIE server controller password*: the password for logging onto the {CENTRAL}
-** *KIE Server ID*: the name of the server template on the {CENTRAL} that this server is to join.
+*** *KIE server controller service*: the OpenShift service name for the {CENTRAL}
+*** *KIE server controller user*: a user name for logging onto the {CENTRAL}
+*** *KIE server controller password*: the password for logging onto the {CENTRAL}
+*** *KIE Server ID*: the name of the server template on the {CENTRAL} that this server is to join.
 +
 * If you want to use {CENTRAL} or a controller to manage the {KIE_SERVER}, set the protocol, host, and port parameters according to the URL that you use to access the web user interface of the {CENTRAL} or according to the configuration of the controller:
 +
-** *KIE server controller protocol* (http or https)
-** *KIE server controller host*
-** *KIE server controller port*
-** *KIE server controller user*: a user name for logging onto the {CENTRAL} or controller
-** *KIE server controller password*: the password for logging onto the {CENTRAL} or controller
-** *KIE Server ID*: the name of the server template on the {CENTRAL} or controller that this server is to join.
+*** *KIE server controller protocol* (http or https)
+*** *KIE server controller host*
+*** *KIE server controller port*
+*** *KIE server controller user*: a user name for logging onto the {CENTRAL} or controller
+*** *KIE server controller password*: the password for logging onto the {CENTRAL} or controller
+*** *KIE Server ID*: the name of the server template on the {CENTRAL} or controller that this server is to join.
 +
 . Click *Create*.

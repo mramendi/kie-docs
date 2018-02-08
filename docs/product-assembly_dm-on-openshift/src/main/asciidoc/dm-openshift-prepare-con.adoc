@@ -5,6 +5,6 @@ Before deploying {PRODUCT} in your OpenShift environment, you need to complete s
 
 .Prerequisites
 
-* Ensure that at least four gigabytes of memory are available in the OpenShift environment.
-* Create the OpenShift project for the deployment. 
-* Log in to the project using the OpenShift web console and using the `oc` command.
+. Ensure that at least four gigabytes of memory are available in the OpenShift environment.
+. Create the OpenShift project for the deployment. 
+. Log in to the project using the OpenShift web console and using the `oc` command.
