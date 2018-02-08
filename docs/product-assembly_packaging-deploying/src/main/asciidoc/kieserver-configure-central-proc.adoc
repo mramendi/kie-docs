@@ -3,12 +3,11 @@
 
 You can configure a {KIE_SERVER} to connect to an existing {CENTRAL}. You can also configure the name of the server template. The server becomes a part of that server template; any decision services deployed on the template are deployed on this server.
 
-IMPORTANT: If you are deploying the {KIE_SERVER} on OpenShift, see ??? for instructions about configuring it to connect to a {CENTRAL}
+IMPORTANT: If you are deploying the {KIE_SERVER} on OpenShift, see {URL_DM_ON_OPENSHIFT}[_{DM_ON_OPENSHIFT}_] for instructions about configuring it to connect to a {CENTRAL}.
 
 .Procedure
 
-//@doclink need to double-check name and add link if possible, also need to see what home dir we are talking about
-. Install the {KIE_SERVER}. See Installing {PRODUCT} for instructions.
+. Install the {KIE_SERVER}. See {URL_INSTALLING_DM_ON_PREMISE}[_{INSTALLING_DM_ON_PREMISE}_] for instructions.
 . Create a `settings.xml` file for connecting to the Maven repository that the {CENTRAL} uses. If you have not changed the configuration of {CENTRAL}, it uses its own built-in Maven repository. Use the following contents for `settings.xml`:
 +
 [source,xml]

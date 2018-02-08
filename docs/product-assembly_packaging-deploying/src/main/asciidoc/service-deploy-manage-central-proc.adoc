@@ -1,9 +1,9 @@
 [id='service-deploy-manage-central-proc']
 = Managing deployment of decision services in {CENTRAL}
 
-You can use {CENTRAL} to manage deployment of decision services on one or more Decision Servers. Each Decision Server must be configured to connect to the {CENTRAL}.
+You can use {CENTRAL} to manage deployment of decision services on one or more {KIE_SERVERS}. Each {KIE_SERVER} must be configured to connect to the {CENTRAL}.
 
-A decision service always runs in a _container_ on a {KIE_SERVER}. You can create containers and start them on Decision Servers; when you build and deploy a project, the container is created automatically. A container is always created in a particular server template.
+A decision service always runs in a _container_ on a {KIE_SERVER}. You can create containers and start them on {KIE_SERVERS}; when you build and deploy a project, the container is created automatically. A container is always created in a particular server template.
 
 You can also start, stop, and delete containers.
 
@@ -21,7 +21,7 @@ You can create a container from a decision service that was previously built in 
 . Click the *Finish* button.
 
 .Result
-A container is created for the service. This container is placed on the Decision Servers that are configured for this server template. If you have selected *Start container?*, the service is started.
+A container is created for the service. This container is placed on the {KIE_SERVERS} that are configured for this server template. If you have selected *Start container?*, the service is started.
 
 == Managing containers
 When a container is started, the service in the container is available for use. You can start, stop, or remove containers with decision services as necessary.
