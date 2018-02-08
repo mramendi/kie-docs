@@ -24,7 +24,7 @@ You can create a container from a decision service that was previously built in 
 A container is created for the service. This container is placed on the Decision Servers that are configured for this server template. If you have selected *Start container?*, the service is started.
 
 == Managing containers
-When a container is started, the service in the container is available for use. You can start, stop, or delete containers with decision services as necessary.
+When a container is started, the service in the container is available for use. You can start, stop, or remove containers with decision services as necessary.
 
 .Procedure
 
@@ -32,3 +32,5 @@ When a container is started, the service in the container is available for use. 
 . Under *Server templates*. select a template. 
 . Under *KIE Containers*, select a container.
 . Click the *Start*, *Stop*, or *Remove* button.
+IMPORTANT: you cannot remove a container that is running. To remove a running container, stop it and then remove it.
+

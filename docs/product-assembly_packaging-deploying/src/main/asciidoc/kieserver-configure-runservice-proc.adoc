@@ -33,10 +33,14 @@ If you have configured a {KIE_SERVER} to use a Maven repository, you can use an 
 [subs="verbatim,macros"]
 +
 ----
-$ curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "<containerID>","release-id" : {"group-id" : "<groupID>","artifact-id" : "<artifactID>","version" : "<version>"}}' http://<serverhost>:<serverport>/kie-server/services/rest/server/containers/<containerID>
+$ curl --user <username>:<password> -H "Content-Type: application/json" -X PUT -d '{"container-id" : "<containerID>","release-id" : {"group-id" : "<groupID>","artifact-id" : "<artifactID>","version" : "<version>"}}' http://<serverhost>:<serverport>/kie-server/services/rest/server/containers/<containerID>
 ----
 +
 where:
++
+** *<username>* is the user name for an account that can log onto the {KIE_SERVER} and administer it.
++
+** *<password>* is the password for the account.
 +
 ** *<containerID>* is the identifier for the container. You can use any random identifier but it must be the same in both places in the command (the URL and the data).
 +
@@ -50,7 +54,7 @@ For example:
 +
 [subs="verbatim,macros"]
 ----
-curl -H "Content-Type: application/json" -X PUT -d '{"container-id" : "kie1","release-id" : {"group-id" : "org.kie.server.testing","artifact-id" : "container-crud-tests1","version" : "2.1.0.GA"}}' http://localhost:39043/kie-server/services/rest/server/containers/kie1
+curl --user rhdmAdmin:password@1 -H "Content-Type: application/json" -X PUT -d '{"container-id" : "kie1","release-id" : {"group-id" : "org.kie.server.testing","artifact-id" : "container-crud-tests1","version" : "2.1.0.GA"}}' http://localhost:39043/kie-server/services/rest/server/containers/kie1
 ----
 
 == Stopping and removing a service from the {KIE_SERVER}
@@ -62,10 +66,14 @@ You can use an API call to stop and remove a service from the {KIE_SERVER}. You 
 [subs="verbatim,macros"]
 +
 ----
-$ curl -X DELETE http://<serverhost>:<serverport>/kie-server/services/rest/server/containers/<containerID>
+$ curl --user <username>:<password> -X DELETE http://<serverhost>:<serverport>/kie-server/services/rest/server/containers/<containerID>
 ----
 +
 where:
++
+** *<username>* is the user name for an account that can log onto the {KIE_SERVER} and administer it.
++
+** *<password>* is the password for the account.
 +
 ** *<containerID>* is the identifier for the container. 
 +
@@ -77,5 +85,5 @@ For example:
 +
 [subs="verbatim,macros"]
 ----
-curl -X DELETE http://localhost:39043/kie-server/services/rest/server/containers/kie1
+curl --user rhdmAdmin:password@1 -X DELETE http://localhost:39043/kie-server/services/rest/server/containers/kie1
 ----

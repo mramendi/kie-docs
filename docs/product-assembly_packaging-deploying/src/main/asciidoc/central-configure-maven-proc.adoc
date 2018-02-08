@@ -3,8 +3,7 @@
 
 You can configure {CENTRAL} to use an external Maven repository instead of its built-in repository. In this case, {CENTRAL} pushes all the built KJAR files into this repository. You can progress these files through the repository as necessary to implement your integration process.
 
-IMPORTANT: Do not use this procedure for a {CENTRAL} deployed on OpenShift. See ??? for instructions about configuring {CENTRAL} on OpenShift, including setting a Maven repository.
-
+IMPORTANT: Using an external Maven repository in {CENTRAL} deployed on OpenShift is not supported.
 
 .Procedure
 
