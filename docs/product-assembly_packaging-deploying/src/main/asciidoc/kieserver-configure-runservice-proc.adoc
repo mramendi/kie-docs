@@ -3,8 +3,7 @@
 
 You can configure a {KIE_SERVER} to load and run a decision service automatically without using a {CENTRAL}. The service must be present in a Maven repository. You need access information for the repository and the GAV values for the service. You can also stop and delete the service from this server at a later time. You can start several services on one {KIE_SERVER} at the same time.
 
-//@doclink need to double-check name and add link if possible
-IMPORTANT: do not use this procedure for a {KIE_SERVER} deployed on OpenShift. See Decision Manager on Openshift for instructions about configuring a a {KIE_SERVER} to load and run a decision service from a Maven repository.
+IMPORTANT: Do not use this procedure for a {KIE_SERVER} deployed on OpenShift. See {URL_DM_ON_OPENSHIFT}[_{DM_ON_OPENSHIFT}_] for instructions about configuring a a {KIE_SERVER} to load and run a decision service from a Maven repository.
 
 == Configuring a {KIE_SERVER} to use a Maven repository
 
@@ -12,8 +11,7 @@ Before you can load and start a decision service on a {KIE_SERVER}, you need to 
 
 .Procedure
 
-//@doclink need to double-check name and add link if possible, also need to see what home dir we are talking about
-. Install the {KIE_SERVER}. See Installing {PRODUCT} for instructions.
+. Install the {KIE_SERVER}. See {URL_INSTALLING_DM_ON_PREMISE}[_{INSTALLING_DM_ON_PREMISE}_] for instructions.
 . Create a Maven `settings.xml` file with connetion and access details for your external repository. For details about the `settings.xml` file, see Maven documentation: https://maven.apache.org/settings.html .
 . In the `<eap_home>/standalone/configuration/standalone.xml` file, under the `<system-properties>` tag, set the `kie.maven.settings.custom` property to the full pathname of the `settings.xml` file, for example:
 +
