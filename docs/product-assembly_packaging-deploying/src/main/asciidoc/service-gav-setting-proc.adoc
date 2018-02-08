@@ -8,7 +8,8 @@ These values are the identifier for the decision service in a Maven repository. 
 .Procedure
 . In the main menu, click *Projects*. 
 . Click the project name.
-** Alternatively, click the *Add Project* button to create a new project.
++
+Alternatively, click the *Add Project* button to create a new project.
 . Click the *Settings* button.
 . Modify the *Group ID*, *Artifact ID*, or *Version* fields as necessary. If you have deployed the decision service and are developing a new version, usually you need to increase the version number.
 . Click the *Save* button.

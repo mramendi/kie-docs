@@ -24,7 +24,7 @@ Before you can load and start a decision service on a {KIE_SERVER}, you need to 
 
 == Loading and starting a service on the {KIE_SERVER}
 
-If you have configured a {KIE_SERVER} to use a Maven repository, you can use an API call to load a service, The service is started automatically.
+If you have configured a {KIE_SERVER} to use a Maven repository, you can use an API call to load a service. The service is started automatically.
 
 .Procedure
 . To load a service into a container in the {KIE_SERVER} and start it, run the following command to send an API request:
