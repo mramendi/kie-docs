@@ -1,0 +1,9 @@
+[id='migration-overview-con']
+= Overview
+
+If you use BRMS version 6.4 or older and install {PRODUCT} version {VERSION}, you need to migrate your existing projects to the new product. 
+
+You can move the applications (now called _decision services_) that you developed using the Business Central workbench to the new equivalent, {CENTRAL}. You do not need to change the underlying code manually to complete this migration. 
+
+Decision services that you developed in Java code (for example, in Eclipse) require modification for {PRODUCT} {VERSION}. 
+ 
