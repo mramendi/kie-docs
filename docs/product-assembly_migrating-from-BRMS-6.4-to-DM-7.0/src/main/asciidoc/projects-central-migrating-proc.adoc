@@ -20,7 +20,7 @@ If you have created projects in the Business Central workbench in BRMS 6.4, you 
 file://<path>/.niogit/<repository>.git
 ----
 +
-For example, if the location of the `.niogit` directory is `/opt/eap7.0/.niogit` and you want to import projects from the `.repository1` repository:
+For example, if the location of the `.niogit` directory is `/opt/eap7.0/bin/.niogit` and you want to import projects from the `.repository1` repository:
 +
 ----
 file:///opt/eap7.0/bin/.niogit/repository1.git
