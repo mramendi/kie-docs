@@ -37,7 +37,7 @@ The following Drools modules include some incompatible changes from BRMS 6.4 to 
 ** `org.kie.server.client.KieServicesClient`
 ** `org.kie.server.client.KieServicesConfiguration`
 
-If you encounter build errors with any of the listed classes, review the detailed reports that are available at ??? LOCATION. The reports indicate the API changes. You can use this information to adapt your code to the changes.
+If you encounter build errors with any of the listed classes, review the detailed reports that are available at https://access.redhat.com/articles/3352151 . The reports indicate the API changes. You can use this information to adapt your code to the changes.
 
 == Logic changes in Drools modules
 

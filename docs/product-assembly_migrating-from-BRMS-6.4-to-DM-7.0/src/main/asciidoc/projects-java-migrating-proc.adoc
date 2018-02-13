@@ -14,7 +14,7 @@ You must download the Maven repository for {PRODUCT} {PRODUCT_VERSION} and make 
 ** `org.drools`
 ** `org.jbpm`
 ** `org.optaplanner`
-. Add the following dependency under the `<dependencies>` tag:
+. Add the following dependency under the `<dependencies>` tag within the `<dependencyManagement>` section:
 +
 [source,xml]
 ----
@@ -38,7 +38,7 @@ where `${rhdm.version}` is the version of the `org.jboss.bom.rhdm.rhdm-platform-
 </dependency>
 ----
 +
-This dependency is necessary because CDI annotations are now defined using a separate module. Without this dependency, the annotations do not work.
+This dependency is necessary because the CDI extension for processing the annotations is now defined using a separate module. Without this dependency, the annotations do not work.
 . If the following dependency exists:
 +
 [source,xml]
@@ -49,7 +49,7 @@ This dependency is necessary because CDI annotations are now defined using a sep
 </dependency>
 ----
 + 
-Replace it with the following dependencies:
+Replace it with one or more ot the following dependencies,depending on the workitems that your code uses:
 +
 [source,xml]
 ----
@@ -100,4 +100,4 @@ Replace it with the following dependency:
 . Update the version of the project artifact.
 . Save the `pom.xml` file.
 . Rebuild the project, using a regular Maven build.
-. If build errors or subsequent execution errors happen, resolve them using the information in xref:code-troubleshooting-ref.  
+. If build errors or subsequent execution errors happen, resolve them using the information in xref:code-troubleshooting-ref[].  
