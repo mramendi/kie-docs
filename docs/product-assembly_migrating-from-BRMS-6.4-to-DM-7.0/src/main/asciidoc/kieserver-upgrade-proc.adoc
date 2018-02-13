@@ -10,7 +10,7 @@ You can upgrade a BRMS 6.4 KIE Server to {PRODUCT} {PRODUCT_VERSION} {KIE_SERVER
 +
 --
 * Use the same KJAR files as of the BRMS 6.4 KIE Server. To copy the Maven configuration, copy the value of the `kie.maven.settings.custom` system property from the old version `$EAP_home/standalone/configuration/standalone.xml` file to the same file in the new version.  
-* Upgrade your decision services to the new version. For instructions, see xref:projects-central-migrating-proc[] and xref:projects-java-migrating-proc[]. Upload the new KJAR files to a Maven repository. Then configure the {KIE_SERVER} to use the repository:
+* Upgrade your decision services to the new version. For instructions, see <<projects-central-migrating-proc>> and <<projects-java-migrating-proc>>. Upload the new KJAR files to a Maven repository. Then configure the {KIE_SERVER} to use the repository:
 --
 +
 .. Create a `settings.xml` file for the Maven repository
