@@ -2,41 +2,22 @@
 
 include::product-shared-docs/document-attributes.adoc[]
 
-= Migrating from Red Hat BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}
+= Migrating from Red Hat JBoss BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :imagesdir: topics/product-shared-docs/images
-:context: installing-dm-on-premise
+:context: migrate-from-brms
 include::product-shared-docs/author-group.adoc[]
 
 // Purpose statement for the assembly
-If you have a Red Hat BRMS 6.4 project that you want to use in {PRODUCT} {PRODUCT_VERSION}, you must first migrate your APIs and data.
+If you have Red Hat BRMS 6.4 projects that you want to use in {PRODUCT} {PRODUCT_VERSION}, you must first migrate the projects.
 
 .Prerequisite
-* You have installed {PRODUCT} {PRODUCT_VERSION}, either on premise or on OpenShift.
 * You have a Red Hat BRMS 6.4 installation that contains data and other artifacts that you want to migrate to {PRODUCT} {PRODUCT_VERSION}.
 
-For information about installing {PRODUCT}, see Installing {PRODUCT} on premise or Installing {PRODUCT} on OpenShift. COMMENT: add links.
-
-[NOTE]
-====
-To upgrade Business Planner and address any backwards compatiblity issues, follow the instructions in the https://www.optaplanner.org/download/upgradeRecipe/[*Optaplanner Upgrade Recipe Archive*].
-====
-
-include::product-migration-guide/migration-steps-proc.adoc[leveloffset=+1]
-include::product-migration-guide/migrate-kie-projects-proc.adoc[leveloffset=+1]
-include::product-migration-guide/migration-add-cdi-depend-proc.adoc[leveloffset=+2]
-include::product-migration-guide/migrate-local-artifact-repo-proc.adoc[leveloffset=+1]
-include::product-migration-guide/migration-move-repo-proc.adoc[leveloffset=+2]
-include::product-migration-guide/migration-update-repo-contents-proc.adoc[leveloffset=+2]
-include::product-migration-guide/upgrade-engines-proc.adoc[leveloffset=+1]
-include::product-migration-guide/review-engine-changes-proc.adoc[leveloffset=+1]
-//include::product-migration-guide/migration-sum-accumulate-proc.adoc[leveloffset=+2]
-//include::product-migration-guide/openshift-upgrade-images.adoc[leveloffset=+1]
-
-
-== Next Steps
-* For information about changes in the {CENTRAL} environment, see Getting started with {PRODUCT} {PRODUCT_VERSION}.
-* For information about users, roles, and groups, see Installing {PRODUCT} {PRODUCT_VERSION} on premise. COMMENT: Add links.
-
+include::migration-overview-con.adoc[leveloffset=+1]
+include::projects-central-migrating-proc.adoc[leveloffset=+1]
+include::projects-java-migrating-proc.adoc[leveloffset=+1]
+include::code-troubleshooting-ref.adoc[leveloffset=+2]
+include::kieserver-upgrade-proc.adoc[leveloffset=+1]
 
 include::product-shared-docs/versioning-information.adoc[]
