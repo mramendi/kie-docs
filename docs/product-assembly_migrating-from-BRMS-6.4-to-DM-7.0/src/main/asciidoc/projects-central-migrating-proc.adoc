@@ -17,7 +17,7 @@ If you have created projects in the Business Central workbench in BRMS 6.4, you 
 . In the *Repository URL* field, type the URL:
 +
 ----
-file://<path>/.niagits/<repository>.git
+file://<path>/.niogit/<repository>.git
 ----
 +
 For example, if the location of the `.niogit` directory is `/opt/eap7.0/.niogit` and you want to import projects in the `.repository1` repository:
@@ -27,6 +27,23 @@ file:///opt/eap7.0/bin/.niogit/repository1.git
 ----
 . Click *Import*.
 . Select the projects to import and click *Import*.
+. A `NoRemoteRepositoryException` exception might be displayed. In this case complete the following steps:
+.. In a shell terminal, change to the repository sundirectory (under the `.niogit`) directory you are importing
+.. List the remotes: `git remote -v`
+.. Remove all listed remotes: `git remote remove <remote-name>`
++
+For example:
++
+[subs="verbatim,macros"]
+----
+$ /opt/eap7.0/bin/.niogit/repository1.git
+$ git remote -v
+origin  https://github.com/guvnorngtestuser1/guvnorng-playground (fetch)
+origin  https://github.com/guvnorngtestuser1/guvnorng-playground (push)
+$ git remote remove origin
+----
++
+Then import the projects again.
 . Wait for the importing and indexing to complete.
 . Repeat the process for any other repositories that you wish to import.
 

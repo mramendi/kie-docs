@@ -7,15 +7,15 @@ Use the following information to resolve any build or execution errors after reb
 The following Drools modules include some incompatible changes from BRMS 6.4 to {PRODUCT} {PRODUCT_VERSION}:
 
 * `kie-api`: the main API for all projects from KIE Group. The majority of changes are in the following classes:
-** `org.kie.api.task.*` API`
+** `org.kie.api.task.*`
 ** `org.kie.api.executor.*`
 ** `org.kie.api.concurrent.*`
 ** `org.kie.api.builder.*`
 ** `org.kie.api.command.*`
 ** `org.kie.api.runtime.*`
 * `drools-core`: the rules engine. The changed classes are:
-** `org.drools.core.command.*``
-** `org.drools.core.common.*``
+** `org.drools.core.command.*`
+** `org.drools.core.common.*`
 * `kie-server-api`: the general API, including commands,model and so on, for KIE Server ({KIE_SERVER}). The changed classes are:
 ** `org.kie.server.api.commands.*`
 ** `org.kie.server.api.marshalling.*`
@@ -43,7 +43,7 @@ If you encounter build errors with any of the listed classes, review the detaile
 
 The following logic changes were made in Drools modules:
 
-* In Red Hat BRMS 6.4, when a rule executes the sum function in an accumulate pattern, the result always returns as a double data type regardless of the data type of the inputs. {PRODUCT} {PRODUCT_VERSION} preserves the data type of the inputs on which the sum is executed. This enhancement provides a more accurate result from the sum function. In the following example, the result type of the accumulate function is long instead of double:
+* In Red Hat BRMS 6.4, when a rule executes the sum function in an accumulate pattern, the result always returns as a double data type regardless of the data type of the inputs. {PRODUCT} {PRODUCT_VERSION} preserves the data type of the inputs on which the sum is executed. This enhancement provides a more accurate result from the sum function. In the following example, the result type of the accumulate function is `Long` instead of `double`:
 +
 [source,java]
 ----
