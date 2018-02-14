@@ -22,7 +22,7 @@ The following Drools modules include some incompatible changes from BRMS 6.4 to 
 ** `org.kie.server.api.model.*`
 ** `org.kie.server.api.rest.RestURI` (constants have slightly changed, omitting leading `/`)
 * `kie-server-controller-api`: the API for the KIE Server Controller. The changed classes are:
-** `org.kie.server.controller.api.service`
+** `org.kie.server.controller.api.service.*`
 * `kie-server-controller-rest`: the REST API for KIE Server Controller. The changed classes are:
 ** `org.kie.server.controller.rest.RestSpecManagementServiceImpl`
 ** `org.kie.server.controller.rest.RestKieServerControllerImpl`
