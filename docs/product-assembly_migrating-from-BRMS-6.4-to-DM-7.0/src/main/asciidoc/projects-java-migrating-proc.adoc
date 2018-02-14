@@ -27,7 +27,7 @@ You must download the Maven repository for {PRODUCT} {PRODUCT_VERSION} and make 
 </dependency>
 ----
 +
-where `${rhdm.version}` is the version of the `org.jboss.bom.rhdm.rhdm-platform-bom` artifact in the Maven repository for {PRODUCT} {PRODUCT_VERSION}. You can view the version of the artifact by entering the repository and navigating to `maven-repository/org/jboss/bom/rhdm/rhdm-platform-bom` directory; the name of the only subdirectory in this directory is the version. For example, `7.0.0.GA-redhat-1` .
+Where `${rhdm.version}` is the version of the `org.jboss.bom.rhdm.rhdm-platform-bom` artifact in the Maven repository for {PRODUCT} {PRODUCT_VERSION}. You can view the version of the artifact by entering the repository and navigating to `maven-repository/org/jboss/bom/rhdm/rhdm-platform-bom` directory; the name of the only subdirectory in this directory is the version. For example, `7.0.0.GA-redhat-1` .
 . If your code uses any Drools CDI annotations (`@KReleaseId` , `@KContainer`, `@KBase`, `@KSession`), also add the following dependency:
 +
 [source,xml]

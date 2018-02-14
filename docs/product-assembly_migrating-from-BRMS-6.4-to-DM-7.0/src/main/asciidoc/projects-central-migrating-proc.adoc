@@ -3,7 +3,7 @@
 
 If you have created projects in the Business Central workbench in BRMS 6.4, you can migrate them to {PRODUCT} 7.0 by importing the asset repository into {CENTRAL}.
 
-. Prerequisites
+.Prerequisites
 
 . In BRMS 6.4 Business Central, look up the names of the repositories that contain your project. The default repository name is `repository1` .
 . Stop BRMS 6.4 Business Central.
