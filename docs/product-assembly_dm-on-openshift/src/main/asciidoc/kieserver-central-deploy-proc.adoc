@@ -15,8 +15,8 @@ You can deploy {CENTRAL} on the OpenShift infrastructure together with {KIE_SERV
 ** *KIE Server ID*: The name of the server template on the {CENTRAL} that the {KIE_SERVER} is to join. Set this parameter to any value. If you do not set it and then the {KIE_SERVER} pod is restarted or scaled, each new instance of the server might join a new template. 
 ** *ImageStream Namespace*: The namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 +
-You can also set other parameters as necessary.
+You can also set other parameters as necessary. In particular, you can change the username and password for the Maven repository that is built into {CENTRAL}. Use the *Maven repository username* and *Maven repository password* fields.
 +
-IMPORTANT: if you change the *KIE Admin User* or *KIE Admin Password* parameters and do not change the Maven repository settings, you must set the *Maven Repository user name* and *Maven repository password* parameters to the same values as *KIE Admin User* and *KIE Admin Password*.
+ATTENTION: Do not change the *Maven repository URL* field. If you change it, the {KIE_SERVER} will work with a different Maven repository, but the {CENTRAL} will still use its own built-in repository. Therefore, the {CENTRAL} will not deploy services to the {KIE_SERVER}.
 +
 . Click *Create*.
