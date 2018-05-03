@@ -2,7 +2,7 @@
 
 include::product-shared-docs/document-attributes.adoc[]
 
-= Release notes for {PRODUCT} {PRODUCT_VERSION}
+= Deploying {PRODUCT} {PRODUCT_VERSION} on OpenShift
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :imagesdir: topics/product-shared-docs/images
 :context: dm-7.0-release-notes
@@ -11,13 +11,20 @@ include::product-shared-docs/author-group.adoc[]
 // Purpose statement for the assembly
 These release notes highlight new features in {PRODUCT} {PRODUCT_VERSION}, list features that are in technical preview, and include any known issues.
 
-include::product-release-notes/ba-dm-rn-intro-con.adoc[leveloffset=+1]
-
-include::product-release-notes/ba-dm-rn-whats-new-con.adoc[leveloffset=+1]
-
-include::product-release-notes/ba-dm-rn-tech-preview-con.adoc[leveloffset=+1]
-
-include::product-release-notes/ba-dm-rn-known-issues-con.adoc[leveloffset=+1]
+include::ba-openshift-overview-con.adoc[leveloffset=+1]
+include::product-assembly_dm-on-openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
+include::product-assembly_dm-on-openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
+include::product-assembly_dm-on-openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
+include::product-assembly_dm-on-openshift/secrets-central-create-proc.adoc[leveloffset=+2]
+include::environment-authoring-con.adoc[leveloffset=+1]
+include::environment-authoring-single-proc.adoc[leveloffset=+2]
+include::environment-authoring-ha-proc.adoc[leveloffset=+2]
+include::environment-managed-con.adoc[leveloffset=+1]
+include::environment-managed-modify-proc.adoc[leveloffset=+2]
+include::environment-managed-deploy-proc.adoc[leveloffset=+2]
+include::environment-immutable-con.adoc[leveloffset=+1]
+include::environment-immutable-monitoring-proc.adoc[leveloffset=+2]
+include::environment-immutable-server-proc.adoc[leveloffset=+2]
 
 // Versioning info
 include::product-shared-docs/versioning-information.adoc[]

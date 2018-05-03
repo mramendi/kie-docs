@@ -1,0 +1,20 @@
+[id='environment-managed-modify-proc']
+= Modifying a template for a managed environment
+
+To adjust the managed environment to your needs, you need to modify the template before deploying the environment.
+
+.Procedure
+. Select one of the templates to modify:
++ 
+* `rhpam70-sit.yaml` if you need to use minimal resources and do not need high-availability configuration for {CENTRAL} Monitoring and Smart Router.
+* `rhpam70-prod.yaml` if you need high-availability configuration for {CENTRAL} Monitoring and Smart Router.
++
+Download the template from `{URL_BASE_GITHUB_PAM}/templates`.
+. Modify the template file:
++
+* To change the database server from PostgreSQL to MySQL, ???
+* To use an external database server deployed inside ot ourside your OpenShift environment, ???
+* To change the number of separate {KIE_SERVER} pods, ???
+* To remove {CENTRAL} monitoring, ???
+* To remove Smart Router, ?
+* To provide a headless controller enabling loading processes thro mugh a centralized API, ???.
