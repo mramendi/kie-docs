@@ -85,6 +85,19 @@ Double click an open area in the schedule to add a new shift to the schedule or 
 .Shift details for pinning and deleting
 image::optashift-rostering/opta_spot_popup.png[]
 
+.Rotation Patterns
+The *Rotation* tab allows the schedule administrator to specify the preferred shift rotations within a given scheduling period.  This can be used to promote desired traits in the generated schedule such as fairness in the assignment of shifts among employees.
+
+.Rotation configuration for factory tenant example
+image::optashift-rostering/opta_rotation.png[]
+
+These assignment suggestions are "low priority" and will be superseded by "higher priority" constraints such as employee availability and pinned assignments in the spot roster.
+
+[NOTE]
+====
+In the current version, the rotation data is essentially pre-set in the example data sets.  In a subsequent version, these rotation preferences will be fully editable from the user interface.
+====
+
 == Creating an optimal employee roster
 
 .Procedure
@@ -99,6 +112,10 @@ The engine takes up to 30 seconds to create a fully optimal result.
 When the optimal result is available, the Spot Roster displays the name of the assigned employee for each spot and shift.
 
 == Setting employee availability
+[NOTE]
+====
+This section is not fully functional in the current release and will be enabled in a subsequent release.
+====
 
 .Employee Roster
 The employee roster tab displays an employee-centric view of the schedule with a row for each employee depicting their assigned shifts.
