@@ -10,6 +10,8 @@ Smart Router is a single endpoint that can receive calls to any of your processe
 
 image::openshift-pam-managed.png[Architecture diagram of an infrastructure with immutable pods, Smart Router, and {CENTRAL} Monitoring]
 
-When you create a {KIE_SERVER} image, you must build your processes using Source to Image (S2I). Provide a Git repository with the source of your decision service; you can use the Git repository built into your authoring {CENTRAL}. OpenShift automatically builds the source, installs the decision service into the {KIE_SERVER} image, and starts the service. No further management of the image is required. If you want to use a new version of the decision service, you can build a new image.
+When you create a {KIE_SERVER} image, you must build your processes using S2I (Source to Image). Provide a Git repository with the source of your decision service; you can use the Git repository built into your authoring {CENTRAL}. OpenShift automatically builds the source, installs the decision service into the {KIE_SERVER} image, and starts the service. No further management of the image is required. If you want to use a new version of the decision service, you can build a new image.
+
+If you are using {CENTRAL} for authoring processes, you can extract the source for your process and place it into a separate Git repository (such as Github or an on-premise installation of Gitlab) for use in the S2I build.
 
 If you want to use {CENTRAL} Monitoring, you must install the Monitoring and Smart Router template _before_ creating any {KIE_SERVER} images. You must also provide a Maven repository. Your integration process must ensure that all the versions of KJAR files built into any {KIE_SERVER} image are also available in the Maven repository.

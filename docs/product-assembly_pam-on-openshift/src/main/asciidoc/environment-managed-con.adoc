@@ -1,14 +1,14 @@
 [id='environment-managed-con']
 = Managed environment
-You can deploy an environment that includes several different pods running {KIE_SERVER}; no processes are initially loaded on the servers. The database servers are, by default, also run in pods. Each {KIE_SERVER} pod can be separately scaled as necessary.
+You can deploy a managed environment that includes several different pods running {KIE_SERVER}; by default, no processes are initially loaded on the servers. The database servers are, by default, also run in pods. Each {KIE_SERVER} pod can be separately scaled as necessary.
 
-A pod with {CENTRAL} Monitoring and pod with Smart Router are also deployed. You can optionally use {CENTRAL} Monitoring to deploy, load and unload processes on your {KIE_SERVERS} and to view monitoring information. Otherwise, you can deploy, load and inluad processes using API calls to the {KIE_SERVERS}.
+A pod with {CENTRAL} Monitoring and a pod with Smart Router are also deployed. You must use {CENTRAL} Monitoring to deploy, load and unload processes on your {KIE_SERVERS}; you can also use it  to view monitoring information. 
 
 Smart Router is a single endpoint that can receive calls to any of your processes and route them automatically to the server that actually runs the the process.
 
 image::openshift-pam-managed.png[Architecture diagram of a managed infrastructure]
 
-You must provide a Maven repository with the processes (KJAR files) that you want to deploy on the servers. Your integration process must ensure that the required versions of the processes are uploaded to the Maven repository. You can use the Maven repository of a development {CENTRAL} for this purpose.
+You must provide a Maven repository with the processes (KJAR files) that you want to deploy on the servers. Your integration process must ensure that the required versions of the processes are uploaded to the Maven repository. You can use {CENTRAL} in a development environment to create the processes and upload them to the Maven repository.
 
 {PRODUCT} includes two base templates for managed environments:
 

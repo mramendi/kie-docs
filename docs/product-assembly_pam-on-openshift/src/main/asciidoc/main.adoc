@@ -24,6 +24,7 @@ include::environment-managed-modify-proc.adoc[leveloffset=+2]
 include::environment-managed-deploy-proc.adoc[leveloffset=+2]
 include::environment-immutable-con.adoc[leveloffset=+1]
 include::environment-immutable-monitoring-proc.adoc[leveloffset=+2]
+include::environment-immutable-source-extract-proc.adoc[leveloffset=+2]
 include::environment-immutable-server-proc.adoc[leveloffset=+2]
 
 // Versioning info

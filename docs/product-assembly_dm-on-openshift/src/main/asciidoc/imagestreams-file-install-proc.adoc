@@ -16,7 +16,6 @@ $ oc get imagestreamtag -n openshift | grep rhdm70-decisioncentral-openshift
 $ oc get imagestreamtag -n openshift | grep rhdm70-kieserver-openshift
 ----
 endif::DM[]
-+
 ifdef::PAM[]
 [subs="verbatim,macros"]
 ----
@@ -26,7 +25,7 @@ $ oc get imagestreamtag -n openshift | grep rhpam70-kieserver
 endif::PAM[]
 +
 If the outputs of both commands are not empty, the required image streams are available and no further action is required.
-
++
 . If the output of one or both of the commands is empty, download the
 ifdef::DM[`rhdm70-image-streams.yaml`]
 ifdef::PAM[`rhpam70-image-streams.yaml`]
@@ -34,9 +33,17 @@ file from {URL_BASE_GITHUB_DM}. Complete one of the following actions:
 +
 ** Run the following command:
 +
+ifdef::DM[]
 [subs="verbatim,macros"]
 ----
 $ oc create -f rhdm70-image-streams.yaml
 ----
+endif::DM[]
+ifdef::PAM[]
+[subs="verbatim,macros"]
+----
+$ oc create -f rhpam70-image-streams.yaml
+----
+endif::PAM[]
 +
 ** Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.
