@@ -8,7 +8,7 @@ The following key components are available as pods running in OpenShift:
 
 * {KIE_SERVER}, also known as _Execution Server_ or _KIE Server_, is the infrastructure element that runs a process or a group of processes. All process logic runs on execution servers.
 +
-A database backend is required for an execution server. You can provide a database server in another OpenShift pod or configure an execution server on OpenShift to use any other database server.
+A database backend is normally required for {KIE_SERVER}. You can provide a database server in another OpenShift pod or configure an execution server on OpenShift to use any other database server. Alternatively, {KIE_SERVER} can use an in-memory h2 database; in this case, the database is not persistent (possibly leading to wrong results) and the pod can not be scaled.
 +
 You can freely scale up a {KIE_SERVER} pod, providing as many copies, running on the same host or different hosts, as necessary. As you scale a pod up or down, all its copies run the same processes and use the same database backend. OpenShift provides load balancing and a request can be handled by any of the pods.
 +

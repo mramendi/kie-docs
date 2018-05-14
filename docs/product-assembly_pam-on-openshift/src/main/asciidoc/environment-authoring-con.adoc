@@ -4,7 +4,7 @@ You can deploy an environment for creating and modifying processes using {CENTRA
 
 Depending on your needs, you can deploy either a single authoring environment or a high-availability (HA) authoring environment. 
 
-A single authoring environment contains two pods. One of the pods runs {CENTRAL}, the other runs {KIE_SERVER}. The {KIE_SERVER} includes an embedded H2 database engine. This type of environment uses the least possible amount of resources.
+A single authoring environment contains two pods. One of the pods runs {CENTRAL}, the other runs {KIE_SERVER}. The {KIE_SERVER} includes an embedded in-memory H2 database engine. This type of environment uses the least possible amount of resources. However, because of the in-memory database, restarting the {KIE_SERVER} pod leads to loss of all process information.
 
 image::Authoring.png[Architecture diagram of a single authoring infrastructure]
 

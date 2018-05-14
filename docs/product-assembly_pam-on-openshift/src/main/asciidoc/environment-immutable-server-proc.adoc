@@ -15,7 +15,7 @@ You can configure the {KIE_SERVER} to connect to Smart Router and to {CENTRAL} M
 +
 [subs="verbatim,macros"]
 ----
-oc process -n <project-name> -f <template-path>/rhpam70-prod-immutable-kieserver.yaml -v ATTRIBUTE=value -V ATTRIBUTE=value... | oc create -n <project-name> -f -
+oc new-app -f <template-path>/rhpam70-prod-immutable-kieserver.yaml -p PARAMETER=value -p PARAMETER=value...
 ----
 +
 In this command line:
@@ -25,7 +25,7 @@ In this command line:
 * Use as many `ATTRIBUTE=value` pairs as needed to set the required attributes. You can view the template file to see descriptions for the attributes.
 +
 . Set the following mandatory attributes:
-** *Application Name* (`APPLICATION_NAME`): the name of the OpenShift application. It is used in the default URL for {KIE_SERVER}.
+** *Application Name* (`APPLICATION_NAME`): the name of the OpenShift application. It is used in the default URL for {KIE_SERVER}. OpenShift also uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. 
 ** *KIE Server Certificate Name* (`KIE_SERVER_HTTPS_NAME`): the name of the certificate in the keystore that you created in <<secrets-kie-create-proc>>.
 ** *KIE Server Keystore Password* (`KIE_SERVER_HTTPS_PASSWORD`): the password for the keystore that you created in <<secrets-kie-create-proc>>.
 ** *KIE Server ID* (`KIE_SERVER_ID`): the name of the server template on the {CENTRAL} that the {KIE_SERVER} is to join. Set this parameter to any value. If you do not set it and then the {KIE_SERVER} pod is restarted or scaled, each new instance of the server might join a new template. 
@@ -33,10 +33,16 @@ In this command line:
 ** *Git Repository URL* (`SOURCE_REPOSITORY_URL`): the URL for the Git repository that contains the source for your decision service. 
 ** *Git Reference* (`SOURCE_REPOSITORY_REF`): the branch in the Git repository
 ** *Context Directory* (`CONTEXT_DIR`): the path to the source within the project downloaded from the Git repository
-** *Artefact Directory* (`ARTIFACT_DIR`): the path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository
+** *Artifact Directory* (`ARTIFACT_DIR`): the path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): the namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 +
 You can also set other parameters as necessary.
++
+. If your build includes dependencies that are not available on the public Maven tree and require a separate repository, se the parameters to provide this repository:
+** *Maven repository URL* (`MAVEN_REPO_URL`): the URL for the Maven repository. 
+** *Maven repository username* (`MAVEN_REPO_USERNAME`): the username for the Maven repository. 
+** *Maven repository password* (`MAVEN_REPO_PASSWORD`): the username for the Maven repository. 
++ 
 . If you want to use Smart Router, set the parameter:
 + 
 ** *KIE Server Smart Router Service* (`KIE_SERVER_ROUTER_SERVICE`): the OpenShift service name for the Smart Router.
@@ -45,6 +51,6 @@ You can also set other parameters as necessary.
 ** *KIE Server Monitor User* (`KIE_SERVER_MONITOR_USER`): the username for {CENTRAL} Monitoring. ??? HOW DO I SET USERNAME/PASSWORD IT WHEN CONFIGURING MONITORING
 ** *KIE Server Monitor Password* (`KIE_SERVER_MONITOR_PWD`): the password for {CENTRAL} Monitoring.
 +
-. Complete the creation of the environment. Depending on the metod that you are using:
+. Complete the creation of the environment. Depending on the method that you are using:
 .. In the OpenShift Web UI, click *Create*.
 .. Complete and run the command line.

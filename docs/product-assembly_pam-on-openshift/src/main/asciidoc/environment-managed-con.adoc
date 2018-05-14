@@ -4,7 +4,7 @@ You can deploy a managed environment that includes several different pods runnin
 
 A pod with {CENTRAL} Monitoring and a pod with Smart Router are also deployed. You must use {CENTRAL} Monitoring to deploy, load and unload processes on your {KIE_SERVERS}; you can also use it  to view monitoring information. 
 
-Smart Router is a single endpoint that can receive calls to any of your processes and route them automatically to the server that actually runs the the process.
+Smart Router is a single endpoint that can receive calls to any of your processes and route them automatically to the server that actually runs the process.
 
 image::openshift-pam-managed.png[Architecture diagram of a managed infrastructure]
 

@@ -13,7 +13,7 @@ To deploy {CENTRAL} Monitoring and Smart Router for an environment with immutabl
 +
 [subs="verbatim,macros"]
 ----
-oc process -n <project-name> -f <template-path>/rhpam70-prod-immutable-monitor.yaml -v ATTRIBUTE=value -V ATTRIBUTE=value... | oc create -n <project-name> -f -
+oc new-app -f <template-path>/rhpam70-prod-immutable-monitor.yaml -p PARAMETER=value -p PARAMETER=value...
 ----
 +
 In this command line:
@@ -23,7 +23,7 @@ In this command line:
 * Use as many `ATTRIBUTE=value` pairs as needed to set the required attributes. You can view the template file to see descriptions for the attributes.
 +
 . Set the following mandatory attributes:
-** *Application Name* (`APPLICATION_NAME`): the name of the OpenShift application. It is used in the default URLs for {CENTRAL} and Smart Router.
+** *Application Name* (`APPLICATION_NAME`): the name of the OpenShift application. It is used in the default URLs for {CENTRAL} and Smart Router. OpenShift also uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. 
 ** *Maven repository URL* (`MAVEN_REPO_URL`): a URL for a Maven repository. You must upload all the processes (KJAR files) that are to be deployed in your environment into this repository.
 ** *Maven repository username* (`MAVEN_REPO_USERNAME`): the username for the Maven repository. 
 ** *Maven repository password* (`MAVEN_REPO_PASSWORD`): the username for the Maven repository. 
@@ -32,6 +32,6 @@ In this command line:
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): the namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 +
 You can also set other parameters as necessary.
-. Complete the creation of the environment. Depending on the metod that you are using:
+. Complete the creation of the environment. Depending on the method that you are using:
 .. In the OpenShift Web UI, click *Create*.
 .. Complete and run the command line.
