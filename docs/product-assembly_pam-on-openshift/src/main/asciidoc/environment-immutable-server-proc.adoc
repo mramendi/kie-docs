@@ -1,4 +1,4 @@
-[id='environment-immutable-server-proc']
+ч[id='environment-immutable-server-proc']
 = Deploying an immutable {KIE_SERVER}
 
 To deploy an immutable {KIE_SERVER}, use the `rhpam70-prod-immutable-kieserver.yaml` template file. You can download this file from `{URL_BASE_GITHUB_PAM}/templates`.

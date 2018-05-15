@@ -15,5 +15,4 @@ Download the template from `{URL_BASE_GITHUB_PAM}/templates`.
 * To change the database server from PostgreSQL to MySQL, ???
 * To use an external database server deployed inside ot ourside your OpenShift environment, ???
 * To change the number of separate {KIE_SERVER} pods, ???
-* To remove {CENTRAL} monitoring, ???
 * To remove Smart Router, ?

@@ -1,0 +1,9 @@
+[id='environment-authoring-ha-modify-proc']
+= Modifying the template for the High Availability authoring environment
+
+By default, the High Availability authoring template creates a MySQL pod to provide the database backend. If you prefer to use PostgreSQL or to use an external server (outside the OpenShift project), you need to modify the template before deploying the environment.
+
+You can also modify the High Availability authoring template to change the number of replicas initially created for {CENTRAL}.
+
+.Procedure
+. ???
