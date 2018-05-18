@@ -6,8 +6,8 @@ To adjust the managed environment to your needs, you need to modify the template
 .Procedure
 . Select one of the templates to modify:
 + 
-* `rhpam70-sit.yaml` if you need to use minimal resources and do not need high-availability configuration for {CENTRAL} Monitoring and Smart Router.
-* `rhpam70-prod.yaml` if you need high-availability configuration for {CENTRAL} Monitoring and Smart Router.
+* `rhpam70-sit.yaml` if you need to use minimal resources and do not need high-availability configuration for {CENTRAL} Monitoring and Smart Router
+* `rhpam70-prod.yaml` if you need high-availability configuration for {CENTRAL} Monitoring and Smart Router
 +
 Download the template from `{URL_BASE_GITHUB_PAM}/templates`.
 . Modify the template file:

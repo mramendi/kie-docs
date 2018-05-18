@@ -1,7 +1,7 @@
 [id='environment-immutable-modify-proc']
 = Modifying the server template for an immutable server environment
 
-By default, the immutable server template creates a PostgreSQL pod to provide the database backend. If you prefer to use MySQL or to use an external server (outside the OpenShift project), you need to modify the template before deploying the server.
+By default, the immutable server template creates a separate PostgreSQL pod to provide the database server for each replicable {KIE_SERVER}. If you prefer to use MySQL or to use an external server (outside the OpenShift project), you need to modify the template before deploying the server.
 
 .Procedure
 . ???

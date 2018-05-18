@@ -36,6 +36,8 @@ endif::PAM[]
 :KIE_SERVER_PAM: Process Server
 :KIE_SERVER_DM: Decision Server
 :KIE_SERVER_PL: Planner Server
+:OPENSHIFT: Red Hat OpenShift Container Platform
+
 
 // Assembly names (some of these will likely be moved product-specific attrs docs in the future, i.e., document-attributes-dm.adoc and ..-ba.adoc)
 :RELEASE_NOTES: Release notes for {PRODUCT} {PRODUCT_VERSION}

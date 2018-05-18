@@ -46,4 +46,4 @@ $ oc create -f rhpam70-image-streams.yaml
 ----
 endif::PAM[]
 +
-** Using the OpenShift Web UI, select *Add to Project > Import YAML / JSON*, then choose the file or paste its contents.
+** Using the OpenShift Web UI, select *Add to Project -> Import YAML / JSON*, then choose the file or paste its contents.
