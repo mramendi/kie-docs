@@ -14,13 +14,13 @@ When you unzip the employee-rostering zip file, the `optashift-employee-rosterin
 
 There are two options for quickly deploying this application to OpenShift:
 
-1. Using the `provision.sh` shell script that is provided in the add-ons distribution. In this case, the application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (i.e., Java, Maven) and a bash shell command line are available.
+1. Using the `provision.sh` shell script that is provided in the add-ons distribution. In this case, the application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available.
 
-2. Using the provided Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.  The compilation and packaging of the application occurs within the OpenShift environment in this case.  Use this option when the shell script requirements mentioned previously are not available.
+2. Using the provided Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.  In this case, the compilation and packaging of the application occurs within the OpenShift environment.  Use this option when the prerequisites for using `provision.sh` are not available.
 
 [NOTE]
 ====
-The S2I approach requires significantly more OpenShift resources to complete than the shell script deployment. If your OpenShift environment has less than 2GB of memory available, you must follow the binary deployment approach.   The application will not deploy successfully with any method to the OpenShift Online Starter tier at the time of this writing because of these memory requirements.
+The S2I approach requires significantly more OpenShift resources to complete than the shell script deployment. If your OpenShift environment has less than 2GB of memory available, you must follow the shell script deployment approach. The application will not deploy successfully with any method to the OpenShift Online Starter tier at the time of this writing because of memory requirements.
 ====
 
 == Deploying using the provided script

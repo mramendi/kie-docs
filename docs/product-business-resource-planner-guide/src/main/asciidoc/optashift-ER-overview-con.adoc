@@ -5,9 +5,6 @@ The employee rostering starter application assigns employees to shifts on variou
 
 Optimal employee rostering must take a number of variables into account. For example, different skills can be necessary for shifts in different positions. Also, some employees might be unavailable for some time slots or might prefer a particular time slot. You can specify inputs for these variables using the tabs along the top of the application window.
 
-IMPORTANT: In the current release, the employee rostering starter application fills a fixed amount of shifts in predefined dates. You can not change the dates or shifts.
-Therefore, it is not possible to use this application for production tasks. You can, however, update any skill, spot, or employee value after you have added them to the system.
-
 .Employee rostering toolbar
 image::optashift-rostering/opta_tabs.png[]
 
@@ -25,12 +22,12 @@ In the skills section, you can set all skills that can be necessary in any posit
 
 To enter these skills, click the *Skills* tab.
 
-.Initial skills list for factory tenant
+.Initial skills list for the factory tenant
 image::optashift-rostering/opta_skill_list.png[]
 
-.Edit skills list:
-* Add new skill:
-  ** Click *Add Skill*
+.Editing the skills list:
+* To add a new skill:
+  ** Click *Add Skill*.
   ** Type the name of the new skill into the text box that appears.
   ** Click *Save Skill*.
 * Edit skill names by clicking the *Edit Skill* icon (pencil shape).
@@ -41,12 +38,12 @@ NOTE: Skill names must be unique for each tenant.  Skills can not be deleted whe
 .Spots
 Spots refer to the various positions at the business. For a diner, spots include the bar, the bussing stations, the front counter, the various kitchen stations, the serving areas, and the office. For each spot, you can select one or more required skills from the list that you entered in the Skills tab. The following figure shows a sample list of spots and skills for the factory tenant example:
 
-.Excerpt of spot definitions for factory tenant
+.Excerpt of spot definitions for the factory tenant
 image::optashift-rostering/opta_spot_list.png[]
 
-.Edit spots list:
-* Add new spot:
-  ** Click *Add Spot*
+.Editing the spots list:
+* To add a new spot:
+  ** Click *Add Spot*.
   ** Type the name of the new spot into the text box that appears.
   ** Select one or more skills from the combo-drop down list that appears.
   ** Click *Save Spot*.
@@ -61,8 +58,8 @@ The Employees tab contains a list of all people employed by the business and the
 .Excerpt of employees for factory tenant
 image::optashift-rostering/opta_employee_list.png[]
 
-.Edit employee list:
-* Add new employee:
+.Editing the employee list:
+* To add a new employee:
   ** Click *Add Employee*
   ** Type the name of the new employee into the text box that appears.
   ** Select one or more skills from the combo-drop down list that appears.
@@ -80,13 +77,15 @@ Spots can support multiple employees per shift. If a spot is not required for a 
 .Spot roster for factory tenant example
 image::optashift-rostering/opta_spot_roster.png[]
 
-Double click an open area in the schedule to add a new shift to the schedule or double click an existing shift to edit it.  The value for the spot type and time frame are not editable, and are determined by where in the open schedule was clicked.  By default, the employee is not editable either as this will be determined by the planning engine.  A particular employee can be "pinned" to a shift by selecting the *Pinned* check box and selecting the employee from the *Employee* drop down.
+To view the spot roster for future days, use the horizontal scroll bar at the bottom of the window.
+
+Double-click an open area in the schedule to add a new shift to the schedule or double-click an existing shift to edit it.  The value for the spot type and time frame is set by the initial click and is not editable. By default, the employee is not editable either, as the planning engine determines the employee for every shift.  A particular employee can be "pinned" to a shift by selecting the *Pinned* check box and selecting the employee from the *Employee* drop down.
 
 .Shift details for pinning and deleting
 image::optashift-rostering/opta_spot_popup.png[]
 
 .Rotation Patterns
-The *Rotation* tab allows the schedule administrator to specify the preferred shift rotations within a given scheduling period.  This can be used to promote desired traits in the generated schedule such as fairness in the assignment of shifts among employees.
+The *Rotation* tab allows the schedule administrator to specify the preferred shift rotations within a given scheduling period. You can use this tab to promote desired traits in the generated schedule, for example, to ensure that shifts are allocated fairly amont employees.
 
 .Rotation configuration for factory tenant example
 image::optashift-rostering/opta_rotation.png[]
@@ -123,9 +122,9 @@ The employee roster tab displays an employee-centric view of the schedule with a
 .Excerpt of employee roster for factory tenant
 image::optashift-rostering/opta_employee_roster.png[]
 
-The employee roster also allows the specification of availability preferences for particular employees:
+You can also use the employee roster view to specify the availability for particular employees:
 * Double click on the schedule within the row of an employee to open the *Edit availability* pop-up.
-* Select the availability preference (unavailable, undesired, desired).
+* Select the availability preference (unavailable, undesired, desired). If an employee is unavailable for a particular shift, the employee can never be assigned to this shift. "Undesired" and "desired" are preferences that the rostering engine accommodates when possible.
 * Click *Apply* to save.
 
 .Employee availability preferences example
@@ -139,4 +138,4 @@ The Unavailable option also applies for employees who call in sick or are on vac
 ====
 
 == Constraints
-The {PLANNER} rules for this starter application use  both hard and soft constraints. During an optimization, the engine may not violate hard constraints, for example, if an employee is unavailable (out sick), or that an employee cannot work two spots in a single shift. The engine tries to adhere to soft constraints, such as an employee’s preference to not work a specific shift, but can violate them if the optimal solution requires it.
+The {PLANNER} rules for this starter application use both hard and soft constraints. During an optimization, the engine may not violate hard constraints, for example, if an employee is unavailable (out sick), or that an employee cannot work two spots in a single shift. The engine tries to adhere to soft constraints, such as an employee’s preference to not work a specific shift, but can violate them if the optimal solution requires it.
