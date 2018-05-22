@@ -6,4 +6,40 @@ By default, the high-availability authoring template creates a MySQL pod to prov
 You can also modify the High Availability authoring template to change the number of replicas initially created for {CENTRAL}.
 
 .Procedure
-. ???
+
+Edit the `rhpam-70-authoring-ha.yaml` template file to make any of the following changes as necessary.
+
+* If you want to use PostgreSQL instead of MySQL, replace several sections of the file, marked with comments, with sections from the `rhpam70-kieserver-postgresql.yaml` file that are also marked with comments. All serctions are marked from `BEGIN` to `END`:
+
+. Replace the section named `MySQL database parameters` with the section named `PosgrreSQL database parameters`. (Take this section and all subsequent replacement sections from the `rhpam70-kieserver-postgresql.yaml` file.)
+. Replace the section named `MySQL service` with the section named `PosgrreSQL service`.
+. Replace the section named `MySQL driver settings` with the section named `PosgreSQL driver settings`.
+. Replace the section named `MySQL deployment config` with the section named `PosgreSQL deployment config`.
+. Replace the section named `MySQL persistent volume claim` with the section named `PosgreSQL persistent volume claim`.
+* If you want to use an external database server:
+. Remove the following sections of the file, marked by comments from `BEGIN` to `END`:
++
+** `MySQL service`
+** `MySQL deployment config`
+** `MySQL persistent volume claim`
++
+. In the section named `MySQL driver settings` change the following values:
++
+** `RHPAM_DRIVER` to the driver for your database server. The following drivers are available:
++
+*** `mysql`
+*** `postgresql`
+*** ???
+** `RHPAM_SERVICE_HOST` to the host name of your database server
+** `RHPAM_SERVICE_PORT` to the port of your database server
+** `KIE_SERVER_PERSISTENCE_DIALECT` to the dialect for your database server. The following dialects are available:
++
+*** `org.hibernate.dialect.MySQLDialect`
+*** `org.hibernate.dialect.PostgreSQLDialect`
+*** ???
+* If you want to change the number of replicas initially created for {CENTRAL}:
+. Find the comment line `## Replicas for Business Central`.
+. On the next line, change the number of replicas to the desired value.
+
+
+
