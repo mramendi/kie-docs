@@ -6,7 +6,7 @@ The employee rostering starter application assigns employees to shifts on variou
 Optimal employee rostering must take a number of variables into account. For example, different skills can be necessary for shifts in different positions. Also, some employees might be unavailable for some time slots or might prefer a particular time slot. You can specify inputs for these variables using the tabs along the top of the application window.
 
 .Employee rostering toolbar
-image::optashift-rostering/opta_tabs.png[]
+image::optashift-rostering/optaTabs.png[]
 
 == Entering source information for employee rostering
 In order to produce an optimal employee roster, a set of input data is required: skills, spots and employees.  Additional data, such as employee availability and rotation orders, can be used to further optimize the generated roster output.
@@ -23,7 +23,7 @@ In the skills section, you can set all skills that can be necessary in any posit
 To enter these skills, click the *Skills* tab.
 
 .Initial skills list for the factory tenant
-image::optashift-rostering/opta_skill_list.png[]
+image::optashift-rostering/optaSkillList.png[]
 
 .Editing the skills list:
 * To add a new skill:
@@ -33,13 +33,13 @@ image::optashift-rostering/opta_skill_list.png[]
 * Edit skill names by clicking the *Edit Skill* icon (pencil shape).
 * Delete skills by clicking the *Delete Skill* icon (trashcan shape).
 
-NOTE: Skill names must be unique for each tenant.  Skills can not be deleted when they are associated with an employee or spot.
+NOTE: Within each tetant, skill names must be unique.  Skills can not be deleted when they are associated with an employee or spot.
 
 .Spots
 Spots refer to the various positions at the business. For a diner, spots include the bar, the bussing stations, the front counter, the various kitchen stations, the serving areas, and the office. For each spot, you can select one or more required skills from the list that you entered in the Skills tab. The following figure shows a sample list of spots and skills for the factory tenant example:
 
 .Excerpt of spot definitions for the factory tenant
-image::optashift-rostering/opta_spot_list.png[]
+image::optashift-rostering/optaSpotList.png[]
 
 .Editing the spots list:
 * To add a new spot:
@@ -50,13 +50,13 @@ image::optashift-rostering/opta_spot_list.png[]
 * Edit spot names and associated skills by clicking the *Edit Spot* icon (pencil shape).
 * Delete spots by clicking the *Delete Spot* icon (trashcan shape).
 
-NOTE: Spot names must be unique for each tenant.  Spots can not be deleted when they are associated with an employee roster.
+NOTE: Within each tenant, spot names must be unique.  Spots can not be deleted when they are associated with an employee roster.
 
 .Employees
 The Employees tab contains a list of all people employed by the business and the skills they possess. The following figure contains an excerpt of the employees in the factory tenant example:
 
 .Excerpt of employees for factory tenant
-image::optashift-rostering/opta_employee_list.png[]
+image::optashift-rostering/optaEmployeeList.png[]
 
 .Editing the employee list:
 * To add a new employee:
@@ -75,20 +75,20 @@ The Spot Roster is a table of all shifts (time slots) during which the business 
 Spots can support multiple employees per shift. If a spot is not required for a shift, you can remove all of the shifts completely from the roster for that time span.
 
 .Spot roster for factory tenant example
-image::optashift-rostering/opta_spot_roster.png[]
+image::optashift-rostering/optaSpotRoster.png[]
 
 To view the spot roster for future days, use the horizontal scroll bar at the bottom of the window.
 
 Double-click an open area in the schedule to add a new shift to the schedule or double-click an existing shift to edit it.  The value for the spot type and time frame is set by the initial click and is not editable. By default, the employee is not editable either, as the planning engine determines the employee for every shift.  A particular employee can be "pinned" to a shift by selecting the *Pinned* check box and selecting the employee from the *Employee* drop down.
 
 .Shift details for pinning and deleting
-image::optashift-rostering/opta_spot_popup.png[]
+image::optashift-rostering/optaSpotPopup.png[]
 
 .Rotation Patterns
 The *Rotation* tab allows the schedule administrator to specify the preferred shift rotations within a given scheduling period. You can use this tab to promote desired traits in the generated schedule, for example, to ensure that shifts are allocated fairly amont employees.
 
 .Rotation configuration for factory tenant example
-image::optashift-rostering/opta_rotation.png[]
+image::optashift-rostering/optaRotation.png[]
 
 These assignment suggestions are "low priority" and will be superseded by "higher priority" constraints such as employee availability and pinned assignments in the spot roster.
 
@@ -100,9 +100,9 @@ In the current version, the rotation data is essentially pre-set in the example 
 == Creating an optimal employee roster
 
 .Procedure
-. Adjust the skills, employee and spot types.
+. Adjust the skills, employees, and spot types.
 . Move to the *Spot Roster* tab:
-.. Adjust the pre-populated shifts by adding/removing as necessary.
+.. Adjust the pre-populated shifts by adding/removing as necessary. (This change might not work in the current version of the application.)
 .. Pin specific employees to shifts as necessary.
 .. Click the Solve button to create an optimized solution.
 
@@ -120,15 +120,16 @@ This section is not fully functional in the current release and will be enabled 
 The employee roster tab displays an employee-centric view of the schedule with a row for each employee depicting their assigned shifts.
 
 .Excerpt of employee roster for factory tenant
-image::optashift-rostering/opta_employee_roster.png[]
+image::optashift-rostering/optaEmployeeRoster.png[]
 
 You can also use the employee roster view to specify the availability for particular employees:
+
 * Double click on the schedule within the row of an employee to open the *Edit availability* pop-up.
 * Select the availability preference (unavailable, undesired, desired). If an employee is unavailable for a particular shift, the employee can never be assigned to this shift. "Undesired" and "desired" are preferences that the rostering engine accommodates when possible.
 * Click *Apply* to save.
 
 .Employee availability preferences example
-image::optashift-rostering/opta_employee_availability.png[]
+image::optashift-rostering/optaEmployeeAvailability.png[]
 
 After making changes to employee availability, click the *Solve* button on the Spot Roster tab to update the schedule.
 
