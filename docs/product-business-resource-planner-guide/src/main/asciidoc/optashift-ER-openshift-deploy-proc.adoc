@@ -9,7 +9,7 @@ You can deploy the {PLANNER} Employee Rostering starter application to an OpenSh
 +
 [NOTE]
 ====
-When you unzip the employee-rostering zip file, the `optashift-employee-rostering-{MAVEN_ARTIFACT_VERSION}` folder is created. This folder is the base folder in subsequent steps.  File and folder names may have higher version numbers than specifically noted in this document.
+When you unzip the employee rostering zip file, the `optashift-employee-rostering-{MAVEN_ARTIFACT_VERSION}` folder is created. This folder is the base folder in subsequent steps.  File and folder names may have higher version numbers than specifically noted in this document.
 ====
 
 There are two options for quickly deploying this application to OpenShift:
@@ -52,12 +52,12 @@ If the current OpenShift user name contains characters that are not letters or n
 +
 . Use the OpenShift web UI to view the details for the deployed application. Click the link in the Routes section to open the starter application.
 +
+The build can take up to 30 seconds to complete. The application container can take an additional 30 seconds to start up completely.
++
 [NOTE]
 ====
 Perform a hard refresh of your browser page if the web app does not open after clicking the link.
 ====
-+
-The build can take up to 30 seconds to complete. The application container can take an additional 30 seconds to start up completely.
 +
 .OpenShift web console with deployed Employee Rostering starter application
 image::optashift-rostering/optashiftERBinarySuccess.png[]
