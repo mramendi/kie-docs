@@ -1,7 +1,7 @@
 [id='environment-immutable-server-proc']
 = Deploying an immutable {KIE_SERVER}
 
-To deploy an immutable {KIE_SERVER}, use the `rhpam70-prod-immutable-kieserver.yaml` template file. You can download this file from `{URL_BASE_GITHUB_PAM}/templates`.
+To deploy an immutable {KIE_SERVER}, use the `rhpam70-prod-immutable-kieserver.yaml` template file. You can extract this file from the `rhpam-7.0.0.GA-openshift-templates.zip` product deliverable file.
 
 If you want to modify the environment defined by the template file, see <<environment-immutable-modify-proc>>.
 
@@ -23,7 +23,10 @@ oc new-app -f <template-path>/rhpam70-prod-immutable-kieserver.yaml -p KIE_SERVE
 In this command line:
 +
 * Replace `<template-path>` with the path to the downloaded template file.
-* Use as many `-p PARAMETER=value` pairs as needed to set the required parameters. You can view the template file to see descriptions for all parameters.+
+* Use as many `-p PARAMETER=value` pairs as needed to set the required parameters. You can view the template file to see descriptions for all parameters.
++
+Alternatively, if you have deployed the monitoring infrastructure (see <<environment-immutable-monitoring-proc>>), use the command line that was displayed when you deployed the infrastructure and add the `-p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret` parameter.
++
 . Set the following parameters as necessary:
 ** *KIE Server Keystore Secret Name* (`KIE_SERVER_HTTPS_SECRET`): the name of the secret for {KIE_SERVER}, as created in <<secrets-kie-create-proc>>.
 ** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URL for {KIE_SERVER}. OpenShift also uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. 
@@ -42,13 +45,7 @@ In this command line:
 ** *Maven repository username* (`MAVEN_REPO_USERNAME`): The username for the Maven repository. 
 ** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The username for the Maven repository. 
 + 
-. If you want to use Smart Router, set the parameter:
-+ 
-** *KIE Server Smart Router Service* (`KIE_SERVER_ROUTER_SERVICE`): The OpenShift service name for the Smart Router.
-. If you want to use {CENTRAL} Montoring, set the parameters:
-** *KIE Server Monitor Service* (`KIE_SERVER_MONITOR_SERVICE`): The OpenShift service name for {CENTRAL} Montioring.
-** *KIE Server Monitor User* (`KIE_SERVER_MONITOR_USER`): The username for {CENTRAL} Monitoring. ??? HOW DO I SET USERNAME/PASSWORD IT WHEN CONFIGURING MONITORING
-** *KIE Server Monitor Password* (`KIE_SERVER_MONITOR_PWD`): The password for {CENTRAL} Monitoring.
+. If you want to use {Central} Monitoring or Smart Router, set the parameters that were displayed in the sample command line after you deployed the monitoring infrastructure (see <<environment-immutable-monitoring-proc>>).
 +
 . Complete the creation of the environment. Depending on the method that you are using:
 .. In the OpenShift Web UI, click *Create*.

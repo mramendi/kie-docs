@@ -20,7 +20,6 @@ include::product-assembly_pam-on-openshift/environment-immutable-con.adoc[levelo
 include::product-assembly_pam-on-openshift/environment-immutable-monitoring-proc.adoc[leveloffset=+2]
 include::product-assembly_pam-on-openshift/environment-immutable-source-extract-proc.adoc[leveloffset=+2]
 include::product-assembly_pam-on-openshift/environment-immutable-server-proc.adoc[leveloffset=+2]
-include::product-assembly_pam-on-openshift/environment-immutable-monitoring-modify-proc.adoc[leveloffset=+2]
 include::product-assembly_pam-on-openshift/environment-immutable-modify-proc.adoc[leveloffset=+2]
 // Versioning info
 include::product-shared-docs/versioning-information.adoc[]

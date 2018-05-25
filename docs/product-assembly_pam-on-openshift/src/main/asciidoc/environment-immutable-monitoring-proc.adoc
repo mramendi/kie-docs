@@ -3,10 +3,7 @@
 
 If you want to use {CENTRAL} Monitoring and Smart Router for an environment with immutable servers, you must deploy them before deploying any {KIE_SERVERS}. If you do not want to use these components, skip this procedure.
 
-To deploy {CENTRAL} Monitoring and Smart Router for an environment with immutable servers, use the `rhpam70-prod-immutable-monitor.yaml` template file. You can download this file from `{URL_BASE_GITHUB_PAM}/templates`.
-
-If you want to modify the environment defined by the template file, see <<environment-immutable-monitoring-modify-proc>>.
-
+To deploy {CENTRAL} Monitoring and Smart Router for an environment with immutable servers, use the `rhpam70-prod-immutable-monitor.yaml` template file. You can extract this file from the `rhpam-7.0.0.GA-openshift-templates.zip` product deliverable file.
 
 .Procedure
 
@@ -38,3 +35,4 @@ You can also set other parameters as necessary.
 . Complete the creation of the environment. Depending on the method that you are using:
 .. In the OpenShift Web UI, click *Create*.
 .. Complete and run the command line.
+. Record the suggested command line that is displayed. This command line includes the parameters that you must set when deploying the immutable servers.

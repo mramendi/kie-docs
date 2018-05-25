@@ -2,10 +2,11 @@
 = Deploying a managed environment
 
 Deploy a managed environment using one of the following template files:
+
 * `rhpam70-sit.yaml` if you need to use minimal resources and do not need high-availability configuration for {CENTRAL} Monitoring and Smart Router
 * `rhpam70-prod.yaml` if you need high-availability configuration for {CENTRAL} Monitoring and Smart Router
 +
-Download the template from `{URL_BASE_GITHUB_PAM}/templates`.
+You can extract the template files from the `rhpam-7.0.0.GA-openshift-templates.zip` product deliverable file.
 
 If you want to modify the environment defined by the template file, see <<environment-managed-modify-proc>>.
 
@@ -17,12 +18,13 @@ If you want to modify the environment defined by the template file, see <<enviro
 +
 [subs="verbatim,macros"]
 ----
-oc new-app -f <template-file-name> -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret 
+oc new-app -f <template-file-name> -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p MAVEN_REPO_URL=<maven-repo-url>
 ----
 +
 In this command line:
 +
-* Replace `<template-file name>` with the full pathname of the template file that you have modified.
+* Replace `<template-file-name>` with the full pathname of the template file that you have modified.
+* Replace `<maven-repo-url>` with the a URL for a Maven repository where the necessary KJAR files are available. 
 * Use as many `-p PARAMETER=value` pairs as needed to set the required parameters. You can view the template file to see descriptions for all parameters.
 +
 . Set the following parameters as necessary:

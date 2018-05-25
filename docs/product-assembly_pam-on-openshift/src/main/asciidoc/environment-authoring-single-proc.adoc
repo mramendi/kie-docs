@@ -1,19 +1,19 @@
 [id='environment-authoring-single-proc']
 = Deploying a single authoring environment
 
-To deploy a single authoring environment, use the `rhpam-70-authoring.yaml` template file. You can download this file from `{URL_BASE_GITHUB_PAM}/templates`.
+To deploy a single authoring environment, use the `rhpam-70-authoring.yaml` template file. You can extract this file from the `rhpam-7.0.0.GA-openshift-templates.zip` product deliverable file.
 
 If you want to modify the environment defined by the template file, see <<environment-authoring-single-modify-proc>>.
 
 .Procedure
 
 . Use one of the following methods to deploy the template:
-.. In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the `rhpam-70-authoring.yaml` file. In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
+.. In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the `rhpam70-authoring.yaml` file. In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
 .. To use the OpenShift command line console, prepare the following command line:
 +
 [subs="verbatim,macros"]
 ----
-oc new-app -f <template-path>/rhpam-70-authoring.yaml -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret 
+oc new-app -f <template-path>/rhpam70-authoring.yaml -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret 
 ----
 +
 In this command line:
