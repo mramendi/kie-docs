@@ -9,8 +9,8 @@ include::product-shared-docs/document-attributes.adoc[]
 include::product-shared-docs/author-group.adoc[]
 
 // Purpose statement for the assembly
-As a system engineer, you can deploy a {PRODUCT} immutable server environment on {OPENSHIFT}.
-to provide an infrastructure to execute processes and other business assets. You can use.
+As a system engineer, you can deploy a {PRODUCT} immutable server environment on {OPENSHIFT}
+to provide an infrastructure to execute processes and other business assets. You can use
 standard integration tools to manage the immutable {KIE_SERVER} image. You can create new server images
 to add and update processes.
 
