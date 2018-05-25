@@ -17,4 +17,4 @@ Replace:
 * `bcHost` with the host on which {CENTRAL} is running
 * `MySpace` with the name of the {CENTRAL} space in which the project is located
 * `MyProject` with the name of the project
-. Upload the source code to another git repository for the S2I build.
+. Upload the source code to another Git repository for the S2I build.

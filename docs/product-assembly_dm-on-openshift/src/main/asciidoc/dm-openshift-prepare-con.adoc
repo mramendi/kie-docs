@@ -5,7 +5,7 @@ Before deploying {PRODUCT} in your OpenShift environment, you need to complete s
 ifdef::DM[decision services or for other decision services]
 ifdef::PAM[processes or for other processes.]
  
-
+ifdef::DM[]
 .Prerequisites
 
 * At least four gigabytes of memory are available in the OpenShift environment.
@@ -14,3 +14,5 @@ ifdef::PAM[processes or for other processes.]
 * If you intend to scale any of the {CENTRAL} or {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
 +
 IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.   
+endif::DM[]
+ 

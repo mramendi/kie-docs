@@ -9,7 +9,17 @@ include::product-shared-docs/document-attributes.adoc[]
 include::product-shared-docs/author-group.adoc[]
 
 // Purpose statement for the assembly
-This document describes how to deploy a {PRODUCT} {PRODUCT_VERSION} authoring environment on {OPENSHIFT}
+As a system engineer, you can deploy a {PRODUCT} authoring environment on {OPENSHIFT} to provide a platform for development of processes and other business assets.
+
+.Prerequisites
+
+* At least four gigabytes of memory are available in the OpenShift environment.
+* The OpenShift project for the deployment is created.
+* You have logged in to the project using the OpenShift web console and using the `oc` command.
+* If you intend to scale any of the {CENTRAL} or {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
++
+IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.   
+
 
 include::product-assembly_pam-on-openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
 include::product-assembly_dm-on-openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
