@@ -5,7 +5,7 @@ You can deploy the {PLANNER} Employee Rostering starter application to an OpenSh
 
 .Preparing deployment files
 . Unzip the add-ons distribution (`{PRODUCT_FILE}-add-ons.zip`).
-. Unzip the employee rostering zip file (for example, `rhpam-7.0-employee-rostering.zip`) that is extracted from the add-ons archive.
+. Unzip the employee rostering zip file (`rhpam-7.0-employee-rostering.zip`) that is extracted from the add-ons archive.
 +
 [NOTE]
 ====

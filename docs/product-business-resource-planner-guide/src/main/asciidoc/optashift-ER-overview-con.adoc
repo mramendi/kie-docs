@@ -35,7 +35,7 @@ image::optashift-rostering/optaSkillList.png[]
 * Edit skill names by clicking the *Edit Skill* icon (pencil shape).
 * Delete skills by clicking the *Delete Skill* icon (trashcan shape).
 
-NOTE: Within each tetant, skill names must be unique.  Skills can not be deleted when they are associated with an employee or spot.
+NOTE: Within each tenant, skill names must be unique.  Skills can not be deleted when they are associated with an employee or spot.
 
 .Spots
 Spots refer to the various positions at the business. For a diner, spots include the bar, the bussing stations, the front counter, the various kitchen stations, the serving areas, and the office. For each spot, you can select one or more required skills from the list that you entered in the Skills tab. The following figure shows a sample list of spots and skills for the factory tenant example:
@@ -69,7 +69,7 @@ image::optashift-rostering/optaEmployeeList.png[]
 * Edit employee names and associated skills by clicking the *Edit Employee* icon (pencil shape).
 * Delete employees by clicking the *Delete Employee* icon (trashcan shape).
 
-NOTE: Employee names must be unique for each tenant.  Employees can not be deleted when they are associated with an employee roster.
+NOTE: Within each tenant, employee names must be unique.  Employees can not be deleted when they are associated with an employee roster.
 
 .Spot Roster
 The Spot Roster is a table of all shifts (time slots) during which the business is open and all spots that must be manned during each shift.  Each shift is represented by a rectangle at the intersection of a spot (row) and time span (column).
