@@ -26,7 +26,8 @@ Edit the `rhpam70-authoring-ha.yaml` template file to make any of the following 
 ** `MySQL service`
 ** `MySQL deployment config`
 ** `MySQL persistent volume claim`
-NOTE: The standard {KIE_SERVER} image includes drivers for MySQL (also works for MariaDB) and PostgreSQL external database servers.
+
+NOTE: The standard {KIE_SERVER} image includes drivers for MySQL and PostgreSQL external database servers.
 
 * If you want to change the number of replicas initially created for {CENTRAL}, on the line below the comment `## Replicas for Business Central`, change the number of replicas to the desired value.
 

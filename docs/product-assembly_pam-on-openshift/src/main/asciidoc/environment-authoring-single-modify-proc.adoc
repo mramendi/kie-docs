@@ -6,7 +6,7 @@ By default, the single authoring template uses the H2 database with permanent st
 include::modifytemplate-intro.adoc[]
 
 .Procedure
-Edit the `rhpam70-authoring-ha.yaml` template file to make any of the following changes as necessary.
+Edit the `rhpam70-authoring.yaml` template file to make any of the following changes as necessary.
 
 * If you want to use MySQL instead of the H2 database, you need to replace several blocks of the file, marked with comments from `BEGIN` to `END`, with blocks from the `rhpam70-kieserver-mysql.yaml` file that are also marked with comments. You also need to remove several other blocks and to add blocks in designated locations:
 
@@ -33,4 +33,5 @@ Edit the `rhpam70-authoring-ha.yaml` template file to make any of the following 
 ** `H2 persistent volume claim`
 ** `H2 volume mount`
 ** `H2 volume settings`
-NOTE: The standard {KIE_SERVER} image includes drivers for MySQL (also works for MariaDB) and PostgreSQL external database servers.
+
+NOTE: The standard {KIE_SERVER} image includes drivers for MySQL and PostgreSQL external database servers.

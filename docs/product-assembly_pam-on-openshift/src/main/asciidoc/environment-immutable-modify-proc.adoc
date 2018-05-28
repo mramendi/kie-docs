@@ -22,4 +22,5 @@ include::modifytemplate-intro.adoc[]
 ** `PostgreSQL service`
 ** `PostgreSQL deployment config`
 ** `PostgreSQL persistent volume claim`
-NOTE: The standard {KIE_SERVER} image includes drivers for MySQL (also works for MariaDB) and PostgreSQL external database servers.
+
+NOTE: The standard {KIE_SERVER} image includes drivers for MySQL and PostgreSQL external database servers.
