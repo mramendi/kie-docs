@@ -1,6 +1,5 @@
 [[_phreak]]
 = PHREAK Algorithm
-:imagesdir: ..
 
 
 Drools 6 introduces a new algorithm, that attempts to address some of the core issues of RETE.

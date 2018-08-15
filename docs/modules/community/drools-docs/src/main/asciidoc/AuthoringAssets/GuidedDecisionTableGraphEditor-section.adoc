@@ -1,6 +1,5 @@
 [[_drools.guideddecisiontablegrapheditor]]
 = Guided Decision Table Graphs
-:imagesdir: ..
 
 Whilst it is possible to author single Guided Decision Tables it is also possible to author a graph of related tables where an action of one may provide a potential match for a condition of another. In this scenario the tables are said to be related.
 

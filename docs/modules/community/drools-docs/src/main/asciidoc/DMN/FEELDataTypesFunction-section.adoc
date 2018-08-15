@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_function]
 = Functions
-:imagesdir: ..
 
 FEEL allows the creation of functions through function literals (or anonymous functions). For example, the following
 FEEL expression creates a function that adds the parameters `a` and `b` and returns the result:

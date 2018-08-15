@@ -1,5 +1,4 @@
 = Streams Support
-:imagesdir: ..
 
 
 Most CEP use cases have to deal with streams of events.

@@ -1,6 +1,5 @@
 [[_drools.guidedscorecardeditor]]
 = Scorecards
-:imagesdir: ..
 
 
 A scorecard is a graphical representation of a formula used to calculate an overall score.

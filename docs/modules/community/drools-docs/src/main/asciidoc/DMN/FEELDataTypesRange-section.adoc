@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_range]
 = Ranges (or Intervals)
-:imagesdir: ..
 
 FEEL allows the creation of ranges, also known as intervals, through `range literals`. A `range` in FEEL is a
 value that defines a lower and an upper bound, where either can be open or closed. The syntax of a range is defined

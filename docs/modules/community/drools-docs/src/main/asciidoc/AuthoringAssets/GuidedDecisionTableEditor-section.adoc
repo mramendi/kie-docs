@@ -1,6 +1,5 @@
 [[_drools.guideddecisiontableeditor]]
 = Guided Decision Tables
-:imagesdir: ..
 
 The Guided Decision Table editor supports authoring decision tables. Rule attributes, meta-data, conditions and actions can be defined in a tabular format thus facilitating rapid entry of large sets of related rules. Web-based decision table rules are compiled into DRL like all other rule assets.
 

@@ -1,7 +1,6 @@
 
 [[_droolsreleasenoteschapter]]
 = Release Notes
-:imagesdir: .
 
 include::ReleaseNotes/ReleaseNotesDrools.7.9.0.Final-section.adoc[leveloffset=+1]
 

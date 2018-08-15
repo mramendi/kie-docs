@@ -1,6 +1,5 @@
 [[_drools.guidedruleeditor]]
 = Business rules with the guided editor
-:imagesdir: ..
 
 
 Guided Rules are authored with a UI to control and prompt user input based on knowledge of the object model.

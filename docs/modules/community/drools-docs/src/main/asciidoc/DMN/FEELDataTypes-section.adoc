@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes]
 = Data Types
-:imagesdir: ..
 
 FEEL explicitly defines several built-in data types:
 

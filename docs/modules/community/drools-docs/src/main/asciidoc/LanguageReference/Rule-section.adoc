@@ -1,5 +1,4 @@
 = Rule
-:imagesdir: ..
 
 .rule
 image::LanguageReference/rule.png[align="center"]

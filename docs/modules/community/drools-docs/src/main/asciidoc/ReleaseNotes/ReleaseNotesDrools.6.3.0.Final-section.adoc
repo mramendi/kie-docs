@@ -1,6 +1,5 @@
 [[_drools.releasenotesdrools.6.3.0]]
 = What is New and Noteworthy in Drools 6.3.0
-:imagesdir: ..
 
 == Browsing graphs of objects with OOPath
 

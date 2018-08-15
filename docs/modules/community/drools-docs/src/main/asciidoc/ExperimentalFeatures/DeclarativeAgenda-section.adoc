@@ -1,5 +1,4 @@
 = Declarative Agenda
-:imagesdir: ..
 
 [WARNING]
 ====

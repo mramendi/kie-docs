@@ -1,5 +1,4 @@
 = Type Declaration
-:imagesdir: ..
 
 .meta_data
 image::LanguageReference/meta_data.png[align="center"]

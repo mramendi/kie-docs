@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_number]
 = Numbers
-:imagesdir: ..
 
 Numbers in FEEL are based on the http://ieeexplore.ieee.org/document/4610935/[IEEE 754-2008] Decimal 128
 format, with 34 digits of precision. Internally they are represented in Java as

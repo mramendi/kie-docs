@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_time]
 = Time
-:imagesdir: ..
 
 FEEL does not have time literals, but the built-in `time()` function can be used to construct
 time values. For example,

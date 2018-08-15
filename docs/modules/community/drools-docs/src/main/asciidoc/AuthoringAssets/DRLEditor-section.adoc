@@ -1,6 +1,5 @@
 [[_drools.drleditor]]
 = DRL file
-:imagesdir: ..
 
 
 DRL files are stored as text - they can be managed in Drools Workbench.

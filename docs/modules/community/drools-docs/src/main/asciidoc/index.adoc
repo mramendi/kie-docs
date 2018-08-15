@@ -4,7 +4,6 @@ include::{shared-dir}/_artifacts/document-attributes.adoc[]
 = {PRODUCT} Documentation
 The {PRODUCT} Team <https://www.drools.org/community/team.html>
 :doctype: book
-:imagesdir: .
 :title-logo-image: image:shared/images/droolsExpertLogo.png[align="center"]
 :toc: left
 :toclevels: 3

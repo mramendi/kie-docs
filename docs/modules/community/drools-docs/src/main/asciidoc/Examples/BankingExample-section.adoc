@@ -1,5 +1,4 @@
 = Banking Tutorial
-:imagesdir: ..
 
 ----
 Name: BankingTutorial

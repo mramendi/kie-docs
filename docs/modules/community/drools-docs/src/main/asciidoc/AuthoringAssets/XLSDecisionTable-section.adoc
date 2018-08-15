@@ -1,6 +1,5 @@
 [[_drools.xlsdecisiontable]]
 = Spreadsheet decision tables
-:imagesdir: ..
 
 
 Multiple rules can be stored in a spreadsheet. Each row in the spreadsheet is a rule, and each column is either a condition, an action, or an option. The Drools Expert section of this document discusses spreadsheet decision tables in more detail.
