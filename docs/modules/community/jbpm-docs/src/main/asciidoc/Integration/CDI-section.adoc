@@ -1,6 +1,5 @@
 
 = CDI
-:imagesdir: ..
 
 == Overview
 

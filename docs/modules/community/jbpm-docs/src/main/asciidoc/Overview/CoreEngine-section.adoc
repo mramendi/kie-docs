@@ -1,5 +1,4 @@
 = Core Engine
-:imagesdir: ..
 
 
 The core jBPM engine is the heart of the project.

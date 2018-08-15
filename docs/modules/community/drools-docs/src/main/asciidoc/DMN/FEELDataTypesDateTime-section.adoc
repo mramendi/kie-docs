@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_datetime]
 = Date and Time
-:imagesdir: ..
 
 FEEL does not have _date and time_ literals, but the built-in `date and time()` function can be used to construct
 _date and time_ values. For example,

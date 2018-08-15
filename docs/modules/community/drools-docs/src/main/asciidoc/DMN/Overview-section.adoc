@@ -1,6 +1,5 @@
 [#decision_model_and_notation_overview]
 = Decision Model and Notation
-:imagesdir: ..
 
 The http://www.omg.org/spec/DMN/1.1[*Decision Model and Notation*], or *DMN*, is a relatively new standard by the http://www.omg.org/[*Object Management Group*], or *OMG*.
 It bridges the gap between business models and executable implementations by defining a high level language with a common notation that is readily understandable

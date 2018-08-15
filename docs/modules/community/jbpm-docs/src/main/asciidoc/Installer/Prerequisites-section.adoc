@@ -1,5 +1,4 @@
 = Prerequisites
-:imagesdir: ..
 
 
 This script assumes you have Java JDK 1.8+ (set as JAVA_HOME), and Ant 1.9+ installed.

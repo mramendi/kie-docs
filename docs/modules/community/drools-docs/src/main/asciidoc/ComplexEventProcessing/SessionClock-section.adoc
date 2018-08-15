@@ -1,5 +1,4 @@
 = Session Clock
-:imagesdir: ..
 
 
 Reasoning over time requires a reference clock.

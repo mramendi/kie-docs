@@ -1,5 +1,4 @@
 = 10-Minute Tutorial using the Workbench
-:imagesdir: ..
 
 
 Open up the process management console:

@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_list]
 = Lists
-:imagesdir: ..
 
 Lists in FEEL are represented by a comma separated list of values enclosed in square brackets. For instance:
 ```

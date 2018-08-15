@@ -1,6 +1,5 @@
 [[_taskmanagement]]
 = Tasks Management
-:imagesdir: ..
 
 This chapter introduces the Task Management screens and the its integration with the Form Modeller component to allow users to work on their assigned tasks.
 You can find the source code of these screens https://github.com/kiegroup/jbpm-wb/tree/master/jbpm-wb-human-tasks[here].

@@ -1,6 +1,5 @@
 [#feel_language_reference]
 = FEEL Language Reference
-:imagesdir: ..
 
 Friendly Enough Expression Language (FEEL) is an expression language defined by the DMN specification. Any user capable of authoring expressions in a spreadsheet can easily write FEEL expressions.
 

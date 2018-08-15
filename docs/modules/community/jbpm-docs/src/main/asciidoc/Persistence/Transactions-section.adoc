@@ -1,5 +1,4 @@
 = Transactions
-:imagesdir: ..
 
 The jBPM engine supports JTA transactions.
 It also supports local transactions _only_ when using Spring.

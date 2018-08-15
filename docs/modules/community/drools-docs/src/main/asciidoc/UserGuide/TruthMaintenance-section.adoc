@@ -1,5 +1,4 @@
 = Truth Maintenance with Logical Objects
-:imagesdir: ..
 
 == Overview
 

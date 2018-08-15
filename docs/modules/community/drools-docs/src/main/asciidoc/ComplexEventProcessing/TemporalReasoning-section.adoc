@@ -1,5 +1,4 @@
 = Temporal Reasoning
-:imagesdir: ..
 
 
 Temporal reasoning is another requirement of any CEP system.

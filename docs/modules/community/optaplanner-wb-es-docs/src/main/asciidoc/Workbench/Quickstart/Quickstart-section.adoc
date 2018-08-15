@@ -1,5 +1,4 @@
 = Cloud Balancing Example Setup
-:imagesdir: ../..
 
 This chapter describes the process of setting up environment to run
 https://docs.jboss.org/optaplanner/release/latestFinal/optaplanner-docs/html_single/#cloudBalancingProblemDescription[Cloud Balancing]

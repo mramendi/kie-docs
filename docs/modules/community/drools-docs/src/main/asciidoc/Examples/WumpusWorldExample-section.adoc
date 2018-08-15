@@ -1,5 +1,4 @@
 = Wumpus World
-:imagesdir: ..
 
 [source]
 ----

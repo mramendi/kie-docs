@@ -1,6 +1,5 @@
 [[_sect_overview_bam]]
 = Business Activity Monitoring
-:imagesdir: ..
 
 As of version 6.0, jBPM comes with a full-featured BAM tooling which allows non-technical users to visually compose business dashboards.
 With this brand new module, to develop business activity monitoring and reporting solutions on top of jBPM has never been so easy! 

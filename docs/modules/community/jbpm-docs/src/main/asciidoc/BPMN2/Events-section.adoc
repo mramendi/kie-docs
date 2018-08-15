@@ -1,6 +1,5 @@
 
 = Events
-:imagesdir: ..
 
 == Start event
 

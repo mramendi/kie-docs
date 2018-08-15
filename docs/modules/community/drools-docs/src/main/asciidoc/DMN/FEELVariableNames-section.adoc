@@ -1,6 +1,5 @@
 [#feel_semantics_names]
 = Variable and Function Names
-:imagesdir: ..
 
 One of the biggest differences between FEEL and traditional languages is the support for
 spaces and a few special characters as part of variable and function names in FEEL.

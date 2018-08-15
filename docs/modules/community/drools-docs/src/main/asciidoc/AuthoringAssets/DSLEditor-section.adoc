@@ -1,6 +1,5 @@
 [[_drools.dsleditor]]
 = DSL editor
-:imagesdir: ..
 
 
 The DSL editor allows DSL Sentences to be authored.

@@ -1,7 +1,6 @@
 [[_drools.releasenotesdrools.7.9.0]]
 
 = What is New and Noteworthy in Drools 7.9
-:imagesdir: ..
 
 == Moved ExecutableCommand to KIE public API
 

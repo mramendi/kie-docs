@@ -1,5 +1,4 @@
 = Event Semantics
-:imagesdir: ..
 
 
 An _event_ is a fact that present a few distinguishing characteristics:

@@ -1,7 +1,6 @@
 
 [[_sect_designer_customization]]
 = Designer Customization
-:imagesdir: ..
 
 Designer includes a number of system properties which you can use to customize its functionality. In this section we
 go through each one and explain what it does and how you can use it.

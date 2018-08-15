@@ -1,5 +1,4 @@
 = jBPM Workbench
-:imagesdir: ..
 
 The Workbench web-based application covers the complete life cycle of BPM projects starting at authoring phase, going through implementation, execution and monitoring.
 It combines a series web-based tools into one configurable solution to manage all assets and runtime data needed for the business solution.

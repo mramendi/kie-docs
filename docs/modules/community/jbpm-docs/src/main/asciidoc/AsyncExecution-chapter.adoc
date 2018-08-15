@@ -1,6 +1,5 @@
 [[_jbpmasyncexecution]]
 = Concurrency and asynchronous execution
-:imagesdir: .
 
 == Concurrency
 

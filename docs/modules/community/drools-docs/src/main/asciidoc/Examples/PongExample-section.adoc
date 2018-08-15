@@ -1,5 +1,4 @@
 = Pong
-:imagesdir: ..
 
 
 A Conversion for the classic game Pong.

@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_boolean]
 = Boolean Values
-:imagesdir: ..
 
 FEEL uses the literal symbols `true` and `false` to represent boolean values.
 

@@ -1,5 +1,4 @@
 = Overview
-:imagesdir: ..
 
 
 image::Overview/Overview.png[]

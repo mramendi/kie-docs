@@ -1,6 +1,5 @@
 [#dmn_support_in_drools]
 = DMN Support in Drools
-:imagesdir: ..
 
 Drools 7.0 includes full runtime support for DMN 1.1 models at *conformance level 3*. It does not, however, include any editor for DMN models. Editors for DMN models will be
 added to the platform in the near future, but meanwhile we recommend looking at one of several DMN compliant editors available in the market.

@@ -1,5 +1,4 @@
 = Fibonacci Example
-:imagesdir: ..
 
 ----
 Name: Fibonacci 

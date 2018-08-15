@@ -1,5 +1,4 @@
 = 10-Minute Tutorial using Eclipse
-:imagesdir: ..
 
 
 The http://download.jboss.org/jbpm/videos/7.0.0.Final_eclipse_getting_started.swf[following screencast] gives an overview of

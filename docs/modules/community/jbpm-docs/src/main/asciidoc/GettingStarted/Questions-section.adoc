@@ -1,5 +1,4 @@
 = What to do if I encounter problems or have questions?
-:imagesdir: ..
 
 
 You can always contact the jBPM community for assistance.

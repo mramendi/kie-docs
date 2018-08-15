@@ -1,5 +1,4 @@
 = Pet Store Example
-:imagesdir: ..
 
 [source]
 ----

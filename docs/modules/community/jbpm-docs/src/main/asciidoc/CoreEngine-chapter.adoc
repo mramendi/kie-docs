@@ -1,6 +1,5 @@
 [[jBPMCoreEngine]]
 = Core Engine API
-:imagesdir: .
 
 include::CoreEngine/Overview-section.adoc[leveloffset=+1]
 include::CoreEngine/KieBase-section.adoc[leveloffset=+1]

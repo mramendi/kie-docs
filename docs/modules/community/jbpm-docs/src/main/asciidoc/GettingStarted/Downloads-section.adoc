@@ -1,5 +1,4 @@
 = Downloads
-:imagesdir: ..
 
 
 Latest releases can be downloaded from https://jbpm.org/download/download.html[jBPM.org].

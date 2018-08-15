@@ -1,7 +1,6 @@
 [[_jbpmreleasenotes730]]
 
 = New and Noteworthy in jBPM 7.3.0
-:imagesdir: ..
 
 The following features were added to jBPM 7.3
 

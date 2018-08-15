@@ -1,5 +1,4 @@
 = Process Management
-:imagesdir: ..
 
 
 Business processes and all its related runtime information can be managed through the jBPM Workbench.

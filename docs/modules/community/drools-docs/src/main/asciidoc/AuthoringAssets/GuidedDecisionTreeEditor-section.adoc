@@ -1,6 +1,5 @@
 [[_drools.guideddecisiontreeeditor]]
 = Guided Decision Trees
-:imagesdir: ..
 
 
 The Workbench supports authoring of simple Decision Trees.

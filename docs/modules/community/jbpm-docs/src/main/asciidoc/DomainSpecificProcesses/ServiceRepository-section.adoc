@@ -1,6 +1,5 @@
 
 = Service Repository
-:imagesdir: ..
 
 A service repository allows easy discovery and use of existing services, as well as contributing new services to the jBPM community.
 It should allow public access via URL as well as allow users to locally build and update it as they see fit. The content

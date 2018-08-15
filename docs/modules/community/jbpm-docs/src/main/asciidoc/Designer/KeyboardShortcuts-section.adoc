@@ -1,7 +1,6 @@
 
 [[_sect_designer_customization]]
 = Designer keyboard shortcuts overview
-:imagesdir: ..
 
 Designer includes a number of keyboard shortcuts you can use as an alternative
  to the mouse when modeling your business processes. These include some core functionalities

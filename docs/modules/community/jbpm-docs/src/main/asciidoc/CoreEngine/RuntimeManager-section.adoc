@@ -1,6 +1,5 @@
 
 = RuntimeManager
-:imagesdir: ..
 
 == Overview
 

@@ -1,6 +1,5 @@
 [[_jbpmgettingstarted]]
 = Getting Started
-:imagesdir: ..
 
 We recommend taking a look at our http://jbpm.org/learn/gettingStarted.html[Getting Start] page as a starting point for getting a full environment up and running with all the components you need in order to design, deploy, run and monitor a process.
 Alternatively, you can also take a quick tutorial that will guide you through most of the components using a simple example available in the

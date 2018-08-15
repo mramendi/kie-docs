@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_daystimeduration]
 = Days and Time Duration
-:imagesdir: ..
 
 FEEL does not have _days and time duration_ literals, but the built-in `duration()` function can be used to construct
 _days and time duration_ values. For example,

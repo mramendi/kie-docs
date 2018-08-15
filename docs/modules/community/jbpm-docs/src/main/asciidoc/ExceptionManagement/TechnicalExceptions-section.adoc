@@ -1,5 +1,4 @@
 = Technical Exceptions
-:imagesdir: ..
 
 == Introduction
 

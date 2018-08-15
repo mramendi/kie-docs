@@ -1,6 +1,5 @@
 [#feel_semantics_datatypes_date]
 = Dates
-:imagesdir: ..
 
 FEEL does not have date literals, but the built-in `date()` function can be used to construct
 date values. For example,

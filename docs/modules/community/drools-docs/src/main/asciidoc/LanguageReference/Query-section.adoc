@@ -1,6 +1,5 @@
 [[_querysection]]
 = Query
-:imagesdir: ..
 
 .query
 image::LanguageReference/query.png[align="center"]

@@ -1,5 +1,4 @@
 = Honest Politician Example
-:imagesdir: ..
 
 [source]
 ----

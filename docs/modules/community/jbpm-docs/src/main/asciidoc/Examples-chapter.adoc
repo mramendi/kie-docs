@@ -1,6 +1,5 @@
 [[JBPMExamples]]
 = Examples
-:imagesdir: .
 
 == Introduction
 

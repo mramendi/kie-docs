@@ -2,7 +2,6 @@
 [[_sect_bam_processdashboard]]
 = Process & Task Reports
 
-:imagesdir: ..
 
 You can access to the reports accessing *Process Reports* and *Task Reports*                     main menu:
 

@@ -1,5 +1,4 @@
 = Demo Setup
-:imagesdir: ..
 
 
 The easiest way to get started is to simply run the installation script to install the demo setup.
