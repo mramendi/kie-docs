@@ -29,7 +29,7 @@ within your package.
 . After all data objects are in place, return to the *Model* tab of the test scenarios designer and define the *GIVEN* and *EXPECT* data for the scenario, based on the available data objects.
 +
 .The test scenarios designer
-image::test-scenario-edit.png[]
+image::project-data/test-scenario-edit.png[]
 +
 The *GIVEN* section defines the input facts for the test. For example, if an `Underage` rule in the project declines loan applications for applicants under the age of 21, then the *GIVEN* facts in the test scenario could be `Applicant` with `age` set to some integer less than 21.
 +
@@ -38,7 +38,7 @@ The *EXPECT* section defines the expected results based on the *GIVEN* input fac
 . Optionally, add a *CALL METHOD* and any *globals* to the test scenario:
 +
 --
-* *CALL METHOD:* Use this to invoke a method from another fact when the rule execution is initiated. Click *CALL METHOD*, select a fact, and click image:6187.png[] to select the method to invoke. You can invoke any Java class methods (such as methods from an ArrayList) from the Java library or from a JAR that was imported for the project (if applicable).
+* *CALL METHOD:* Use this to invoke a method from another fact when the rule execution is initiated. Click *CALL METHOD*, select a fact, and click image:project-data/6187.png[] to select the method to invoke. You can invoke any Java class methods (such as methods from an ArrayList) from the Java library or from a JAR that was imported for the project (if applicable).
 * *globals:* Use this to add any global variables in the project that you want to validate in the test scenario. Click *globals* to select the variable to be validated, and then in the test scenarios designer, click the global name and define field values to be applied to the global variable. If no global variables are available, then they must be created as new assets in {CENTRAL}. Global variables are named objects that are visible to the {ENGINE} but are different from the objects for facts. Changes in the object of a global do not trigger the re-evaluation of rules.
 --
 +

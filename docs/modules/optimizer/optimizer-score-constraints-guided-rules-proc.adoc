@@ -5,7 +5,7 @@
 To solve an optimization problem, you need to define score constraints that evaluate your solution.
 {PLANNER} integrates with the guided rules designer and provides score modifiers, which are used by the engine during the solving process.
 
-Score modifiers can be accessed in the action selector (image:5686.png[]) of the *THEN* (right-hand side) section of a rule, provided the planning solution is defined within the project.
+Score modifiers can be accessed in the action selector (image:optimizer/5686.png[]) of the *THEN* (right-hand side) section of a rule, provided the planning solution is defined within the project.
 
 Use the following procedure to create a new score constraint using the guided rules designer.
 
@@ -20,7 +20,7 @@ You have defined a https://docs.jboss.org/optaplanner/release/latest/optaplanner
 . Select *Guided Rule* from the drop-down menu.
 . In the *Create new Guided Rule* window, enter a name for the rule and click *Ok*.
 . If you want to extend a score constraint you have already created, click the drop-down box next to *EXTEND* and select the rule from the list.
-. Click the plus icon (image:5686.png[]) on the right side of the `WHEN` section to add a condition.
+. Click the plus icon (image:optimizer/5686.png[]) on the right side of the `WHEN` section to add a condition.
 . Once the action is selected, Business Optimizer score input appears on the *THEN* (right-hand side) section of the rule.
 +
 The following {PLANNER} actions are available in the guided rules designer:
@@ -31,6 +31,6 @@ The following {PLANNER} actions are available in the guided rules designer:
 . Insert the value of a constraint into the text input.
 . Click *Validate* to verify the correctness of the inserted value.
 
-image::guided-rule-editor-rhs.png[align="center"]
+image::optimizer/guided-rule-editor-rhs.png[align="center"]
 
 For more information about using the guided rule designer, see {URL_GUIDED_RULES}[_{GUIDED_RULES}_]. 

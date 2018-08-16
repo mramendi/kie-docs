@@ -9,12 +9,12 @@ Case milestones can be configured to start automatically when a case instance st
 * A case definition has been created.
 
 .Procedure 
-. In the process designer, click image:3898.png[right arrows] to open the *Object Library* on the left of the design palette.
+. In the process designer, click image:cases/3898.png[right arrows] to open the *Object Library* on the left of the design palette.
 . From the list, open *Milestone* and drag the `Milestone` object onto the palette.
 +
-image::milestone.png[Milestone]
+image::cases/milestone.png[Milestone]
 +
-. With the milestone node selected, click image:3897.png[left arrows] to open the *Properties* panel on the right.
+. With the milestone node selected, click image:cases/3897.png[left arrows] to open the *Properties* panel on the right.
 . Open *Assignments* to add a completion condition. Milestones include a `condition` parameter by default. 
 . To define the completion condition to for the milestone, select `Constant` from the list. The condition must be provided using the Drools syntax. 
 . Configure the `Adhoc autostart` property. 
@@ -27,6 +27,6 @@ image::milestone.png[Milestone]
 .. Set the `Signal Scope` property to `Process Instance`.
 .. Open the `SignalRef` expression editor and type the name of the milestone to be triggered.
 +
-image::milestone-trigger-expression.png[Milestone trigger expression]
+image::cases/milestone-trigger-expression.png[Milestone trigger expression]
 +
 Click *Ok* to finish.

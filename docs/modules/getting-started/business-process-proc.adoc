@@ -37,8 +37,8 @@ The mortgage validation business process determines whether or not the new appli
 * *Package*: Select `com.myspace.mortgage_app`
 
 . Click *Ok*. The diagram editor opens.
-. In the upper-right corner, click the *Diagram properties* image:diagram_properties.png[] icon.
-. Scroll down and expand *Process Data* and click image:btn_plus.png[] in the *Process Variables* section.
+. In the upper-right corner, click the *Diagram properties* image:getting-started/diagram_properties.png[] icon.
+. Scroll down and expand *Process Data* and click image:getting-started/btn_plus.png[] in the *Process Variables* section.
 . Enter the following values:
 +
 * *Name*: `application`.
@@ -51,23 +51,23 @@ This section describes how to create an outgoing connection from the start event
 
 {PRODUCT} contains a predefined selection of node types to simplify business process creation. The predefined node panel is located on the left side of the diagram editor. Click on the various node icons to reveal the available options as shown here.
 
-image:node_panel.png[]
+image:getting-started/node_panel.png[]
 
 .Procedure
 . Click on the start event and create an outgoing connection from the start event to an exclusive gateway.
 +
-image::exclusive-gateway.png[]
+image::getting-started/exclusive-gateway.png[]
 
 . Create an outgoing connection from the exclusive gateway to a business rule task.
 +
-image::create-task.png[]
+image::getting-started/create-task.png[]
 
 +
-image::bus-rule-task.png[]
+image::getting-started/bus-rule-task.png[]
 
 . Click on the task and enter `Validation` in the *Name* field of the *Diagram properties* panel.
 . Expand *Implementation/Execution*, select *validation* in the *Rule Flow Group* field.
-. Scroll down and expand the *Data Assignments* section and click image:btn_assign.png[] next to *Assignments*.
+. Scroll down and expand the *Data Assignments* section and click image:getting-started/btn_assign.png[] next to *Assignments*.
 . In the *Validation Data I/O* window, click *Add* to create the following assignments:
 ** Data Inputs and Assignments:
 *** *Name*: `Application`
@@ -78,7 +78,7 @@ image::bus-rule-task.png[]
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
 *** *Target*: `Application`
 +
-image::val-data-io.png[]
+image::getting-started/val-data-io.png[]
 
 . Click *Save*.
 . In the diagram editor, click *Save*, then *Save*, to confirm your changes.
@@ -89,15 +89,15 @@ This section describes how to define the data that will determine whether the ap
 .Procedure
 . Click on the *Validation* task and create an outgoing connection to an exclusive gateway.
 +
-image::exclusive_gateway.png[]
+image::getting-started/exclusive_gateway.png[]
 
 . Create an outgoing connection from the exclusive gateway to a new Business Rule Task.
 +
-image::new_br_task.png[]
+image::getting-started/new_br_task.png[]
 
 . Click the created connection.
 +
-image::created-connection.png[]
+image::getting-started/created-connection.png[]
 
 . In the *Diagram Properties* panel, input `Invalid` in the *Name* field.
 . Expand *Implementation/Execution*, select and enter:
@@ -111,13 +111,13 @@ image::created-connection.png[]
 * *Rule Flow Group*: `error`
 . Create an outgoing connection from the *retractValidation* task to a user task.
 +
-image::user_task.png[]
+image::getting-started/user_task.png[]
 
 . Click the user task and in the *Diagram Properties* panel, input `Correct Data` in the *Name* field.
 . Expand *Implementation/Execution* and enter:
 * *Task Name*: `CorrectData`
 * *Groups*: `broker`
-. Click image:btn_assign.png[] next to *Assignments*. In the *Correct Data Data I/O* window, click *Add* to create the following assignments:
+. Click image:getting-started/btn_assign.png[] next to *Assignments*. In the *Correct Data Data I/O* window, click *Add* to create the following assignments:
 ** Input assignment:
 *** *Name*: `application`
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
@@ -130,7 +130,7 @@ image::user_task.png[]
 . In the diagram editor, click *Save*, then *Save*, to confirm your changes.
 . Connect the *Correct Data* back to the first exclusive gateway. Your workflow should look similar to the following diagram:
 +
-image::workflow1.png[]
+image::getting-started/workflow1.png[]
 
 === Calculating the mortgage
 The mortgage calculation business process determines the applicant's mortgage borrowing limit.
@@ -138,18 +138,18 @@ The mortgage calculation business process determines the applicant's mortgage bo
 .Procedure
 . Return to the second exclusive gateway. Create an outgoing connection to a Business Rule Task.
 +
-image::second-gateway.png[]
+image::getting-started/second-gateway.png[]
 
 . Click the created connection.
 +
-image::drools-valid.png[]
+image::getting-started/drools-valid.png[]
 
 . Click the user task and in the *Diagram Properties* panel, input `Valid` in the *Name* field.
 . Expand *Implementation/Execution*, select and enter:
 * *Condition Expression*: `not ValidationErrorDO()`
 * *Condition Expression Language*: `drools`
 . Expand *Implementation/Execution*, select and enter `mortgagecalculation` in the *Rule Flow Group* field.
-. Click image:btn_assign.png[] next to *Assignments*. In the *Mortgage Calculation Data I/O* window, click *Add* to create the following assignments:
+. Click image:getting-started/btn_assign.png[] next to *Assignments*. In the *Mortgage Calculation Data I/O* window, click *Add* to create the following assignments:
 ** Input assignment:
 *** *Name*: `application`
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
@@ -161,9 +161,9 @@ image::drools-valid.png[]
 . Click *Save*.
 
 . Click the created Business Rule Task and in the *Diagram Properties* panel, input `Mortgage Calculation` in the *Name* field.
-. Click on an empty space on the canvas, scroll down, expand *Process Data*, and click image:btn_plus.png[] next to *Process Variables*. Enter the following values:
+. Click on an empty space on the canvas, scroll down, expand *Process Data*, and click image:getting-started/btn_plus.png[] next to *Process Variables*. Enter the following values:
 +
-image::new-proc-var.png[]
+image::getting-started/new-proc-var.png[]
 
 +
 * *Name*: `inlimit`
@@ -171,13 +171,13 @@ image::new-proc-var.png[]
 
 . Create an outgoing connection from the *Mortgage Calculation* task to a user task.
 +
-image::qualify-task.png[]
+image::getting-started/qualify-task.png[]
 
 . Click on the user task and enter `Qualify` in the *Name* field.
 . Expand *Implementation/Execution* and enter:
 * *Task Name*: `Qualify`
 * *Groups*: `approver`
-* Click image:btn_assign.png[] next to *Assignments*. In the *Qualify Data I/O* window, click *Add* to create the following assignments:
+* Click image:getting-started/btn_assign.png[] next to *Assignments*. In the *Qualify Data I/O* window, click *Add* to create the following assignments:
 ** Input assignments:
 *** *Name*: `application`
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
@@ -204,14 +204,14 @@ image::qualify-task.png[]
 return inlimit;
 ----
 +
-image::inlimit-true.png[]
+image::getting-started/inlimit-true.png[]
 
 . Click the user task and define:
 +
 * *Name*: `Final Approval`
 * *Task Name*: `finalapproval`
 * *Groups*: `manager`
-. Click image:btn_assign.png[] next to *Assignments*. In the *Final Approval Data I/O* window, click *Add* to create the following assignments:
+. Click image:getting-started/btn_assign.png[] next to *Assignments*. In the *Final Approval Data I/O* window, click *Add* to create the following assignments:
 ** Input assignments:
 *** *Name*: `Application`
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
@@ -231,13 +231,13 @@ The increasing the down payment business process checks to see if the applicant 
 .Procedure
 . Create an outgoing connection from the *Final Approval* user task and connect it to an end event.
 +
-image::create_end.png[]
+image::getting-started/create_end.png[]
 +
-image::end-event.png[]
+image::getting-started/end-event.png[]
 
 . Return to the exclusive gateway that connects with the *Final Approval* user task. Create a second outgoing connection and connect it to a new user task.
 +
-image::new-task.png[]
+image::getting-started/new-task.png[]
 
 . Click the connection, name it `Not in Limit` and define the following Java expression:
 +
@@ -246,21 +246,21 @@ image::new-task.png[]
 return !inlimit;
 ----
 +
-image::not-inlimit.png[]
+image::getting-started/not-inlimit.png[]
 
-. Click on an empty space on the canvas, scroll down, expand *Process Data*, and click image:btn_plus.png[] next to *Process Variables*. Enter the following values:
+. Click on an empty space on the canvas, scroll down, expand *Process Data*, and click image:getting-started/btn_plus.png[] next to *Process Variables*. Enter the following values:
 +
 * *Name*: `incdownpayment`
 * *Data Type*: `Boolean`
 +
-image::proc-var-new.png[]
+image::getting-started/proc-var-new.png[]
 
 . Click the created user task and define:
 +
 * *Name*: `Increase Down Payment`
 * *Task Name*: `incdown`
 * *Groups*: `broker`
-* Click image:btn_assign.png[] next to *Assignments*. In the *Increase Down Payment Data I/O* window, click *Add* to create the following assignments:
+* Click image:getting-started/btn_assign.png[] next to *Assignments*. In the *Increase Down Payment Data I/O* window, click *Add* to create the following assignments:
 ** Input assignments:
 *** *Name*: `Application`
 *** *Data Type*: `Application [com.myspace.mortgage_app]`
@@ -278,7 +278,7 @@ image::proc-var-new.png[]
 .. Click on *Exclusive* and drag it to the right of the *Increase Down Payment* task.
 . Click on the *Create Sequence Flow* icon to create a connection to the exclusive gateway.
 +
-image::connection_icon2.png[]
+image::getting-started/connection_icon2.png[]
 
 . Create an outgoing connection from the exclusive gateway and connect it to an end event. Then, click the connection, name it `Down payment not increased`, and create the following Java expression:
 +
@@ -296,4 +296,4 @@ return incdownpayment;
 
 The final version of the business process:
 
-image::finalBP.png[]
+image::getting-started/finalBP.png[]

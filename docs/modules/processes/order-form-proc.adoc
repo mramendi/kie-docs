@@ -13,6 +13,6 @@ Customize the pizza order form to ensure ease of use by defining the field types
 . Click *Ok*.
 . Sort the remaining rows by dragging them to reflect the following order:
 +
-image::pizza-order.png[]
+image::processes/pizza-order.png[]
 
 . Click *Save*, then *Save*, to confirm your changes.

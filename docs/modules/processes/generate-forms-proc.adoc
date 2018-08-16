@@ -13,4 +13,4 @@ You have created the pizza orders business process. For further information, see
 . Click the following menu option and select *Generate all forms*.
 
 +
-image::auto-form-create.png[]
+image::processes/auto-form-create.png[]

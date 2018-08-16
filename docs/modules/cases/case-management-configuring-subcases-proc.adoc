@@ -5,18 +5,18 @@ You can add subcases to your case definition using the process designer. A subca
 
 The `Sub Case` asset can be found in the case definition process designer *Object Library* under *Cases*:
 
-image::case-management-subcase-designer.png[]
+image::cases/case-management-subcase-designer.png[]
 
 .Prerequisite 
 
 * A case management process has been created and configured in {CENTRAL}.
 
 .Procedure 
-. With your case process open in the process designer, click image:3898.png[] to open the *Object Library* on the left side of the design palette. 
+. With your case process open in the process designer, click image:cases/3898.png[] to open the *Object Library* on the left side of the design palette. 
 . Click *Cases* to open the object menu and drag the `Sub Case` data object on to the design palette and add it to the case definition.
-. Click image:3897.png[] to open the *Properties* panel and click *Assignments* to open the data assignment editor. Alternatively, click image:dataio.png[] on the `Sub Case` node in the design palette. The *Sub Case Data I/O* window supports the following set of input parameters to properly configure and start the subcase:
+. Click image:cases/3897.png[] to open the *Properties* panel and click *Assignments* to open the data assignment editor. Alternatively, click image:cases/dataio.png[] on the `Sub Case` node in the design palette. The *Sub Case Data I/O* window supports the following set of input parameters to properly configure and start the subcase:
 +
-image::case-management-subcase-dataio.png[]
+image::cases/case-management-subcase-dataio.png[]
 +
 Independent:: 
 Optional indicator that tells the engine if the case instance is independent. If it is independent, the main case instance will not wait for its completion. This property is `false` by default.

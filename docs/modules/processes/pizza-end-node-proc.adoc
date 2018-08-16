@@ -5,8 +5,8 @@ Add an end node to signify the end of the pizza order process.
 .Procedure
 . Create an outgoing connection from the *Confirmation* user task and connect it to an end event.
 +
-image::create-end-order.png[]
+image::processes/create-end-order.png[]
 +
-image::pizza-proc.png[]
+image::processes/pizza-proc.png[]
 
 . In the diagram editor, click *Save*, then *Save*, to confirm your changes.

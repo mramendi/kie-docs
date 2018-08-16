@@ -8,7 +8,7 @@ You can signal a process instance from {CENTRAL}.
 
 .Procedure
 . In {CENTRAL}, click *Menu* -> *Manage* -> *Process Instances*.
-. Locate the required process instance, click the image:dotdotdotbutton.png[Actions] button and select *Signal* from the drop-down menu.
+. Locate the required process instance, click the image:processes/dotdotdotbutton.png[Actions] button and select *Signal* from the drop-down menu.
 . Fill the following fields:
 * *Signal Name*: corresponds to the `SignalRef` or `MessageRef` attributes of the signal. This field is required.
 +

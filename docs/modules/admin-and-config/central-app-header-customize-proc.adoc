@@ -21,7 +21,7 @@ ifdef::DM[]
 `_EAP_HOME_/standalone/deployments/decision-central.war/banner/banner.html`
 endif::[]  
  file in a text editor.
-. Replace `logo.svg` in the `<img>` tag with the file name of your new image:
+. Replace `logo.svg` in the `<img>` tag with the file name of your new image:admin-and-config/
 +
 [source]
 ----

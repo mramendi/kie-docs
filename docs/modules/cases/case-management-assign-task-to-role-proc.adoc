@@ -9,14 +9,14 @@ Use the following procedure to assign a case role to a task in the case definiti
 A case definition has been created with case roles configured at the case definition level. For more information about creating case roles, see xref:case-management-creating-roles-proc-case-management-design[Creating case roles].
 
 .Procedure 
-. Click image:3898.png[] to open the *Object Library* on the left side of the process designer.
+. Click image:cases/3898.png[] to open the *Object Library* on the left side of the process designer.
 . Open the *Tasks* list and drag the user or service task you want to add to your case definition on to the process design palette. 
-. With the task node selected, click image:3897.png[] to open the *Properties* panel on the right side of the designer.
+. With the task node selected, click image:cases/3897.png[] to open the *Properties* panel on the right side of the designer.
 . Click the field next to the *Actors* property and type the name of the role to which the task will be assigned. You can use the *Groups* property in the same way to for group assignments.
 +
 For example, in the IT Orders sample project, the `Manager approval` user task is assigned to the `manager` role:
 +
-image::case-management-task-assignment.png[]
+image::cases/case-management-task-assignment.png[]
 +
 In this example, after the `Prepare hardware spec` user task has been completed the user assigned to the `manager` role will receive the `Manager approval` task in their *Task Inbox* in {CENTRAL}.
 
