@@ -9,15 +9,15 @@
     <version>7.11.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.drools</groupId>
-  <artifactId>drools-docs</artifactId>
+  <groupId>org.jbpm</groupId>
+  <artifactId>jbpm-docs</artifactId>
   <packaging>jar</packaging>
 
-  <name>KIE :: Documentation :: Drools</name>
-  <description>Drools Documentation</description>
+  <name>KIE :: Documentation :: jBPM</name>
+  <description>jBPM Documentation</description>
 
   <properties>
-    <java.module.name>org.drools.docs</java.module.name>
+    <java.module.name>org.jbpm.docs</java.module.name>
   </properties>
 
   <build>
@@ -35,7 +35,7 @@
         <groupId>org.asciidoctor</groupId>
         <artifactId>asciidoctor-maven-plugin</artifactId>
 	<configuration>
-          <imagesDir>${project.basedir}/../../../_images</imagesDir>
+          <imagesDir>${project.basedir}/../../_images</imagesDir>
         </configuration>
       </plugin>
       <plugin>
@@ -51,7 +51,7 @@
           <artifactId>asciidoctor-maven-plugin</artifactId>
           <configuration>
             <attributes>
-              <html-googleAnalyticsId>UA-62250098-1</html-googleAnalyticsId>
+              <html-googleAnalyticsId>UA-54014107-1</html-googleAnalyticsId>
             </attributes>
           </configuration>
         </plugin>

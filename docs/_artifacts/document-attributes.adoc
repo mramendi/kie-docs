@@ -25,10 +25,10 @@ include::document-attributes-op.adoc[]
 endif::OP[]
 
 //For community source includes
-:drools-dir: community/drools-docs/src/main/asciidoc
-:jbpm-dir: community/jbpm-docs/src/main/asciidoc
-:op-dir: community/optaplanner-wb-es-docs/src/main/asciidoc
-:shared-dir: community/shared-kie-docs/src/main/asciidoc
+:drools-dir: doc-content/drools-docs/src/main/asciidoc
+:jbpm-dir: doc-content/jbpm-docs/src/main/asciidoc
+:op-dir: doc-content/optaplanner-wb-es-docs/src/main/asciidoc
+:shared-dir: doc-content/shared-kie-docs/src/main/asciidoc
 
 // For copyright
 :YEAR: 2018
