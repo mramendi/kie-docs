@@ -16,45 +16,45 @@ As a system administrator, you can configure your {WEBLOGIC} for Red Hat {KIE_SE
 * An {WEBLOGIC} instance version 12.2.1.3.0 or later is installed. For complete installation instructions, see the http://www.oracle.com/technetwork/middleware/weblogic/documentation/index.html[{WEBLOGIC} product page].
 * You have access to the {WEBLOGIC} Administration Console, usually at `http://<HOST>:7001/console`.
 
-include::admin-and-config/kie-server-con.adoc[leveloffset=+1]
+include::{product-dir}/admin-and-config/kie-server-con.adoc[leveloffset=+1]
 
-include::weblogic/wls-con.adoc[leveloffset=+1]
+include::{product-dir}/weblogic/wls-con.adoc[leveloffset=+1]
 
-include::weblogic/wls-install-start-proc.adoc[leveloffset=+1]
+include::{product-dir}/weblogic/wls-install-start-proc.adoc[leveloffset=+1]
 
-include::weblogic/wls-configure-proc.adoc[leveloffset=+1]
+include::{product-dir}/weblogic/wls-configure-proc.adoc[leveloffset=+1]
 
-include::weblogic/wls-users-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/wls-users-set-proc.adoc[leveloffset=+2]
 
 ifdef::PAM[]
-include::weblogic/wls-data-source-create-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/wls-data-source-create-proc.adoc[leveloffset=+2]
 endif::PAM[]
 
-include::weblogic/wls-was-jms-configure-con.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/wls-was-jms-configure-con.adoc[leveloffset=+2]
 
-include::weblogic/wls-jms-create-proc.adoc[leveloffset=+3]
+include::{product-dir}/weblogic/wls-jms-create-proc.adoc[leveloffset=+3]
 
-include::weblogic/wls-jms-create-module-proc.adoc[leveloffset=+3]
+include::{product-dir}/weblogic/wls-jms-create-module-proc.adoc[leveloffset=+3]
 
-include::weblogic/wls-jms-factory-create-proc.adoc[leveloffset=+3]
+include::{product-dir}/weblogic/wls-jms-factory-create-proc.adoc[leveloffset=+3]
 
-include::installation/jms-factories-ref.adoc[leveloffset=+4]
+include::{product-dir}/installation/jms-factories-ref.adoc[leveloffset=+4]
 
-include::weblogic/wls-jms-queues-create-proc.adoc[leveloffset=+3]
+include::{product-dir}/weblogic/wls-jms-queues-create-proc.adoc[leveloffset=+3]
 
-include::installation/jms-queues-ref.adoc[leveloffset=+4]
+include::{product-dir}/installation/jms-queues-ref.adoc[leveloffset=+4]
 
-include::weblogic/kie-server-wls-environment-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/kie-server-wls-environment-set-proc.adoc[leveloffset=+2]
 
-include::weblogic/wls-stop-start-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/wls-stop-start-proc.adoc[leveloffset=+2]
 
-include::weblogic/kie-server-wls-install-proc.adoc[leveloffset=+1]
+include::{product-dir}/weblogic/kie-server-wls-install-proc.adoc[leveloffset=+1]
 
-include::weblogic/controller-wls-install-proc.adoc[leveloffset=+1]
+include::{product-dir}/weblogic/controller-wls-install-proc.adoc[leveloffset=+1]
 
-include::weblogic/controller-wls-was-environment-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/controller-wls-was-environment-set-proc.adoc[leveloffset=+2]
 
-include::websphere/controller-wls-was-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/controller-wls-was-verify-proc.adoc[leveloffset=+2]
 
 == Next steps
 * {URL_GETTING_STARTED_DECISION_SERVICE}[_{GETTING_STARTED_DECISION_SERVICE}_]

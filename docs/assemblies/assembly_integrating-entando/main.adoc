@@ -19,15 +19,15 @@ As a business processes developer, you can integrate the business assets you hav
 * A project with business assets has been created in {PRODUCT} and deployed to a {KIE_SERVER}. For instructions, see {URL_PACKAGING_DEPLOYING_PROJECT}[_{PACKAGING_DEPLOYING_PROJECT}_].
 
 // Modules - concepts, procedures, refs, etc.
-include::integration/entando-con.adoc[leveloffset=+1]
+include::{product-dir}/integration/entando-con.adoc[leveloffset=+1]
 
-include::integration/entando-pages-con.adoc[leveloffset=+2]
+include::{product-dir}/integration/entando-pages-con.adoc[leveloffset=+2]
 
-include::integration/entando-widgets-con.adoc[leveloffset=+2]
+include::{product-dir}/integration/entando-widgets-con.adoc[leveloffset=+2]
 
-include::integration/entando-integrating-proc.adoc[leveloffset=+1]
+include::{product-dir}/integration/entando-integrating-proc.adoc[leveloffset=+1]
 
-include::integration/entando-app-building-proc.adoc[leveloffset=+1]
+include::{product-dir}/integration/entando-app-building-proc.adoc[leveloffset=+1]
 
 ////
 == Next steps

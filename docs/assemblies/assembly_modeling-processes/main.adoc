@@ -19,33 +19,33 @@ As a business analyst or business rules developer, you can use {CENTRAL} to crea
 
 // Modules - concepts, procedures, refs, etc.
 
-include::processes/new-pizza-project-proc.adoc[leveloffset=+1]
+include::{product-dir}/processes/new-pizza-project-proc.adoc[leveloffset=+1]
 
-include::processes/creating-new-users-proc.adoc[leveloffset=+1]
+include::{product-dir}/processes/creating-new-users-proc.adoc[leveloffset=+1]
 
-include::processes/pizza-business-process-con.adoc[leveloffset=+1]
+include::{product-dir}/processes/pizza-business-process-con.adoc[leveloffset=+1]
 
-include::processes/pizza-orders-process-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/pizza-orders-process-proc.adoc[leveloffset=+2]
 
-include::processes/pizza-orders-task-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/pizza-orders-task-proc.adoc[leveloffset=+2]
 
-include::processes/pizza-confirm-task-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/pizza-confirm-task-proc.adoc[leveloffset=+2]
 
-include::processes/pizza-end-node-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/pizza-end-node-proc.adoc[leveloffset=+2]
 
-include::processes/generate-forms-proc.adoc[leveloffset=+1]
+include::{product-dir}/processes/generate-forms-proc.adoc[leveloffset=+1]
 
-include::processes/edit-forms-con.adoc[leveloffset=+1]
+include::{product-dir}/processes/edit-forms-con.adoc[leveloffset=+1]
 
-include::processes/order-form-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/order-form-proc.adoc[leveloffset=+2]
 
-include::processes/process-form-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/process-form-proc.adoc[leveloffset=+2]
 
-include::processes/confirmation-form-proc.adoc[leveloffset=+2]
+include::{product-dir}/processes/confirmation-form-proc.adoc[leveloffset=+2]
 
-include::processes/deploy-proc.adoc[leveloffset=+1]
+include::{product-dir}/processes/deploy-proc.adoc[leveloffset=+1]
 
-include::processes/executing-order-proc.adoc[leveloffset=+1]
+include::{product-dir}/processes/executing-order-proc.adoc[leveloffset=+1]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]

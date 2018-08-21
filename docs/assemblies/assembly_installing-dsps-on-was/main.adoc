@@ -17,54 +17,54 @@ As a system administrator, you can configure your {WEBSPHERE} for Red Hat {KIE_S
 * You have access to the WebSphere Integrated Solutions Console, usually at `http://<HOST>:9060/ibm/console`.
 
 // Modules - concepts, procedures, refs, etc.
-include::admin-and-config/kie-server-con.adoc[leveloffset=+1]
+include::{product-dir}/admin-and-config/kie-server-con.adoc[leveloffset=+1]
 
-include::websphere/was-con.adoc[leveloffset=+1]
+include::{product-dir}/websphere/was-con.adoc[leveloffset=+1]
 
-include::websphere/was-install-start-proc.adoc[leveloffset=+1]
+include::{product-dir}/websphere/was-install-start-proc.adoc[leveloffset=+1]
 
-include::websphere/was-configure-proc.adoc[leveloffset=+1]
+include::{product-dir}/websphere/was-configure-proc.adoc[leveloffset=+1]
 
-include::websphere/was-security-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/was-security-set-proc.adoc[leveloffset=+2]
 
 ifdef::PAM[]
-include::websphere/was-data-source-create-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/was-data-source-create-proc.adoc[leveloffset=+2]
 endif::PAM[]
 
-include::weblogic/wls-was-jms-configure-con.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/wls-was-jms-configure-con.adoc[leveloffset=+2]
 
-include::websphere/was-jms-bus-proc.adoc[leveloffset=+3]
+include::{product-dir}/websphere/was-jms-bus-proc.adoc[leveloffset=+3]
 
-include::websphere/was-jms-factory-create-proc.adoc[leveloffset=+3]
+include::{product-dir}/websphere/was-jms-factory-create-proc.adoc[leveloffset=+3]
 
-include::installation/jms-factories-ref.adoc[leveloffset=+4]
+include::{product-dir}/installation/jms-factories-ref.adoc[leveloffset=+4]
 
-include::websphere/was-jms-queues-create-proc.adoc[leveloffset=+3]
+include::{product-dir}/websphere/was-jms-queues-create-proc.adoc[leveloffset=+3]
 
-include::installation/jms-queues-ref.adoc[leveloffset=+4]
+include::{product-dir}/installation/jms-queues-ref.adoc[leveloffset=+4]
 
-include::websphere/was-jms-activation-proc.adoc[leveloffset=+3]
+include::{product-dir}/websphere/was-jms-activation-proc.adoc[leveloffset=+3]
 
-include::installation/jms-activation-ref.adoc[leveloffset=+4]
+include::{product-dir}/installation/jms-activation-ref.adoc[leveloffset=+4]
 
-include::websphere/kie-server-was-environment-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/kie-server-was-environment-set-proc.adoc[leveloffset=+2]
 
-include::websphere/was-stop-start-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/was-stop-start-proc.adoc[leveloffset=+2]
 
-include::websphere/kie-server-was-install-proc.adoc[leveloffset=+1]
+include::{product-dir}/websphere/kie-server-was-install-proc.adoc[leveloffset=+1]
 
-include::websphere/kie-server-was-mapping-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/kie-server-was-mapping-proc.adoc[leveloffset=+2]
 
-include::websphere/kie-server-was-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/kie-server-was-verify-proc.adoc[leveloffset=+2]
 
-include::websphere/controller-was-install-proc.adoc[leveloffset=+1]
+include::{product-dir}/websphere/controller-was-install-proc.adoc[leveloffset=+1]
 
-include::weblogic/controller-wls-was-environment-set-proc.adoc[leveloffset=+2]
+include::{product-dir}/weblogic/controller-wls-was-environment-set-proc.adoc[leveloffset=+2]
 
 :context: controller-was-install
-include::websphere/kie-server-was-mapping-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/kie-server-was-mapping-proc.adoc[leveloffset=+2]
 
-include::websphere/controller-wls-was-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/websphere/controller-wls-was-verify-proc.adoc[leveloffset=+2]
 
 
 == Next steps

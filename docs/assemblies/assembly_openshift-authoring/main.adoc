@@ -22,18 +22,18 @@ As a system engineer, you can deploy a {PRODUCT} authoring environment on {OPENS
 IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.
 
 
-include::openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
-include::openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
-include::openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
-include::openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
-include::openshift/secrets-central-create-proc.adoc[leveloffset=+2]
-include::openshift/glusterfs-reconfig-proc.adoc[leveloffset=+2]
-include::openshift/environment-authoring-con.adoc[leveloffset=+1]
-include::openshift/environment-authoring-single-proc.adoc[leveloffset=+2]
-include::openshift/environment-authoring-ha-proc.adoc[leveloffset=+2]
-include::openshift/environment-authoring-single-modify-proc.adoc[leveloffset=+2]
-include::openshift/environment-authoring-ha-modify-proc.adoc[leveloffset=+2]
-include::openshift/externaldb-build-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
+include::{product-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
+include::{product-dir}/openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/glusterfs-reconfig-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/environment-authoring-con.adoc[leveloffset=+1]
+include::{product-dir}/openshift/environment-authoring-single-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/environment-authoring-ha-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/environment-authoring-single-modify-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/environment-authoring-ha-modify-proc.adoc[leveloffset=+2]
+include::{product-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]

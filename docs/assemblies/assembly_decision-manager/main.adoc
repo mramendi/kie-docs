@@ -20,35 +20,35 @@ As a business analyst or rules developer, you can use {CENTRAL} in {PRODUCT} to 
 
 // Modules - concepts, procedures, refs, etc.
 
-include::getting-started/new-project-proc.adoc[leveloffset=+1]
+include::{product-dir}/getting-started/new-project-proc.adoc[leveloffset=+1]
 
-include::project-data/data-objects-con.adoc[leveloffset=+1]
+include::{product-dir}/project-data/data-objects-con.adoc[leveloffset=+1]
 
 For more information about creating data objects, see {URL_GUIDED_RULES}#data-objects-create-proc_guided-rules["Creating data objects"] in _{GUIDED_DECISION_TABLES}_.
 
-include::getting-started/data-model-proc.adoc[leveloffset=+2]
+include::{product-dir}/getting-started/data-model-proc.adoc[leveloffset=+2]
 
-//include::getting-started/business-process-proc.adoc[leveloffset=+1]
+//include::{product-dir}/getting-started/business-process-proc.adoc[leveloffset=+1]
 
-include::rules/guided-rules-con.adoc[leveloffset=+1]
+include::{product-dir}/rules/guided-rules-con.adoc[leveloffset=+1]
 
-include::getting-started/business-rules-proc.adoc[leveloffset=+2]
+include::{product-dir}/getting-started/business-rules-proc.adoc[leveloffset=+2]
 
-include::rules/guided-decision-tables-con.adoc[leveloffset=+1]
+include::{product-dir}/rules/guided-decision-tables-con.adoc[leveloffset=+1]
 
-include::getting-started/decision-tables-proc.adoc[leveloffset=+2]
+include::{product-dir}/getting-started/decision-tables-proc.adoc[leveloffset=+2]
 
-//include::getting-started/process-forms-proc.adoc[leveloffset=+1]
+//include::{product-dir}/getting-started/process-forms-proc.adoc[leveloffset=+1]
 
-//include::getting-started/deploying-application-proc.adoc[leveloffset=+1]
+//include::{product-dir}/getting-started/deploying-application-proc.adoc[leveloffset=+1]
 
-//include::getting-started/executing-proc.adoc[leveloffset=+1]
+//include::{product-dir}/getting-started/executing-proc.adoc[leveloffset=+1]
 
-//include::getting-started/monitoring-proc.adoc[leveloffset=+1]
+//include::{product-dir}/getting-started/monitoring-proc.adoc[leveloffset=+1]
 
-include::getting-started/test-speed-scenarios-con.adoc[leveloffset=+1]
+include::{product-dir}/getting-started/test-speed-scenarios-con.adoc[leveloffset=+1]
 
-include::getting-started/test-app-proc.adoc[leveloffset=+2]
+include::{product-dir}/getting-started/test-app-proc.adoc[leveloffset=+2]
 
 == Additional resources
 * {URL_GUIDED_RULES}[_{GUIDED_RULES}_]

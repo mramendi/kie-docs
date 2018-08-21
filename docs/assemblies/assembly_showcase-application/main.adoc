@@ -27,21 +27,21 @@ Use this document to install the Showcase application and start a case instance 
 * The IT Orders sample project has been imported in {CENTRAL} and deployed to the {KIE_SERVER}. For more information about case management, see {URL_GETTING_STARTED_CASES}[_{GETTING_STARTED_CASES}_].
 
 // modules
-include::cases/case-management-overview-con.adoc[leveloffset=+1]
-// include::cases/case-management-case-file.con.adoc[leveloffset=+1]
-include::cases/case-management-showcase-application-con.adoc[leveloffset=+1]
-include::cases/case-management-install-and-login-to-showcase-proc.adoc[leveloffset=+1]
-include::cases/case-management-roles-con.adoc[leveloffset=+1]
-include::cases/case-management-adhoc-con.adoc[leveloffset=+1]
-include::cases/case-management-dynamic-tasks-proc.adoc[leveloffset=+1]
-include::cases/case-management-starting-itorders-in-showcase-proc.adoc[leveloffset=+1]
-include::cases/case-management-showcase-completing-itorders-proc.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-overview-con.adoc[leveloffset=+1]
+// include::{product-dir}/cases/case-management-case-file.con.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-showcase-application-con.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-install-and-login-to-showcase-proc.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-roles-con.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-adhoc-con.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-dynamic-tasks-proc.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-starting-itorders-in-showcase-proc.adoc[leveloffset=+1]
+include::{product-dir}/cases/case-management-showcase-completing-itorders-proc.adoc[leveloffset=+1]
 
-//include::cases/case-management-comments-con.adoc[leveloffset=+1]
-// include::cases/case-management-itorders-adding-a-comment-proc.adoc[leveloffset=+2]
-// include::cases/case-management-close-case-proc.adoc[leveloffset=+1]
-// include::cases/case-management-cancel-case-proc.adoc[leveloffset=+1]
-// include::cases/case-management-destroy-case-proc.adoc[leveloffset=+1]
+//include::{product-dir}/cases/case-management-comments-con.adoc[leveloffset=+1]
+// include::{product-dir}/cases/case-management-itorders-adding-a-comment-proc.adoc[leveloffset=+2]
+// include::{product-dir}/cases/case-management-close-case-proc.adoc[leveloffset=+1]
+// include::{product-dir}/cases/case-management-cancel-case-proc.adoc[leveloffset=+1]
+// include::{product-dir}/cases/case-management-destroy-case-proc.adoc[leveloffset=+1]
 
 
 include::_artifacts/versioning-information.adoc[]

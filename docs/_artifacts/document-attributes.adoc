@@ -24,11 +24,12 @@ ifdef::OP[]
 include::document-attributes-op.adoc[]
 endif::OP[]
 
-//For community source includes
-:drools-dir: doc-content/drools-docs/src/main/asciidoc
-:jbpm-dir: doc-content/jbpm-docs/src/main/asciidoc
-:op-dir: doc-content/optaplanner-wb-es-docs/src/main/asciidoc
-:shared-dir: doc-content/shared-kie-docs/src/main/asciidoc
+//For source includes
+:drools-dir: drools-docs/src/main/asciidoc
+:jbpm-dir: jbpm-docs/src/main/asciidoc
+:op-dir: optaplanner-wb-es-docs/src/main/asciidoc
+:shared-dir: shared-kie-docs/src/main/asciidoc
+:product-dir: product-docs
 
 // For copyright
 :YEAR: 2018

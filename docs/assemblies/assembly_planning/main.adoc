@@ -14,7 +14,7 @@ As a system administrator, you have several options for installing {PRODUCT}.
 
 
 // Modules - concepts, procedures, refs, etc.
-//include::product-installation-guide/rules-authoring-assets-ref.adoc[leveloffset=+1]
+//include::{product-dir}/product-installation-guide/rules-authoring-assets-ref.adoc[leveloffset=+1]
 
 == About {PRODUCT}
 ifdef::PAM[]
@@ -30,9 +30,9 @@ Business assets such as rules, decision tables, and DMN models are stored in a c
 {PRODUCT} is fully supported on OpenShift and can be installed on various platforms.
 endif::[]
 
-include::installation/components-con.adoc[leveloffset=+1]
+include::{product-dir}/installation/components-con.adoc[leveloffset=+1]
 
-//include::product-installation-guide/business-optimizer-con.adoc[leveloffset=+2]
+//include::{product-dir}/product-installation-guide/business-optimizer-con.adoc[leveloffset=+2]
 
 
 == Available installation platforms
@@ -93,7 +93,7 @@ Git is a distributed version control system. It implements revisions as commit o
 
 If you have projects in other Git repositories, you can import them into {CENTRAL} spaces.
 
-include::admin-and-config/maven-con.adoc[leveloffset=+2]
+include::{product-dir}/admin-and-config/maven-con.adoc[leveloffset=+2]
 
 == Installation environment options
 
@@ -113,7 +113,7 @@ Clustering is supported on {EAP} 7.1 and Openshift.
 //Difference between a clustered and a standalone environment. Pros and cons of each. Discuss //high availability. Clustering a Development environment vs Clustering a Production environment
 //Include a descriptions of NFS, Artemis, Elasticsearch, any other cluster-related tools.
 
-include::installation/roles-users-con.adoc[leveloffset=+1]
+include::{product-dir}/installation/roles-users-con.adoc[leveloffset=+1]
 == Integrating with Red Hat Single Sign-On
 Red Hat Single Sign-On (RH-SSO) is a single sign-on solution that you can use to secure your browser applications with your REST web services and Git access.
 

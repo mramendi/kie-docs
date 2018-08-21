@@ -16,93 +16,93 @@ As a system administrator or business rules developer, you can migrate your exis
 * {PRODUCT_OLD} 6.4 is installed and contains artifacts that you want to migrate to {PRODUCT} {PRODUCT_VERSION}.
 * {PRODUCT} {PRODUCT_VERSION} is installed on a separate instance from {PRODUCT_OLD} 6.4 (on {EAP} or other instance). For installation options, see {URL_PLANNING_INSTALL}[_{PLANNING_INSTALL}_].
 
-include::migration/migration-overview-con.adoc[leveloffset=+1]
+include::{product-dir}/migration/migration-overview-con.adoc[leveloffset=+1]
 
 ifdef::PAM[]
-include::migration/migration-assets-con.adoc[leveloffset=+1]
+include::{product-dir}/migration/migration-assets-con.adoc[leveloffset=+1]
 endif::PAM[]
 
-include::migration/migration-non-execution-server-con.adoc[leveloffset=+1]
+include::{product-dir}/migration/migration-non-execution-server-con.adoc[leveloffset=+1]
 
 :context: non-exec-server
-include::migration/migration-tool-7.0-con.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-tool-7.0-con.adoc[leveloffset=+2]
 
 :context: non-exec-server
-include::migration/migration-tool-niogit-7.0-proc.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-tool-niogit-7.0-proc.adoc[leveloffset=+3]
 
 :context: non-exec-server
-include::migration/migration-tool-repo-7.0-proc.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-tool-repo-7.0-proc.adoc[leveloffset=+3]
 
 :context: non-exec-server
-include::migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
 
 :context: non-exec-server
-include::migration/migration-update-knowledge-store-api-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-update-knowledge-store-api-proc.adoc[leveloffset=+2]
 
 :context: non-exec-server
-include::admin-and-config/rest-api-kie-store-summary-ref.adoc[leveloffset=+3]
+include::{product-dir}/admin-and-config/rest-api-kie-store-summary-ref.adoc[leveloffset=+3]
 
 :context: non-exec-server
-include::migration/migration-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-verify-proc.adoc[leveloffset=+2]
 
 :context: non-exec-server
-include::migration/migration-troubleshooting-ref.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-troubleshooting-ref.adoc[leveloffset=+3]
 
 ifdef::PAM[]
-include::migration/migration-execution-server-con.adoc[leveloffset=+1]
+include::{product-dir}/migration/migration-execution-server-con.adoc[leveloffset=+1]
 
-include::migration/migration-execution-server-prep-proc.adoc[leveloffset=+2]
-
-:context: exec-server
-include::migration/migration-tool-7.0-con.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-execution-server-prep-proc.adoc[leveloffset=+2]
 
 :context: exec-server
-include::migration/migration-tool-niogit-7.0-proc.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-tool-7.0-con.adoc[leveloffset=+2]
 
 :context: exec-server
-include::migration/migration-tool-repo-7.0-proc.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-tool-niogit-7.0-proc.adoc[leveloffset=+3]
 
 :context: exec-server
-include::migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
-
-include::migration/migration-update-remote-api-proc.adoc[leveloffset=+2]
-
-include::admin-and-config/kie-server-clients-ref.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-tool-repo-7.0-proc.adoc[leveloffset=+3]
 
 :context: exec-server
-include::migration/migration-update-knowledge-store-api-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
+
+include::{product-dir}/migration/migration-update-remote-api-proc.adoc[leveloffset=+2]
+
+include::{product-dir}/admin-and-config/kie-server-clients-ref.adoc[leveloffset=+3]
 
 :context: exec-server
-include::admin-and-config/rest-api-kie-store-summary-ref.adoc[leveloffset=+3]
-
-include::migration/migration-configure-kie-server-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-update-knowledge-store-api-proc.adoc[leveloffset=+2]
 
 :context: exec-server
-include::migration/migration-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/admin-and-config/rest-api-kie-store-summary-ref.adoc[leveloffset=+3]
+
+include::{product-dir}/migration/migration-configure-kie-server-proc.adoc[leveloffset=+2]
 
 :context: exec-server
-include::migration/migration-troubleshooting-ref.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-verify-proc.adoc[leveloffset=+2]
+
+:context: exec-server
+include::{product-dir}/migration/migration-troubleshooting-ref.adoc[leveloffset=+3]
 endif::PAM[]
 
-include::migration/migration-java-projects-con.adoc[leveloffset=+1]
+include::{product-dir}/migration/migration-java-projects-con.adoc[leveloffset=+1]
 
-include::migration/migration-java-dependencies-proc.adoc[leveloffset=+2]
-
-:context: java-projects
-include::migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-java-dependencies-proc.adoc[leveloffset=+2]
 
 :context: java-projects
-include::migration/migration-verify-proc.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-upgrade-database-proc.adoc[leveloffset=+2]
 
-include::migration/migration-other-changes-con.adoc[leveloffset=+1]
+:context: java-projects
+include::{product-dir}/migration/migration-verify-proc.adoc[leveloffset=+2]
 
-include::migration/migration-planner-changes-ref.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-other-changes-con.adoc[leveloffset=+1]
 
-include::migration/migration-planner-config-proc.adoc[leveloffset=+3]
+include::{product-dir}/migration/migration-planner-changes-ref.adoc[leveloffset=+2]
 
-include::migration/migration-api-changes-ref.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-planner-config-proc.adoc[leveloffset=+3]
 
-include::migration/migration-logic-changes-ref.adoc[leveloffset=+2]
+include::{product-dir}/migration/migration-api-changes-ref.adoc[leveloffset=+2]
+
+include::{product-dir}/migration/migration-logic-changes-ref.adoc[leveloffset=+2]
 
 == Next steps
 * {URL_GETTING_STARTED_DECISION_SERVICE}[_{GETTING_STARTED_DECISION_SERVICE}_]

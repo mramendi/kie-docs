@@ -18,8 +18,8 @@ As a business rules developer, you can test and interact with the {PLANNER} func
 * You have access to a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
 
 // Modules - concepts, procedures, refs, etc.
-include::employee-rostering/optashift-ER-openshift-deploy-proc.adoc[leveloffset=+1]
-include::employee-rostering/optashift-ER-overview-con.adoc[leveloffset=+1]
+include::{product-dir}/employee-rostering/optashift-ER-openshift-deploy-proc.adoc[leveloffset=+1]
+include::{product-dir}/employee-rostering/optashift-ER-overview-con.adoc[leveloffset=+1]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]
