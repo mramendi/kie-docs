@@ -16,16 +16,16 @@ As a system administrator, you can deploy and manage {PRODUCT} in an OpenShift e
 You must have a deployed OpenShift environment. For details, see the documentation for the OpenShift product that you use.
 
 // Modules - concepts, procedures, refs, etc.
-include::{product-dir}/openshift/dm-openshift-overview-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/dm-openshift-deploy-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/kieserver-central-deploy-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/kieserver-s2i-deploy-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/kieserver-nos2i-deploy-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/dm-openshift-manage-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/dm-openshift-overview-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/dm-openshift-deploy-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/kieserver-central-deploy-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/kieserver-s2i-deploy-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/kieserver-nos2i-deploy-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/dm-openshift-manage-con.adoc[leveloffset=+1]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]

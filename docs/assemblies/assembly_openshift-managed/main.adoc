@@ -24,16 +24,16 @@ to provide an infrastructure to execute processes and other business assets. You
 IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.
 
 
-include::{product-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/glusterfs-reconfig-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/environment-managed-con.adoc[leveloffset=+1]
-include::{product-dir}/openshift/environment-managed-deploy-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/environment-managed-modify-proc.adoc[leveloffset=+2]
-include::{product-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/imagestreams-file-install-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/glusterfs-reconfig-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/environment-managed-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/environment-managed-deploy-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/environment-managed-modify-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]

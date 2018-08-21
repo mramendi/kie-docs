@@ -19,13 +19,13 @@ As a business rules developer, you can use an IDE to build, run, and modify the 
 * An understanding of the Java language
 
 // Modules - concepts, procedures, refs, etc.
-include::{product-dir}/employee-rostering/optashift-ER-overview-con.adoc[leveloffset=+1]
-include::{product-dir}/employee-rostering/optashift-ER-building-con.adoc[leveloffset=+1]
-include::{product-dir}/employee-rostering/optashift-ER-building-commandline-proc.adoc[leveloffset=+2]
-include::{product-dir}/employee-rostering/optashift-ER-overview-source-con.adoc[leveloffset=+1]
-include::{product-dir}/employee-rostering/optashift-ER-modifying-proc.adoc[leveloffset=+1]
-include::{product-dir}/employee-rostering/optashift-ER-modifying-sample-weekend-proc.adoc[leveloffset=+2]
-include::{product-dir}/employee-rostering/optashift-ER-modifying-sample-gender-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/employee-rostering/optashift-ER-overview-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/employee-rostering/optashift-ER-building-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/employee-rostering/optashift-ER-building-commandline-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/employee-rostering/optashift-ER-overview-source-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/employee-rostering/optashift-ER-modifying-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/employee-rostering/optashift-ER-modifying-sample-weekend-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/employee-rostering/optashift-ER-modifying-sample-gender-proc.adoc[leveloffset=+2]
 
 // Versioning info
 include::_artifacts/versioning-information.adoc[]

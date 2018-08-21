@@ -15,37 +15,37 @@ This document describes how to install {PRODUCT} on a {EAP_LONG} 7.1 instance.
 .Prerequisite
 Review the information in {URL_PLANNING_INSTALL}[_{PLANNING_INSTALL}_].
 
-include::{product-dir}/installation/installing-con.adoc[leveloffset=+1]
-include::{product-dir}/installation/roles-users-con.adoc[leveloffset=+1]
-include::{product-dir}/installation/install-download-proc.adoc[leveloffset=+1]
-include::{product-dir}/installation/assembly_installing-using-installer.adoc[leveloffset=+1]
-include::{product-dir}/installation/assembly_installing-on-eap-deployable.adoc[leveloffset=+1]
-include::{product-dir}/installation/eap-ba-dm-run-proc.adoc[leveloffset=+1]
-include::{product-dir}/installation/controller-con.adoc[leveloffset=+1]
-include::{product-dir}/installation/controller-eap-install-proc.adoc[leveloffset=+2]
-include::{product-dir}/installation/controller-eap-users-create-proc.adoc[leveloffset=+3]
-include::{product-dir}/installation/controller-eap-configure-proc.adoc[leveloffset=+3]
-include::{product-dir}/installation/controller-eap-run-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/installation/installing-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/roles-users-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/install-download-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/assembly_installing-using-installer.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/assembly_installing-on-eap-deployable.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/eap-ba-dm-run-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/controller-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/controller-eap-install-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/installation/controller-eap-users-create-proc.adoc[leveloffset=+3]
+include::{enterprise-dir}/installation/controller-eap-configure-proc.adoc[leveloffset=+3]
+include::{enterprise-dir}/installation/controller-eap-run-proc.adoc[leveloffset=+2]
 
-include::{product-dir}/installation/run-dc-standalone-proc.adoc[leveloffset=+1]
-include::{product-dir}/installation/run-standalone-properties-con.adoc[leveloffset=+2]
+include::{enterprise-dir}/installation/run-dc-standalone-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/run-standalone-properties-con.adoc[leveloffset=+2]
 //== Installing and running {CENTRAL} monitoring
-include::{product-dir}/admin-and-config/maven-repo-using-con.adoc[leveloffset=+1]
-//include::{product-dir}/product-development-guide/maven-repo-downloading-proc.adoc[leveloffset=+2]
-include::{product-dir}/admin-and-config/maven-ext-repo-using-proc.adoc[leveloffset=+2]
-//include::{product-dir}/product-development-guide/maven-settings-configuration-ref.adoc[leveloffset=+2]
-include::{product-dir}/admin-and-config/maven-managing-dependencies-proc.adoc[leveloffset=+2]
-//include::{product-dir}/product-development-guide/maven-integrated-dependencies-ref.adoc[leveloffset=+2]
-//include::{product-dir}/product-development-guide/-testing-dependencies-ref.adoc[leveloffset=+2]
-include::{product-dir}/installation/git-import-proc.adoc[leveloffset=+1]
-include::{product-dir}/installation/install-testing-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/maven-repo-using-con.adoc[leveloffset=+1]
+//include::{enterprise-dir}/product-development-guide/maven-repo-downloading-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/admin-and-config/maven-ext-repo-using-proc.adoc[leveloffset=+2]
+//include::{enterprise-dir}/product-development-guide/maven-settings-configuration-ref.adoc[leveloffset=+2]
+include::{enterprise-dir}/admin-and-config/maven-managing-dependencies-proc.adoc[leveloffset=+2]
+//include::{enterprise-dir}/product-development-guide/maven-integrated-dependencies-ref.adoc[leveloffset=+2]
+//include::{enterprise-dir}/product-development-guide/-testing-dependencies-ref.adoc[leveloffset=+2]
+include::{enterprise-dir}/installation/git-import-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/install-testing-proc.adoc[leveloffset=+1]
 
 == Customizing {CENTRAL}
 You can customize the {CENTRAL} login page and application header.
 
-include::{product-dir}/admin-and-config/central-login-customize-proc.adoc[leveloffset=+2]
-include::{product-dir}/admin-and-config/central-app-header-customize-proc.adoc[leveloffset=+2]
-include::{product-dir}/installation/ldap-ssl-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/central-login-customize-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/admin-and-config/central-app-header-customize-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/installation/ldap-ssl-con.adoc[leveloffset=+1]
 
 == Additional resources
 

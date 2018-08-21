@@ -21,19 +21,19 @@ As a process administrator, you can use {CENTRAL} in {PRODUCT} to manage assets,
 
 // Modules - concepts, procedures, refs, etc.
 
-include::{product-dir}/getting-started/assets-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/assets-con.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/assets-types-ref.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/assets-types-ref.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/assets-creating-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/assets-creating-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/admin-and-config/assets-renaming-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/assets-renaming-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/admin-and-config/assets-metadata-managing-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/assets-metadata-managing-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/admin-and-config/assets-filtering-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/assets-filtering-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/admin-and-config/assets-unlocking-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/assets-unlocking-proc.adoc[leveloffset=+1]
 
 
 

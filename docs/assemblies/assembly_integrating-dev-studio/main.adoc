@@ -12,13 +12,13 @@ include::_artifacts/author-group.adoc[]
 // Purpose statement for the assembly
 As a developer, you can integrate Red Hat JBoss Developer Studio with {PRODUCT} to write complex applications and leverage code auto-completion.
 
-//include::{product-dir}/product-installation-guide/dev-studio-con.adoc[leveloffset=+1]
-include::{product-dir}/integration/dev-studio-install-proc.adoc[leveloffset=+1]
-include::{product-dir}/integration/dev-studio-plug-in-install-proc.adoc[leveloffset=+1]
-include::{product-dir}/admin-and-config/dm-server-configure-proc.adoc[leveloffset=+1]
-include::{product-dir}/integration/dev-studio-import-projects-from-git-repo-con.adoc[leveloffset=+1]
-include::{product-dir}/integration/dev-studio-clone-remote-git-repo-proc.adoc[leveloffset=+2]
-include::{product-dir}/integration/dev-studio-import-local-git-repo-proc.adoc[leveloffset=+2]
+//include::{enterprise-dir}/product-installation-guide/dev-studio-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/integration/dev-studio-install-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/integration/dev-studio-plug-in-install-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/admin-and-config/dm-server-configure-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/integration/dev-studio-import-projects-from-git-repo-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/integration/dev-studio-clone-remote-git-repo-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/integration/dev-studio-import-local-git-repo-proc.adoc[leveloffset=+2]
 
 == Next Steps
 

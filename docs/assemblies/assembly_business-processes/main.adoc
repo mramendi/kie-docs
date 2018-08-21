@@ -21,37 +21,37 @@ Each of the nodes represents one step in the overall process while the connectio
 
 // Modules - concepts, procedures, refs, etc.
 
-include::{product-dir}/getting-started/intro7-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/intro7-con.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/interacting-with-processes-migrating-process-designer-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/interacting-with-processes-migrating-process-designer-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/new-project-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/new-project-proc.adoc[leveloffset=+1]
 
 //data-objects-con_guided-rule-templates
 
-include::{product-dir}/project-data/data-objects-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/project-data/data-objects-con.adoc[leveloffset=+1]
 
 For more information about creating data objects, see {URL_GUIDED_RULES}#data-objects-create-proc_guided-rules["Creating data objects"] in _{GUIDED_DECISION_TABLES}_.
 
-include::{product-dir}/getting-started/data-model-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/getting-started/data-model-proc.adoc[leveloffset=+2]
 
-include::{product-dir}/getting-started/business-process-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/business-process-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/rules/guided-rules-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/rules/guided-rules-con.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/business-rules-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/getting-started/business-rules-proc.adoc[leveloffset=+2]
 
-include::{product-dir}/rules/guided-decision-tables-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/rules/guided-decision-tables-con.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/decision-tables-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/getting-started/decision-tables-proc.adoc[leveloffset=+2]
 
-include::{product-dir}/getting-started/process-forms-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/process-forms-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/deploying-application-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/deploying-application-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/executing-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/executing-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/getting-started/monitoring-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/getting-started/monitoring-proc.adoc[leveloffset=+1]
 
 
 // Versioning info

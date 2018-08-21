@@ -16,14 +16,14 @@ As a {PRODUCT} user, you can apply product updates to {PRODUCT} as they become a
 * {PRODUCT} {PRODUCT_VERSION} or {PRODUCT_VERSION}.x is installed. For installation options, see {URL_PLANNING_INSTALL}[_{PLANNING_INSTALL}_].
 * You have a Red Hat Customer Portal account.
 
-include::{product-dir}/installation/product-versioning-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/product-versioning-con.adoc[leveloffset=+1]
 
-include::{product-dir}/installation/patches-notifications-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/patches-notifications-proc.adoc[leveloffset=+1]
 
-include::{product-dir}/installation/patches-applying-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/installation/patches-applying-proc.adoc[leveloffset=+1]
 
 // For DM/PAM 7.1
-//include::{product-dir}/installation/upgrading-minor-release-proc.adoc[leveloffset=+1]
+//include::{enterprise-dir}/installation/upgrading-minor-release-proc.adoc[leveloffset=+1]
 
 == Additional resources
 * {URL_MIGRATING_64_TO_7X}[_{MIGRATING_64_TO_7X}_]
