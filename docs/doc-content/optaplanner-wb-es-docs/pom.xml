@@ -29,6 +29,9 @@
         <artifactId>asciidoctor-maven-plugin</artifactId>
 	<configuration>
           <imagesDir>${project.basedir}/../../_images</imagesDir>
+          <attributes>
+	    <artifact-dir>${project.basedir}/../../_artifacts</artifact-dir>
+          </attributes>
         </configuration>
       </plugin>
       <plugin>

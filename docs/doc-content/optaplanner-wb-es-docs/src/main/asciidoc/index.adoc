@@ -1,5 +1,5 @@
 :OP:
-include::{shared-dir}/_artifacts/document-attributes.adoc[]
+include::{artifact-dir}/document-attributes.adoc[]
 
 = {PRODUCT} Workbench and Execution Server User Guide
 The {PRODUCT} Team <https://www.optaplanner.org/community/team.html>

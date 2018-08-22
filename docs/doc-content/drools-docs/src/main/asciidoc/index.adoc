@@ -1,5 +1,5 @@
 :DROOLS:
-include::{shared-dir}/_artifacts/document-attributes.adoc[]
+include::{artifact-dir}/document-attributes.adoc[]
 
 = {PRODUCT} Documentation
 The {PRODUCT} Team <https://www.drools.org/community/team.html>
