@@ -1,7 +1,7 @@
 [id='apb-deploy-proc']
-= Deploying a {PRODUCT} environment using the Ansible Playbook
+= Deploying a {PRODUCT} environment using the Automation Broker
 
-To deploy a a {PRODUCT} environment using the Ansible Playbook, you must find the playbook in the OpenShift catalog, run it, and set the parameters as required. 
+To deploy a {PRODUCT} environment using the Automation Broker, you must find the Ansible Playbook in the OpenShift catalog, run it, and set the parameters as required. 
 
 .Procedure
 
@@ -30,4 +30,6 @@ IMPORTANT: If you want to deploy an environment with immutable servers and a mon
 **** Under *Router integration*, the service name of the `rhpam-immutable-mon-smartrouter` service.
 **** Under *Controller integration*, the service name of the `rhpam-immutable-mon-rhpamcentrmon` service and the admin username and password that you set in the *Immutable Server - KIE Process Server* option.
 
-. Click the *Next* button to comence deployment.
+. Click the *Next* button to commence deployment.
+
+IMPORTANT: After deploying the service, you can scale the {KIE_SERVER} pods up and down as necessary. Do not scale the database pods.

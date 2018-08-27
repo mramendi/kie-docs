@@ -24,7 +24,10 @@ To run a different set of processes, deploy a separate {KIE_SERVER} pod, which c
 +
 * Smart Router is an optional layer between {KIE_SERVERS} and other components that interact with them. It is required if you want {CENTRAL} or {CENTRAL} Monitoring to interact with several different {KIE_SERVERS}. Also, when your environment includes many processes running on different {KIE_SERVERS}, Smart Router provides a single endpoint to all client applications. A client application can make a REST API call requiring any process. Smart Router automatically determines which {KIE_SERVER} must be called for any particular request.
 
-You can arrange these and other components into various environment configurations within OpenShift. You can use the templates provided with {PRODUCT} to deploy the most common combinations.
+You can arrange these and other components into various environment configurations within OpenShift. 
+ifeval::["{context}"!="openshift-ansible-playbook"]
+You can use the templates provided with {PRODUCT} to deploy the most common combinations.
+endif::[]
 
 The following environment types are typical:
   
@@ -45,5 +48,5 @@ ifeval::["{context}"!="openshift-ansible-playbook"]
 To deploy a {PRODUCT} environment on OpenShift, you can use the templates that are provided with {PRODUCT}. You can modify the templates to ensure that your environment suits your needs.
 endif::[]
 ifeval::["{context}"=="openshift-ansible-playbook"]
-You can use the {PRODUCT} Ansible Playbook to deploy a {PRODUCT} environment on OpenShift in an interactive process. You can set all possible configuration values during this process. The installation process can generate all the required secrets automatically.
+You can use the Automation Broker with the {PRODUCT} Ansible Playbook to deploy a {PRODUCT} environment on OpenShift in an interactive process. You can set all possible configuration values during this process. The installation process can generate all the required secrets automatically.
 endif::[]
