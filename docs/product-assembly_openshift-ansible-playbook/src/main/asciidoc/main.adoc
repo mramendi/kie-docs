@@ -2,7 +2,7 @@
 
 include::product-shared-docs/document-attributes.adoc[]
 
-= Deploying a {PRODUCT} {PRODUCT_VERSION} environment on {OPENSHIFT} using AUtomation Broker
+= Deploying a {PRODUCT} {PRODUCT_VERSION} environment on {OPENSHIFT} using Automation Broker
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :imagesdir: topics/product-shared-docs/images
 :context: openshift-ansible-playbook
