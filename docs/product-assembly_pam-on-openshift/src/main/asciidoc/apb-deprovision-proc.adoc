@@ -5,7 +5,7 @@ If you deployed a {PRODUCT} environment using the Automation Broker, you can als
 
 .Procedure
 
-. In the OpenShift Web UI, view the Overview page for your project.
+. In the OpenShift Web UI, view the *Overview* page for your project.
 
 . Locate the Service Instance for the {PRODUCT} environment that you want to remove.
 

@@ -7,11 +7,11 @@ To deploy a {PRODUCT} environment using the Automation Broker, you must find the
 
 . In the OpenShift Web UI, select *Add to Project -> Browse Catalog*.
 
-. In the search field, type {PRODUCT}.
+. In the search field, type *{PRODUCT}*.
 
-. Select the _{PRODUCT} {PRODUCT_VERSION} APB_ catalog entry.
+. Select the *{PRODUCT} {PRODUCT_VERSION} APB* catalog entry.
 
-. Click the *Next* button.
+. Click *Next*.
 
 . Select the required architecture elements, as described on the screen, and click the *Next* button.
 +
@@ -22,7 +22,7 @@ IMPORTANT: If you want to deploy an environment with immutable servers and a mon
 ** For the *Immutable Server - Monitor* option:
 +
 *** The *Maven repository URL* field. You must provide a Maven repository with the same versions of all the artifacts that are deployed on any monitored immutable servers.
-*** The *Admin password* field. You must record the administrative user and password to configure monitored servers to connect to {CENTRAL} Monitoring.
+*** The *Admin password* field. You must record the administrative user name and password to configure monitored servers to connect to {CENTRAL} Monitoring.
 +
 ** For the *Immutable Server - KIE Process Server* option:
 *** The *KIE Server Container Deployment*, *Git Repository URL*, and *Git Repository Reference* fields. These settings determine the source code that the deployment process builds and deploys on the {KIE_SERVER}.
@@ -30,6 +30,6 @@ IMPORTANT: If you want to deploy an environment with immutable servers and a mon
 **** Under *Router integration*, the service name of the `rhpam-immutable-mon-smartrouter` service.
 **** Under *Controller integration*, the service name of the `rhpam-immutable-mon-rhpamcentrmon` service and the admin username and password that you set in the *Immutable Server - KIE Process Server* option.
 
-. Click the *Next* button to commence deployment.
+. Click *Next* to commence deployment.
 
 IMPORTANT: After deploying the service, you can scale the {KIE_SERVER} pods up and down as necessary. Do not scale the database pods.
