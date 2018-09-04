@@ -44,6 +44,11 @@ ifeval::["{context}"!="openshift-ansible-playbook"]
 For instructions about deploying this environment, see {URL_DEPLOYING_IMMUTABLE_ON_OPENSHIFT}[_{DEPLOYING_IMMUTABLE_ON_OPENSHIFT}_].
 endif::[]
 
+You can also deploy a _trial_ or evaluation environment. This environment includes {CENTRAL} and a {KIE_SERVER}. You can set it up quickly and use it to evaluate or demonstrate developing and running assets. However, the environment does not use any persistent storage, and any work you do in the environment is not saved.
+ifeval::["{context}"!="openshift-ansible-playbook"]
+For instructions about deploying this environment, see {URL_DEPLOYING_TRIAL_ON_OPENSHIFT}[_{DEPLOYING_TRIAL_ON_OPENSHIFT}_].
+endif::[]
+
 ifeval::["{context}"!="openshift-ansible-playbook"]
 To deploy a {PRODUCT} environment on OpenShift, you can use the templates that are provided with {PRODUCT}. You can modify the templates to ensure that your environment suits your needs.
 endif::[]
