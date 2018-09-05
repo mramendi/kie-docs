@@ -27,3 +27,5 @@
 
 
 :ENGINE: Drools engine
+:ASSET: decision service
+:ASSETS: decision services

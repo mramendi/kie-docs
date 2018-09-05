@@ -3,6 +3,8 @@
 
 :ENTERPRISE_VERSION: 7.1
 :COMMUNITY_VERSION: 7.11
+:ENTERPRISE_VERSION_SHORT: 71
+
 
 ifdef::DM[]
 include::document-attributes-dm.adoc[]

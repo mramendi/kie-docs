@@ -19,7 +19,7 @@ parameters as necessary. A {PRODUCT} Ansible Playbook for the Automation Broker 
 * The OpenShift project for the deployment is created.
 * You have logged in to the project using the OpenShift web console and using the `oc` command.
 * Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
-** Each deployed replicated set of {KIE_SERVER} pods requires one 1Gi PV for the database.
+** Each deployed replicated set of {KIE_SERVER} pods requires one 1Gi PV for the database. This requirement does not apply if you use an external database server.
 ** {CENTRAL} requires one 1Gi PV.
 ** {CENTRAL} Monitoring requires one 64Mi PV.
 ** Smart Router requires one 64Mi PV.

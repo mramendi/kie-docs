@@ -26,9 +26,9 @@
 +
 . If you created a custom image for using an external database server other than MySQL or PostgreSQL, as described in <<externaldb-build-proc>>, set the KIE Server Image Stream Name (`KIE_SERVER_IMAGE_STREAM_NAME`) parameter to the following value:
 +
-** For Microsoft SQL Server, `rhpam70-kieserver-mssql-openshift`
-** For MariaDB, `rhpam70-kieserver-mariadb-openshift`
-** For IBM DB2, `rhpam70-kieserver-db2-openshift`
-** For Oracle Database, `rhpam70-kieserver-oracle-openshift`
-** For Sybase, `rhpam70-kieserver-sybase-openshift`
+** For Microsoft SQL Server, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mssql-openshift`
+** For MariaDB, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mariadb-openshift`
+** For IBM DB2, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-db2-openshift`
+** For Oracle Database, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-oracle-openshift`
+** For Sybase, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-sybase-openshift`
 +

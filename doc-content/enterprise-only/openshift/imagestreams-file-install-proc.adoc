@@ -3,7 +3,7 @@
 
 You must ensure that the image streams that are required for the deployment are available in your OpenShift environment. Some versions of the OpenShift environment include the necessary image streams. You must check if they are available. If they are not available, you must install the
 ifdef::DM[`rhdm70-image-streams.yaml`]
-ifdef::PAM[`rhpam70-image-streams.yaml`]
+ifdef::PAM[`{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml`]
 file.
 
 .Procedure
@@ -19,8 +19,8 @@ endif::DM[]
 ifdef::PAM[]
 [subs="verbatim,macros"]
 ----
-$ oc get imagestreamtag -n openshift | grep rhpam70-businesscentral
-$ oc get imagestreamtag -n openshift | grep rhpam70-kieserver
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-businesscentral
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver
 ----
 endif::PAM[]
 +
@@ -31,7 +31,7 @@ ifdef::DM[]
 download the `rhdm70-image-streams.yaml` file from {URL_BASE_GITHUB_DM}.
 endif::DM[]
 ifdef::PAM[]
-download the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}. Extract the `rhpam70-image-streams.yaml` file from it.
+download the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}. Extract the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml` file from it.
 endif::PAM[]
 ifeval::["{context}"=="openshift-ansible-playbook"]
 Using the `oc` command, log on to the OpenShift environment as an administrative user.
@@ -50,13 +50,13 @@ ifdef::PAM[]
 ifeval::["{context}"!="openshift-ansible-playbook"]
 [subs="verbatim,macros"]
 ----
-$ oc create -f rhpam70-image-streams.yaml
+$ oc create -f {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml
 ----
 endif::[]
 ifeval::["{context}"=="openshift-ansible-playbook"]
 [subs="verbatim,macros"]
 ----
-$ oc create -f rhpam70-image-streams.yaml -n openshift
+$ oc create -f {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml -n openshift
 ----
 endif::[]
 endif::PAM[]

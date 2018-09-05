@@ -11,6 +11,7 @@
 :PRODUCT_FILE: {PRODUCT_INIT}-{PRODUCT_VERSION_LONG}
 
 :URL_COMPONENT_PRODUCT: red_hat_process_automation_manager
+
 :URL_BASE_GITHUB: {URL_BASE_GITHUB_PAM}
 
 :KIE_SERVER: Process Server
@@ -23,3 +24,5 @@
 :URL_COMPONENT_CENTRAL_UNDER: business_central
 
 :ENGINE: process engine
+:ASSET: process
+:ASSETS: processes

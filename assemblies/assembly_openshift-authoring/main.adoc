@@ -17,7 +17,11 @@ As a system engineer, you can deploy a {PRODUCT} authoring environment on {OPENS
 * At least four gigabytes of memory are available in the OpenShift environment.
 * The OpenShift project for the deployment is created.
 * You have logged in to the project using the OpenShift web console and using the `oc` command.
-* If you intend to scale any of the {CENTRAL} or {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
+* Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
+** The replicated set of {KIE_SERVER} pods requires one 1Gi PV for the database. This requirement does not apply if you use an external database server.
+** {CENTRAL} requires one 1Gi PV.
+* If you intend to use the Authoring High Availability template, the image streams for Red Hat AMQ version 7.0 or later are available in your OpenShift environment.
+* If you intend to use the Authoring High Availability template, which scales the {CENTRAL} pod, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
 +
 IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.
 

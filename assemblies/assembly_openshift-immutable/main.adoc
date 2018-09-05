@@ -20,9 +20,9 @@ to add and update processes.
 * At least four gigabytes of memory are available in the OpenShift environment.
 * The OpenShift project for the deployment is created.
 * You have logged in to the project using the OpenShift web console and using the `oc` command.
-* If you intend to scale any of the {CENTRAL} or {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
-+
-IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.
+* Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
+** Each immutable server deployment includes a replicated set of {KIE_SERVER} pods, which requires one 1Gi PV for the database. You can deploy multiple immutable servers; each requires a separate 1Gi PV. This requirement does not apply if you use an external database server.
+** If you deploy the immutable monitoring template, two 64Mi PVs are also required (one for {CENTRAL} Monitoring and one for Smart Router).
 
 include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]

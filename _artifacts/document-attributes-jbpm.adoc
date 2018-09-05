@@ -14,6 +14,7 @@
 
 :URL_COMPONENT_PRODUCT: jbpm
 
+
 :URL_BASE_GITHUB: {URL_BASE_GITHUB_DM}
 
 :KIE_SERVER: KIE Server
@@ -27,3 +28,5 @@
 
 
 :ENGINE: jBPM engine
+:ASSET: process
+:ASSETS: processes
