@@ -1,7 +1,7 @@
 [id='environment-immutable-source-extract-proc']
 = Extracting the source code from {CENTRAL} for use in an S2I build
 
-If you are using {CENTRAL} for authoring processes, you can extract the source code for your process and place it into a separate Git repository (such as GitHub or an on-premise installation of GitLab) for use in the S2I build.
+If you are using {CENTRAL} for authoring {ASSETS}, you can extract the source code for your {ASSET} and place it into a separate Git repository (such as GitHub or an on-premise installation of GitLab) for use in the S2I build.
 
 .Procedure
 

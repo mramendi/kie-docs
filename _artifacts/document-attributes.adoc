@@ -100,6 +100,7 @@ endif::OP[]
 :DM_ON_OPENSHIFT: Deploying {PRODUCT} on {OPENSHIFT}
 //The above OpenShift attr for DM only, the following for PAM only.
 :DEPLOYING_AUTHORING_ON_OPENSHIFT: Deploying a {PRODUCT} {PRODUCT_VERSION} authoring environment on {OPENSHIFT}
+:DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT: Deploying a {PRODUCT} {PRODUCT_VERSION} authoring or managed server environment on {OPENSHIFT}
 :DEPLOYING_IMMUTABLE_ON_OPENSHIFT: Deploying a {PRODUCT} {PRODUCT_VERSION} immutable server environment on {OPENSHIFT}
 :DEPLOYING_TRIAL_ON_OPENSHIFT: Deploying a {PRODUCT} {PRODUCT_VERSION} trial environment on {OPENSHIFT}
 :DEPLOYING_MANAGED_ON_OPENSHIFT: Deploying a {PRODUCT} {PRODUCT_VERSION} managed server environment on {OPENSHIFT}
@@ -170,6 +171,7 @@ endif::OP[]
 :URL_DM_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_red_hat_decision_manager_on_red_hat_openshift_container_platform
 //The above OpenShift attr for DM only, the following for PAM only.
 :URL_DEPLOYING_AUTHORING_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_{ENTERPRISE_VERSION}_authoring_environment_on_red_hat_openshift_container_platform
+:URL_DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_{ENTERPRISE_VERSION}_authoring_or_managed_server_environment_on_red_hat_openshift_container_platform
 :URL_DEPLOYING_IMMUTABLE_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_{ENTERPRISE_VERSION}_immutable_server_environment_on_red_hat_openshift_container_platform
 :URL_DEPLOYING_TRIAL_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_{ENTERPRISE_VERSION}_trial_environment_on_red_hat_openshift_container_platform
 :URL_DEPLOYING_MANAGED_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_{ENTERPRISE_VERSION}_managed_server_environment_on_red_hat_openshift_container_platform

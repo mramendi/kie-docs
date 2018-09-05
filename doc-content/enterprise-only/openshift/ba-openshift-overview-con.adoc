@@ -7,15 +7,13 @@ In this solution, components of {PRODUCT} are deployed as separate OpenShift pod
 The following key components are available as pods running in OpenShift:
 
 * {KIE_SERVER}, also known as _Execution Server_ or _KIE Server_, is the infrastructure element that runs a {ASSET} or a group of {ASSETS}. All {ASSET} logic runs on execution servers.
-ifeval::["{PRODUCT_INIT}"=="rhpam"]
+ifdef::PAM[]
 +
 A database server is normally required for {KIE_SERVER}. You can provide a database server in another OpenShift pod or configure an execution server on OpenShift to use any other database server. Alternatively, {KIE_SERVER} can use an H2 database; in this case, the pod cannot be scaled. 
-endif::[]
+endif::PAM[]
 +
 You can freely scale up a {KIE_SERVER} pod, providing as many copies, running on the same host or different hosts, as necessary. As you scale a pod up or down, all its copies 
-ifeval::["{PRODUCT_INIT}"=="rhpam"]
-use the same database server and
-endif::[]
+ifdef::PAM[use the same database server and]
 run the same {ASSETS}. OpenShift provides load balancing and a request can be handled by any of the pods.
 +
 To run a different set of {ASSETS}, deploy a separate {KIE_SERVER} pod, which can also be scaled up or down. You can have as many separate replicated {KIE_SERVER} pods as necessary.
@@ -26,8 +24,10 @@ To run a different set of {ASSETS}, deploy a separate {KIE_SERVER} pod, which ca
 +
 {CENTRAL} includes a Git repository that holds the source for the {ASSETS} that you develop on it. It also includes a built-in Maven repository. Depending on configuration, {CENTRAL} can place the compiled {ASSETS} (KJAR files) into the built-in Maven repository or (if configured) into an external Maven repository.
 +
+ifdef::PAM[]
 * {CENTRAL} Monitoring is a web-based management and monitoring console. It can manage deployment of {ASSETS} to {KIE_SERVERS} and provide monitoring information, but does not include authoring capabilities. You can use this component to manage staging and production environments.
 +
+endif::PAM[]
 * Smart Router is an optional layer between {KIE_SERVERS} and other components that interact with them. It is required if you want {CENTRAL} or {CENTRAL} Monitoring to interact with several different {KIE_SERVERS}. Also, when your environment includes many {ASSETS} running on different {KIE_SERVERS}, Smart Router provides a single endpoint to all client applications. A client application can make a REST API call requiring any {ASSET}. Smart Router automatically determines which {KIE_SERVER} must be called for any particular request.
 
 You can arrange these and other components into various environment configurations within OpenShift. 
@@ -37,7 +37,7 @@ endif::[]
 
 The following environment types are typical:
   
-ifeval::["{PRODUCT_INIT}"=="rhpam"]
+ifdef::PAM[]
 * _Authoring_: An environment for creating and modifying {ASSETS} using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the {ASSETS}. 
 ifeval::["{context}"!="openshift-ansible-playbook"]
 For instructions about deploying this environment, see {URL_DEPLOYING_AUTHORING_ON_OPENSHIFT}[_{DEPLOYING_AUTHORING_ON_OPENSHIFT}_].
@@ -46,17 +46,17 @@ endif::[]
 ifeval::["{context}"!="openshift-ansible-playbook"]
 For instructions about deploying this environment, see {URL_DEPLOYING_MANAGED_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_ON_OPENSHIFT}_]. 
 endif::[]
-endif::[]
-ifeval::["{PRODUCT_INIT}"=="rhdm"]
+endif::PAM[]
+ifdef::DM[]
 * _Authoring or managed environment_: An environment architecture that can be used for creating and modifying {ASSETS} using {CENTRAL} and also for running {ASSETS} on {KIE_SERVERS}. It consists of pods that provide {CENTRAL} for the authoring work and one or more {KIE_SERVERS} for execution of the {ASSETS}. Each {KIE_SERVER} is a pod that you can replicate to scale up or down as necessary. You can deploy and undeploy {ASSETS} on each {KIE_SERVER} using {CENTRAL}.
 ifeval::["{context}"!="openshift-ansible-playbook"]
-For instructions about deploying this environment, see {URL_DEPLOYING_AUTHORING_ON_OPENSHIFT}[_{DEPLOYING_AUTHORING_ON_OPENSHIFT}_].
+For instructions about deploying this environment, see {URL_DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}[_{DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}_].
 endif::[]
-endif::[]
+endif::DM[]
 * _Deployment with immutable servers_: An alternate environment for running existing {ASSETS} for staging and production purposes. In this environment, when you deploy a {KIE_SERVER} pod, it builds an image that loads and starts a {ASSET} or group of {ASSETS}. You cannot stop any {ASSET} on the pod or add any new {ASSET} to the pod. If you want to use another version of a {ASSET} or modify the configuration in any other way, you deploy a new server image and displace the old one. In this system, you can use typical container-based integration workflows and do not need to use any other tools to manage the pods. 
-ifeval::["{PRODUCT_INIT}"=="rhpam"]
+ifdef::PAM[]
 Optionally, you can use {CENTRAL} Monitoring to monitor the performance of the environment and to stop and restart some of the {ASSET} instances, but not to deploy additional {ASSETS} to any {KIE_SERVER} or undeploy any existing ones (you can not add or remove containers). 
-endif::[]
+endif::PAM[]
 ifeval::["{context}"!="openshift-ansible-playbook"]
 For instructions about deploying this environment, see {URL_DEPLOYING_IMMUTABLE_ON_OPENSHIFT}[_{DEPLOYING_IMMUTABLE_ON_OPENSHIFT}_].
 endif::[]
