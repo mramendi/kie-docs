@@ -1,4 +1,7 @@
 [id='environment-authoring-single-proc']
+// definitions for RH-SSO include
+:kieandcentral:
+:LOCAL_CENTRAL: {CENTRAL}
 ifdef::PAM[]
 = Deploying a single authoring environment
 

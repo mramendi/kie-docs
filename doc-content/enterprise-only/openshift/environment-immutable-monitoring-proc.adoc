@@ -1,4 +1,8 @@
 [id='environment-immutable-monitoring-proc']
+// definitions for RH-SSO include
+:centralonly:
+// centralonly must be undefined at end of file
+:LOCAL_CENTRAL: {CENTRAL} Monitoring
 = Deploying monitoring and Smart Router for an environment with immutable servers
 
 If you want to use {CENTRAL} Monitoring and Smart Router for an environment with immutable servers, you must deploy them before deploying any {KIE_SERVERS}. If you do not want to use these components, skip this procedure.
@@ -32,8 +36,10 @@ In this command line:
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): The namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 +
 You can also set other parameters as necessary.
+include::ldap_rhsso.adoc[]
 . Complete the creation of the environment, depending on the method that you are using:
 * In the OpenShift Web UI, click *Create*.
 * Complete and run the command line.
 +
 . Record the suggested command line that is displayed. This command line includes the parameters that you must set when deploying the immutable servers.
+:centralonly!:

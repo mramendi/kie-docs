@@ -1,4 +1,8 @@
 [id='environment-immutable-server-proc']
+// definitions for RH-SSO include, though the include itself is not used for now as RH-SSO is not in the template
+:kieonly:
+// kieonly must be undefined at end of file
+:LOCAL_CENTRAL: {CENTRAL} Monitoring
 = Deploying an immutable {KIE_SERVER}
 
 ifdef::PAM[]
@@ -82,9 +86,12 @@ endif::PAM[]
 ifdef::PAM[]
 + 
 . If you want to use {Central} Monitoring or Smart Router, set the parameters that were displayed in the sample command line after you deployed the monitoring infrastructure (see <<environment-immutable-monitoring-proc>>).
+
+. If you want to use LDAP authentication, set the `LDAP*` parameters of the template. These parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module].
 +
 include::externaldb-params.adoc[]
 endif::PAM[]
 . Complete the creation of the environment, depending on the method that you are using:
 * In the OpenShift Web UI, click *Create*.
 * Complete and run the command line.
+:kieonly!:
