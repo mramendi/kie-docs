@@ -16,7 +16,7 @@ to provide an infrastructure to execute processes and other business assets. You
 
 .Prerequisites
 
-* At least four gigabytes of memory are available in the OpenShift environment.
+* At least four gigabytes of memory are available in the OpenShift cluster/namespace.
 * The OpenShift project for the deployment is created.
 * You have logged in to the project using the OpenShift web console and using the `oc` command.
 * Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:

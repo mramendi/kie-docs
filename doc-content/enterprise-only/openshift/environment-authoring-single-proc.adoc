@@ -27,13 +27,13 @@ file. In the *Add Template* window, ensure *Process the template* is selected an
 * To use the OpenShift command line console, prepare the following command line:
 +
 ifdef::PAM[]
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 oc new-app -f <template-path>/{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring.yaml -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret 
 ----
 endif::PAM[]
 ifdef::DM[]
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 oc new-app -f <template-path>/{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-full.yaml [-p <parameter>=<value> ...]
 ----

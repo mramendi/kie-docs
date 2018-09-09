@@ -7,7 +7,7 @@ If you are using {CENTRAL} for authoring {ASSETS}, you can extract the source co
 
 . Use the following command to extract the source code:
 +
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 git clone ssh://adminUser@bcHost:8001/MySpace/MyProject
 ----

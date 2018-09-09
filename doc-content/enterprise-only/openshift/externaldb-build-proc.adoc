@@ -42,14 +42,14 @@ Where `<local_path_or_url>` is the path to the local directory or the URL for th
 --
 ** For Microsoft SQL Server or MariaDB:
 
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 ../build.sh
 ----
 
 ** For IBM DB2, Oracle Database, or Sybase:
 
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 ../build.sh --artifact-repo=<local_path_or_url>
 ----

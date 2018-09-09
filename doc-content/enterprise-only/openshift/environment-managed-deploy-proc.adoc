@@ -20,7 +20,7 @@ If you want to modify the environment defined by the template file, see <<enviro
 * In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the template file. In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
 * To use the OpenShift command line console, prepare the following command line:
 +
-[subs="verbatim,macros"]
+[subs="attributes,verbatim,macros"]
 ----
 oc new-app -f <template-file-name> -p BUSINESS_CENTRAL_HTTPS_SECRET=businesscentral-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p MAVEN_REPO_URL=<maven-repo-url>
 ----
