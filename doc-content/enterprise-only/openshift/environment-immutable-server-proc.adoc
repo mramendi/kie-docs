@@ -86,8 +86,6 @@ endif::PAM[]
 ifdef::PAM[]
 + 
 . If you want to use {Central} Monitoring or Smart Router, set the parameters that were displayed in the sample command line after you deployed the monitoring infrastructure (see <<environment-immutable-monitoring-proc>>).
-
-. If you want to use LDAP authentication, set the `LDAP*` parameters of the template. These parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module].
 +
 include::externaldb-params.adoc[]
 endif::PAM[]

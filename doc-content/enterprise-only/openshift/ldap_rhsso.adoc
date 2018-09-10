@@ -4,9 +4,21 @@
 // * LOCAL_CENTRAL must be set to the name of Business Central, Business Central Monitoring, Decision Central
 // It turns out that asciidoc does not alow attribute setting in the middle of a list, so these attributes must be set at 
 // the beginning of the parent file.
-. If you want to use LDAP authentication, set the `LDAP*` parameters of the template. These parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module].
-
-. If you want to use Red Hat Single Sign On (RH-SSO) authentication, an RH-SSO realm that applies to {PRODUCT} must exist. 
+. If you want to use RH-SSO or LDAP authentication, complete the following additional configuration:
+.. In the RH-SSO or LDAP service, create all user names in the deployment parameters. If you do not set any of the parameters, create the default user names:
+*** `KIE_ADMIN_USER`: `adminUser`
+ifdef::kieandcentral[]
+*** `KIE_SERVER_CONTROLLER_USER`: `controllerUser`
+*** `BUSINESS_CENTRAL_MAVEN_USERNAME`: `mavenUser` (unless you have configured the use of an external Maven repository)
+endif::kieandcentral[]
+ifdef::centralonly[]
+*** `KIE_SERVER_MONITOR_USER`: `monitorUser`. You *must not* change this user name. You also *must* configure the `KIE_SERVER_MONITOR_PASSWORD` parameter to the same value as the password for this user in the RH-SSO service. Otherwise, the suggested parameter settings for the server deployments will be incorrect. 
+endif::centralonly[]
+ifndef::centralonly[]
+*** `KIE_SERVER_USER`: `executionUser`
+endif::centralonly[]
++
+.. If you want to configure Red Hat Single Sign On (RH-SSO) authentication, an RH-SSO realm that applies to {PRODUCT} must exist. 
 ifdef::kieonly[]
 A client within RH-SSO must also exist for 
 ifdef::multiplekie[each]
@@ -23,7 +35,7 @@ For the user roles that you can configure in RH-SSO, see {URL_INSTALLING_ON_EAP}
 +
 Use one of the following procedures:
 
-.. If the
+... If the
 ifdef::kieandcentral[clients]
 ifndef::kieandcentral[client]
 for {PRODUCT} within RH-SSO already
@@ -49,7 +61,7 @@ endif::multiplekie[]
 endif::centralonly[]
 *** *RH-SSO Disable SSL Certificate Validation* (`SSO_DISABLE_SSL_CERTIFICATE_VALIDATION`): Set to `true` if your RH-SSO installation does not use a valid HTTPS certificate. 
 
-.. To create the
+... To create the
 ifdef::kieandcentral[clients]
 ifndef::kieandcentral[client]
 for {PRODUCT} within RH-SSO, set the following parameters in the template:
@@ -65,16 +77,19 @@ ifndef::centralonly[]
 ifndef::multiplekie[]
 *** *KIE Server RH-SSO Client name* (`KIE_SERVER_SSO_CLIENT`): The name of the client to create in RH-SSO for {KIE_SERVER}.
 *** *KIE Server RH-SSO Client Secret* (`KIE_SERVER_SSO_SECRET`): The secret string to set in RH-SSO for the client for {KIE_SERVER}.
-*** *Execution Server Custom http Route Hostname* (`EXECUTION_SERVER_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
-*** *Execution Server Custom https Route Hostname* (`EXECUTION_SERVER_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *KIE Server Custom http Route Hostname* (`KIE_SERVER_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *KIE Server Custom https Route Hostname* (`KIE_SERVER_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 endif::multiplekie[]
 ifdef::multiplekie[]
 *** For each {KIE_SERVER} defined in the template:
 *** *KIE Server _n_ RH-SSO Client name* (`KIE_SERVER__n___SSO_CLIENT`): The name of the client to create in RH-SSO for this {KIE_SERVER}.
 *** *KIE Server _n_ RH-SSO Client Secret* (`KIE_SERVER__n___SSO_SECRET`): The secret string to set in RH-SSO for the client for this {KIE_SERVER}.
-*** *Execution Server _n_ Custom http Route Hostname* (`EXECUTION_SERVER__n___HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
-*** *Execution Server _n_ Custom https Route Hostname* (`EXECUTION_SERVER__n___HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *KIE Server _n_ Custom http Route Hostname* (`KIE_SERVER__n___HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *KIE Server _n_ Custom https Route Hostname* (`KIE_SERVER__n___HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 endif::multiplekie[]
 endif::centralonly[]
 *** *RH-SSO Realm Admin Username* (`SSO_USERNAME`) and *RH-SSO Realm Admin Password* (`SSO_PASSWORD`): The user name and password for the realm administrator user for the RH-SSO realm for {PRODUCT}.
 *** *RH-SSO Disable SSL Certificate Validation* (`SSO_DISABLE_SSL_CERTIFICATE_VALIDATION`): Set to `true` if your RH-SSO installation does not use a valid HTTPS certificate. 
+.. To configure LDAP, set the `LDAP*` parameters of the template. These parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module]. 
++
+Do not configure LDAP authentication and RH-SSO authentication in the same deployment.
