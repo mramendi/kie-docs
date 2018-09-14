@@ -22,7 +22,8 @@
 :CENTRAL: Decision Central
 :URL_COMPONENT_CENTRAL: decision-central
 :URL_COMPONENT_CENTRAL_UNDER: decision_central
-
+:CENTRAL_CAPITAL_UNDER: DECISION_CENTRAL
+:CENTRAL_ONEWORD: decisioncentral
 
 :ENGINE: decision engine
 :ASSET: decision service

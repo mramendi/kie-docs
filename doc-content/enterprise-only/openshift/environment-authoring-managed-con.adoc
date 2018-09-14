@@ -6,14 +6,14 @@ You can use {CENTRAL} both to develop {ASSETS} and to deploy them to one or seve
 
 To avoid accidentally deploying wrong versions to a production {KIE_SERVER}, you can create separate environments to author {ASSETS} (_authoring environment_) and to manage deployment of production {ASSETS} (_managed server environment_). You can use a shared external Maven repository between these environments, so that {ASSETS} developed in the authoring environment are available in the managed server environment. However, the procedures to deploy these environments are the same.
 
-Depending on your needs, you can deploy either a single authoring or managed server environment or a high-availability (HA) authoring or managed server environment. In a single environment, the {CENTRAL} pod is not replicated; only a single copy of {CENTRAL} is used. In an HA environment, you can scale {CENTRAL}. 
+Depending on your needs, you can deploy either a single or high-availability {CENTRAL}. A single {CENTRAL} pod is not replicated; only a single copy of {CENTRAL} is used. In an HA {CENTRAL} deployment, you can scale {CENTRAL}. 
 
-An HA environment provides maximum reliability and responsiveness for authoring {ASSETS} in {CENTRAL}, but has higher memory and storage requirements, and also requires support for persistent volumes with ReadWriteMany mode (not available on OpenShift Online and OpenShift Dedicated).
+An HA {CENTRAL} provides maximum reliability and responsiveness for authoring {ASSETS}, but has higher memory and storage requirements and also requires support for persistent volumes with ReadWriteMany mode.
 
 IMPORTANT: In the current version, the high-availability functionality is a technology preview.
 
 You can scale {KIE_SERVER} pods as necessary in any version of the authoring or managed server environment.
 
-To deploy an authoring or managed server environment, first deploy the single or high-availability full environment template. This deployment includes {CENTRAL} and a single {KIE_SERVER}.
+To deploy an authoring or managed server environment, first deploy the single or high-availability {CENTRAL} and a single {KIE_SERVER} using the authoring template.
 
 To add additional {KIE_SERVERS}, you can deploy the {KIE_SERVER} template in the same project.

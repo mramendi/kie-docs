@@ -22,6 +22,9 @@
 :CENTRAL: Business Central
 :URL_COMPONENT_CENTRAL: business-central
 :URL_COMPONENT_CENTRAL_UNDER: business_central
+:CENTRAL_CAPITAL_UNDER: BUSINESS_CENTRAL
+:CENTRAL_ONEWORD: businesscentral
+
 
 :ENGINE: process engine
 :ASSET: process

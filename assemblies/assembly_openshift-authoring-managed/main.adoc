@@ -14,14 +14,13 @@ As a system engineer, you can deploy a {PRODUCT} authoring or managed environmen
 
 .Prerequisites
 
-* At least four gigabytes of memory are available in the OpenShift cluster/namespace.
-* The OpenShift project for the deployment is created.
-* You have logged in to the project using the OpenShift web console and using the `oc` command. For more information about the `oc` command-line tool, see the OpenShift https://access.redhat.com/documentation/en-us/openshift_container_platform/3.10/html-single/cli_reference/[CLI Reference].
-* Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
-** The replicated set of {KIE_SERVER} pods requires one 1Gi PV for the database. This requirement does not apply if you use an external database server.
-** {CENTRAL} requires one 1Gi PV.
-* If you intend to use the Authoring High Availability template, the image streams for Red Hat AMQ version 7.0 or later are available in your OpenShift environment in the `openshift` namespace.
-* If you intend to use the Authoring High Availability template, which scales the {CENTRAL} pod, your OpenShift environment supports persistent volumes with ReadWriteMany mode. For information about access mode support in OpenShift Online volume plug-ins, see https://docs.openshift.com/online/architecture/additional_concepts/storage.html#pv-access-modes[Access Modes].
+* At least four gigabytes of memory must be available in the OpenShift cluster/namespace.
+* The OpenShift project for the deployment must be created.
+* You must be  logged in to the project using the OpenShift web console and using the `oc` command. For more information about the `oc` command-line tool, see the OpenShift https://access.redhat.com/documentation/en-us/openshift_container_platform/3.10/html-single/cli_reference/[CLI Reference].
+* Dynamic persistent volume (PV) provisioning must be enabled. Alternatively, if dynamic PV provisioning is not enabled, a sufficient persistent volume must be available. By default, {CENTRAL} requires one 1Gi PV. You can change the PV size for {CENTRAL} persistent storage in the template parameters.
+* If you intend to use the Authoring High Availability template, which scales the {CENTRAL} pod:
+** The image streams for Red Hat AMQ version 7.1 or later must be available in your OpenShift environment.
+** Your OpenShift environment must support persistent volumes with ReadWriteMany mode. For information about access mode support in OpenShift Online volume plug-ins, see https://docs.openshift.com/online/architecture/additional_concepts/storage.html#pv-access-modes[Access Modes].
 
 
 include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]

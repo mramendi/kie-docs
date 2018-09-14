@@ -20,13 +20,10 @@ to provide an infrastructure to execute processes and other business assets. You
 * The OpenShift project for the deployment is created.
 * You have logged in to the project using the OpenShift web console and using the `oc` command.
 * Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
-** Each deployed replicated set of {KIE_SERVER} pods requires one 1Gi PV for the database. This requirement does not apply if you use an external database server.
+** Each deployed replicated set of {KIE_SERVER} pods requires, by default, one 1Gi PV for the database. You can change the database PV size in the template parameters. This requirement does not apply if you use an external database server.
 ** {CENTRAL} Monitoring requires one 64Mi PV.
 ** Smart Router requires one 64Mi PV.
-* If you intend to scale any of the {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode.
-+
-IMPORTANT: ReadWriteMany mode is not supported on OpenShift Online and OpenShift Dedicated.
-
+* If you intend to scale any of the {CENTRAL} Monitoring pods, your OpenShift environment supports persistent volumes with ReadWriteMany mode. For information about access mode support in OpenShift Online volume plug-ins, see https://docs.openshift.com/online/architecture/additional_concepts/storage.html#pv-access-modes[Access Modes].
 
 include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/dm-openshift-prepare-con.adoc[leveloffset=+1]

@@ -73,5 +73,5 @@ To deploy a {PRODUCT} environment on OpenShift, you can use the templates that a
 ifdef::PAM[You can modify the templates to ensure that the configuration suits your environment.]
 endif::[]
 ifeval::["{context}"=="openshift-ansible-playbook"]
-You can use the Automation Broker with the {PRODUCT} Ansible Playbook to deploy a {PRODUCT} environment on OpenShift in an interactive procedure. You can set all possible configuration values during this procedure. During the installation, the Automation Broker can generate all the required secrets automatically.
+You can use the Automation Broker with the {PRODUCT} Ansible Playbook to deploy a {PRODUCT} environment on OpenShift in interactive mode. You can set all possible configuration values during this procedure. During the installation, the Automation Broker can generate all the required secrets automatically.
 endif::[]

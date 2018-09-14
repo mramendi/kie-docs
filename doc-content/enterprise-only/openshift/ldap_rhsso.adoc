@@ -9,7 +9,7 @@
 *** `KIE_ADMIN_USER`: `adminUser`
 ifdef::kieandcentral[]
 *** `KIE_SERVER_CONTROLLER_USER`: `controllerUser`
-*** `BUSINESS_CENTRAL_MAVEN_USERNAME`: `mavenUser` (unless you have configured the use of an external Maven repository)
+*** `{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME`: `mavenUser` (unless you have configured the use of an external Maven repository)
 endif::kieandcentral[]
 ifdef::centralonly[]
 *** `KIE_SERVER_MONITOR_USER`: `monitorUser`. You *must not* change this user name. You also *must* configure the `KIE_SERVER_MONITOR_PASSWORD` parameter to the same value as the password for this user in the RH-SSO service. Otherwise, the suggested parameter settings for the server deployments will be incorrect. 
@@ -45,8 +45,8 @@ set the following parameters in the template:
 *** *RH-SSO URL* (`SSO_URL`): The URL for RH-SSO.
 *** *RH-SSO Realm name* (`SSO_REALM`): The RH-SSO realm for {PRODUCT}.
 ifndef::kieonly[]
-*** *{LOCAL_CENTRAL} RH-SSO Client name* (`BUSINESS_CENTRAL_SSO_CLIENT`): The RH-SSO client name for {LOCAL_CENTRAL}.
-*** *{LOCAL_CENTRAL} RH-SSO Client Secret* (`BUSINESS_CENTRAL_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {LOCAL_CENTRAL}.
+*** *{LOCAL_CENTRAL} RH-SSO Client name* (`{CENTRAL_CAPITAL_UNDER}_SSO_CLIENT`): The RH-SSO client name for {LOCAL_CENTRAL}.
+*** *{LOCAL_CENTRAL} RH-SSO Client Secret* (`{CENTRAL_CAPITAL_UNDER}_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {LOCAL_CENTRAL}.
 endif::kieonly[]
 ifndef::centralonly[]
 ifndef::multiplekie[]
@@ -68,10 +68,10 @@ for {PRODUCT} within RH-SSO, set the following parameters in the template:
 *** *RH-SSO URL* (`SSO_URL`): The URL for RH-SSO.
 *** *RH-SSO Realm name* (`SSO_REALM`): The RH-SSO realm for {PRODUCT}.
 ifndef::kieonly[]
-*** *{LOCAL_CENTRAL} RH-SSO Client name* (`BUSINESS_CENTRAL_SSO_CLIENT`): The name of the client to create in RH-SSO for {LOCAL_CENTRAL}.
-*** *{LOCAL_CENTRAL} RH-SSO Client Secret* (`BUSINESS_CENTRAL_SSO_SECRET`): The secret string to set in RH-SSO for the client for {LOCAL_CENTRAL}.
-*** *{LOCAL_CENTRAL} Custom http Route Hostname* (`BUSINESS_CENTRAL_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {LOCAL_CENTRAL}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
-*** *{LOCAL_CENTRAL} Custom https Route Hostname* (`BUSINESS_CENTRAL_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {LOCAL_CENTRAL}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *{LOCAL_CENTRAL} RH-SSO Client name* (`{CENTRAL_CAPITAL_UNDER}_SSO_CLIENT`): The name of the client to create in RH-SSO for {LOCAL_CENTRAL}.
+*** *{LOCAL_CENTRAL} RH-SSO Client Secret* (`{CENTRAL_CAPITAL_UNDER}_SSO_SECRET`): The secret string to set in RH-SSO for the client for {LOCAL_CENTRAL}.
+*** *{LOCAL_CENTRAL} Custom http Route Hostname* (`{CENTRAL_CAPITAL_UNDER}_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {LOCAL_CENTRAL}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+*** *{LOCAL_CENTRAL} Custom https Route Hostname* (`{CENTRAL_CAPITAL_UNDER}_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {LOCAL_CENTRAL}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 endif::kieonly[]
 ifndef::centralonly[]
 ifndef::multiplekie[]
