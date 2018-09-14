@@ -27,5 +27,3 @@
 
 
 :ENGINE: process engine
-:ASSET: process
-:ASSETS: processes

@@ -1,7 +1,7 @@
 [id='environment-trial-proc']
 = Deploying a trial environment
 
-You can deploy a trial (evaluation) {PRODUCT} environment. It consists of {CENTRAL} for authoring or managing {ASSETS} and {KIE_SERVER} for test execution of {ASSETS}. 
+You can deploy a trial (evaluation) {PRODUCT} environment. It consists of {CENTRAL} for authoring or managing services and {KIE_SERVER} for test execution of services. 
 
 This environment does not include permanent storage. Assets that you create or modify in a trial environment are not saved. 
 

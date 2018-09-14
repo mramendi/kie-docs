@@ -26,5 +26,3 @@
 :CENTRAL_ONEWORD: decisioncentral
 
 :ENGINE: decision engine
-:ASSET: decision service
-:ASSETS: decision services

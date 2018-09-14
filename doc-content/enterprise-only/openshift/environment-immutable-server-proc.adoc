@@ -11,7 +11,7 @@ ifdef::PAM[]
 If you want to modify the environment defined by the template file, see <<environment-immutable-modify-proc>>.
 
 endif::PAM[]
-WHen you deploy an immutable {KIE_SERVER}, the deployment procedure retrieves the source code for any {ASSETS} that must run on this server, builds the {ASSETS}, and includes them in the server image. 
+When you deploy an immutable {KIE_SERVER}, the deployment procedure retrieves the source code for any services that must run on this server, builds the services, and includes them in the server image. 
 
 ifdef::PAM[]
 You can configure the {KIE_SERVER} to connect to Smart Router and to {LOCAL_CENTRAL}. If you use the server with {LOCAL_CENTRAL}, you must ensure that the same versions of KJAR files are uploaded to the Maven repository that the {LOCAL_CENTRAL} instance uses.

@@ -32,5 +32,3 @@
 
 
 :ENGINE: Planner engine
-:ASSET: service
-:ASSETS: services
