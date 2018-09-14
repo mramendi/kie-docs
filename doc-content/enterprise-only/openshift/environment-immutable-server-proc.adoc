@@ -24,12 +24,10 @@ endif::PAM[]
 In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
 * To use the OpenShift command line console, prepare the following command line:
 +
-ifdef::PAM[]
 [subs="attributes,verbatim,macros"]
 ----
 oc new-app -f <template-path>/{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret 
 ----
-endif::PAM[]
 +
 In this command line:
 +
@@ -61,8 +59,8 @@ ifdef::PAM[]
 + 
 . If you want to use {LOCAL_CENTRAL} or Smart Router, set the parameters that were displayed in the sample command line after you deployed the monitoring infrastructure (see <<environment-immutable-monitoring-proc>>).
 endif::PAM[]
-
-include::ldap_rhsso.adoc
++
+include::ldap_rhsso.adoc[]
 
 ifdef::PAM[]
 include::externaldb-params.adoc[]

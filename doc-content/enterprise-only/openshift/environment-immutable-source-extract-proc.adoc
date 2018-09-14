@@ -9,13 +9,13 @@ If you are using {CENTRAL} for authoring {ASSETS}, you can extract the source co
 +
 [subs="attributes,verbatim,macros"]
 ----
-git clone ssh://adminUser@bcHost:8001/MySpace/MyProject
+git clone ssh://adminUser@{URL_COMPONENT_CENTRAL}-host:8001/MySpace/MyProject
 ----
 +
 Replace:
 
 * `adminUser` with the administrative user for {CENTRAL}
-* `bcHost` with the host on which {CENTRAL} is running
+* `{URL_COMPONENT_CENTRAL}-host` with the host on which {CENTRAL} is running
 * `MySpace` with the name of the {CENTRAL} space in which the project is located
 * `MyProject` with the name of the project
 . Upload the source code to another Git repository for the S2I build.
