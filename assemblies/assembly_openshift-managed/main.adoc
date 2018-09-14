@@ -16,10 +16,10 @@ to provide an infrastructure to execute processes and other business assets. You
 
 .Prerequisites
 
-* At least four gigabytes of memory are available in the OpenShift cluster/namespace.
-* The OpenShift project for the deployment is created.
-* You have logged in to the project using the OpenShift web console and using the `oc` command.
-* Dynamic persistent volume (PV) provisioning is enabled. Alternatively, enough persistent volumes are available. By default, the following sizes are required:
+* At least four gigabytes of memory must be available in the OpenShift cluster/namespace.
+* The OpenShift project for the deployment must be created.
+* You must be logged in to the project using the OpenShift web console and using the `oc` command.
+* Dynamic persistent volume (PV) provisioning mustbe enabled. Alternatively, if dynamic PV provisioning is not enabled, enough persistent volumes must be available. By default, the following sizes are required:
 ** Each deployed replicated set of {KIE_SERVER} pods requires, by default, one 1Gi PV for the database. You can change the database PV size in the template parameters. This requirement does not apply if you use an external database server.
 ** {CENTRAL} Monitoring requires one 64Mi PV.
 ** Smart Router requires one 64Mi PV.
