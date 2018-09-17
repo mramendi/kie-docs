@@ -35,7 +35,7 @@ endif::OP[]
 :YEAR: 2018
 
 // Maven info, from https://mvnrepository.com/artifact/org.kie/kie-bom?repo=redhat-ga
-:MAVEN_ARTIFACT_VERSION: 7.7.0.Final-redhat-7
+:MAVEN_ARTIFACT_VERSION: 7.11.0.Final-redhat-1
 :BOM_VERSION: 7.0.0.GA-redhat-3
 
 // Product names

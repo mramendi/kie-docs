@@ -5,7 +5,6 @@ You can use the command line to build the employee rostering starter application
 .Prerequisites
 . A Java Development Kit must be installed.
 . Maven must be installed.
-. A JBoss EAP or WildFly application server must be installed.
 . The host must have access to the Internet (for downloading Maven packages from external repositories).
 
 .Procedure
@@ -18,17 +17,22 @@ mvn clean install
 ----
 +
 . Wait for the build process to complete.
-. Change to the `optashift-employee-rostering-webapp/target` subdirectory.
-. Copy the `optashift-employee-rostering-webapp-7.5.0.Final-redhat-4.war` file into the `<JBOSS_home>/standalone/deployments` directory, where `<JBOSS_home>` is the home directory of the JBoss EAP or WildFly application server.
-. Change to the `<JBOSS_home>/standalone/deployments` directory.
-. Rename the `optashift-employee-rostering-webapp-7.5.0.Final-redhat-4.war` file to `roster.war`, then create the `roster.war.dodeploy` file: 
+. Use one of the following approaches to run the application:
+.. Run the WildFly server deployed as part of the build process. Change to the `local/appserver/wildfly-11.0.0-final/bin` subdirectory and run the `./standalone.sh` command.
+.. 
+.. Deploy the `optashift-employee-rostering-webapp/target/optaweb-employee-rostering-7.11.1-SNAPSHOT.war` directory into an existing WildFly or JBoss EAP server.
+.. Use the following commands to run a server using Maven:
 +
 [source,bash]
 ----
-mv optashift-employee-rostering-webapp-7.5.0.Final-redhat-4.war roster.war
-touch roster.war.dodeploy
+mvn -N wildfly:start wildfly:deploy
+mvn gwt:codeserver
 ----
 +
-. Change to the `<JBOSS_home>/bin` directory and run the `standalone.sh` file.
-. Wait for the application server to start.
+Later, to stop this server, use the command:
++
+[source,bash]
+----
+mvn -N wildfly:shutdown
+----
 . Access the application at http://localhost:8080/gwtui/gwtui.html

@@ -1,0 +1,15 @@
+[id='er-solve-proc']
+= Creating and viewing the employee shift roster
+
+You can use the application to create and view the optimal shift roster for all employees.
+
+.Procedure
+. To view and edit the shift roster, click the *Shift Roster* tab.
+. To create the optimal shift roster, click *Solve*. The application takes 30 seconds to find the optimal solution. 
+
+.Result
+When the operation is finished, the Shift Roster view contains the optimal shift roster. The new roster is created for the draft period; the operation does not modify the published periods.
+
+In the top right part of the browser window, the *Week of* field lists the week for which the roster is displayed, To view other weeks, use the *<* and *>* buttons.
+
+In the draft period, the borders of boxes representing shifts are dotted lines. In the published periods, the borders are unbroken lines.

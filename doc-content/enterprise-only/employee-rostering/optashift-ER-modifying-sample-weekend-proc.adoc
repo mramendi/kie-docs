@@ -8,7 +8,7 @@ You can review the full change and apply it by using the ??? patch file, availab
 
 .Procedure
 
-. Add the necessary calculations for time slots as static methods in the `src/main/resources/org/optaplanner/openshift/employeerostering/shared/timeslot/TimeSlot.java` class of the `optashift-employee-rostering-shared` package.
+. Add the necessary calculations for time slots as static methods in the `src/main/java/org/optaweb/employeerostering/shared/timeslot/TimeSlot.java` class of the `employee-rostering-shared` package.
 .. Add a method to determine whether the time slot happens during a weekend:
 +
 [source,java]
