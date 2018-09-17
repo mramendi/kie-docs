@@ -15,7 +15,7 @@ When new time is added to the draft period, the application copies the shifts (a
 . To add a shift, click an open area of the schedule. The application adds a shift, determining the slot and time span automatically from the location of the click.
 . To edit a shift, click the shift. You can set the following values for a shift:
 ** *From* and *To* date and time: The exact time and duration of the shift.
-** *Employee*: The employee assigned to the shift by default.
+** *Employee*: The employee assigned to the shift.
 ** *Pinned*: Whether the employee is _pinned_ to the shift. If an employee is pinned, automatic employee rostering can not change the assignment of the employee to the shift. a pinned employee is not automatically replicated to any other shift.
 +
 To save the changes, click *Apply*.

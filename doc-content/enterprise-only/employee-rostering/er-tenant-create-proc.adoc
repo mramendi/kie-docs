@@ -16,7 +16,7 @@ IMPORTANT: You can not change tenant parameters at a later time. You can change 
 ** *Schedule Start Date*: The start date of the initial draft period. After you publish the roster, this date becomes the start date of the published period. The weekday of this date always remains the first weekday that starts the draft period, of any particular published period, and of the first use of the rotation pattern. So it is usually most convenient to set the start date to the start of a week (Sunday or Monday).
 ** *Draft Length (days)*: The length of the draft period. The draft period stays the same length for the lifetime of the tenant.
 ** *Publish Notice (days)*: Aspire to publish the final roster for any day at least this time in advance, so employees have enough notice to plan their personal life around their shift times. In the current version, this setting is not enforced in any way.
-** *Publish Notice (days)*: The length of the period that becomes published (fixed) every time you publish the roster. In the current version, this setting is fixed at 7 days.
+** *Publish Length (days)*: The length of the period that becomes published (fixed) every time you publish the roster. In the current version, this setting is fixed at 7 days.
 ** *Rotation Length (days)*: The length of the rotation pattern.
 ** *Timezone*: The timezone of the environment to which the roster applies. This timezone is used to determine the "current" date for user interface display.
 +

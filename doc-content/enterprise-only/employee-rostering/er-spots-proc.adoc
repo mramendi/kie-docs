@@ -16,4 +16,4 @@ For each spot, you can select one or more required skills from the list that you
 . To edit the name and required skills for a spot, click the *Edit Spot* icon (pencil shape) next to the spot.
 . To delete a spot, click the *Delete Spot* icon (trashcan shape) next to the spot.
 
-NOTE: Within each tenant, spot names must be unique. You can not delete a spot when any hsifts are created for it.
+NOTE: Within each tenant, spot names must be unique. You can not delete a spot when any shifts are created for it.

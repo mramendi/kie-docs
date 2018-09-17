@@ -31,6 +31,11 @@ mvn -N wildfly:start wildfly:deploy
 mvn gwt:codeserver
 ----
 +
+[NOTE]
+====
+If you use Maven to start the server, the UI uses the gwt codeserver and monitors the gwtui source. In this case, if you change gwtui code, the codeserver picks the changes up automatically; there is no need to rebuild the application for gwtui code changes. 
+====
++
 Later, to stop this server, use the command:
 +
 [source,bash]
