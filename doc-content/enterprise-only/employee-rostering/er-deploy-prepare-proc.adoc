@@ -5,7 +5,7 @@ You must download and prepare the deployment files before deploying the applicat
 
 .Procedure
 
-. Download the `{PRODUCT_FILE}-add-ons.zip` file from the {PRODUCT_DOWNLOAD_URL}[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}.
+. Download the `{PRODUCT_FILE}-add-ons.zip` file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}.
 . Unzip the downloaded archive.
 . Unzip the employee rostering zip file (`{PRODUCT_FILE}-employee-rostering.zip`) that is extracted from the add-ons archive.
 
