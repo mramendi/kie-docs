@@ -27,3 +27,5 @@
 
 
 :ENGINE: process engine
+
+:PRODUCT_DOWNLOAD_LINK: https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhpam&productChanged=yes

@@ -10,7 +10,7 @@ include::_artifacts/document-attributes.adoc[]
 include::_artifacts/author-group.adoc[]
 
 // Purpose statement for the assembly
-As a system engineer, you can deploy a {PRODUCT} trial environment on {OPENSHIFT} to evaluate or demonstrate development and use of processes and other business assets.
+As a system engineer, you can deploy a {PRODUCT} trial environment on {OPENSHIFT} to evaluate or demonstrate development and use of rules and other business assets.
 
 .Prerequisites
 

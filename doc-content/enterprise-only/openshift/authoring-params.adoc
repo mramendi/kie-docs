@@ -20,6 +20,7 @@ If you want to place the built KJAR files into an external Maven repository, set
 ** *Maven repository URL* (`MAVEN_REPO_URL`): The URL for the Maven repository. 
 ** *Maven repository username* (`MAVEN_REPO_USERNAME`): The user name for the Maven repository. 
 ** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The password for the Maven repository. 
+** *Maven repository ID* (`MAVEN_REPOSITORY_ID`): The Maven ID, which must match the `id` setting for the Maven repository. 
 ifdef::DM[]
 +
 Alternatively, if you want to use the Maven repository that is built into {CENTRAL} and to connect additional {KIE_SERVERS} to the {CENTRAL}, set the following parameters:

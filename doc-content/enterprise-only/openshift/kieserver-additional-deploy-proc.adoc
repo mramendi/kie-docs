@@ -1,9 +1,12 @@
 [id='kieserver-additional-deploy-proc']
 = Deploying an additional {KIE_SERVER}
+:kieonly:
+// kieonly must be undefined at end of file
+:LOCAL_CENTRAL: {CENTRAL} Monitoring
 
 As a part of a managed server infrastructure, you can deploy an additional {KIE_SERVER} on the OpenShift infrastructure. You can then use {CENTRAL} to deploy, undeploy, and manage services on this {KIE_SERVER}.
 
-To deploy an additional {KIE_SERVER}, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver.yaml` template file. You can download the file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}.
+To deploy an additional {KIE_SERVER}, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver.yaml` template file. You can download the file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page.
 
 
 .Procedure
@@ -36,6 +39,9 @@ In this command line:
 ** *Maven repository username* (`MAVEN_REPO_USERNAME`): The user name for the Maven repository. If you configured an external Maven repository for the {CENTRAL}, use the user name for it. Otherwise, use the user name that you configured for the {CENTRAL} as `{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME`.  
 ** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The password for the Maven repository. Otherwise, use the password that you configured for the {CENTRAL} as `{CENTRAL_CAPITAL_UNDER}_MAVEN_PASSWORD`.
 +
+include::ldap_rhsso.adoc[]
 . Complete the creation of the environment, depending on the method that you are using:
 * In the OpenShift Web UI, click *Create*.
 * Complete and run the command line.
+
+:kieonly!:

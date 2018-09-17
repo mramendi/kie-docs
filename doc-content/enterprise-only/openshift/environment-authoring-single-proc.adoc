@@ -12,7 +12,7 @@ ifdef::DM[]
 
 To deploy single {CENTRAL} and one {KIE_SERVER} in an authoring or managed server environment, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring.yaml` template file. 
 endif::DM[]
-You can extract this file from the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file. You can download the file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}.
+You can extract this file from the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file. You can download the file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page.
 
 ifdef::PAM[]
 If you want to modify the environment defined by the template file, see <<environment-authoring-single-modify-proc>>.
@@ -40,3 +40,5 @@ include::authoring-params.adoc[]
 . Complete the creation of the environment, depending on the method that you are using:
 * In the OpenShift Web UI, click *Create*.
 * Complete and run the command line.
+
+:kieandcentral!:
