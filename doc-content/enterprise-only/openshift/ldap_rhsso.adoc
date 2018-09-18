@@ -6,26 +6,26 @@
 // the beginning of the parent file.
 . If you want to use RH-SSO or LDAP authentication, complete the following additional configuration:
 .. In the RH-SSO or LDAP service, create all user names in the deployment parameters. If you do not set any of the parameters, create users with the default user names. The created users must also be assigned to roles:
-*** `KIE_ADMIN_USER`: default name `adminUser`, roles: `kie-server,rest-all,admin,kiemgmt,Administrators`
+*** `KIE_ADMIN_USER`: default user name `adminUser`, roles: `kie-server,rest-all,admin,kiemgmt,Administrators`
 ifdef::kieandcentral[]
-*** `KIE_SERVER_CONTROLLER_USER`: default name `controllerUser`, roles: `kie-server,rest-all,guest`
-*** `{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME` (not needed if you configure the use of an external Maven repository): default name `mavenUser`. No roles are required.
+*** `KIE_SERVER_CONTROLLER_USER`: default user name `controllerUser`, roles: `kie-server,rest-all,guest`
+*** `{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME` (not needed if you configure the use of an external Maven repository): default user name `mavenUser`. No roles are required.
 endif::kieandcentral[]
 ifdef::centralonly[]
 *** `KIE_SERVER_MONITOR_USER`: user name `monitorUser`. You *must not* change this user name. You also *must* configure the `KIE_SERVER_MONITOR_PASSWORD` parameter to the same value as the password for this user in the RH-SSO service. Otherwise, the suggested parameter settings for the server deployments will be incorrect. Roles: `kie-server,rest-all,guest`
 endif::centralonly[]
 ifndef::centralonly[]
-*** `KIE_SERVER_USER`: default name `executionUser`, roles `kie-server,rest-all,guest`
+*** `KIE_SERVER_USER`: default user name `executionUser`, roles `kie-server,rest-all,guest`
 endif::centralonly[]
 +
 .. If you want to configure Red Hat Single Sign On (RH-SSO) authentication, an RH-SSO realm that applies to {PRODUCT} must exist. 
 ifdef::kieonly[]
 A client within RH-SSO must also exist for 
 ifdef::multiplekie[each]
-{KIE_SERVER}. If the client does not yet exist, the template can create it during deployment.
 endif::kieonly[]
 ifdef::centralonly[A client within RH-SSO must also exist for {LOCAL_CENTRAL}. If the client does not yet exist, the template can create it during deployment.]
 ifdef::kieandcentral[]
+{KIE_SERVER}. If the client does not yet exist, the template can create it during deployment.
 Clients within RH-SSO must also exist for {LOCAL_CENTRAL} and for 
 ifdef::multiplekie[each]
 {KIE_SERVER}. If the clients do not yet exist, the template can create them during deployment.
