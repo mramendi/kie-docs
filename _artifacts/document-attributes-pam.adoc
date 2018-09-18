@@ -25,3 +25,4 @@
 :URL_COMPONENT_CENTRAL_UNDER: business_central
 
 :ENGINE: process engine
+:PRODUCT_DOWNLOAD_LINK: https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhpam&productChanged=yes

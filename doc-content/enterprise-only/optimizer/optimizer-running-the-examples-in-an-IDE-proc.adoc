@@ -1,6 +1,9 @@
 [id='optimizer-running-the-examples-in-an-IDE-proc']
 = Running the {PLANNER} examples in an IDE (IntelliJ, Eclipse, or Netbeans)
 
+.Prerequisite
+You have downloaded and unpacked the examples. For instructions about these actions, see <<examples-download-proc>>.
+
 Use the following procedure to run the {PLANNER} examples in IntelliJ or Netbeans:
 
 .Procedure

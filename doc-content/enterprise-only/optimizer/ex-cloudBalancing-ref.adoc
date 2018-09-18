@@ -1,0 +1,4 @@
+[id='ex-cloudBalancing-ref']
+= Cloud Balancing
+
+For information about this example, see <<cloudbal-tutorial-con>>.
