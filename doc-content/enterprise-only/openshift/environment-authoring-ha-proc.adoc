@@ -2,6 +2,7 @@
 // definitions for RH-SSO include
 :kieandcentral:
 :LOCAL_CENTRAL: {CENTRAL}
+:modifylink: environment-authoring-ha-modify-proc
 ifdef::PAM[]
 = Deploying a high-availability authoring environment
 

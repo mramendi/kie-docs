@@ -11,7 +11,14 @@ include::_artifacts/author-group.adoc[]
 
 // Purpose statement for the assembly
 As a system engineer, you can deploy a {PRODUCT} managed server environment on {OPENSHIFT}
-to provide an infrastructure to execute processes and other business assets. You can use
+to provide an infrastructure to execute
+ifdef::DM[]
+services
+endif::DM[]
+ifdef::PAM[]
+services, process applications,
+endif::PAM[] 
+and other business assets. You can use
 {CENTRAL} Monitoring to manage and update the processes running on {KIE_SERVERS} in this environment.
 
 .Prerequisites

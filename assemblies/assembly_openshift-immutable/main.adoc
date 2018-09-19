@@ -11,7 +11,14 @@ include::_artifacts/author-group.adoc[]
 
 // Purpose statement for the assembly
 As a system engineer, you can deploy a {PRODUCT} immutable server environment on {OPENSHIFT}
-to provide an infrastructure to execute {ASSETS} and other business assets. You can use
+to provide an infrastructure to execute 
+ifdef::DM[]
+services
+endif::DM[]
+ifdef::PAM[]
+services, process applications,
+endif::PAM[] 
+and other business assets. You can use
 standard integration tools to manage the immutable {KIE_SERVER} image. You can create new server images
 to add and update {ASSETS}.
 

@@ -10,7 +10,14 @@ include::_artifacts/document-attributes.adoc[]
 include::_artifacts/author-group.adoc[]
 
 // Purpose statement for the assembly
-As a system engineer, you can deploy a {PRODUCT} authoring environment on {OPENSHIFT} to provide a platform for development of processes and other business assets.
+As a system engineer, you can deploy a {PRODUCT} authoring environment on {OPENSHIFT} to provide a platform for development of
+ifdef::DM[]
+services
+endif::DM[]
+ifdef::PAM[]
+services, process applications,
+endif::PAM[] 
+and other business assets.
 
 .Prerequisites
 
