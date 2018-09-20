@@ -20,7 +20,7 @@ services, process applications,
 endif::PAM[] 
 and other business assets. You can use
 standard integration tools to manage the immutable {KIE_SERVER} image. You can create new server images
-to add and update {ASSETS}.
+to add and update the business assets.
 
 .Prerequisites
 
