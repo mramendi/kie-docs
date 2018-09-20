@@ -1,7 +1,7 @@
 [id='er-deploy-prepare-proc']
 = Preparing deployment files
 
-You must download and prepare the deployment files before deploying the application.
+You must download and prepare the deployment files before building and deploying the application.
 
 .Procedure
 

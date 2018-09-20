@@ -23,7 +23,7 @@ public boolean onWeekend() {
 You can modify this method to hardcode public holidays as weekend days.
 ====
 +
-. In the `src/main/resources/org/optaplanner/openshift/employeerostering/server/solver/employeeRosteringScoreRules.drl` file of the `optashift-employee-rostering-shared` package, add a rule that triggers a hard constraint if there are two shifts for the same employee, both are on weekends, and less than 9 days have passed between them.
+. In the `src/main/resources/org/optaplanner/openshift/employeerostering/server/solver/employeeRosteringScoreRules.drl` file of the `optashift-employee-rostering-shared` module, add a rule that triggers a hard constraint if there are two shifts for the same employee, both are on weekends, and less than 9 days have passed between them.
 +
 [source,java]
 ----

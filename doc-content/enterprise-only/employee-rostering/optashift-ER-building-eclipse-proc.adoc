@@ -37,7 +37,7 @@ You can change the name, location. and arguments to use another browser instead 
 *** Arguments: `fuser -k 9876/tcp`
 +
 . From the main menu, select *Run* > *Run Configurations...*. 
-. Under *Program*, create the following launch configurations:
+. Under *Maven Build*, create the following launch configurations:
 .. OptaWeb Employee Rostering Build:
 *** Name: `OptaWeb Employee Rostering Build`
 *** Base directory: `${workspace_loc:/employee-rostering}`
@@ -69,3 +69,9 @@ You can change the name, location. and arguments to use another browser instead 
 ** `Maven Build::OptaWeb Employee Rostering Start Code server` Launch mode: *inherit* Post launch action: *Wait for console output (regexp)*: `The code server is ready at`
 ** `Program::Open OptaWeb Employee Rostering in Chrome` Launch mode: *inherit* Post launch action: none
 . To build, run, and immediately acccess the application, run the `OptaWeb Employee Rostering Run` launch group. You can then change the application and rerun the launch group to test your changes.
+
++
+[NOTE]
+====
+When you use this method to run the application, the UI uses the gwt codeserver and monitors the gwtui source. If you change gwtui code, the codeserver picks the changes up automatically; there is no need to rebuild the application for gwtui code changes. 
+====

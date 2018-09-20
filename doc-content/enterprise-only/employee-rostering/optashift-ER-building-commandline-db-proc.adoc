@@ -19,8 +19,9 @@ mvn clean install  -DproductizedOpenshift -Dorg.optaweb.employeerostering.persis
 ----
 +
 Replace the following values:
++
 ** _<dsname>_ with the name of the data source in the application server.
-** _<dialect>_ with one of the followingstrings, depending on the type of database server:
+** _<dialect>_ with one of the following strings, depending on the type of database server:
 *** For MySQL, `org.hibernate.dialect.MySQL5Dialect`
 *** For PostgreSQL, `org.hibernate.dialect.PostgreSQLDialect` 
 +

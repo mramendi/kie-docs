@@ -20,6 +20,7 @@ As a business rules developer, you can use an IDE to build, run, and modify the 
 // Modules - concepts, procedures, refs, etc.
 include::{enterprise-dir}/employee-rostering/optashift-ER-overview-con.adoc[leveloffset=+1]
 include::{enterprise-dir}/employee-rostering/optashift-ER-building-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/employee-rostering/er-deploy-prepare-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/employee-rostering/optashift-ER-building-commandline-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/employee-rostering/optashift-ER-building-commandline-db-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/employee-rostering/optashift-ER-building-eclipse-proc.adoc[leveloffset=+2]
