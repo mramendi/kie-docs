@@ -1,6 +1,6 @@
 [id='optashift-ER-modifying-proc']
 = Modifying the employee rostering starter application
-To modify the employee rostering starter application to suit your needs, you must change the rules that govern the optimization process. You must also ensure that the data structures include the required data and provide the required calculations for the rules. If the required data is not present in the user interfacem you must also modify the user interface.
+To modify the employee rostering starter application to suit your needs, you must change the rules that govern the optimization process. You must also ensure that the data structures include the required data and provide the required calculations for the rules. If the required data is not present in the user interface, you must also modify the user interface.
 
 The following procedure outlines the general approach to modifying the employee rostering starter application. 
 //You can review a sample modification for an example of applying this approach in specific cases.

@@ -1,19 +1,8 @@
 [id='optashift-ER-openshift-deploy-con']
 = Installing and starting the employee rostering starter application on OpenShift
 
-You can deploy the {PLANNER} Employee Rostering starter application to {OPENSHIFT}.
+You can deploy the {PLANNER} Employee Rostering starter application to {OPENSHIFT} using the `provision.sh` shell script that is provided in the add-ons distribution. 
 
-There are two options for deploying this application to OpenShift:
+The application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
 
-//. Using the OpenShift template that is provided in the OpenShift templates distribution for {PRODUCT}. In this case, an existing database server is required.
-
-* Using the `provision.sh` shell script that is provided in the add-ons distribution. In this case, the application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
-
-* Using the provided Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.  In this case, the compilation and packaging of the application occurs within the OpenShift environment.  Use this option when the prerequisites for using `provision.sh` are not available. 
-
-With both methods, the data is held in memory and lost when the pod is restarted.
-
-[NOTE]
-====
-The S2I approach requires significantly more OpenShift resources to complete than the shell script deployment. If your OpenShift environment has less than 2GB of memory available, you must follow the shell script deployment. The application will not deploy successfully with any method to the OpenShift Online Starter tier because of memory requirements.
-====
+IMPORTANT: The data is held in memory and lost when the pod is restarted.
