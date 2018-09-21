@@ -1,5 +1,5 @@
 [id='ex-rockTour-ref']
-= Rock Tour
+= Rock tour
 
 Drive the rock bus from show to show, but schedule shows only on available days.
 
@@ -19,7 +19,7 @@ Soft constraints:
 * Avoid long driving times.
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 47shows has 47 shows with a search space of 10^59.

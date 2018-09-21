@@ -1,5 +1,5 @@
 [id='ex-flightCrewScheduling-ref']
-= Flight Crew Scheduling
+= Flight crew scheduling
 
 Assign flights to pilots and flight attendants.
 
@@ -19,7 +19,7 @@ Soft constraints:
 * Last assignment arriving at home
 * Load balance flight duration total per employee
 
-.Problem Size
+.Problem size
 
 [source,options="nowrap"]
 ----

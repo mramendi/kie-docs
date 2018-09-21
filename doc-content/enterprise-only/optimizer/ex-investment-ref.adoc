@@ -1,5 +1,5 @@
 [id='ex-investment-ref']
-= Investment Asset Class Allocation (Portfolio Optimization)
+= Investment asset class allocation (Portfolio Optimization)
 
 Decide the relative quantity to invest in each asset class.
 
@@ -15,7 +15,7 @@ Soft constraints:
 * Maximize expected return.
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 de_smet_1 has 1 regions, 3 sectors and 11 asset classes with a search space of 10^4.

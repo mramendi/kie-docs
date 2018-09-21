@@ -6,15 +6,15 @@ You can use Drools rule language (DRL) to define constraints. Drools score calcu
 Using the {ENGINE} for score calculation enables you to integrate with other Drools technologies, such as decision tables (XLS or web based), {CENTRAL}, and other supported features.
 
 .Procedure
-. To use the Drools rule engine as a score function, simply add a `scoreDrl` resource in the classpath. In the `cloudBalancingSolverConfig.xml` file, add or uncomment the setting:
-
+. Add a `scoreDrl` resource in the classpath to use the Drools rule engine as a score function. In the `cloudBalancingSolverConfig.xml` file, add or uncomment the setting:
++
 [source,xml,options="nowrap"]
 ----
   <scoreDirectorFactory>
     <scoreDrl>org/optaplanner/examples/cloudbalancing/solver/cloudBalancingScoreRules.drl</scoreDrl>
   </scoreDirectorFactory>
 ----
-
++
 . Create the hard constraints. These constraints ensure that all computers have enough CPU, RAM and network bandwidth to support all their processes:
 +
 .cloudBalancingScoreRules.drl - Hard Constraints

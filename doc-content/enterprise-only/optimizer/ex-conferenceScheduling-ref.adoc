@@ -1,5 +1,5 @@
 [id='ex-conferenceScheduling-ref']
-= Conference Scheduling
+= Conference scheduling
 
 Assign each conference talk to a timeslot and a room.
 Timeslots can overlap. Read/write to/from an `*.xlsx` file that can be edited with LibreOffice or Excel too.
@@ -42,10 +42,10 @@ Soft constraints:
 * Same day talks: All talks that share a same theme tag or content tag should be scheduled in the minimum number of days
 (ideally in the same day).
 
-.Value Proposition
+.Value proposition
 image::UseCasesAndExamples/ConferenceScheduling/conferenceSchedulingValueProposition.png[align="center"]
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 18talks-6timeslots-5rooms    has  18 talks,  6 timeslots and  5 rooms with a search space of  10^26.

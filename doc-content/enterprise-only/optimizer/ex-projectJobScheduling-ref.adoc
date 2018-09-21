@@ -1,5 +1,5 @@
 [id='ex-projectJobScheduling-ref']
-= Project Job Scheduling
+= Project job scheduling
 
 Schedule all jobs in time and execution mode to minimize project delays.
 Each job is part of a project.
@@ -26,7 +26,7 @@ Soft constraints:
 The problem is defined by http://gent.cs.kuleuven.be/mista2013challenge/[the MISTA 2013 challenge].
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 Schedule A-1  has  2 projects,  24 jobs,   64 execution modes,  7 resources and  150 resource requirements.

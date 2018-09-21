@@ -1,5 +1,5 @@
 [id='ex-tennis-ref']
-= Tennis Club Scheduling
+= Tennis club scheduling
 
 Every week the tennis club has four teams playing round robin against each other.
 Assign those four spots to the teams fairly.
@@ -18,12 +18,12 @@ Soft constraints:
 * Evenly confrontation: Each team should play against every other team an equal number of times.
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 munich-7teams has 7 teams, 18 days, 12 unavailabilityPenalties and 72 teamAssignments with a search space of 10^60.
 ----
 
 
-.Domain Model
+.Domain model
 image::UseCasesAndExamples/TennisScheduling/tennisClassDiagram.png[align="center"]

@@ -1,5 +1,5 @@
 [id='ex-nQueens-ref']
-= N Queens
+= N queens
 
 Place _n_ queens on a _n_ sized chessboard so that no two queens can attack each other.
 The most common _n_ queens puzzle is the eight queens puzzle, with __n = 8__:
@@ -16,14 +16,14 @@ This documentation heavily uses the four queens puzzle as the primary example.
 
 A proposed solution could be:
 
-.A Wrong Solution for the Four Queens Puzzle
+.A wrong solution for the Four queens puzzle
 image::UseCasesAndExamples/NQueens/partiallySolvedNQueens04Explained.png[align="center"]
 
 The above solution is wrong because queens `A1` and `B0` can attack each other (so can queens `B0` and ``D0``). Removing queen `B0` would respect the "no two queens can attack each other" constraint, but would break the "place _n_ queens" constraint.
 
 Below is a correct solution:
 
-.A Correct Solution for the Four Queens Puzzle
+.A correct solution for the Four queens puzzle
 image::UseCasesAndExamples/NQueens/solvedNQueens04.png[align="center"]
 
 All the constraints have been met, so the solution is correct. 
@@ -33,7 +33,7 @@ We will focus on finding a single correct solution for a given _n_, not on findi
 
 
 [[nQueensProblemSize]]
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 4queens   has   4 queens with a search space of    256.
@@ -49,7 +49,7 @@ With a few changes it has been shown to easily handle 5000 queens and more.
 
 
 [[nQueensDomainModel]]
-.Domain Model
+== Domain model for N queens
 
 This example uses the domain model to solve the four queens problem.
 

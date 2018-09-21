@@ -1,5 +1,5 @@
 [id='ex-cheapTimeScheduling-ref']
-= Cheap Time Scheduling
+= Cheap time scheduling
 
 Schedule all tasks in time and on a machine to minimize power cost.
 Power prices differs in time.
@@ -25,7 +25,7 @@ Soft constraints (addendum to the original problem definition):
 The problem is defined by http://iconchallenge.insight-centre.org/[the ICON challenge].
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 sample01   has 3 resources,   2 machines, 288 periods and   25 tasks with a search space of    10^53.

@@ -25,11 +25,11 @@ Soft level 3 constraints:
 
 * Minor tasks: Complete minor tasks as soon as possible.
 
-.Value Proposition
+.Value proposition
 image::UseCasesAndExamples/TaskAssigning/taskAssigningValueProposition.png[align="center"]
 
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 24tasks-8employees   has  24 tasks, 6 skills,  8 employees,   4 task types and  4 customers with a search space of   10^30.
@@ -38,5 +38,5 @@ image::UseCasesAndExamples/TaskAssigning/taskAssigningValueProposition.png[align
 500tasks-20employees has 500 tasks, 6 skills, 20 employees, 100 task types and 60 customers with a search space of 10^1168.
 ----
 
-.Domain Model
+.Domain model
 image::UseCasesAndExamples/TaskAssigning/taskAssigningClassDiagram.png[align="center"]

@@ -1,5 +1,5 @@
 [id='ex-curriculumCourse-ref']
-= Course Timetabling (ITC 2007 Track 3 - Curriculum Course Scheduling)
+= Course timetabling (ITC 2007 Track 3 - Curriculum Course Scheduling)
 
 Schedule each lecture into a timeslot and into a room.
 
@@ -19,7 +19,7 @@ Soft constraints:
 
 The problem is defined by http://www.cs.qub.ac.uk/itc2007/curriculmcourse/course_curriculm_index.htm[the International Timetabling Competition 2007 track 3].
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 comp01 has 24 teachers,  14 curricula,  30 courses, 160 lectures, 30 periods,  6 rooms and   53 unavailable period constraints with a search space of  10^360.
@@ -38,5 +38,5 @@ comp13 has 77 teachers,  66 curricula,  82 courses, 308 lectures, 25 periods, 19
 comp14 has 68 teachers,  60 curricula,  85 courses, 275 lectures, 25 periods, 17 rooms and  486 unavailable period constraints with a search space of  10^722.
 ----
 
-.Domain Model
+.Domain model
 image::UseCasesAndExamples/CourseTimetabling/curriculumCourseClassDiagram.png[align="center"]

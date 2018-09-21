@@ -1,5 +1,5 @@
 [id='ex-machineReassignment-ref']
-= Machine Reassignment (Google ROADEF 2012)
+= Machine reassignment (Google ROADEF 2012)
 
 Assign each process to a machine.
 All processes already have an original (unoptimized) assignment.

@@ -1,5 +1,5 @@
 [id='ex-travelingTournament-ref']
-= Traveling Tournament Problem (TTP)
+= Traveling tournament problem (TTP)
 
 Schedule matches between _n_ teams.
 
@@ -18,7 +18,7 @@ Soft constraints:
 
 The problem is defined on http://mat.gsia.cmu.edu/TOURN/[Michael Trick's website (which contains the world records too)].
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 1-nl04     has  6 days,  4 teams and   12 matches with a search space of    10^5.

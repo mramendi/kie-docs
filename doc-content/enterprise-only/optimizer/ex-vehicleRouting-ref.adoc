@@ -1,5 +1,5 @@
 [id='ex-vehicleRouting-ref']
-= Vehicle Routing
+= Vehicle routing
 
 Using a fleet of vehicles, pick up the objects of each customer and bring them to the depot.
 Each vehicle can service multiple customers, but it has a limited capacity.
@@ -23,11 +23,11 @@ Soft constraints:
 
 The capacitated vehicle routing problem (CVRP) and its timewindowed variant (CVRPTW) are defined by http://neo.lcc.uma.es/vrp/[the VRP web].
 
-.Value Proposition
+.Value proposition
 image::UseCasesAndExamples/VehicleRouting/vehicleRoutingValueProposition.png[align="center"]
 
 
-.Problem Size
+.Problem size
 CVRP instances (without time windows):
 
 [source,options="nowrap"]
@@ -146,7 +146,7 @@ Homberger_1000_RC210_1 has 1 depots, 250 vehicles and 1000 customers with a sear
 
 
 [[vehicleRoutingDomainModel]]
-.Domain Model
+== Domain model for Vehicle routing
 image::UseCasesAndExamples/VehicleRouting/vehicleRoutingClassDiagram.png[align="center"]
 
 The vehicle routing with timewindows domain model makes heavily use of the shadow variable feature.
