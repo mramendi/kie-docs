@@ -8,22 +8,22 @@ image::UseCasesAndExamples/ExamTimetabling/examinationTimetablingUseCase.png[ali
 
 Hard constraints:
 
-* Exam conflict: two exams that share students must not occur in the same period.
+* Exam conflict: Two exams that share students must not occur in the same period.
 * Room capacity: A room's seating capacity must suffice at all times.
 * Period duration: A period's duration must suffice for all of its exams.
 * Period related hard constraints (specified per dataset):
-** Coincidence: two specified exams must use the same period (but possibly another room).
-** Exclusion: two specified exams must not use the same period.
+** Coincidence: Two specified exams must use the same period (but possibly another room).
+** Exclusion: Two specified exams must not use the same period.
 ** After: A specified exam must occur in a period after another specified exam's period.
 * Room related hard constraints (specified per dataset):
-** Exclusive: one specified exam should not have to share its room with any other exam.
+** Exclusive: One specified exam should not have to share its room with any other exam.
 
 Soft constraints (each of which has a parametrized penalty):
 
 * The same student should not have two exams in a row.
 * The same student should not have two exams on the same day.
-* Period spread: two exams that share students should be a number of periods apart.
-* Mixed durations: two exams that share a room should not have different durations.
+* Period spread: Two exams that share students should be a number of periods apart.
+* Mixed durations: Two exams that share a room should not have different durations.
 * Front load: Large exams should be scheduled earlier in the schedule.
 * Period penalty (specified per dataset): Some periods have a penalty when used.
 * Room penalty (specified per dataset): Some rooms have a penalty when used.

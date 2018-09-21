@@ -1,7 +1,7 @@
 [id='cloudbal-class-computer-ref']
 = The `Computer` Class
 
-The `Computer` class is a POJO (Plain Old Java Object). Usually, you will have more of this kind of classes with input data.
+The `Computer` class is a Java object that stores data, sometimes known as a POJO (Plain Old Java Object). Usually, you will have more of this kind of classes with input data.
 
 .CloudComputer.java
 ====

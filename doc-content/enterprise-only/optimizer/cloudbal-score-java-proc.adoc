@@ -11,8 +11,9 @@ One way to define a score function is to implement the interface `EasyScoreCalcu
     <easyScoreCalculatorClass>org.optaplanner.examples.cloudbalancing.optional.score.CloudBalancingEasyScoreCalculator</easyScoreCalculatorClass>
   </scoreDirectorFactory>
 ----
++
 . Implement the `calculateScore(Solution)` method to return a `HardSoftScore` instance.
-
++
 .CloudBalancingEasyScoreCalculator.java
 ====
 [source,java,options="nowrap"]

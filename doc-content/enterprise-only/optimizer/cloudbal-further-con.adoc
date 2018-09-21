@@ -1,6 +1,6 @@
 [id='cloudbal-further-con']
 = Further development of the solver
-Now that this simple example works, you can try developing it further.
+Now that this example works, you can try developing it further.
 For example, you can enrich the domain model and add extra constraints such as these:
 
 * Each `Process` belongs to a ``Service``. A computer might crash, so processes running the same service should (or must) be assigned to different computers.

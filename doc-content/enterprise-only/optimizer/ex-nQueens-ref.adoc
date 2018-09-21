@@ -53,7 +53,8 @@ With a few changes it has been shown to easily handle 5000 queens and more.
 
 This example uses the domain model to solve the four queens problem.
 
-. *Creating a Domain Model* 
+* *Creating a Domain Model* 
++
 A good domain model will make it easier to understand and solve your planning problem.
 +
 This is the domain model for the _n_ queens example:
@@ -93,7 +94,7 @@ public class Queen {
 ----
 
 
-. *Calculating the Search Space.*
+* *Calculating the Search Space.*
 +
 A `Queen` instance has a `Column` (for example: 0 is column A, 1 is column B, ...) and a `Row` (its row, for example: 0 is row 0, 1 is row 1, ...). 
 +
@@ -124,17 +125,17 @@ It is the `Solution` implementation which will be supplied to, solved by, and re
 
 Notice that in the four queens example, NQueens's `getN()` method will always return four.
 
-.A Solution for Four Queens Shown in the Domain Model
-[cols="6a,1,1,1,1,1", options="header"]
+.A solution for Four Queens
+image::UseCasesAndExamples/NQueens/partiallySolvedNQueens04Explained.png[align="center"]
+
+.Details of the solution in the domain model
+[cols="1,2,2,3,3", options="header"]
 |===
-| A solution
-| Queen
+|
 | columnIndex
 | rowIndex
 | ascendingDiagonalIndex (columnIndex + rowIndex)
 | descendingDiagonalIndex (columnIndex - rowIndex)
-
-.4+| image::UseCasesAndExamples/NQueens/partiallySolvedNQueens04Explained.png[align="center"]
 
 |A1
 |0

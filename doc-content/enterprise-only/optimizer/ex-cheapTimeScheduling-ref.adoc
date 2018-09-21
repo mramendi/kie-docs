@@ -7,20 +7,20 @@ This is a form of __job shop scheduling__.
 
 Hard constraints:
 
-* Start time limits: each task must start between its earliest start and latest start limit.
-* Maximum capacity: the maximum capacity for each resource for each machine must not be exceeded.
-* Startup and shutdown: each machine must be active in the periods during which it has assigned tasks. Between tasks it is allowed to be idle to avoid startup and shutdown costs.
+* Start time limits: Each task must start between its earliest start and latest start limit.
+* Maximum capacity: The maximum capacity for each resource for each machine must not be exceeded.
+* Startup and shutdown: Each machine must be active in the periods during which it has assigned tasks. Between tasks it is allowed to be idle to avoid startup and shutdown costs.
 
 Medium constraints:
 
-* Power cost: minimize the total power cost of the whole schedule.
+* Power cost: Minimize the total power cost of the whole schedule.
 ** Machine power cost: Each active or idle machine consumes power, which infers a power cost (depending on the power price during that time).
 ** Task power cost: Each task consumes power too, which infers a power cost (depending on the power price during its time).
 ** Machine startup and shutdown cost: Every time a machine starts up or shuts down, an extra cost is inflicted.
 
 Soft constraints (addendum to the original problem definition):
 
-* Start early: prefer starting a task sooner rather than later.
+* Start early: Prefer starting a task sooner rather than later.
 
 The problem is defined by http://iconchallenge.insight-centre.org/[the ICON challenge].
 

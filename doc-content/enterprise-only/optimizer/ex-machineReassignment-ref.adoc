@@ -3,7 +3,7 @@
 
 Assign each process to a machine.
 All processes already have an original (unoptimized) assignment.
-Each process requires an amount of each resource (such as CPU, RAM, ...). This is a more complex version of the Cloud Balancing example.
+Each process requires an amount of each resource (such as CPU or RAM). This is a more complex version of the Cloud Balancing example.
 
 Hard constraints:
 
@@ -26,11 +26,11 @@ The problem is defined by http://challenge.roadef.org/2012/en/[the Google ROADEF
 image::UseCasesAndExamples/MachineReassignment/cloudOptimizationIsLikeTetris.png[align="center"]
 
 [[machineReassignmentValueProposition]]
-== Value Proposition
+.Value proposition
 
 image::shared/cloudOptimizationValueProposition.png[align="center"]
 
-.Problem Size
+.Problem size
 [source,options="nowrap"]
 ----
 model_a1_1 has  2 resources,  1 neighborhoods,   4 locations,    4 machines,    79 services,   100 processes and 1 balancePenalties with a search space of     10^60.
@@ -55,5 +55,5 @@ model_b_9  has  3 resources,  5 neighborhoods, 100 locations, 1000 machines,  46
 model_b_10 has  3 resources,  5 neighborhoods, 100 locations, 5000 machines,  4896 services, 50000 processes and 1 balancePenalties with a search space of 10^184948.
 ----
 
-.Domain Model
+.Domain model
 image::UseCasesAndExamples/MachineReassignment/machineReassignmentClassDiagram.png[align="center"]

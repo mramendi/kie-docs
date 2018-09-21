@@ -1,12 +1,12 @@
 [id='cloudbal-score-drools-proc']
 = Configuring score calculation using Drools
 
-You can use the Drools language to define constraints. Drools score calculation uses incremental calculation, where every score constraint is written as one or more score rules. 
+You can use Drools rule language (DRL) to define constraints. Drools score calculation uses incremental calculation, where every score constraint is written as one or more score rules. 
 
-Using the Drools rule engine for score calculation enables you to integrate with other Drools technologies, such as decision tables (XLS or web based), the KIE Workbench, and so on.
+Using the {ENGINE} for score calculation enables you to integrate with other Drools technologies, such as decision tables (XLS or web based), {CENTRAL}, and other supported features.
 
 .Procedure
-To use the Drools rule engine as a score function, simply add a `scoreDrl` resource in the classpath. In the `cloudBalancingSolverConfig.xml` file, add or uncomment the setting:
+. To use the Drools rule engine as a score function, simply add a `scoreDrl` resource in the classpath. In the `cloudBalancingSolverConfig.xml` file, add or uncomment the setting:
 
 [source,xml,options="nowrap"]
 ----
@@ -15,7 +15,7 @@ To use the Drools rule engine as a score function, simply add a `scoreDrl` resou
   </scoreDirectorFactory>
 ----
 
-. We want to make sure that all computers have enough CPU, RAM and network bandwidth to support all their processes, so we make these hard constraints:
+. Create the hard constraints. These constraints ensure that all computers have enough CPU, RAM and network bandwidth to support all their processes:
 +
 .cloudBalancingScoreRules.drl - Hard Constraints
 ====
@@ -57,7 +57,7 @@ end
 ----
 ====
 
-. If those constraints are met, we want to minimize the maintenance cost, so we add that as a soft constraint:
+. Create a soft constraint. This constraint miminizes the maintenance cost. It is applied only if hard constraints are met:
 +
 .cloudBalancingScoreRules.drl - Soft Constraints
 ====

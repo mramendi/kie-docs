@@ -1,10 +1,10 @@
 [id='optimizer-running-the-examples-proc']
-= Rnning the Business Optimizer examples
+= Running {PLANNER_SHORT} examples
 
 {PLANNER} includes a number of examples to demonstrate a variety of use cases.
 
 .Prerequisite
-You have downloaded and unpacked the examples. For instructions about these actions, see <<examples-download-proc>>.
+You have downloaded and decompressed the examples. For instructions about these actions, see <<examples-download-proc>>.
 
 .Procedure
 . In the `{PRODUCT_FILE}-planner-engine` folder, open the `examples` directory and use the appropriate script to run the examples:

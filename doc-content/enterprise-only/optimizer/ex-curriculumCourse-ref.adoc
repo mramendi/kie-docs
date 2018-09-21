@@ -7,7 +7,7 @@ Hard constraints:
 
 * Teacher conflict: A teacher must not have two lectures in the same period.
 * Curriculum conflict: A curriculum must not have two lectures in the same period.
-* Room occupancy: two lectures must not be in the same room in the same period.
+* Room occupancy: Two lectures must not be in the same room in the same period.
 * Unavailable period (specified per dataset): A specific lecture must not be assigned to a specific period.
 
 Soft constraints:
