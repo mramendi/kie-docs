@@ -10,7 +10,7 @@ If you use this procedure, the data is stored in memory and is lost when the ser
 . The host must have access to the Internet (for downloading Maven packages from external repositories).
 
 .Procedure
-. Enter the `sources` directory.
+. In  aterminal window, change to the `sources` directory.
 . Run the following command:
 +
 [source,bash]
@@ -19,7 +19,7 @@ mvn clean install
 ----
 +
 . Wait for the build process to complete.
-. Use one of the following approaches to run the application:
+. Use one of the following methods to run the application:
 .. Run the WildFly server deployed as part of the build process:
 ... In the `local/appserver/wildfly-11.0.0-final/standalone/deployments` subdirectory, create the `optashift-employee-rostering-webapp-<version>.war.dodeploy` file. The `<version>` must be the same as in the existing `optashift-employee-rostering-webapp-<version>.war` symlink in the same directory.
 ... In the `local/appserver/wildfly-11.0.0-final/bin` subdirectory, run the `./standalone.sh` command.

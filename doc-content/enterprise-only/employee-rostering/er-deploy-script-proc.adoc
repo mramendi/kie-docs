@@ -22,12 +22,21 @@ If the current OpenShift user name contains characters that are not letters or n
 +
 Compilation and packaging might take several minutes to complete. They  continually show progress on the command line output.
 +
-Once the opetation is completed, the following message is displayed: `Uploading file "target/ROOT.war" as binary input for the build ...`.
-. Use the OpenShift web UI to view the details for the deployed application. Click the link in the Routes section to open the starter application. The first startup can take up to a minute as additional building is completed on the OpenShift platform. 
+When the operation is completed, the following message is displayed: `Uploading file "target/ROOT.war" as binary input for the build ...`.
+. Use the OpenShift web UI to view the details for the deployed application. Click the link in the *Routes* section to open the starter application. The first startup can take up to a minute as additional building is completed on the OpenShift platform. 
 [NOTE]
 ====
 If the application does not open for more than a minute after clicking the link, perform a hard refresh of your browser page.
 ====
 . Optionally, you can use other actions provided by the provision script:
-.. Deploy updates to the code to an existing deployment: `./provision.sh deploy employee-rostering --binary`
-.. Remove the application: `./provision.sh delete employee-rostering`
+.. Deploy updates to the code to an existing deployment: 
+[source,bash]
+----
+./provision.sh deploy employee-rostering --binary
+----
++
+.. Remove the application: 
+[source,bash]
+----
+./provision.sh delete employee-rostering
+----

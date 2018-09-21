@@ -1,7 +1,7 @@
 [id='er-skills-proc']
 = Entering skills
 
-You can set all _skills_ that can be necessary in any position within the roster. For example, a 24-hour diner would require cooking, serving, bussing, and hosting skills, in addition to skills such as general human resources and restaurant operations.
+You can set all _skills_ that can be necessary in any position within the roster. For example, a 24-hour diner can require cooking, serving, bussing, and hosting skills, in addition to skills such as general human resources and restaurant operations.
 
 .Procedure
 
@@ -14,4 +14,4 @@ You can set all _skills_ that can be necessary in any position within the roster
 . To edit the name of a skill, click the *Edit Skill* icon (pencil shape) next to the skill.
 . To delete a skill, click the *Delete Skill* icon (trashcan shape) next to the skill.
 
-NOTE: Within each tenant, skill names must be unique. You can not delete a skill if the skill is  associated with an employee or spot.
+NOTE: Within each tenant, skill names must be unique. You cannot delete a skill if the skill is  associated with an employee or spot.

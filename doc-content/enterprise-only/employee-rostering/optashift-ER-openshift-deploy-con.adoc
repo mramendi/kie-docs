@@ -1,4 +1,4 @@
-[id='optashift-ER-openshift-deploy-proc']
+[id='optashift-ER-openshift-deploy-con']
 = Installing and starting the employee rostering starter application on OpenShift
 
 You can deploy the {PLANNER} Employee Rostering starter application to {OPENSHIFT}.
@@ -7,9 +7,9 @@ There are two options for deploying this application to OpenShift:
 
 //. Using the OpenShift template that is provided in the OpenShift templates distribution for {PRODUCT}. In this case, an existing database server is required.
 
-. Using the `provision.sh` shell script that is provided in the add-ons distribution. In this case, the application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
+* Using the `provision.sh` shell script that is provided in the add-ons distribution. In this case, the application source code is built and packaged locally and uploaded to the OpenShift environment for deployment.  Use this preferred method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
 
-. Using the provided Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.  In this case, the compilation and packaging of the application occurs within the OpenShift environment.  Use this option when the prerequisites for using `provision.sh` are not available. 
+* Using the provided Source to Image (S2I) template. This template pulls the source for the application from a Git repository and builds it during the deployment.  In this case, the compilation and packaging of the application occurs within the OpenShift environment.  Use this option when the prerequisites for using `provision.sh` are not available. 
 
 With both methods, the data is held in memory and lost when the pod is restarted.
 
