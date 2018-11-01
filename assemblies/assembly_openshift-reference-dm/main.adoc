@@ -18,7 +18,7 @@ include::{enterprise-dir}/openshift/rhdm71-authoring-ha-ref.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/rhdm71-kieserver-ref.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/rhdm71-prod-immutable-kieserver-ref.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/rhdm71-trial-ephemeral-ref.adoc[leveloffset=+1]
-//include::{enterprise-dir}/openshift/openshift-usage-ref.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/openshift-usage-ref.adoc[leveloffset=+1]
   
 // Versioning info
 include::_artifacts/versioning-information.adoc[]
