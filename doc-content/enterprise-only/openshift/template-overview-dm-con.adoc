@@ -7,8 +7,8 @@ The following templates are provided with the product. You can extract the templ
 
 * `rhdm71-authoring-ha.yaml` provides a high-availability {CENTRAL} and a {KIE_SERVER} connected to the {CENTRAL}. You can use this environment to author services and other business assets or to run them in staging or production environments. The high-availability functionality is in technical preview. For details about this template, see <<rhdm71-authoring-ha-ref>>.
 
-* `rhdm71-kieserver.yaml` provides a {KIE_SERVER}. You can configure the {KIE_SERVER} to connect to a {CENTRAL}. In this way, you can set up a staging or production environment in which one {SERVER} manages several distinct {KIE_SERVERS}. For details about this template, see <<rhdm71-kieserver-ref>>.
+* `rhdm71-kieserver.yaml` provides a {KIE_SERVER}. You can configure the {KIE_SERVER} to connect to a {CENTRAL}. In this way, you can set up a staging or production environment in which one {CENTRAL} manages several distinct {KIE_SERVERS}. For details about this template, see <<rhdm71-kieserver-ref>>.
 
-*  `rhdm71-prod-immutable-kieserver.yaml` provides an immutable {KIE_SERVER}. Depolyment of this template includes a source-to-image (S2I) build for one or several services that are to run on the {KIE_SERVER}. For details about this template, see <<rhdm71-prod-immutable-kieserver-ref>>.
+* `rhdm71-prod-immutable-kieserver.yaml` provides an immutable {KIE_SERVER}. Deployment of this template includes a source-to-image (S2I) build for one or several services that are to run on the {KIE_SERVER}. For details about this template, see <<rhdm71-prod-immutable-kieserver-ref>>.
 
-*  `rhdm71-trial-ephemeral.yaml` provides a {CENTRAL} and a {KIE_SERVER} connected to the {CENTRAL}. This nvironment uses an ephemeral configuration without any persistent storage. For details about this template, see <<rhdm71-trial-ephemeral-ref>>.
+* `rhdm71-trial-ephemeral.yaml` provides a {CENTRAL} and a {KIE_SERVER} connected to the {CENTRAL}. This environment uses an ephemeral configuration without any persistent storage. For details about this template, see <<rhdm71-trial-ephemeral-ref>>.
