@@ -34,6 +34,8 @@ oc create configmap ldap_role_mapping --from-file=rolemapping.properties=my-role
 ----
 +
 . Mount the configuration map on every deployment config that is configured for role mapping. The following deployment configs can be affected in this environment:
++
+--
 ifeval::["{context}"=="openshift-authoring"]
 ** `_myapp_-rhpamcentr`: {CENTRAL}
 ** `_myapp_-kieserver`: {KIE_SERVER} 
@@ -52,14 +54,15 @@ endif::PAM[]
 ** `_myapp_-rhpamcentrmon`: {CENTRAL} Monitoring
 ** `_myapp_-kieserver`: {KIE_SERVER} 
 endif::[]
-+
+
 Where `myapp` is the application name. Sometimes, several {KIE_SERVER} deployments can be present under different application names. 
-+
+ 
 For every deployment configuration, run the command:
-+
+
 [subs="attributes,verbatim,macros"]
 ----
  oc set volume dc/<deployment_config_name> --add --type configmap --configmap-name ldap_role_mapping --mount-path=<mapping_dir> --name=ldap_role_mapping
 ----
-+
+
 Where `mapping_dir` is the directory name (without file name) set in the `AUTH_ROLE_MAPPER_ROLES_PROPERTIES` parameter, for example, `/opt/eap/standalone/configuration/rolemapping` .
+--
