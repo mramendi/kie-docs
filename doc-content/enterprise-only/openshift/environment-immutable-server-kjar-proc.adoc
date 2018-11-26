@@ -25,7 +25,7 @@ You can extract these template files
 endif::PAM[]
 from the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file. You can download the file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page.
 
-When you deploy an immutable {KIE_SERVER}, the deployment procedure retrieves the KJAR files for any services that must run on this server and includes them in the server image.
+In this method of deployment, the {KIE_SERVER} retrieves the KJAR files for any services that must run on it during the startup of the pod.
 
 ifdef::PAM[]
 You can configure the {KIE_SERVER} to connect to Smart Router and to {LOCAL_CENTRAL}. If you use the server with {LOCAL_CENTRAL}, you must ensure that the same versions of KJAR files are uploaded to the Maven repository that the {LOCAL_CENTRAL} instance uses.

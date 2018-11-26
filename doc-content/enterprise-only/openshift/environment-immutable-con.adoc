@@ -16,7 +16,7 @@ When you create a {KIE_SERVER} image, you can build your services using S2I (Sou
 
 If you are using {CENTRAL} for authoring services, you can extract the source for your process and place it into a separate Git repository (such as GitHub or an on-premise installation of GitLab) for use in the S2I build.
 
-Alternatively, you can create an immutable {KIE_SERVER} image using services that are already built as KJAR files. In this case, you must provide the services in a Maven repository; you can use the built-in repository of the {CENTRAL} or your own repository (for example, a Nexus deployment). In an immutable deployment, the KJAR files are retrieved during the building of the image and not updated or changed after that. 
+Alternatively, you can create a similar {KIE_SERVER} deployment using services that are already built as KJAR files. In this case, you must provide the services in a Maven repository; you can use the built-in repository of the {CENTRAL} or your own repository (for example, a Nexus deployment). The KJAR files are retrieved from the Maven repository during the startup of the pod and not updated or changed after that. The files are retrieved at every restart or scaling of the pod, so you must ensure they do not change on the Maven repository to keep the deployment immutable.
 
 With both methods of creating immutable images, no further management of the image is required. If you want to use a new version of a service, you can build a new image.
 
