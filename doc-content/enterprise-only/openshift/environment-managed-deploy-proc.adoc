@@ -41,7 +41,6 @@ In this command line:
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): The namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 ** *{CENTRAL} Monitoring Container Replicas* (`BUSINESS_CENTRAL_MONITORING_CONTAINER_REPLICAS`): The number of replicas initially created for {CENTRAL} Monitoring. If you do not want to use a high-availability configuration for {CENTRAL} Monitoring, set this number to 1.
 ** *Smart Router Container Replicas* (`SMART_ROUTER_CONTAINER_REPLICAS`): The number of replicas initially created for Smart Router.
-** *Smart Router Container Replicas* (`SMART_ROUTER_CONTAINER_REPLICAS`): The number of replicas initially created for Smart Router.
 ** *KIE Server Container Replicas* (`KIE_SERVER_CONTAINER_REPLICAS`): The number of replicas initially created for each of the {KIE_SERVERS}.
 +
 You can also set the following user names and passwords:
