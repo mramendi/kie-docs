@@ -1,7 +1,7 @@
 [id='githooks-proc']
 = Providing the Git hooks directory
 
-If you configure the `GIT_HOOKS_DIR` parameter, you must provide a directory of Git hooks. You must mount this directory on the {CENTRAL} deployment. 
+If you configure the `GIT_HOOKS_DIR` parameter, you must provide a directory of Git hooks and must mount this directory on the {CENTRAL} deployment. 
 
 The typical use of Git hooks is interaction with an upstream repository. To enable Git hooks to push commits into an upstream repository, you must also provide a secret key that corresponds to a public key configured on the upstream repository.
 
@@ -52,7 +52,7 @@ Where `file_1`, `file_2` and so on are git hook script files. For example:
 oc create configmap git_hooks --from-file=post-commit=post-commit
 ----
 +
-... Mount the configuration map on the {CENTRAL} deploymentm in the path that you have configured:
+... Mount the configuration map on the {CENTRAL} deployment in the path that you have configured:
 +
 [subs="attributes,verbatim,macros"]
 ----
@@ -61,7 +61,7 @@ oc set volume dc/<myapp>-{PRODUCT_INIT}centr --add --type configmap --configmap-
 +
 Where `<myapp>` is the application name that was set when configuring the template and `<git_hooks_dir>` is the value of `GIT_HOOKS_DIR` that was set when configuring the template.
 +
-.. If the Git hooks consist of many files or require writing any files at runtime, use a persistence volume. You must create a persistent volume, create a persistent volume claim and associate the volume with the claim, transfer files to the volume, and mount the volume in the `_myapp_-{PRODUCT_INIT}centr` deployment config (where _myapp_ is the application name). For instructions about creating and mounting persistence volumes, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-persistent-volumes[Using persistent volumes]. For instructions about copying files onto a persistent volume, see https://blog.openshift.com/transferring-files-in-and-out-of-containers-in-openshift-part-3/[Transferring files in and out of containers].
+.. If the Git hooks consist of long files or depend on binaries, such as executable or KJAR files, use a persistence volume. You must create a persistent volume, create a persistent volume claim and associate the volume with the claim, transfer files to the volume, and mount the volume in the `_myapp_-{PRODUCT_INIT}centr` deployment configuration (where _myapp_ is the application name). For instructions about creating and mounting persistence volumes, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-persistent-volumes[Using persistent volumes]. For instructions about copying files onto a persistent volume, see https://blog.openshift.com/transferring-files-in-and-out-of-containers-in-openshift-part-3/[Transferring files in and out of containers].
 +
 . Wait a few minutes, then review the list and status of pods in yor project. Because {CENTRAL} does not start until you provide the Git hooks directory, the {KIE_SERVER} might not start at all. To see if it has started, check the output of the following command:
 +
