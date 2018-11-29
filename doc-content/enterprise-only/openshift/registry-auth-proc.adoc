@@ -3,6 +3,8 @@
 
 You must configure OpenShift registry authentication to access Red Hat product images. 
 
+This procedure is not required if you are using a Red Hat OpenShift Online account.
+
 .Procedure
 
 . Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log on to Red Hat Customer Portal to access the document and to complete the steps. You must create a registry service account.
@@ -21,3 +23,8 @@ oc secrets link builder <secret_name> --for=pull
 ----
 +
 Where `<file_name>` is the name of the downloaded file and <secret_name> is the name that is listed in the `name:` entry of the file. 
+
+[NOTE]
+===
+You can install the secret in any namespace. After you bind the secret as default, OpenShift uses it for pulling all Red Hat product images for this OpenShift user.
+===
