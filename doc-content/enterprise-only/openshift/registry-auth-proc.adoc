@@ -1,0 +1,23 @@
+[id='registry-auth-proc']
+= Configuring OpenShift registry authentication
+
+You must configure OpenShift registry authentication to access Red Hat product images. 
+
+.Procedure
+
+. Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log on to Red Hat Customer Portal to access the document and to complete the steps. You must create a registry service account.
+
+. Select the *OpenShift Secret* tab and vlivk the link under *Download secret* to download the YAML secret file.
+
+. View the downloaded file and note the name that is listed in the `name:` entry.
+
+. Run the following commands:
++
+[subs="attributes,verbatim,macros"]
+----
+oc create -f <file_name>.yaml 
+oc secrets link default <secret_name> --for=pull
+oc secrets link builder <secret_name> --for=pull
+----
++
+Where `<file_name>` is the name of the downloaded file and <secret_name> is the name that is listed in the `name:` entry of the file. 
