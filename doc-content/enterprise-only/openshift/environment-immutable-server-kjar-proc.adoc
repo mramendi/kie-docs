@@ -25,7 +25,7 @@ You can extract these template files
 endif::PAM[]
 from the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file. You can download the file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page.
 
-In this method of deployment, the {KIE_SERVER} retrieves the KJAR files for any services that must run on it during the startup of the pod.
+In this method of deployment, the {KIE_SERVER} retrieves all the required KJAR files during the startup of the pod.
 
 ifdef::PAM[]
 You can configure the {KIE_SERVER} to connect to Smart Router and to {LOCAL_CENTRAL}. If you use the server with {LOCAL_CENTRAL}, you must ensure that the same versions of KJAR files are uploaded to the Maven repository that the {LOCAL_CENTRAL} instance uses.
@@ -34,7 +34,7 @@ endif::PAM[]
 .Procedure
 
 . Use one of the following methods to deploy the template:
-* In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the templatee file.
+* In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the template file.
 In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
 * To use the OpenShift command line console, prepare the following command line:
 +
