@@ -7,7 +7,7 @@ For instructions about using the Web console, see https://access.redhat.com/docu
 
 For detailed instructions about using the `oc` command, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/cli_reference/[CLI Reference]. The following commands are likely to be required:
 
-* To create a project, use the command:
+* To create a project, use the following command:
 +
 [subs="attributes,verbatim,macros"]
 ----
@@ -16,7 +16,7 @@ $ oc new-project <project-name>
 +
 For more information, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/developer_guide/#create-a-project-using-the-cli[Creating a project using the CLI].
 
-* To deploy a template (create an application from a template), use the command:
+* To deploy a template (create an application from a template), use the following command:
 +
 [subs="attributes,verbatim,macros"]
 ----
@@ -24,14 +24,14 @@ $ oc new-app -f <template-name> -p <parameter>=<value> -p <parameter>=<value> ..
 ----
 For more information, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/developer_guide/#using-the-cli[Creating an application using the CLI].
 
-* To view a list of the active pods in the project, use the command:
+* To view a list of the active pods in the project, use the following command:
 +
 [subs="attributes,verbatim,macros"]
 ----
 $ oc get pods
 ----
  
-* To view the current status of a pod, including information whether or not the pod deployment has completed and it is now in a running state, use the command:
+* To view the current status of a pod, including information whether or not the pod deployment has completed and it is now in a running state, use the following command:
 +
 [subs="attributes,verbatim,macros"]
 ----
@@ -40,14 +40,14 @@ $ oc describe pod <pod-name>
 +
 You can also use the `oc describe` command to view the current status of other objects. For more information, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/cli_reference/cli-reference-basic-cli-operations#application-modification-cli-operations[Application modification operations].
  
-* To view the logs for a pod, use the command:
+* To view the logs for a pod, use the following command:
 +
 [subs="attributes,verbatim,macros"]
 ----
 $ oc logs <pod-name>
 ----
  
-* To view deployment logs, look up a `DeploymentConfig` name in the template reference and run the command:
+* To view deployment logs, look up a `DeploymentConfig` name in the template reference and run the following command:
 [subs="attributes,verbatim,macros"]
 +
 ----
