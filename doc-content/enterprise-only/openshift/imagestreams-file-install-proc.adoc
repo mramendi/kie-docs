@@ -45,7 +45,8 @@ $ oc create -f {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml -n op
 endif::[]
 +
 ** Using the OpenShift Web UI, select *Add to Project -> Import YAML / JSON*, then choose the file or paste its contents.
++
 [NOTE]
-===
+====
 These actions install the image streams into the namespace of your project. If you install the image streams using these steps, you must set the `IMAGE_STREAM_NAMESPACE` parameter to the name of this project when deploying templates.
-===
+====
