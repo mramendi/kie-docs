@@ -30,7 +30,7 @@ endif::PAM[]
 If the outputs of both commands are not empty, the required image streams are available in the `openshift` namespace and no further action is required.
 +
 . If the output of one or both of the commands is empty or if OpenShift was not configured with the user name and password for Red Hat registry access, complete the following actions:
-.. ENsure you are logged on to OpenShift with the `oc` command and that your project is active.
+.. Ensure you are logged on to OpenShift with the `oc` command and that your project is active.
 .. Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log on to Red Hat Customer Portal to access the document and to complete the steps. You must create a registry service account.
 .. Select the *OpenShift Secret* tab and click the link under *Download secret* to download the YAML secret file.
 .. View the downloaded file and note the name that is listed in the `name:` entry.
