@@ -53,3 +53,4 @@ include::externaldb-params.adoc[]
 * In the OpenShift Web UI, click *Create*.
 ** If the `This will create resources that may have security or project behavior implications` message appears, click *Create Anyway*.
 * Complete and run the command line.
+. If your OpenShift environment does not have a connection to the public Internet, mount the custom settings file on the {KIE_SERVER} deployment. For instructions, see <<offline-settings-proc>>.

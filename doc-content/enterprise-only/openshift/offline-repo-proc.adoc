@@ -1,0 +1,48 @@
+[id='offline-repo-proc']
+= Preparing a Maven repository for offline use 
+
+If your {OPENSHIFT} environment does not have outgoing access to the public Internet, you must prepare a Maven repository with a mirror of all the necessary artifacts and make this repository available to your environment. 
+ifeval::["{context}"!="openshift-immutable"]
+You
+endif::[]
+ifeval::["{context}"=="openshift-immutable"]
+If you are planning to deploy services from KJAR files, you
+endif::[]
+must also prepare a custom `settings.xml` file that points to the repository.
+ifeval::["{context}"=="openshift-immutable"]
+This file is not required for source to image (S2I) images.
+endif::[]
+
+Skip this procedure if your {OPENSHIFT} environment is connected to the Internet.
+
+.Procedure
+
+. Build the source of your services on any machine using the `mvn clean install` command.
+
+. Copy the downloaded Maven artifacts from the machine onto an internal Maven repository (for example, Nexus). 
+
+. Make this repository available in your {OPENSHIFT} environment.
+
+ifeval::["{context}"!="openshift-immutable"]
+. Prepare
+endif::[]
+ifeval::["{context}"=="openshift-immutable"]
+. If you are planning to deploy services from KJAR files, prepare
+endif::[]
+a custom `settings.xml` file:
+.. Download the file https://github.com/jboss-openshift/cct_module/blob/sprint-23/os-java-s2i/added/s2i/jboss-settings.xml .
+.. Edit the file. Under the `<mirrors>` tag, add the following content:
++
+[subs="attributes,verbatim,macros"]
+----
+<mirror>
+  <id>internal-repository</id>
+  <name>Maven Repository Manager running on repo.mycompany.com</name>
+  <url>http://repo.example.com/maven</url>
+  <mirrorOf>*</mirrorOf>
+</mirror>
+----
++
+Replace `http://repo.example.com/maven` with the URL for your internal Maven repository. This URL must be accessible from your {OPENSHIFT} environment.
++
+.. Save the file.

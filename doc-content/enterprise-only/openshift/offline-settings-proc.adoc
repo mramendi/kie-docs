@@ -1,0 +1,38 @@
+[id='offline-settings-proc']
+= Mounting the custom settings file to access your Maven mirror repository
+
+If your OpenShift environment does not have a connection to the public Internet, you must mount the custom settings file that you prepared according to <<offline-repo-proc>> in your {KIE_SERVER} deployment.
+
+ifeval::["{context}"=="openshift-immutable"]
+This procedure does not apply to source to image (S2I) {KIE_SERVER} deployment.
+endif::[]
+
+. In a command line window, change to the directory where the custom `settings.xml` file is located.
+
+. Create an OpenShift configuration map from the file. Run the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+oc create configmap maven_settings --from-file=settings.xml=settings.xml
+----
++
+ifeval::["{context}"!="openshift-managed"]
+. Mount the configuration map on the {KIE_SERVER} deployment configuration:
++
+[subs="attributes,verbatim,macros"]
+----
+ oc set volume dc/_myapp_-kieserver --add --type configmap --configmap-name ldap_role_mapping --mount-path=.m2 --name=maven_settings
+----
++
+Replace `_myapp_` with the application name. Sometimes, several {KIE_SERVER} deployments can be present under different application names. 
+endif::[]
+ifeval::["{context}"=="openshift-managed"]
+. Mount the configuration map on the {KIE_SERVER} deployment configuration. For each of the {KIE_SERVERS} in your deployment, run the command:
++
+[subs="attributes,verbatim,macros"]
+----
+ oc set volume dc/_myapp_-kieserver-_n_ --add --type configmap --configmap-name ldap_role_mapping --mount-path=.m2 --name=maven_settings
+----
++
+Replace `_myapp_` with the application name. Sometimes, several {KIE_SERVER} deployments can be present under different application names. Replace `_n_` with the number of the {KIE_SERVER}; by default, the template deploys two {KIE_SERVERS} with numbers 1 and 2.
+endif::[]
