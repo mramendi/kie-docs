@@ -21,7 +21,7 @@ ifeval::["{context}"!="openshift-managed"]
 +
 [subs="attributes,verbatim,macros"]
 ----
- oc set volume dc/_myapp_-kieserver --add --type configmap --configmap-name ldap_role_mapping --mount-path=.m2 --name=maven_settings
+ oc set volume dc/_myapp_-kieserver --add --type configmap --configmap-name maven_settings --mount-path=.m2 --name=maven_settings
 ----
 +
 Replace `_myapp_` with the application name. Sometimes, several {KIE_SERVER} deployments can be present under different application names. 
@@ -31,7 +31,7 @@ ifeval::["{context}"=="openshift-managed"]
 +
 [subs="attributes,verbatim,macros"]
 ----
- oc set volume dc/_myapp_-kieserver-_n_ --add --type configmap --configmap-name ldap_role_mapping --mount-path=.m2 --name=maven_settings
+ oc set volume dc/_myapp_-kieserver-_n_ --add --type configmap --configmap-name maven_settings --mount-path=.m2 --name=maven_settings
 ----
 +
 Replace `_myapp_` with the application name. Sometimes, several {KIE_SERVER} deployments can be present under different application names. Replace `_n_` with the number of the {KIE_SERVER}; by default, the template deploys two {KIE_SERVERS} with numbers 1 and 2.
