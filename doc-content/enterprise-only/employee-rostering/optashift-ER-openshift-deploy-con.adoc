@@ -5,6 +5,6 @@ You can deploy the {PLANNER} Employee Rostering starter application to {OPENSHIF
 
 If you use an OpenShift template, {OPENSHIFT} loads an image with the application from the Red Hat repository and deploys it. This method of deployment is a technological preview.
 
-If you use the script, it builds and packages the application source code locally and uploads it to the OpenShift environment for deployment.  Youc an use this method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
+If you use the script, it builds and packages the application source code locally and uploads it to the OpenShift environment for deployment.  You can use this method when Java developer tools (Java Development Kit and Maven) and a bash shell command line are available. 
 
 IMPORTANT: In the deployed application, the data is held in memory and lost when the pod is restarted.
