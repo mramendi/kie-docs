@@ -16,9 +16,9 @@ This procedure is not required if you are using a Red Hat OpenShift Online accou
 . Change to the namespace where the image streams for {PRODUCT} are available. If the image streams are already available in your OpenShift environment without a need to install them, they are in the `openshift` namespace.
 +
 [NOTE]
-===
+====
 You must log on as an OpenShift user with administrator permissions to modify the `openshift` namespace.
-===
+====
 
 . Run the following commands:
 +
