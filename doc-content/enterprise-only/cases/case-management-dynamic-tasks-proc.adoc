@@ -3,32 +3,23 @@
 
 In the Showcase application, start a new case instance for the *IT_Orders* sample case management project in the Showcase application.
 
-The *IT_Orders* sample case management project includes the following roles:
+Use a case application to add a dynamic task during run time. For demonstration purposes, the {CENTRAL} distribution includes a Showcase application where you can start a new dynamic task or process for the *IT_Orders* project. For more information about installing and running the Showcase application, see {URL_USING_SHOWCASE_APPLICATION}[_{USING_SHOWCASE_APPLICATION}_].
 
-* `owner`: The employee who is making the hardware order request. The role cardinality is set to `1`, which means that only one person or group can be assigned to this role.
-* `manager`: The employee's manager; the person who will approve or deny the requested hardware. The role cardinality is set to `1`, which means that only one person or group can be assigned to this role.
-* `supplier`: The available suppliers of IT hardware in the system. The role cardinality is set to `2`, which means that more than one supplier can be assigned to this role.
 
 .Prerequisites
 
-* You have imported and deployed the *IT_Orders* sample project in {CENTRAL}.
-* You have installed and logged in to the Showcase application as instructed in
-ifeval::["{context}" == "case-management-getting-started"]
-<<case-management-install-and-login-to-showcase-proc-case-management-getting-started>>.
-endif::[]
-ifeval::["{context}" == "case-management-design"]
-<<case-management-install-and-login-to-showcase-proc-case-management-design>>.
-endif::[]
-ifeval::["{context}" == "case-management-showcase"]
-<<case-management-install-and-login-to-showcase-proc-case-management-showcase>>.
-endif::[]
+* The {KIE_SERVER} is deployed and connected to {CENTRAL}.
+* The *IT_Orders* project is deployed to {KIE_SERVER}.
+* The Showcase application `.war` file has been deployed alongside {CENTRAL}.
 
 .Procedure
-. With the *IT_Orders* project deployed and running in the {KIE_SERVER}, in a web browser navigate to `http://localhost:8080/rhpam-case-mgmt-showcase/`.
+. With the *IT_Orders* project deployed and running in the {KIE_SERVER}, in a web browser, navigate to the Showcase login page `http://localhost:8080/rhpam-case-mgmt-showcase/`.
 +
 Alternatively, if you configured {CENTRAL} to display the *Apps launcher* button, use the button to open the Showcase login page in a new browser window.
 +
 image::cases/apps-launcher-showcase-button.png[]
++
+For instructions on how to configure the *Apps launcher* button in {CENTRAL} see {URL_USING_SHOWCASE_APPLICATION}[_{USING_SHOWCASE_APPLICATION}_].
 
 . Log in to the Showcase application using your {CENTRAL} login credentials.
 . Click *Start Case*.
