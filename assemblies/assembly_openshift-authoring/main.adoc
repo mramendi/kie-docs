@@ -1,4 +1,4 @@
-[id='assembly_openshift-authoring]
+[id='assembly_openshift-authoring']
 
 include::_artifacts/document-attributes.adoc[]
 

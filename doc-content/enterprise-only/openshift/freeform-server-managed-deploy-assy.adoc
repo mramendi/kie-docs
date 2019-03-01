@@ -1,0 +1,17 @@
+[id='freeform-server-managed-deploy-assy']
+= Deploying an additional managed {KIE_SERVER} instance for a freeform environment
+
+:subcontext: freeform-server-managed
+:LOCAL_CENTRAL: {CENTRAL} Monitoring
+
+You can add a managed {KIE_SERVER} instance to a freeform environment. This instance can use a PostgreSQL or MySQL database server in a pod or an external database server. 
+
+Deploy the instance in the same project as the {LOCAL_CENTRAL} deployment.
+
+The {KIE_SERVER} loads services from a Maven repository. By default, it starts with no loaded services; you can also configure it to load services at startup. Use {LOCAL_CENTRAL} to deploy, load, and unload services on the server. 
+
+include::template-deploy-prepare-multi-proc.adoc[leveloffset=+1]
+include::template-deploy-mandatory-proc.adoc[leveloffset=+1]
+include::template-deploy-rhsso-ldap-proc.adoc[leveloffset=+1]
+include::template-deploy-externaldb-proc.adoc[leveloffset=+1]
+include::template-deploy-complete-proc.adoc[leveloffset=+1]
