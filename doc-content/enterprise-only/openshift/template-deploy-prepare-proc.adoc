@@ -1,4 +1,4 @@
-[id='template-deploy-prepare-{subcontext}-proc']
+[id='template-deploy-prepare-{context}-proc']
 = Preparing the template
 
 :template_name!:
@@ -6,12 +6,12 @@
 :modifylink!: 
 :modifytype:
 
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 :template_add_params: {CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET={CENTRAL_ONEWORD}-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml
 To deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} instance for a freeform environment,
 endif::[]
-ifeval::["{subcontext}"=="freeform-server-immutable"]
+ifeval::["{context}"=="freeform-server-immutable"]
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immitable-kieserver.yaml
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p KIE_SERVER_STARTUP_STRATEGY=OpenShiftStartupStrategy
 :modifylink: environment-immutable-modify-proc 

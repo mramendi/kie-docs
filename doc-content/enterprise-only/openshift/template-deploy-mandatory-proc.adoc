@@ -1,4 +1,4 @@
-[id='template-deploy-mandatory-{subcontext}-proc']
+[id='template-deploy-mandatory-{context}-proc']
 = Setting required parameters
 
 // local variables depending on the assembly context
@@ -11,13 +11,13 @@
 :params_mandatory_maven!:
 
 
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 :params_central:
 :params_kieserver:
 :params_mandatory_maven:
 endif::[]
 
-ifeval::["{subcontext}"=="freeform-server-managed"]
+ifeval::["{context}"=="freeform-server-managed"]
 :params_kieserver:
 :params_kieserver_container_deployment:
 :params_startup_strategy_first:
@@ -25,7 +25,7 @@ ifeval::["{subcontext}"=="freeform-server-managed"]
 :params_mandatory_maven:
 endif::[]
 
-ifeval::["{subcontext}"=="freeform-server-immutable"]
+ifeval::["{context}"=="freeform-server-immutable"]
 :params_kieserver:
 :params_kieserver_s2i:
 :params_startup_strategy_first:
@@ -89,7 +89,7 @@ endif::params_kieserver_container_deployment[]
 ifdef::params_kieserver[]
 ** *KIE Server User* (`KIE_SERVER_USER`) and *KIE Server Password* (`KIE_SERVER_PWD`): The user name and password that a client application must use to connect to any of the {KIE_SERVERS}.
 endif::params_kieserver[]
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 +
 . Ensure the following parameter remains at its default value:
 ** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`). This parameter must be set to `OpenShiftStartupStrategy` to ensure that {CENTRAL} Monitoring connects to all {KIE_SERVER} instances automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.

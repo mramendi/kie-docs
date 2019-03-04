@@ -1,9 +1,9 @@
-[id='template-deploy-externaldb-{subcontext}-proc']
+[id='template-deploy-externaldb-{context}-proc']
 = Setting parameters for using an external database server
-// modifylink is an internal variable based on subcontext
+// modifylink is an internal variable based on context
 :modifylink!:
 
-ifeval::["{subcontext}"=="freeform-server-immutable"]
+ifeval::["{context}"=="freeform-server-immutable"]
 :modifylink: environment-immutable-modify-proc 
 endif::[]
 

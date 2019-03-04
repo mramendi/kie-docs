@@ -1,5 +1,5 @@
-[id='template-deploy-rhsso-ldap-{subcontext}-proc']
-= Setting parameters for RH-SSO or LDAP authencication
+[id='template-deploy-rhsso-ldap-{context}-proc']
+= Setting parameters for RH-SSO or LDAP authentication
 
 // local variables depending on the assembly context
 :sso_singleclient!:
@@ -8,18 +8,18 @@
 // "typical" is a single KIE server where paramenert are KIE_SERVER_* not KIE_SERVERn_*
 :sso_kieserver_typical!:
 
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 :sso_central:
 :sso_kieserver:
 endif::[]
 
-ifeval::["{subcontext}"=="freeform-server-managed"]
+ifeval::["{context}"=="freeform-server-managed"]
 :sso_singleclient:
 :sso_kieserver:
 :sso_kieserver_typical:
 endif::[]
 
-ifeval::["{subcontext}"=="freeform-server-immutable"]
+ifeval::["{context}"=="freeform-server-immutable"]
 :sso_singleclient:
 :sso_kieserver:
 :sso_kieserver_typical:
@@ -69,7 +69,7 @@ ifdef::sso_kieserver_typical[]
 *** *KIE Server RH-SSO Client name* (`KIE_SERVER_SSO_CLIENT`): The RH-SSO client name for {KIE_SERVER}.
 *** *KIE Server RH-SSO Client Secret* (`KIE_SERVER_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {KIE_SERVER}.
 endif::sso_kieserver_typical[]
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 *** *KIE Server RH-SSO Client name* (`KIE_SERVER1_SSO_CLIENT`): The RH-SSO client name for {KIE_SERVER}.
 *** *KIE Server RH-SSO Client Secret* (`KIE_SERVER1_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {KIE_SERVER}.
 endif::[]
@@ -90,7 +90,7 @@ ifdef::sso_kieserver_typical[]
 *** *KIE Server Custom http Route Hostname* (`KIE_SERVER_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 *** *KIE Server Custom https Route Hostname* (`KIE_SERVER_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 endif::sso_kieserver_typical[]
-ifeval::["{subcontext}"=="freeform-monitor"]
+ifeval::["{context}"=="freeform-monitor"]
 *** *KIE Server RH-SSO Client name* (`KIE_SERVER1_SSO_CLIENT`): The name of the client to create in RH-SSO for {KIE_SERVER}.
 *** *KIE Server RH-SSO Client Secret* (`KIE_SERVER1_SSO_SECRET`): The secret string to set in RH-SSO for the client for {KIE_SERVER}.
 *** *KIE Server Custom http Route Hostname* (`KIE_SERVER1_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.

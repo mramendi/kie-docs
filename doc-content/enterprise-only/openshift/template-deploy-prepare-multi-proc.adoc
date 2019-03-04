@@ -1,7 +1,7 @@
-[id='template-deploy-prepare-multi-{subcontext}-proc']
+[id='template-deploy-prepare-multi-{context}-proc']
 = Preparing the template
 :template_add_params: 
-ifeval::["{subcontext}"=="freeform-server-managed"]
+ifeval::["{context}"=="freeform-server-managed"]
 :template_add_params: -p KIE_SERVER_STARTUP_STRATEGY=OpenShiftStartupStrategy
 To deploy a managed {KIE_SERVER} instalce for a freeform environment, 
 endif::[]
