@@ -1,0 +1,18 @@
+[id='operator-subscribe-proc']
+= Subscribing to the Business Automation operator
+
+To be able to deploy {PRODUCT} using operators, you must subscribe to the Business Automation operator in OpenShift. If the operator is not available in the catalog, you must download and install it.
+
+.Procedure
+
+. Enter your project in the OpenShift Web console. 
+. In the OpenShift Web console navigation panel, select *Operators* and then *Catalog Sources*.
+. Search for *Business Automation*. If you find it, click *Create Subscription* button next to it.
+. If the *Business Automation* entry is not available, complete the following steps:
+.. Download the ??? file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page. 
+.. Extract the contents of the file into a new directory and change to this directory.
+.. Ensure you are logged in to OpenShift with the `oc` command and that your project is active.
+.. Enter the following commands: ??? ??? ???
+.. Refresh the OpenShift Web console in the browser.
+.. Search for *Business Automation* again. Click *Create Subscription* button next to it.
+. A YAML description of the new subscription is displayed. Click *Create* to create the subscription.

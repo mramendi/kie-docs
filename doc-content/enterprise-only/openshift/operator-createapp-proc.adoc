@@ -1,0 +1,125 @@
+[id='operator-createapp-proc']
+= Deploying a {PRODUCT} environment using the operator
+
+After subscribing to the operator, you can _create an application_ to deploy an environment. 
+
+.Procedure
+
+. Enter your project in the OpenShift Web console. 
+. In the OpenShift Web console navigation panel, select *Operators* and then *Subscriptions*.
+. Click the name of the subscription that containt `businessautomation`. Information about this subscription is displayed.
+. Under the *Installed version* heading, click the version name of the subscription. An overview of the subscription is displayed.
+. Click the *Create KieApp* button. A YAML source is displayed.
+. Set the *name* field to an application name that is unique in the project.
+. Set the *environment* field to the required environment type. Each of the types is a default deployment pattern. You can modify the pattern by editing this YAML source; you can also modify the deployment after it is completed. The following types are available:
+
+** `rhpam-trial`: Includes {CENTRAL} and a {KIE_SERVER}. You can set it up quickly and use it to evaluate or demonstrate developing and running assets. However, the environment does not use any persistent storage, and any work you do in the environment is not saved.
+** `rhpam-production`: An environment for running existing services for staging and production purposes. This environment includes {CENTRAL} Monitoring, Smart Router, and two groups of {KIE_SERVER} pods; you can deploy and undeploy services on every such group and also scale the group up or down as necessary. Use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution.
+** `rhpam-production-immutable`: An alternate environment for running existing services for staging and production purposes. This environment includes {CENTRAL} Monitoring and Smart Router; you can configure one or more {KIE_SERVER} replicated pods that build a service from source. In this environment, when you deploy a {KIE_SERVER} pod, it builds an image that loads and starts a service or group of services. You cannot stop any service on the pod or add any new service to the pod. If you want to use another version of a service or modify the configuration in any other way, you deploy a new server image and displace the old one. In this system, the {KIE_SERVER} runs like any other pod on the OpenShift environment; you can use any container-based integration workflows and do not need to use any other tools to manage the pods. 
+** `rhpam-authoring`: An environment for creating and modifying services using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the services.
+** `rhpam-authoring-ha`: An environment for creating and modifying services using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the services. This version of the authoring environment supports scaling the {CENTRAL} pod to ensure high availability.
++
+. Add lines to the YAML source to modify the environment:
+** The following snippet adds an immutable {KIE_SERVER} pod that builds a service from source. You must add at least one copy of this snippet when creating an immutable environment.
++
+[subs="attributes,verbatim,macros"]
+----
+  objects:
+    servers:
+      - build:
+          kieServerContainerDeployment: <deployment>
+          gitSource:
+            uri: <url>
+            reference: <branch>
+            contextDir: <directory>
+----
++
+Replace the following values:
++
+*** `<deployment>`: The identifying information of the decision service (KJAR file) that is built from your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. The Maven build process must produce all these files from the source in the Git repository.
+*** `<url>`: The URL for the Git repository that contains the source for your decision service.
+*** `<branch>`: The branch in the Git repository.
+*** `<directory>`: The path to the source within the project downloaded from the Git repository (??? where is the artifact directory ???)
++
+** The following snippet sets the number of {KIE_SERVERS} that are managed by {CENTRAL} or {CENTRAL} Monitoring in your environment: 
++
+[subs="attributes,verbatim,macros"]
+----
+  objects:
+    server:
+      # Number of server deloyments (defaults are 0, 1, or 2 for different environment types)
+      deployments: 2
+      spec:
+        # Environment variables that are set for all the KIE servers
+        env:
+          - name: MY_VAR
+            value: "example"
+        # Override default memory limits for all the KIE servers
+        resources:
+          memory:
+            limits: 2Gi
+----
++
+** The following snippet removes Smart Router from your environment: ???
+** The following snippet sets the password for the administrator user (`admin`):
++
+[subs="attributes,verbatim,macros"]
+----
+  commonConfig:
+    adminPassword: password
+----
++
+** The following snippet sets the URL to an external Maven repository. In a production environment, the Maven repository must contain all the services that you need to deploy.
++
+[subs="attributes,verbatim,macros"]
+----
+  commonConfig:
+    mavenRepo: https://maven.example.com
+----
++
+** The following snippet sets up RH-SSO authentication. You must ensure that the realm and clients exist in your RH-SSO deployment. The number of listed servers must be the same as the number of actual {KIE_SERVERS} in your environment. (??? what about the option where deployment auto-creates the clients - do operators support this?)
++
+[subs="attributes,verbatim,macros"]
+----
+  auth:
+    sso:
+      url: https://rh-sso.example.com:8443
+      realm: rhpam
+      clients:
+        console:
+          name: rhpam-console
+        servers:
+          - name: kieserver-1
+          - name: kieserver-2
+----
++
+** The following snippet sets up LDAP authentication. The parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module]. (??? wat about role mapping?). 
++
+[subs="attributes,verbatim,macros"]
+----
+  auth:
+    ldap:
+      url: ldaps://myldap.example.com
+      bindDN: uid=admin,ou=users,ou=exmample,ou=com
+      bindCredential: s3cret
+      baseCtxDN: ou=users,ou=example,ou=com
+      baseFilter: (uid={0})
+      searchScope: SUBTREE_SCOPE
+      roleAttributeID: memberOf
+      rolesCtxDN: ou=groups,ou=example,ou=com
+      roleFilter: (memberOf={1})
+      defaultRole: guest
+    roleMapper:
+      rolesProperties: /conf/roleMapper.properties
+      replaceRole: true
+----
++
+If the LDAP server does not define all the roles required for your deployment, you can map LDAP groups to {PRODUCT} roles. To enable LDAP role mapping, set the `rolesProperties` value to the fully qualified pathname of a file that defines role mapping, for example, `/opt/eap/standalone/configuration/rolemapping/rolemapping.properties`. You must provide this file and mount it at this path in all applicable deployment configurations; for instructions, see <<rolemapping-proc>>.
++
+If `replaceRole` is set to `true`, mapped roles replace the roles defined on the LDAP server; if it is set to `false`, both mapped roles and roles defined on the LDAP server are set as user application roles. The default setting is `false`.
+
+??? there has to be a way to set the secrets for BC/KIE server/SR, because for productiuon one needs to create those - but how? There probably are other snippets that need to be here as well? Is the snippet-based procedure even viable at all, or will two snippets added one after the other break things? 
+
+Also what about external DB image etc?
+
+
