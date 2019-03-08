@@ -60,7 +60,7 @@ Avoid each of the following combinations of settings. These combinations produce
 *** `org.hibernate.dialect.Oracle12cDialect`
 *** `org.hibernate.dialect.SybaseASE15Dialect`
 +
-If you created a custom image for using an external database server other than MySQL or PostgreSQL, as described in <<externaldb-build-proc>>, you must also set the *Process Server Image Stream Name* parameter (under the *Process Server* heading) to the following value:
+. If you created a custom image for using an external database server other than MySQL or PostgreSQL, as described in <<externaldb-build-proc>>, you must also set the *Process Server Image Stream Name* parameter (under the *Process Server* heading) to the following value:
 +
 ** For Microsoft SQL Server, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mssql-openshift`
 ** For MariaDB, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mariadb-openshift`
