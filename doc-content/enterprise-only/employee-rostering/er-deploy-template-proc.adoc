@@ -1,8 +1,7 @@
 [id='er-deploy-template-proc']
 = Deploying the OpenShift template
 
-.Prerequisites
-* You must be logged in to the target OpenShift environment using the Web UI or using the `oc` command line tool. For more information about this tool, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/cli_reference/[CLI Reference].
+You can deploy an OpenShift template to create an environment running the Employee Rostering starting application.
 
 .Procedure
 . Download the `rhdm-openshift-templates.zip` file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhdm&productChanged=yes[Software Downloads] page for Red Hat Decision Manager {PRODUCT_VERSION}.
@@ -13,7 +12,7 @@
 +
 [subs="attributes,verbatim,macros"]
 ----
-oc new-app -f <template-path>/{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-optaweb-employee-rostering.yaml
+oc new-app -f <template-path>/{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-optaweb-employee-rostering.yaml -p OPTAWEB_HTTPS_SECRET=optaweb-employee-rostering-app-secret
 ----
 +
 In this command line:
@@ -23,6 +22,7 @@ In this command line:
 +
 . Set the following parameters as necessary:
 +
+** *KIE Server Keystore Secret Name* (`OPTAWEB_HTTPS_SECRET`): The name of the secret for HTTPS connections, as created in <<secrets-employeerostering-create-proc>>.
 ** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URL for the application.
 ** *OptaWeb Admin User* (`OPTAWEB_ADMIN_USER`): The user name for the administrative user in the application. The default user name is `adminUser`.
 ** *OptaWeb Admin Password* (`OPTAWEB_ADMIN_PWD`): The password for the administrative user in the application. The default password is `RedHat`.

@@ -9,6 +9,8 @@ You must enter the list of all employees of the business and the skills they pos
 +
 You can see the numbers of currently visible employees in the top right part of the browser window, for example, `1-15 of 34`. You can use the *<* and *>* buttons to display other employees in the list. 
 +
+You can enter any part of a name in the *Search* box to search for employees. 
++
 . Complete the following steps to add a new employee:
 .. Click *Add Employee*.
 .. Enter the name of the employee into the text field under *Employee name*.

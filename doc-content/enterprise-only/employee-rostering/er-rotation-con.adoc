@@ -7,8 +7,6 @@ The rotation pattern is a "model" period of any time starting from two days. The
 
 You can set create _shift templates_ for every day of the rotation. Every shift template sets the time of a shift. Optionally, the template can include the name of the default employee for the shift.
 
-NOTE: In the current version, you cannot enter the names of employees in the rotation period. However, you can see the operation of rotation periods with default employees in the example tenants.
-
 When you publish the roster, the application adds a new week to the draft period. At this time, the shifts and, if applicable, default employee names are copied from the rotation pattern to the new part of the draft period.
 
 When the end of the rotation pattern is reached, it is automatically restarted from the beginning.
