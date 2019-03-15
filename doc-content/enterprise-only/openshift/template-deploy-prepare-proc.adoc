@@ -12,7 +12,7 @@ ifeval::["{context}"=="freeform-monitor"]
 To deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} instance for a freeform environment,
 endif::[]
 ifeval::["{context}"=="freeform-server-immutable"]
-:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immitable-kieserver.yaml
+:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p KIE_SERVER_STARTUP_STRATEGY=OpenShiftStartupStrategy
 :modifylink: environment-immutable-modify-proc 
 :modifytype: single-kie-server
@@ -31,7 +31,7 @@ ifeval::["{modifytype}"=="single-kie-server"]
 endif::[]
 
 . Use one of the following methods to start deploying the template:
-* In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml` file. In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
+* In the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then select or paste the `{template_name}` file. In the *Add Template* window, ensure *Process the template* is selected and click *Continue*.
 * To use the OpenShift command line console, prepare the following command line:
 +
 [subs="attributes,verbatim,macros"]

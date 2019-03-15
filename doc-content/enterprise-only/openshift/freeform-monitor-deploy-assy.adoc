@@ -1,13 +1,13 @@
 [id='freeform-monitor-deploy-assy']
-= Deploying monitoring and a single {KIE_SERVER} instance for a freeform environment
+= Deploying monitoring and a single {KIE_SERVER} for a freeform environment
 
 ifdef::context[:parent-context: {context}]
 :context: freeform-monitor
 :LOCAL_CENTRAL: {CENTRAL} Monitoring
 
-To start deploying a freeform environment, deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} instance, which uses a PostgreSQL database server in a pod. No services are loaded on the {KIE_SERVER}. Use {LOCAL_CENTRAL} to deploy, load, and unload services on the server. 
+To start deploying a freeform environment, deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER}, which uses a PostgreSQL database server in a pod. No services are loaded on the {KIE_SERVER}. Use {LOCAL_CENTRAL} to deploy and undeploy services on the server. 
 
-You can then add more {KIE_SERVER} instances as necessary.
+You can then add more {KIE_SERVERS} as necessary.
 
 include::template-deploy-prepare-proc.adoc[leveloffset=+1]
 include::template-deploy-mandatory-proc.adoc[leveloffset=+1]

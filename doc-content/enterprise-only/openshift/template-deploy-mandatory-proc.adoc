@@ -9,7 +9,7 @@
 :params_startup_strategy_first!:
 :params_multideploy!:
 :params_mandatory_maven!:
-
+:params_serveruser_startupstrategy!:
 
 ifeval::["{context}"=="freeform-monitor"]
 :params_central:
@@ -23,6 +23,7 @@ ifeval::["{context}"=="freeform-server-managed"]
 :params_startup_strategy_first:
 :params_multideploy:
 :params_mandatory_maven:
+:params_serveruser_startupstrategy:
 endif::[]
 
 ifeval::["{context}"=="freeform-server-immutable"]
@@ -30,6 +31,7 @@ ifeval::["{context}"=="freeform-server-immutable"]
 :params_kieserver_s2i:
 :params_startup_strategy_first:
 :params_multideploy:
+:params_serveruser_startupstrategy:
 endif::[]
 
 
@@ -39,7 +41,7 @@ The following parameters of the template are required in all cases.
 
 . Set the following parameters:
 ifdef::params_startup_strategy_first[]
-** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`). This parameter must be set to `OpenShiftStartupStrategy` to ensure that {LOCAL_CENTRAL} connects to all {KIE_SERVER} instances automatically, using an OpenShift API.
+** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`). This parameter must be set to `OpenShiftStartupStrategy` to ensure that an OpenShift enabled {LOCAL_CENTRAL} connects to the {KIE_SERVER} automatically, using an OpenShift API.
 endif::params_startup_strategy_first[]
 ifdef::params_central[]
 ** *{LOCAL_CENTRAL} Server Keystore Secret Name* (`{CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET`): The name of the secret for {CENTRAL}, as created in <<secrets-central-create-proc>>.
@@ -80,17 +82,26 @@ endif::params_central[]
 ** *KIE Server Container Replicas* (`KIE_SERVER_CONTAINER_REPLICAS`): The number of replicas initially created the {KIE_SERVER} instance.
 ifdef::params_kieserver_container_deployment[]
 +
-. If you want to load and start services from the Maven repo at the startup of the {KIE_SERVER}, set the following parameter:
+. If you want to deploy and start services from the Maven repository at the startup of the {KIE_SERVER}, set the following parameter. Note that in this case, {LOCAL_CENTRAL} is not able to deploy and undeploy services on this {KIE_SERVER}.
 ** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision services (KJAR files) that the deployment must pull from the Maven repository. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`.
 endif::params_kieserver_container_deployment[]
 +
-. If necessary, set the following user names and passwords. By default, the deployment automatically generates the passwords.
+. Set the following user names and passwords. By default, the deployment automatically generates the passwords.
 ** *KIE Admin User* (`KIE_ADMIN_USER`) and *KIE Admin Password* (`KIE_ADMIN_PWD`): The user name and password for the administrative user in {CENTRAL} Monitoring.
 ifdef::params_kieserver[]
 ** *KIE Server User* (`KIE_SERVER_USER`) and *KIE Server Password* (`KIE_SERVER_PWD`): The user name and password that a client application must use to connect to any of the {KIE_SERVERS}.
+ifeval::["{context}"=="freeform-monitor"]
+You must set the user name and password and record them, so you can use the same credentials when deploying additional {KIE_SERVERS}.
+endif::[]
+ifdef::params_serveruser_startupstrategy[]
+To enable the {LOCAL_CENTRAL} connection to this {KIE_SERVER}, you must set these parameters to the same values as the same parameters for the {LOCAL_CENTRAL} deployment that you set in <<template-deploy-mandatory-freeform-monitor-proc>>.  
+endif::params_serveruser_startupstrategy[]
+
+
 endif::params_kieserver[]
 ifeval::["{context}"=="freeform-monitor"]
 +
 . Ensure the following parameter remains at its default value:
-** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`). This parameter must be set to `OpenShiftStartupStrategy` to ensure that {CENTRAL} Monitoring connects to all {KIE_SERVER} instances automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.
+** *Enable OpenShift Integration* (`KIE_SERVER_OCP_ENABLED`): This parameter must be set to `true` to enable OpenShift integration for the {LOCAL_CENTRAL}. With OpenShift integration, the {LOCAL_CENTRAL} connects to all {KIE_SERVERS} in the same namespace automatically if OpenShift Startup Strategy is enales on the {KIE_SERVERS}. The default value is `true`. Do not change this value.
+** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`): This parameter must be set to `OpenShiftStartupStrategy` to ensure that the OpenShift enabled {LOCAL_CENTRAL} connects to the {KIE_SERVER} automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.
 endif::[]
