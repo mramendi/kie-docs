@@ -102,6 +102,6 @@ endif::params_kieserver[]
 ifeval::["{context}"=="freeform-monitor"]
 +
 . Ensure the following parameter remains at its default value:
-** *Enable OpenShift Integration* (`KIE_SERVER_OCP_ENABLED`): This parameter must be set to `true` to enable OpenShift integration for the {LOCAL_CENTRAL}. With OpenShift integration, the {LOCAL_CENTRAL} connects to all {KIE_SERVERS} in the same namespace automatically if OpenShift Startup Strategy is enales on the {KIE_SERVERS}. The default value is `true`. Do not change this value.
+** *Enable OpenShift Integration* (`KIE_WORKBENCH_CONTROLLER_OPENSHIFT_ENABLED`): This parameter must be set to `true` to enable OpenShift integration for the {LOCAL_CENTRAL}. With OpenShift integration, the {LOCAL_CENTRAL} connects to all {KIE_SERVERS} in the same namespace automatically if OpenShift Startup Strategy is enales on the {KIE_SERVERS}. The default value is `true`. Do not change this value.
 ** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`): This parameter must be set to `OpenShiftStartupStrategy` to ensure that the OpenShift enabled {LOCAL_CENTRAL} connects to the {KIE_SERVER} automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.
 endif::[]

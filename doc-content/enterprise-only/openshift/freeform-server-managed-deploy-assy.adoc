@@ -9,7 +9,7 @@ You can add a managed {KIE_SERVER} instance to a freeform environment. This inst
 
 Deploy the instance in the same project as the {LOCAL_CENTRAL} deployment.
 
-The {KIE_SERVER} loads services from a Maven repository. By default, it starts with no loaded services. Use {LOCAL_CENTRAL} to deploy and undeploy services on the server. You can also configure the {KIE_SERVER} to load services at startup.
+The {KIE_SERVER} loads services from a Maven repository. By default, it starts with no loaded services. Use {LOCAL_CENTRAL} or the REST API of the {KIE_SERVER} to deploy and undeploy services on the server. You can also configure the {KIE_SERVER} to load services at startup.
 
 include::template-deploy-prepare-multi-proc.adoc[leveloffset=+1]
 include::template-deploy-mandatory-proc.adoc[leveloffset=+1]
