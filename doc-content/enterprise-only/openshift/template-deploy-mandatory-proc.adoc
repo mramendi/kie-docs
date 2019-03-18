@@ -79,7 +79,7 @@ ifeval::["{LOCAL_CENTRAL}"=="{CENTRAL} Monitoring"]
 ** *{LOCAL_CENTRAL} Container Replicas* (`{CENTRAL_CAPITAL_UNDER}_MONITORING_CONTAINER_REPLICAS`): The number of replicas initially created for {CENTRAL} Monitoring. If you do not want to use a high-availability configuration for {CENTRAL} Monitoring, set this number to 1.
 endif::[]
 endif::params_central[]
-** *KIE Server Container Replicas* (`KIE_SERVER_CONTAINER_REPLICAS`): The number of replicas initially created the {KIE_SERVER} instance.
+** *KIE Server Container Replicas* (`KIE_SERVER_CONTAINER_REPLICAS`): The number of replicas initially created for the {KIE_SERVER}.
 ifdef::params_kieserver_container_deployment[]
 +
 . If you want to deploy and start services from the Maven repository at the startup of the {KIE_SERVER}, set the following parameter. Note that in this case, {LOCAL_CENTRAL} is not able to deploy and undeploy services on this {KIE_SERVER}.
@@ -102,6 +102,6 @@ endif::params_kieserver[]
 ifeval::["{context}"=="freeform-monitor"]
 +
 . Ensure the following parameter remains at its default value:
-** *Enable OpenShift Integration* (`KIE_WORKBENCH_CONTROLLER_OPENSHIFT_ENABLED`): This parameter must be set to `true` to enable OpenShift integration for the {LOCAL_CENTRAL}. With OpenShift integration, the {LOCAL_CENTRAL} connects to all {KIE_SERVERS} in the same namespace automatically if OpenShift Startup Strategy is enales on the {KIE_SERVERS}. The default value is `true`. Do not change this value.
+** *Enable OpenShift Integration* (`KIE_WORKBENCH_CONTROLLER_OPENSHIFT_ENABLED`): This parameter must be set to `true` to enable OpenShift integration for the {LOCAL_CENTRAL}. With OpenShift integration, the {LOCAL_CENTRAL} connects to all {KIE_SERVERS} in the same namespace automatically if OpenShift Startup Strategy is enabled on the {KIE_SERVERS}. The default value is `true`. Do not change this value.
 ** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`): This parameter must be set to `OpenShiftStartupStrategy` to ensure that the OpenShift enabled {LOCAL_CENTRAL} connects to the {KIE_SERVER} automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.
 endif::[]

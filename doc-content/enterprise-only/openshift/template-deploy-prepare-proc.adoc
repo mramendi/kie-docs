@@ -9,14 +9,14 @@
 ifeval::["{context}"=="freeform-monitor"]
 :template_add_params: {CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET={CENTRAL_ONEWORD}-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml
-To deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} instance for a freeform environment,
+To deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} for a freeform environment,
 endif::[]
 ifeval::["{context}"=="freeform-server-immutable"]
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p KIE_SERVER_STARTUP_STRATEGY=OpenShiftStartupStrategy
 :modifylink: environment-immutable-modify-proc 
 :modifytype: single-kie-server
-To deploy an immutable {KIE_SERVER} instance for a freeform environment,
+To deploy an immutable {KIE_SERVER} for a freeform environment,
 endif::[]
 use the `{template_name}` template file. 
 

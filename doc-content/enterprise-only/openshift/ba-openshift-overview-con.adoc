@@ -45,7 +45,7 @@ endif::PAM[]
 You can arrange these and other components into various environment configurations within OpenShift. 
 
 ifeval::["{context}"=="openshift-freeform"]
-A freeform server environment can include any number of {KIE_SERVER} instances to run existing services for staging and production purposes. You can use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution. You can also build the services into the server images, making the images immutable, so that you do not need to manage the execution; monitoring is still available.
+A freeform server environment can include any number of {KIE_SERVERS} to run existing services for staging and production purposes. You can use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution. You can also build the services into the server images, making the images immutable, so that you do not need to manage the execution; monitoring is still available.
 endif::[]
 
 
