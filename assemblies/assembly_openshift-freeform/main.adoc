@@ -13,7 +13,7 @@ include::_artifacts/author-group.adoc[]
 As a system engineer, you can deploy a {PRODUCT} freeform server environment on {OPENSHIFT}
 to provide an infrastructure to execute
 services, process applications,
-and other business assets. You can deploy any number of managed and immutable {KIE_SERVER} instances and control them using the same instance of {CENTRAL} Monitoring. You can add and remove the instances as necessary; {CENTRAL} Monitoring establishes a connection to them automatically.
+and other business assets. You can deploy any number of managed and immutable {KIE_SERVERS} and control them using the same {CENTRAL} Monitoring. You can add and remove the {KIE_SERVERS} as necessary; {CENTRAL} Monitoring establishes a connection to them automatically.
 
 .Prerequisites
 
