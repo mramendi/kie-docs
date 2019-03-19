@@ -40,7 +40,7 @@ In this command line:
 +
 include::authoring-params.adoc[]
 . If an AMQ scaledown controller image is not available in the `openshift` namespace and you installed the scaledown controller image stream (see <<imagestreams-file-install-proc>>), set the following parameter:
-** *AMQ ImageStream Namespace* (`AMQ_IMAGE_STREAM_NAMESPACE`): Namespace in which the image stream for the AMQ scaledown controller image is installed. The default setting is `openshift`.
+** *AMQ Scaledown Controller ImageStream Namespace* (`AMQ_SCALEDOWN_CONTROLLER_IMAGE_STREAM_NAMESPACE`): Namespace in which the image stream for the AMQ scaledown controller image is installed. The default setting is `openshift`.
 . Complete the creation of the environment, depending on the method that you are using:
 * In the OpenShift Web UI, click *Create*.
 ** If the `This will create resources that may have security or project behavior implications` message appears, click *Create Anyway*.
