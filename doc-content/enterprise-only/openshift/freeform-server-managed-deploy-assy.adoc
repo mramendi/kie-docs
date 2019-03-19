@@ -4,6 +4,7 @@
 ifdef::context[:parent-context: {context}]
 :context: freeform-server-managed
 :LOCAL_CENTRAL: {CENTRAL} Monitoring
+:what_deploying: an immutable {KIE_SERVER}
 
 You can add a managed {KIE_SERVER} to a freeform environment. This server can use a PostgreSQL or MySQL database server in a pod or an external database server. 
 

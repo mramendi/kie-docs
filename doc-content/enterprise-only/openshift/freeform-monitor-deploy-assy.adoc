@@ -4,6 +4,7 @@
 ifdef::context[:parent-context: {context}]
 :context: freeform-monitor
 :LOCAL_CENTRAL: {CENTRAL} Monitoring
+:what_deploying: {CENTRAL} Monitoring and a single managed {KIE_SERVER}
 
 To start deploying a freeform environment, deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER}, which uses a PostgreSQL database server in a pod. No services are loaded on the {KIE_SERVER}. Use {LOCAL_CENTRAL} to deploy and undeploy services on the server. 
 

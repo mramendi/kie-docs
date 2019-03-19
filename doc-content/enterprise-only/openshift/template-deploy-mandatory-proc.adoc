@@ -34,8 +34,7 @@ ifeval::["{context}"=="freeform-server-immutable"]
 :params_serveruser_startupstrategy:
 endif::[]
 
-
-The following parameters of the template are required in all cases. 
+When configuring the template to deploy {what_deploying}, you must set the following parameters in all cases. 
 
 .Procedure
 
@@ -64,7 +63,7 @@ endif::params_multideploy[]
 ifdef::params_mandatory_maven[]
 ** *Maven repository URL* (`MAVEN_REPO_URL`): A URL for a Maven repository. You must upload all the processes (KJAR files) that are to be deployed on managed {KIE_SERVERS} in your environment into this repository.
 ** *Maven repository username* (`MAVEN_REPO_USERNAME`): The username for the Maven repository.
-** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The username for the Maven repository.
+** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The password for the Maven repository.
 endif::params_mandatory_maven[]
 ifdef::params_kieserver_s2i[]
 ** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision service (KJAR file) that is built from your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. The Maven build process must produce all these files from the source in the Git repository.

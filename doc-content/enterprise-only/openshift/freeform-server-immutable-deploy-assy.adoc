@@ -4,6 +4,8 @@
 ifdef::context[:parent-context: {context}]
 :context: freeform-server-immutable
 :LOCAL_CENTRAL: {CENTRAL} Monitoring
+:what_deploying: an immutable {KIE_SERVER}
+
 
 You can add an immutable {KIE_SERVER} to a freeform environment. by default, this server uses a PostgreSQL database server in a pod. To use a MySQL database server in a pod or an external database server, you can modify the template.
 
