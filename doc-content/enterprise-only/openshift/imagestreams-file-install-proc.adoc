@@ -86,7 +86,7 @@ endif::[]
 *** Using the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then choose the file or paste its contents.
 ifeval::["{context}"=="openshift-authoring"]
 +
-. If you want to deploy a high-availability {CENTRAL} (this functionality is tech preview), complete the following additional steps:
+. If you want to deploy a high-availability {CENTRAL} (this functionality is a technology preview), complete the following additional steps:
 .. Verify if the AMQ scaledown controller image stream is present. Enter the following command:
 +
 [subs="attributes,verbatim,macros"]
