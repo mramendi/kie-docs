@@ -5,7 +5,7 @@ The employee rostering application supports a _rotation pattern_ for shifts and 
 
 The rotation pattern is a "model" period of any time starting from two days. The pattern is not tied to a particular date. 
 
-You can set create _shift templates_ for every day of the rotation. Every shift template sets the time of a shift. Optionally, the template can include the name of the default employee for the shift.
+You can create _shift templates_ for every day of the rotation. Every shift template sets the time of a shift. Optionally, the template can include the name of the default employee for the shift.
 
 When you publish the roster, the application adds a new week to the draft period. At this time, the shifts and, if applicable, default employee names are copied from the rotation pattern to the new part of the draft period.
 

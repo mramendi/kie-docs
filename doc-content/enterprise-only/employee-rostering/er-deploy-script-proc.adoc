@@ -29,10 +29,12 @@ Compilation and packaging might take up to 10 minutes to complete. They  continu
 +
 When the operation is completed, the following message is displayed: `Uploading file "target/ROOT.war" as binary input for the build ...`.
 . Use the OpenShift web UI to view the details for the deployed application. Click the link in the *Routes* section to open the starter application. The first startup can take up to a minute as additional building is completed on the OpenShift platform. 
++
 [NOTE]
 ====
 If the application does not open for more than a minute after clicking the link, perform a hard refresh of your browser page.
 ====
++
 . Optionally, you can use other actions provided by the provision script:
 .. Deploy updates to the code to an existing deployment: 
 [source,bash]
