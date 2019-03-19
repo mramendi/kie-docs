@@ -84,6 +84,31 @@ $ oc create -f {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml -n op
 endif::[]
 +
 *** Using the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then choose the file or paste its contents.
+ifeval::["{context}"=="openshift-authoring"]
++
+. If you want to deploy a high-availability {CENTRAL} (this functionality is tech preview), complete the following additional steps:
+.. Verify if the AMQ scaledown controller image stream is present. Enter the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+$ oc get imagestreamtag -n openshift | grep amq-broker-72-scaledown-controller-openshift
+----
++
+If the output of the command is not empty, the required image stream is available in the `openshift` namespace and no further action is required.
++
+.. If the output of the commands is empty, complete the following steps:
+... Download the following file: https://raw.githubusercontent.com/jboss-container-images/jboss-amq-7-broker-openshift-image/amq-broker-72/amq-broker-7-scaledown-controller-image-streams.yaml
+... Complete one of the following actions:
++
+**** Run the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+$ oc create -f amq-broker-7-scaledown-controller-image-streams.yaml
+----
++
+**** Using the OpenShift Web UI, select *Add to Project -> Import YAML / JSON* and then choose the `amq-broker-7-scaledown-controller-image-streams.yaml` file or paste its contents.
+endif::[]
 ifeval::["{context}"!="openshift-ansible-playbook"]
 +
 [NOTE]
