@@ -10,11 +10,15 @@
 :params_multideploy!:
 :params_mandatory_maven!:
 :params_serveruser_startupstrategy!:
+:mode_production_template!:
+:mode_production_template_word!:
 
 ifeval::["{context}"=="freeform-monitor"]
 :params_central:
 :params_kieserver:
 :params_mandatory_maven:
+:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml
+:mode_production_template_word: template
 endif::[]
 
 ifeval::["{context}"=="freeform-server-managed"]
@@ -24,6 +28,8 @@ ifeval::["{context}"=="freeform-server-managed"]
 :params_multideploy:
 :params_mandatory_maven:
 :params_serveruser_startupstrategy:
+:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-*.yaml
+:mode_production_template_word: templates
 endif::[]
 
 ifeval::["{context}"=="freeform-server-immutable"]
@@ -72,6 +78,9 @@ ifdef::params_kieserver_s2i[]
 ** *Context Directory* (`CONTEXT_DIR`): The path to the source within the project downloaded from the Git repository
 ** *Artifact Directory* (`ARTIFACT_DIR`): The path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository
 endif::params_kieserver_s2i[]
+ifdef::mode_production_template[]
+** *KIE Server Mode* (`KIE_SERVER_MODE`): In the `{mode_production_template}` {mode_production_template_word} the default value is `PRODUCTION`; in this mode, you can not deploy `SNAPSHOT` versions of KJAR artifacts on the {KIE_SERVER} and can not change versions of an artifact in an existing container. (To deploy a new version with `PRODUCTION` mode, you can create a new container on the same {KIE_SERVER}). To deploy `SNAPSHOT` versions or to change versions of an artifact in an existing container, set this parameter to `DEVELOPMENT`. 
+endif::mode_production_template[]
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): The namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
 ifdef::params_central[]
 ifeval::["{LOCAL_CENTRAL}"=="{CENTRAL} Monitoring"]
