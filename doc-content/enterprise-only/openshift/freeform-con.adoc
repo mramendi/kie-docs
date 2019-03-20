@@ -2,7 +2,7 @@
 = Freeform server environment
 You can deploy a freeform server environment that includes several different pods running {KIE_SERVER}. These servers can run different services for staging or productiuon purposes. You can add and remove servers as necessary at any time. 
 
-The environment includes a pod with {CENTRAL} Monitoring; use it to monitor and, when necessary, manage the execution of servics on {KIE_SERVERS}. 
+The environment includes a pod with {CENTRAL} Monitoring; use it to monitor and, when necessary, manage the execution of services on {KIE_SERVERS}. 
 
 This environment does not include Smart Router.
 

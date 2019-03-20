@@ -8,7 +8,7 @@
 
 ifeval::["{context}"=="freeform-monitor"]
 :template_add_params: {CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET={CENTRAL_ONEWORD}-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
-:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml
+:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-managed.yaml
 To deploy {CENTRAL} Monitoring and a single managed {KIE_SERVER} for a freeform environment,
 endif::[]
 ifeval::["{context}"=="freeform-server-immutable"]

@@ -86,8 +86,10 @@ ifdef::params_central[]
 ifeval::["{LOCAL_CENTRAL}"=="{CENTRAL} Monitoring"]
 ** *{LOCAL_CENTRAL} Container Replicas* (`{CENTRAL_CAPITAL_UNDER}_MONITORING_CONTAINER_REPLICAS`): The number of replicas initially created for {CENTRAL} Monitoring. If you do not want to use a high-availability configuration for {CENTRAL} Monitoring, set this number to 1.
 endif::[]
-endif::params_central[]
+// this next one is available only in managed and prod templates. Temporarily put under Central,
+// but when adding other templates, need to review the conditioning
 ** *KIE Server Container Replicas* (`KIE_SERVER_CONTAINER_REPLICAS`): The number of replicas initially created for the {KIE_SERVER}.
+endif::params_central[]
 ifdef::params_kieserver_container_deployment[]
 +
 . If you want to deploy and start services from the Maven repository at the startup of the {KIE_SERVER}, set the following parameter. Note that in this case, {LOCAL_CENTRAL} is not able to deploy and undeploy services on this {KIE_SERVER}.
