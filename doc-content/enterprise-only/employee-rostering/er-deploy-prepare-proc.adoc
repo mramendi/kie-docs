@@ -7,9 +7,9 @@ You must download and prepare the deployment files before building and deploying
 
 . Download the `{PRODUCT_FILE}-add-ons.zip` file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page for {PRODUCT} {PRODUCT_VERSION}.
 . Unzip the downloaded archive.
-. Unzip the employee rostering zip file (`{PRODUCT_FILE}-employee-rostering.zip`) that is extracted from the add-ons archive. 
+. Unzip the `{PRODUCT_FILE}-employee-rostering.zip` file that is extracted from the add-ons archive. 
 +
-The `optashift-employee-rostering-{MAVEN_ARTIFACT_VERSION}` folder is created. This folder is the base folder in subsequent steps. 
+The `optashift-employee-rostering-{MAVEN_ARTIFACT_VERSION}` folder is created. This folder is the base folder in subsequent parts of this document. 
 +
 [NOTE]
 ====

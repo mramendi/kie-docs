@@ -20,7 +20,7 @@ You can see the numbers of currently visible employees in the top right part of 
 To save the entry, click *Apply*.
 . To delete an availability entry, click the entry, then click *Delete availability*.
 +
-Alternatively, you can change or delete an availability entry by moving the mouse cursor over the entry. Several icons are displayed on the entry:
+You can also change or delete an availability entry by moving the mouse pointer over the entry and then clicking one of the icons displayed over the entry:
 
 ** Click the image:employee-rostering/unavailable-icon.png[Unavailable] icon to set the status of the entry to *Unavailable*.
 ** Click the image:employee-rostering/undesired-icon.png[Undesired] icon to set the status of the entry to *Undesired*.

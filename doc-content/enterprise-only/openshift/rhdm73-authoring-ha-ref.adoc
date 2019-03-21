@@ -289,10 +289,11 @@ Http Get on http://localhost:9200/_cluster/health
 |=============
 |Deployments | Name  | Port  | Protocol
 
-.4+| `${APPLICATION_NAME}-rhdmcentr`
+.5+| `${APPLICATION_NAME}-rhdmcentr`
 |jolokia | 8778 | `TCP`
 |http | 8080 | `TCP`
 |https | 8443 | `TCP`
+|git-ssh | 8001 | `TCP`
 |ping | 8888 | `TCP`
 .3+| `${APPLICATION_NAME}-kieserver`
 |jolokia | 8778 | `TCP`

@@ -25,9 +25,9 @@ Otherwise, you must configure registry authentication and install the image stre
 endif::[]
 
 .Procedure
-. Determine whether {OPENSHIFT} was configured with the user name and password for Red Hat registry access. For details about the required configuration, see https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html#advanced-install-configuring-registry-location[Configuring a Registry Location]. If you are using an OpenShift Online subscription, it is configured for Red Hat registry access.
+. Determine whether {OPENSHIFT} is configured with the user name and password for Red Hat registry access. For details about the required configuration, see https://docs.openshift.com/container-platform/3.11/install/configuring_inventory_file.html#advanced-install-configuring-registry-location[Configuring a Registry Location]. If you are using an OpenShift Online subscription, it is configured for Red Hat registry access.
 
-. If {OPENSHIFT} was configured with the user name and password for Red Hat registry access, run the following commands:
+. If {OPENSHIFT} is configured with the user name and password for Red Hat registry access, run the following commands:
 +
 ifdef::DM[]
 [subs="attributes,verbatim,macros"]
@@ -46,7 +46,7 @@ endif::PAM[]
 +
 If the outputs of both commands are not empty, the required image streams are available in the `openshift` namespace and no further action is required.
 +
-. If the output of one or both of the commands is empty or if OpenShift was not configured with the user name and password for Red Hat registry access, complete the following steps:
+. If the output of one or both of the commands is empty or if OpenShift is not configured with the user name and password for Red Hat registry access, complete the following steps:
 ifeval::["{context}"!="openshift-ansible-playbook"]
 .. Ensure you are logged in to OpenShift with the `oc` command and that your project is active.
 endif::[]
