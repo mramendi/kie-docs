@@ -17,7 +17,7 @@ ifeval::["{context}"=="freeform-monitor"]
 :params_central:
 :params_kieserver:
 :params_mandatory_maven:
-:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-managed.yaml
+:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-managed.yaml
 :mode_production_template_word: template
 endif::[]
 
