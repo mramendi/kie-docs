@@ -5,7 +5,7 @@ After subscribing to the operator, you can _create an application_ to deploy an 
 
 .Procedure
 
-. Enter your project in the OpenShift Web console. 
+. Enter your project in the OpenShift Web cluster console. 
 . In the OpenShift Web console navigation panel, select *Operators* and then *Subscriptions*.
 . Click the name of the subscription that containt `businessautomation`. Information about this subscription is displayed.
 . Under the *Installed version* heading, click the version name of the subscription. An overview of the subscription is displayed.
@@ -19,7 +19,7 @@ After subscribing to the operator, you can _create an application_ to deploy an 
 ** `rhpam-authoring`: An environment for creating and modifying services using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the services.
 ** `rhpam-authoring-ha`: An environment for creating and modifying services using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the services. This version of the authoring environment supports scaling the {CENTRAL} pod to ensure high availability.
 +
-. Add lines to the YAML source to modify the environment:
+. Add lines to the YAML source to modify the environment, using the snippets listed in this document as a reference:
 ** The following snippet adds an immutable {KIE_SERVER} pod that builds a service from source. You must add at least one copy of this snippet when creating an immutable environment.
 +
 [subs="attributes,verbatim,macros"]
@@ -41,85 +41,114 @@ Replace the following values:
 *** `<branch>`: The branch in the Git repository.
 *** `<directory>`: The path to the source within the project downloaded from the Git repository (??? where is the artifact directory ???)
 +
-** The following snippet sets the number of {KIE_SERVERS} that are managed by {CENTRAL} or {CENTRAL} Monitoring in your environment: 
+** The following snippet configures the number and settings of {KIE_SERVERS} that are managed by {CENTRAL} or {CENTRAL} Monitoring in your environment, as well as a Smart Router. Six servers, under three different name sets, are included in the snippet.
 +
 [subs="attributes,verbatim,macros"]
 ----
+metadata:
+  name: server-config
+spec:
+  environment: <environment_type>
   objects:
-    server:
-      # Number of server deloyments (defaults are 0, 1, or 2 for different environment types)
+    console:
+      env:
+        - name: MY_VALUE
+          value: "example"
+  servers:
+    # Kieserver sets will be named sequentially server-config-kieserver1, server-config-kieserver1-2
+    - deployments: 2
+      # Env variables that will be added to all the kie servers in this set
+      env:
+        - name: MY_VALUE
+          value: "example"
+      # Override default memory limits for all the kie servers in this set
+      resources:
+        limits:
+          memory: 2Gi
+    # Kieserver sets will be named sequentially server-config-kieserver2, server-config-kieserver2-2
+    - deployments: 2
+      # Env variables that will be added to all the kie servers in this set
+      env:
+        - name: MY_VALUE
+          value: "example"
+    # Kieserver sets will be named sequentially server, server-2
+    - name: server
       deployments: 2
-      spec:
-        # Environment variables that are set for all the KIE servers
-        env:
-          - name: MY_VAR
-            value: "example"
-        # Override default memory limits for all the KIE servers
-        resources:
-          memory:
-            limits: 2Gi
+      env:
+        - name: MY_VALUE
+          value: "example"
+      # Override default memory limits for all the kie servers in this set
+      resources:
+        limits:
+          memory: 2Gi
+  smartRouter:
+    env:
+      - name: MY_VALUE
+        value: "example"
 ----
 +
-** The following snippet removes Smart Router from your environment: ???
-** The following snippet sets the password for the administrator user (`admin`):
+Replace `<environment_type>` with the type of environment that you want to configure.
++
+** The following snippet configures {KIE_SERVERS}, a {CENTRAL} or {CENTRAL} Monitoring, and a Smart Router using existing secrets for HTTP communication, as required for a production environment. In this example, two servers are created with the `server-a-keystore` secret. (For instructions about creating the secrets, see <<secrets-central-create-proc>>, <<secrets-kie-create-proc>>, and <<secrets-smartrouter-create-proc>>.)
++
+[subs="attributes,verbatim,macros"]
+----
+metadata:
+  name: keystore-config
+spec:
+  environment: <environment_type>
+  objects:
+    console:
+      keystoreSecret: console-keystore
+    servers:
+      - name: server-a
+        deployments: 2
+        keystoreSecret: server-a-keystore
+      - name: server-b
+        keystoreSecret: server-b-keystore
+    smartRouter:
+      keystoreSecret: smartrouter-keystore
+----
++
+Replace `<environment_type>` with the type of environment that you want to configure.
++
+** The following snippet sets the password for the administrator user (`admin`) and the application name (`app2`):
 +
 [subs="attributes,verbatim,macros"]
 ----
   commonConfig:
     adminPassword: password
+    applicationName: app2
 ----
 +
-** The following snippet sets the URL to an external Maven repository. In a production environment, the Maven repository must contain all the services that you need to deploy.
-+
-[subs="attributes,verbatim,macros"]
-----
-  commonConfig:
-    mavenRepo: https://maven.example.com
-----
-+
-** The following snippet sets up RH-SSO authentication. You must ensure that the realm and clients exist in your RH-SSO deployment. The number of listed servers must be the same as the number of actual {KIE_SERVERS} in your environment. (??? what about the option where deployment auto-creates the clients - do operators support this?)
+** The following snippet sets up LDAP authentication. The parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module]. 
 +
 [subs="attributes,verbatim,macros"]
 ----
-  auth:
-    sso:
-      url: https://rh-sso.example.com:8443
-      realm: rhpam
-      clients:
-        console:
-          name: rhpam-console
-        servers:
-          - name: kieserver-1
-          - name: kieserver-2
-----
-+
-** The following snippet sets up LDAP authentication. The parameters correspond to the settings of the LdatExtended Login module of {EAP}. For instructions about using these settings, see https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/login_module_reference/#ldapextended_login_module[LdapExtended Login Module]. (??? wat about role mapping?). 
-+
-[subs="attributes,verbatim,macros"]
-----
-  auth:
-    ldap:
-      url: ldaps://myldap.example.com
-      bindDN: uid=admin,ou=users,ou=exmample,ou=com
-      bindCredential: s3cret
-      baseCtxDN: ou=users,ou=example,ou=com
-      baseFilter: (uid={0})
-      searchScope: SUBTREE_SCOPE
-      roleAttributeID: memberOf
-      rolesCtxDN: ou=groups,ou=example,ou=com
-      roleFilter: (memberOf={1})
-      defaultRole: guest
-    roleMapper:
-      rolesProperties: /conf/roleMapper.properties
-      replaceRole: true
+auth:
+  ldap:
+    url: ldaps://myldap.example.com
+    bindDN: uid=admin,ou=users,ou=exmample,ou=com
+    bindCredential: s3cret
+    baseCtxDN: ou=users,ou=example,ou=com
+    baseFilter: (uid={0})
+    searchScope: SUBTREE_SCOPE
+    roleAttributeID: memberOf
+    rolesCtxDN: ou=groups,ou=example,ou=com
+    roleFilter: (memberOf={1})
+    defaultRole: guest
+  roleMapper:
+    rolesProperties: /conf/roleMapper.properties
+    replaceRole: true
 ----
 +
 If the LDAP server does not define all the roles required for your deployment, you can map LDAP groups to {PRODUCT} roles. To enable LDAP role mapping, set the `rolesProperties` value to the fully qualified pathname of a file that defines role mapping, for example, `/opt/eap/standalone/configuration/rolemapping/rolemapping.properties`. You must provide this file and mount it at this path in all applicable deployment configurations; for instructions, see <<rolemapping-proc>>.
 +
 If `replaceRole` is set to `true`, mapped roles replace the roles defined on the LDAP server; if it is set to `false`, both mapped roles and roles defined on the LDAP server are set as user application roles. The default setting is `false`.
+. After completing the modification of the YAML source, click *Create* to create the application.
 
-??? there has to be a way to set the secrets for BC/KIE server/SR, because for productiuon one needs to create those - but how? There probably are other snippets that need to be here as well? Is the snippet-based procedure even viable at all, or will two snippets added one after the other break things? 
-
-Also what about external DB image etc?
-
+[NOTE]
+====
+You can view other configuration samples, for example, for servers that use differen database servers, at https://github.com/kiegroup/kie-cloud-operator/tree/1.0.x/deploy/examples 
+====
 

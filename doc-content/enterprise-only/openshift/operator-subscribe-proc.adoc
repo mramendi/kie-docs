@@ -5,14 +5,18 @@ To be able to deploy {PRODUCT} using operators, you must subscribe to the Busine
 
 .Procedure
 
-. Enter your project in the OpenShift Web console. 
+. Enter your project in the OpenShift Web cluster console. 
 . In the OpenShift Web console navigation panel, select *Operators* and then *Catalog Sources*.
 . Search for *Business Automation*. If you find it, click *Create Subscription* button next to it.
 . If the *Business Automation* entry is not available, complete the following steps:
-.. Download the ??? file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page. 
-.. Extract the contents of the file into a new directory and change to this directory.
-.. Ensure you are logged in to OpenShift with the `oc` command and that your project is active.
-.. Enter the following commands: ??? ??? ???
+.. Log in to the OpenShift environment as an administrator.
+.. Enter the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+$ oc create -f https://raw.githubusercontent.com/kiegroup/kie-cloud-operator/1.0.x/deploy/catalog_resources/redhat/catalog-source.yaml
+----
++
 .. Refresh the OpenShift Web console in the browser.
 .. Search for *Business Automation* again. Click *Create Subscription* button next to it.
 . A YAML description of the new subscription is displayed. Click *Create* to create the subscription.

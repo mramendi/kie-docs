@@ -12,6 +12,11 @@ include::_artifacts/author-group.adoc[]
 // Purpose statement for the assembly
 As a system engineer, you can deploy a {PRODUCT} environment on {OPENSHIFT} to provide an infrastructure to develop or execute processes and other business assets. You can use OpenShift Operators to deploy the environment defined in a structured YAML file and to maintain and modify this environment as necessary.
 
+[NOTE]
+====
+This functionality is currently a technology preview.
+====
+
 .Prerequisites
 
 * At least four gigabytes of memory must be available in the OpenShift environment.
@@ -33,7 +38,7 @@ include::{enterprise-dir}/openshift/registry-authentication-proc.adoc[leveloffse
 include::{enterprise-dir}/openshift/secrets-kie-create-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/secrets-central-create-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/secrets-smartrouter-create-proc.adoc[leveloffset=+2]
-include::{enterprise-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
+// include::{enterprise-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/glusterfs-reconfig-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/operator-con.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/operator-subscribe-proc.adoc[leveloffset=+2]
