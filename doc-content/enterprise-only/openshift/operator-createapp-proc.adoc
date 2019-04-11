@@ -39,7 +39,7 @@ Replace the following values:
 *** `<deployment>`: The identifying information of the decision service (KJAR file) that is built from your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, for example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. The Maven build process must produce all these files from the source in the Git repository.
 *** `<url>`: The URL for the Git repository that contains the source for your decision service.
 *** `<branch>`: The branch in the Git repository.
-*** `<directory>`: The path to the source within the project downloaded from the Git repository (??? where is the artifact directory ???)
+*** `<directory>`: The path to the source within the project downloaded from the Git repository.
 +
 ** The following snippet configures the number and settings of {KIE_SERVERS} that are managed by {CENTRAL} or {CENTRAL} Monitoring in your environment, as well as a Smart Router. Six servers, under three different name sets, are included in the snippet.
 +
