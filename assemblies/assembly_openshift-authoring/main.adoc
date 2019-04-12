@@ -29,7 +29,12 @@ and other business assets.
 ** {CENTRAL} requires one 1Gi PV by default. You can change the PV size for {CENTRAL} persistent storage in the template parameters.
 * If you intend to use the Authoring High Availability template, which scales the {CENTRAL} pod:
 ** The image streams for Red Hat AMQ version 7.1 or later are available in your OpenShift environment.
-** Your OpenShift environment supports persistent volumes with ReadWriteMany mode. For information about access mode support in OpenShift Online volume plug-ins, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/architecture/#pv-access-modes[Access Modes].
+** Your OpenShift environment supports persistent volumes with `ReadWriteMany` mode. For information about access mode support in OpenShift Online volume plug-ins, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/architecture/#pv-access-modes[Access Modes].
++
+[IMPORTANT]
+====
+`ReadWriteMany` mode is not supported on OpenShift Online and OpenShift Dedicated.
+====
 
 
 include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]

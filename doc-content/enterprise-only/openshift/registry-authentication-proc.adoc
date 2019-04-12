@@ -9,7 +9,7 @@ To deploy {PRODUCT} components of {OPENSHIFT}, you must ensure that OpenShift ca
 
 . If {OPENSHIFT} was configured with the user name and password for Red Hat registry access, no further action is required. Otherwise, complete the following steps:
 .. Ensure you are logged in to OpenShift with the `oc` command and that your project is active.
-.. Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log on to Red Hat Customer Portal to access the document and to complete the steps to create a registry service account.
+.. Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log in to Red Hat Customer Portal to access the document and to complete the steps to create a registry service account.
 .. Select the *OpenShift Secret* tab and click the link under *Download secret* to download the YAML secret file.
 .. View the downloaded file and note the name that is listed in the `name:` entry.
 .. Run the following commands:
@@ -21,4 +21,4 @@ oc secrets link default <secret_name> --for=pull
 oc secrets link builder <secret_name> --for=pull
 ----
 +
-Replace `<file_name>` with the name of the downloaded file and <secret_name> with the name that is listed in the `name:` entry of the file.
+Replace `<file_name>` with the name of the downloaded file and `<secret_name>` with the name that is listed in the `name:` entry of the file.
