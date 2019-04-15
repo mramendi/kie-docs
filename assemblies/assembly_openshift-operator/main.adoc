@@ -24,7 +24,9 @@ This functionality is currently for Technology Preview only. For more informatio
 * The OpenShift project for the deployment is created.
 * You are logged in to the project using the OpenShift web console. 
 * Dynamic persistent volume (PV) provisioning is enabled. Alternatively, if dynamic PV provisioning is not enabled,  enough persistent volumes must be available. By default, the following sizes are required:
+ifdef::PAM[]
 ** Each deployed replicated set of {KIE_SERVER} pods, by default, requires one 1Gi PV for the database. You can change the database PV size. You can deploy multiple immutable servers; each requires a separate database PV. This requirement does not apply if you use an external database server.
+endif::PAM[]
 ** By default, {CENTRAL} requires one 1Gi PV. You can change the PV size for {CENTRAL} persistent storage.
 ifdef::PAM[]
 ** {CENTRAL} Monitoring requires one 64Mi PV.
