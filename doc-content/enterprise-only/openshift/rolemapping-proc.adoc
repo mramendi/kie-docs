@@ -23,14 +23,14 @@ admins = kie-server,rest-all,admin
 +
 [subs="attributes,verbatim,macros"]
 ----
-oc create configmap ldap_role_mapping --from-file=<new_name>=<existing_name>
+oc create configmap ldap-role-mapping --from-file=<new_name>=<existing_name>
 ----
 +
 Replace `<new_name>` with the name that the file is to have on the pods (it must be the same as the name specified in the `AUTH_ROLE_MAPPER_ROLES_PROPERTIES` file) and `<existing_name>` with the name of the file that you created. For example:
 +
 [subs="attributes,verbatim,macros"]
 ----
-oc create configmap ldap_role_mapping --from-file=rolemapping.properties=my-role-map
+oc create configmap ldap-role-mapping --from-file=rolemapping.properties=my-role-map
 ----
 +
 . Mount the configuration map on every deployment configuration that is configured for role mapping. 
@@ -65,7 +65,7 @@ For every deployment configuration, run the command:
 
 [subs="attributes,verbatim,macros"]
 ----
- oc set volume dc/<deployment_config_name> --add --type configmap --configmap-name ldap_role_mapping --mount-path=<mapping_dir> --name=ldap_role_mapping
+ oc set volume dc/<deployment_config_name> --add --type configmap --configmap-name ldap-role-mapping --mount-path=<mapping_dir> --name=ldap-role-mapping
 ----
 
 Replace `<mapping_dir>` with the directory name (without file name) set in the `AUTH_ROLE_MAPPER_ROLES_PROPERTIES` parameter, for example, `/opt/eap/standalone/configuration/rolemapping` .
