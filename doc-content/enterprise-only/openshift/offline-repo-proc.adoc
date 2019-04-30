@@ -7,10 +7,10 @@ Skip this procedure if your {OPENSHIFT} environment is connected to the Internet
 
 .Procedure
 
-. Prepare a Maven release repository to which you can write. Your OpenShift environment must have access to this repository. You can deploy a Nexus repository manager in the OpenShift environment; for instructions, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/tutorials#nexus-setting-up-nexus[Setting up Nexus]. 
+. Prepare a Maven release repository to which you can write. The repository must allow read access without authentication. Your OpenShift environment must have access to this repository. You can deploy a Nexus repository manager in the OpenShift environment; for instructions, see https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/tutorials#nexus-setting-up-nexus[Setting up Nexus]. 
 
 . Complete the following actions on a computer that has an outgoing connection to the public Internet:
 
-.. Clear the local Maven cache directory (`~/.m2`).
+.. Clear the local Maven cache directory (`~/.m2/repository`).
 .. Build the source of your services using the `mvn clean install` command.
-.. Upload all artifacts from the local Maven cache directory (`~/.m2`) to the Maven repository that you prepared. You can use the https://github.com/simpligility/maven-repository-tools/tree/master/maven-repository-provisioner[Maven Repository Provisioner] utility to upload the artifacts.
+.. Upload all artifacts from the local Maven cache directory (`~/.m2/repository`) to the Maven repository that you prepared. You can use the https://github.com/simpligility/maven-repository-tools/tree/master/maven-repository-provisioner[Maven Repository Provisioner] utility to upload the artifacts.
