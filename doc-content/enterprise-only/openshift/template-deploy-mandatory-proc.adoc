@@ -6,10 +6,11 @@
 :params_kieserver!:
 :params_kieserver_s2i!:
 :params_kieserver_container_deployment!:
-:params_startup_strategy_first!:
+:params_kie_startup_strategy!:
 :params_multideploy!:
 :params_mandatory_maven!:
-:params_serveruser_startupstrategy!:
+:params_serveruser_startupstrategy_freeform!:
+:params_serveruser_startupstrategy_immutable!:
 :mode_production_template!:
 :mode_production_template_word!:
 
@@ -24,20 +25,20 @@ endif::[]
 ifeval::["{context}"=="freeform-server-managed"]
 :params_kieserver:
 :params_kieserver_container_deployment:
-:params_startup_strategy_first:
+:params_kie_startup_strategy:
 :params_multideploy:
 :params_mandatory_maven:
-:params_serveruser_startupstrategy:
+:params_serveruser_startupstrategy_freeform:
 :mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-*.yaml
 :mode_production_template_word: templates
 endif::[]
 
-ifeval::["{context}"=="freeform-server-immutable"]
+ifeval::["{context}"=="server-immutable-s2i"]
 :params_kieserver:
 :params_kieserver_s2i:
-:params_startup_strategy_first:
+:params_kie_startup_strategy:
 :params_multideploy:
-:params_serveruser_startupstrategy:
+:params_serveruser_startupstrategy_immutable:
 endif::[]
 
 When configuring the template to deploy {what_deploying}, you must set the following parameters in all cases. 
@@ -49,9 +50,6 @@ You started the configuration of the template, as described in {startlink}.
 .Procedure
 
 . Set the following parameters:
-ifdef::params_startup_strategy_first[]
-** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`). This parameter must be set to `OpenShiftStartupStrategy` to ensure that an OpenShift enabled {LOCAL_CENTRAL} connects to the {KIE_SERVER} automatically, using an OpenShift API.
-endif::params_startup_strategy_first[]
 ifdef::params_central[]
 ** *{LOCAL_CENTRAL} Server Keystore Secret Name* (`{CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET`): The name of the secret for {CENTRAL}, as created in <<secrets-central-create-proc>>.
 endif::params_central[]
@@ -107,12 +105,19 @@ ifdef::params_kieserver[]
 ifeval::["{context}"=="freeform-monitor"]
 You must set the user name and password and record them, so you can use the same credentials when deploying additional {KIE_SERVERS}.
 endif::[]
-ifdef::params_serveruser_startupstrategy[]
+ifdef::params_serveruser_startupstrategy_freeform[]
 To enable the {LOCAL_CENTRAL} connection to this {KIE_SERVER}, you must set these parameters to the same values as the same parameters for the {LOCAL_CENTRAL} deployment that you set in <<template-deploy-mandatory-freeform-monitor-proc>>.  
-endif::params_serveruser_startupstrategy[]
+endif::params_serveruser_startupstrategy_freeform[]
+ifdef::params_serveruser_startupstrategy_immutable[]
+To enable {LOCAL_CENTRAL} connection to this {KIE_SERVER}, you must set these parameters to the same values as the same parameters for the {LOCAL_CENTRAL} deployment.   
+endif::params_serveruser_startupstrategy_immutable[]
 
 
 endif::params_kieserver[]
+ifdef::params_kie_startup_strategy[]
+. Ensure the following parameter retains its default value:
+** *KIE Server Startup Strategy* (`KIE_SERVER_STARTUP_STRATEGY`): This parameter must be set to `OpenShiftStartupStrategy` to ensure that any OpenShift enabled {LOCAL_CENTRAL} in the same namespace connects to the {KIE_SERVER} automatically, using an OpenShift API. The default value is `OpenShiftStartupStrategy`. Do not change this value.
+endif::params_startup_strategy_first[]
 ifeval::["{context}"=="freeform-monitor"]
 +
 . Ensure the following parameters retain their default values:

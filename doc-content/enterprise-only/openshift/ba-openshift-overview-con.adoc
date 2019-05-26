@@ -48,11 +48,9 @@ endif::PAM[]
 You can arrange these and other components into various environment configurations within OpenShift. 
 
 ifeval::["{context}"=="openshift-freeform"]
-A freeform server environment can include any number of {KIE_SERVERS} to run existing services for staging and production purposes. You can use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution. You can also build the services into the server images, making the images immutable, so that you do not need to manage the execution; monitoring is still available.
 endif::[]
 
 ifeval::["{context}"!="openshift-operator"]
-ifeval::["{context}"!="openshift-freeform"]
 The following environment types are typical:
   
 ifdef::PAM[]
@@ -60,9 +58,12 @@ ifdef::PAM[]
 ifeval::["{context}"!="openshift-ansible-playbook"]
 For instructions about deploying this environment, see {URL_DEPLOYING_AUTHORING_ON_OPENSHIFT}[_{DEPLOYING_AUTHORING_ON_OPENSHIFT}_].
 endif::[]
-* _Managed deployment_: An environment for running existing services for staging and production purposes. This environment includes several groups of {KIE_SERVER} pods; you can deploy and undeploy services on every such group and also scale the group up or down as necessary. Use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution. 
+* _Managed deployment_: An environment for running existing services for staging and production purposes. This environment includes several groups of {KIE_SERVER} pods; you can deploy and undeploy services on every such group and also scale the group up or down as necessary. Use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution.
 ifeval::["{context}"!="openshift-ansible-playbook"]
-For instructions about deploying this environment, see {URL_DEPLOYING_MANAGED_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_ON_OPENSHIFT}_]. 
++
+You can deploy two types of managed environment. In a _freeform_ server environment, you initially deploy {CENTRAL} Monitoring and one {KIE_SERVER}. You can additionally deploy any number of {KIE_SERVERS}. {CENTRAL} Monitoring connects to all servers in the same namespace automatically. For instructions about deploying this environment, see {URL_DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}_]. 
++
+Alternatively, you can deploy a _fixed_ managed server environment. A single deployment includes {CENTRAL} Monitoring, Smart Router, and a preset number of {KIE_SERVERS} (by default, two servers, but you can modify the template  to change the number). You can not add or remove servers at a later time. For instructions about deploying this environment, see {URL_DEPLOYING_MANAGED_FIXED_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_FIXED_ON_OPENSHIFT}_].
 endif::[]
 endif::PAM[]
 ifdef::DM[]
@@ -90,6 +91,5 @@ ifdef::PAM[You can modify the templates to ensure that the configuration suits y
 endif::[]
 ifeval::["{context}"=="openshift-ansible-playbook"]
 You can use the Automation Broker with the {PRODUCT} Ansible Playbook to deploy a {PRODUCT} environment on OpenShift in interactive mode. You can set all possible configuration values during this procedure. During the installation, the Automation Broker can generate all the required secrets automatically. However, for production environments, you need to create correct secrets before the installation.
-endif::[]
 endif::[]
 endif::[]
