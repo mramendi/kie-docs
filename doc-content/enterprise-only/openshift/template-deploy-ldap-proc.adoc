@@ -12,9 +12,18 @@ ifeval::["{context}"=="freeform-server-managed"]
 :ldap_kieserver:
 endif::[]
 
-ifeval::["{context}"=="freeform-server-immutable"]
+ifeval::["{context}"=="server-immutable-s2i"]
 :ldap_kieserver:
 endif::[]
+
+ifeval::["{context}"=="server-immutable-kjar"]
+:ldap_kieserver:
+endif::[]
+
+ifeval::["{context}"=="authoring"]
+:ldap_kieserver:
+endif::[]
+
 
 If you want to use LDAP authentication, complete the following additional configuration when configuring the template to deploy {what_deploying}. 
 

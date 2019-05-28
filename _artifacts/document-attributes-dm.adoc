@@ -40,7 +40,3 @@
 :URL_COMPONENT_CENTRAL: decision-central
 :CENTRAL_CAPITAL_UNDER: DECISION_CENTRAL
 :CENTRAL_ONEWORD: decisioncentral
-
-// product-specific documents
-:DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT: Deploying a {PRODUCT} authoring or managed server environment on {OPENSHIFT}
-:URL_DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_a_{URL_COMPONENT_PRODUCT}_authoring_or_managed_server_environment_on_red_hat_openshift_container_platform

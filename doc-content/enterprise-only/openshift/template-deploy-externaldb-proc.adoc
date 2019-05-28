@@ -3,7 +3,7 @@
 // modifylink is an internal variable based on context
 :modifylink!:
 
-ifeval::["{context}"=="freeform-server-immutable"]
+ifeval::["{context}"=="server-immutable-s2i"]
 :modifylink: environment-immutable-modify-proc 
 endif::[]
 

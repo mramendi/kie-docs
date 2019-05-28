@@ -13,17 +13,35 @@ ifeval::["{context}"=="freeform-monitor"]
 :sso_kieserver:
 endif::[]
 
+ifeval::["{context}"=="authoring"]
+:sso_central:
+:sso_kieserver:
+endif::[]
+
+
 ifeval::["{context}"=="freeform-server-managed"]
 :sso_singleclient:
 :sso_kieserver:
 :sso_kieserver_typical:
 endif::[]
 
-ifeval::["{context}"=="freeform-server-immutable"]
+ifeval::["{context}"=="server-immutable-s2i"]
 :sso_singleclient:
 :sso_kieserver:
 :sso_kieserver_typical:
 endif::[]
+
+ifeval::["{context}"=="server-immutable-kjar"]
+:sso_singleclient:
+:sso_kieserver:
+:sso_kieserver_typical:
+endif::[]
+
+ifeval::["{context}"=="monitoring"]
+:sso_singleclient:
+:sso_central:
+endif::[]
+
 
 
 If you want to use RH-SSO authentication, complete the following additional configuration when configuring the template to deploy {what_deploying}. 

@@ -10,14 +10,14 @@ When you create a {KIE_SERVER} image, you can build your services using S2I (Sou
 
 If you are using {CENTRAL} for authoring services, you can extract the source for your process and place it into a separate Git repository (such as GitHub or an on-premise installation of GitLab) for use in the S2I build.
 
-Alternatively, you can create a similar {KIE_SERVER} deployment using services that are already built as KJAR files. In this case, you must provide the services in a Maven repository; you can use the built-in repository of the {CENTRAL} or your own repository (for example, a Nexus deployment). The KJAR files are retrieved from the Maven repository during the startup of the pod and not updated or changed after that. The files are retrieved at every restart or scaling of the pod, so you must ensure they do not change on the Maven repository to keep the deployment immutable.
+Alternatively, you can create a similar {KIE_SERVER} deployment using services that are already built as KJAR files. In this case, you must provide the services in a Maven repository. You can use the built-in repository of the {CENTRAL} or your own repository (for example, a Nexus deployment). When the server pod starts, it retrieves the KJAR services from the Maven repository. Services on the pod are never updated or changed. At every restart or scaling of the pod, the server retrieves the files from the repository, so you must ensure they do not change on the Maven repository to keep the deployment immutable.
 
 With both methods of creating immutable images, no further management of the image is required. If you want to use a new version of a service, you can build a new image.
 
 ifdef::PAM[]
 Optionally, you can also deploy a pod with {CENTRAL} Monitoring and a pod with Smart Router. 
 
-You can use {CENTRAL} Monitoring to start and stop (but not deploy) services on your {KIE_SERVERS} and to view monitoring data. The {CENTRAL} Monitoring automatically connects to any {KIE_SERVERS} in the same namespace, including immutable {KIE_SERVERS} and managed {KIE_SERVERS}. This feature requires `OpenShiftStartupStrategy`, which is enabled by default for all {KIE_SERVERS} except those deployed in a fixed managed infrastructure. For instructions about deploying managed {KIE_SERVERS} with `OpenShiftStartupStrategy` enabled, see {URL_DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}_].
+You can use {CENTRAL} Monitoring to start and stop (but not deploy) services on your {KIE_SERVERS} and to view monitoring data. {CENTRAL} Monitoring automatically connects to any {KIE_SERVERS} in the same namespace, including immutable {KIE_SERVERS} and managed {KIE_SERVERS}. This feature requires `OpenShiftStartupStrategy`, which is enabled for all {KIE_SERVERS} except those deployed in a fixed managed infrastructure. For instructions about deploying managed {KIE_SERVERS} with `OpenShiftStartupStrategy` enabled, see {URL_DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}[_{DEPLOYING_MANAGED_FREEFORM_ON_OPENSHIFT}_].
 
 Smart Router is a single endpoint that can receive calls from client applications to any of your services and route each call automatically to the server that runs the service.
 
