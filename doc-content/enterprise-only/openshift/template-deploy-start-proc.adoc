@@ -30,13 +30,27 @@ ifeval::["{context}"=="server-immutable-s2i"]
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
 ifdef::PAM[]
 :modifylink: environment-immutable-modify-proc 
-:modifytype: single-kie-server
+:modifytype: fixed
 endif::PAM[]
 endif::[]
+
+ifeval::["{context}"=="fixed"]
+:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod
+:template_add_params: {CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET={CENTRAL_ONEWORD}-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
+:modifylink: environment-managed-modify-proc 
+:modifytype: fixed
+endif::[]
+
+
 ifeval::["{context}"=="freeform-server-managed"]
 // a PAM-only entry
 :single_template_file!:
 :server_template_files:
+:template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
+endif::[]
+ifeval::["{context}"=="additional-server-managed"]
+// a DM-only entry
+:template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver.yaml
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
 endif::[]
 ifeval::["{context}"=="server-immutable-kjar"]
@@ -93,6 +107,9 @@ endif::single_template_file[]
 
 ifeval::["{modifytype}"=="single-kie-server"]
 . By default, the {KIE_SERVER} uses a PostgreSQL database server in a pod. To use a MySQL database server in a pod or an external database server, modify the template as described in <<{modifylink}>>.
+endif::[]
+ifeval::["{modifytype}"=="fixed"]
+. By default, the template includes two {KIE_SERVERS}. Each of the serves uses a PostgreSQL database server in a pod. To change the number of {KIE_SERVERS} or to use a MySQL database server in a pod or an external database server, modify the template as described in <<{modifylink}>>.
 endif::[]
 
 . Use one of the following methods to start deploying the template:

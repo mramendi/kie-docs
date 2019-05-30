@@ -2,9 +2,10 @@
 = Configuring pod replica numbers for {what_deploying_brief}
 
 :replicas_smartrouter!:
-//ifeval::["{context}"=="freeform"]
-//:replicas_smartrouter!:
-//endif::[]
+ifeval::["{context}"=="fixed"]
+:replicas_smartrouter:
+endif::[]
+
 
 When configuring the template to deploy {what_deploying}, you can set the initial number of replicas for
 ifndef::replicas_smartrouter[]

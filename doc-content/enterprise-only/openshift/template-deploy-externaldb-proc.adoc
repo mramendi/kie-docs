@@ -4,15 +4,24 @@
 :modifylink!:
 
 ifeval::["{context}"=="server-immutable-s2i"]
-:modifylink: environment-immutable-modify-proc 
+:modifylink: <<environment-immutable-modify-proc>> 
 endif::[]
+
+ifeval::["{context}"=="fixed"]
+:modifylink: <<environment-managed-modify-proc>> 
+endif::[]
+
+ifeval::["{context}"=="authoring"]
+:modifylink: <<environment-authoring-single-modify-proc>> or <<environment-authoring-ha-modify-proc>> 
+endif::[]
+
 
 
 ifndef::modifylink[]
 If you are using the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-externaldb.yaml` template to use an external database server for the {KIE_SERVER},
 endif::modifylink[]
 ifdef::modifylink[]
-If you modified the template to use an external database server for the {KIE_SERVER}, as described in <<{modifylink}>>, 
+If you modified the template to use an external database server for the {KIE_SERVER}, as described in {modifylink}, 
 endif::modifylink[]
 complete the following additional configuration when configuring the template to deploy {what_deploying}.
 

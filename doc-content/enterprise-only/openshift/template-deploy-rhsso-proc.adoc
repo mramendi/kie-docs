@@ -7,10 +7,12 @@
 :sso_kieserver!:
 // "typical" is a single KIE server where paramenert are KIE_SERVER_* not KIE_SERVERn_*
 :sso_kieserver_typical!:
+:sso_multiplekie!:
 
 ifeval::["{context}"=="freeform-monitor"]
 :sso_central:
 :sso_kieserver:
+:sso_kieserver_typical!:
 endif::[]
 
 ifeval::["{context}"=="authoring"]
@@ -24,6 +26,20 @@ ifeval::["{context}"=="freeform-server-managed"]
 :sso_kieserver:
 :sso_kieserver_typical:
 endif::[]
+
+ifeval::["{context}"=="fixed"]
+:sso_singleclient:
+:sso_kieserver:
+:sso_multiplekie:
+endif::[]
+
+
+ifeval::["{context}"=="additional-server-managed"]
+:sso_singleclient:
+:sso_kieserver:
+:sso_kieserver_typical:
+endif::[]
+
 
 ifeval::["{context}"=="server-immutable-s2i"]
 :sso_singleclient:
@@ -70,7 +86,9 @@ ifdef::sso_central[]
 . You can create a client within RH-SSO for {LOCAL_CENTRAL}. 
 endif::sso_central[]
 ifdef::sso_kieserver[]
-. You can create a client within RH-SSO for {KIE_SERVER}. 
+. You can create a client within RH-SSO for 
+ifdef::sso_multiplekie[each]
+{KIE_SERVER}. 
 endif::sso_kieserver[]
 Alternatively, if the client does not yet exist, the template can create it during deployment.
 endif::sso_singleclient[]
@@ -96,10 +114,11 @@ ifdef::sso_kieserver_typical[]
 *** *KIE Server RH-SSO Client name* (`KIE_SERVER_SSO_CLIENT`): The RH-SSO client name for {KIE_SERVER}.
 *** *KIE Server RH-SSO Client Secret* (`KIE_SERVER_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {KIE_SERVER}.
 endif::sso_kieserver_typical[]
-ifeval::["{context}"=="freeform-monitor"]
-*** *KIE Server RH-SSO Client name* (`KIE_SERVER1_SSO_CLIENT`): The RH-SSO client name for {KIE_SERVER}.
-*** *KIE Server RH-SSO Client Secret* (`KIE_SERVER1_SSO_SECRET`): The secret string that is set in RH-SSO for the client for {KIE_SERVER}.
-endif::[]
+ifdef::sso_multiplekie[]
+*** For each {KIE_SERVER} defined in the template:
+**** *KIE Server _n_ RH-SSO Client name* (`KIE_SERVER__n___SSO_CLIENT`): The RH-SSO client name for this {KIE_SERVER}.
+**** *KIE Server _n_ RH-SSO Client Secret* (`KIE_SERVER__n___SSO_SECRET`): The secret string that is set in RH-SSO for the client for this {KIE_SERVER}.
+endif::sso_multiplekie[]
 *** *RH-SSO Disable SSL Certificate Validation* (`SSO_DISABLE_SSL_CERTIFICATE_VALIDATION`): Set to `true` if your RH-SSO installation does not use a valid HTTPS certificate. 
 +
 .. To create the clients for {PRODUCT} within RH-SSO, set the following parameters in the template:
@@ -117,12 +136,13 @@ ifdef::sso_kieserver_typical[]
 *** *KIE Server Custom http Route Hostname* (`KIE_SERVER_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 *** *KIE Server Custom https Route Hostname* (`KIE_SERVER_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
 endif::sso_kieserver_typical[]
-ifeval::["{context}"=="freeform-monitor"]
-*** *KIE Server RH-SSO Client name* (`KIE_SERVER1_SSO_CLIENT`): The name of the client to create in RH-SSO for {KIE_SERVER}.
-*** *KIE Server RH-SSO Client Secret* (`KIE_SERVER1_SSO_SECRET`): The secret string to set in RH-SSO for the client for {KIE_SERVER}.
-*** *KIE Server Custom http Route Hostname* (`KIE_SERVER1_HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
-*** *KIE Server Custom https Route Hostname* (`KIE_SERVER1_HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
-endif::[]
+ifdef::sso_multiplekie[]
+*** For each {KIE_SERVER} defined in the template:
+**** *KIE Server _n_ RH-SSO Client name* (`KIE_SERVER__n___SSO_CLIENT`): The name of the client to create in RH-SSO for this {KIE_SERVER}.
+**** *KIE Server _n_ RH-SSO Client Secret* (`KIE_SERVER__n___SSO_SECRET`): The secret string to set in RH-SSO for the client for this {KIE_SERVER}.
+**** *KIE Server _n_ Custom http Route Hostname* (`KIE_SERVER__n___HOSTNAME_HTTP`): The fully qualified host name to use for the HTTP endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+**** *KIE Server _n_ Custom https Route Hostname* (`KIE_SERVER__n___HOSTNAME_HTTPS`): The fully qualified host name to use for the HTTPS endpoint for this {KIE_SERVER}. If you need to create a client in RH-SSO, you can not leave this parameter blank.
+endif::sso_multiplekie[]
 *** *RH-SSO Realm Admin Username* (`SSO_USERNAME`) and *RH-SSO Realm Admin Password* (`SSO_PASSWORD`): The user name and password for the realm administrator user for the RH-SSO realm for {PRODUCT}.
 *** *RH-SSO Disable SSL Certificate Validation* (`SSO_DISABLE_SSL_CERTIFICATE_VALIDATION`): Set to `true` if your RH-SSO installation does not use a valid HTTPS certificate. 
 

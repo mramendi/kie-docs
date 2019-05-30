@@ -12,6 +12,15 @@ ifeval::["{context}"=="freeform-server-managed"]
 :ldap_kieserver:
 endif::[]
 
+ifeval::["{context}"=="additional-server-managed"]
+:ldap_kieserver:
+endif::[]
+
+ifeval::["{context}"=="fixed"]
+:ldap_kieserver:
+endif::[]
+
+
 ifeval::["{context}"=="server-immutable-s2i"]
 :ldap_kieserver:
 endif::[]

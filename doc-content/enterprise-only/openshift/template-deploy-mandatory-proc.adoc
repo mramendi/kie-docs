@@ -8,6 +8,7 @@
 :params_kieserver_container_deployment!:
 :params_multideploy!:
 :params_mandatory_maven!:
+:params_bothoptions_maven!:
 :maven_single_server!:
 :mode_production_template!:
 :mode_template_word!:
@@ -39,8 +40,28 @@ ifeval::["{context}"=="freeform-server-managed"]
 :params_mandatory_maven:
 :maven_single_server:
 :mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-*.yaml
-:mode_production_template_word: templates
+:mode_template_word: templates
 endif::[]
+
+ifeval::["{context}"=="fixed"]
+:params_kieserver:
+:params_multideploy:
+:params_mandatory_maven:
+:maven_single_server:
+:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-*.yaml
+:mode_template_word: templates
+endif::[]
+
+
+ifeval::["{context}"=="additional-server-managed"]
+:params_kieserver:
+:params_multideploy:
+:params_bothoptions_maven:
+:mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver.yaml
+:mode_template_word: template
+endif::[]
+
+
 
 ifeval::["{context}"=="server-immutable-s2i"]
 :params_kieserver:
@@ -55,7 +76,7 @@ ifeval::["{context}"=="server-immutable-kjar"]
 :params_mandatory_maven:
 :maven_single_server:
 :mode_production_template: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-*.yaml
-:mode_production_template_word: templates
+:mode_template_word: templates
 endif::[]
 
 
@@ -113,8 +134,21 @@ ifdef::mode_production_template[]
 ** *KIE Server Mode* (`KIE_SERVER_MODE`): In the `{mode_production_template}` {mode_template_word} the default value is `PRODUCTION`; in this mode, you can not deploy `SNAPSHOT` versions of KJAR artifacts on the {KIE_SERVER} and can not change versions of an artifact in an existing container. (To deploy a new version with `PRODUCTION` mode, you can create a new container on the same {KIE_SERVER}). To deploy `SNAPSHOT` versions or to change versions of an artifact in an existing container, set this parameter to `DEVELOPMENT`. 
 endif::mode_production_template[]
 ** *ImageStream Namespace* (`IMAGE_STREAM_NAMESPACE`): The namespace where the image streams are available. If the image streams were already available in your OpenShift environment (see <<imagestreams-file-install-proc>>), the namespace is `openshift`. If you have installed the image streams file, the namespace is the name of the OpenShift project.
+ifdef::params_bothoptions_maven[]
 +
-. Set the following user names and passwords. By default, the deployment automatically generates the passwords.
+. Configure access to the Maven repository from which the server must load services. You must configure the same repository that the {LOCAL_CENTRAL} uses.
+** If the {LOCAL_CENTRAL} uses its own built-in repository, set the following parameters:
+*** *Name of the Maven service hosted by {CENTRAL}* (`{CENTRAL_CAPITAL_UNDER}_MAVEN_SERVICE`): The OpenShift service name for the {CENTRAL}. 
+*** *Username for the Maven service hosted by {CENTRAL}* (`{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME`): The user name for the built-in Maven repository of the {CENTRAL}. Enter the user name that you configured for the {CENTRAL} as `{CENTRAL_CAPITAL_UNDER}_MAVEN_USERNAME`.
+*** *Password to access the Maven service hosted by {CENTRAL}* (`{CENTRAL_CAPITAL_UNDER}_MAVEN_PASSWORD`): The password for the built-in Maven repository of the {CENTRAL}. Enter the password that you configured for the {CENTRAL} as `{CENTRAL_CAPITAL_UNDER}_MAVEN_PASSWORD`.
+** If you configured the {LOCAL_CENTRAL} to use an external Maven repository, set the following parameters:
+*** *Maven repository URL* (`MAVEN_REPO_URL`): A URL for the external Maven repository that {CENTRAL} uses.
+*** *Maven repository ID* (`MAVEN_REPO_ID`): An identifier for the Maven repository. The default value is `repo-custom`.
+*** *Maven repository username* (`MAVEN_REPO_USERNAME`): The username for the Maven repository.
+*** *Maven repository password* (`MAVEN_REPO_PASSWORD`): The password for the Maven repository.
+endif::params_bothoptions_maven[]
++
+. You can set the following user names and passwords. By default, the deployment automatically generates the passwords.
 ** *KIE Admin User* (`KIE_ADMIN_USER`) and *KIE Admin Password* (`KIE_ADMIN_PWD`): The user name and password for the administrative user.
 ifdef::params_kieserver[]
 ** *KIE Server User* (`KIE_SERVER_USER`) and *KIE Server Password* (`KIE_SERVER_PWD`): The user name and password that a client application can use to connect to any of the {KIE_SERVERS}.
