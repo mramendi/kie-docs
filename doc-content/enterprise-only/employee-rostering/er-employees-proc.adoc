@@ -1,7 +1,7 @@
 [id='er-employees-proc']
 = Entering the list of employees
 
-You must enter the list of all employees of the business, the skills they possess, and the contracts that apply to them. The application rosters these employees to spots according to their skills, observing the work time limits in the contracts.
+You must enter the list of all employees of the business, the skills they possess, and the contracts that apply to them. The application rosters these employees to spots according to their skills and according to the work time limits in the contracts.
 
 .Procedure
 
@@ -13,7 +13,7 @@ You can enter any part of an employee name in the *Search* box to search for emp
 +
 . Complete the following steps to add a new employee:
 .. Click *Add Employee*.
-.. Enter the name of the employee into the text field under *Employee name*.
+.. Enter the name of the employee in the text field under *Employee name*.
 .. Optionally, select one or more skills from the drop-down list under *Skill set*.
 .. Select a contract from the drop-down list under *Contract*.
 .. Click *Save Employee*.
