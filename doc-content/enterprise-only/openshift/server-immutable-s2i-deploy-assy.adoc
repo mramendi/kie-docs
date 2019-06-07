@@ -9,21 +9,23 @@ ifdef::PAM[]
 :LOCAL_CENTRAL: {CENTRAL} or {CENTRAL} Monitoring
 endif::PAM[]
 ifdef::DM[]
-:LOCAL_CENTRAL: {CENTRAL} or {CENTRAL} Monitoring
+:LOCAL_CENTRAL: {CENTRAL}
 endif::DM[]
 
 You can deploy an immutable {KIE_SERVER} using an S2I build. When you deploy the server, the deployment procedure retrieves the source code for any services that must run on this server, builds the services, and includes them in the server image.
 
-You cannot deploy or undeploy services on a running immutable {KIE_SERVER}. You can use {LOCAL_CENTRAL} to view monitoring information. The {KIE_SERVER} runs like any other pod on the OpenShift environment; you can use any container-based integration workflows as necessary. 
+You cannot deploy or undeploy services on a running immutable {KIE_SERVER}. You can use {LOCAL_CENTRAL} to view monitoring information. The {KIE_SERVER} runs like any other pod on the OpenShift environment; you can use any container-based integration workflows as necessary.
 
 ifdef::PAM[]
 By default, this server uses a PostgreSQL database server in a pod. To use a MySQL database server in a pod or an external database server, you can modify the template.
 endif::PAM[]
 
-If a {LOCAL_CENTRAL} is deployed in the same namespace, it connects to the immutable {KIE_SERVER} automatically. You can use {LOCAL_CENTRAL} to start and stop (but not deploy) services on the immutable {KIE_SERVER} and to view monitoring data.
+If a {LOCAL_CENTRAL} is deployed in the same namespace, it discovers the immutable {KIE_SERVER} automatically. You can use {LOCAL_CENTRAL} to start and stop (but not deploy) services on the immutable {KIE_SERVER} and to view monitoring data.
 
 include::template-deploy-start-proc.adoc[leveloffset=+1]
 include::template-deploy-mandatory-proc.adoc[leveloffset=+1]
+include::template-deploy-namespace-proc.adoc[leveloffset=+1]
+include::template-deploy-connectcentral-proc.adoc[leveloffset=+1]
 include::template-deploy-optionalmaven-proc.adoc[leveloffset=+1]
 include::template-deploy-nopubnet-proc.adoc[leveloffset=+1]
 include::template-deploy-rhsso-proc.adoc[leveloffset=+1]

@@ -15,9 +15,9 @@ ifdef::replicas_smartrouter[]
 {KIE_SERVER}, {LOCAL_CENTRAL}, and Smart Router.
 endif::replicas_smartrouter[]
 
-.Prerequisite
+.Prerequisites
 
-You started the configuration of the template, as described in {startlink}.
+* You started the configuration of the template, as described in {startlink
 
 .Procedure
 
@@ -31,6 +31,6 @@ endif::replicas_smartrouter[]
 
 .Next steps
 
-If necessary, set additional parameters. 
+If necessary, set additional parameters.
 
 To complete the deployment, follow the procedure in <<template-deploy-complete-{context}-proc>>.

@@ -5,9 +5,9 @@ When configuring the template to deploy {what_deploying}, if you want to use the
 
 Also, if you are configuring RH-SSO or LDAP authentication, you must set the credentials for the built-in Maven repository to a username and password configured in RH-SSO or LDAP. This setting is required so that the {KIE_SERVER} can access the Maven repository.
 
-.Prerequisite
+.Prerequisites
 
-You started the configuration of the template, as described in {startlink}.
+* You started the configuration of the template, as described in {startlink}.
 
 .Procedure
 
@@ -18,6 +18,6 @@ To configure credentials for the built-in Maven repository, set the following pa
 
 .Next steps
 
-If necessary, set additional parameters. 
+If necessary, set additional parameters.
 
 To complete the deployment, follow the procedure in <<template-deploy-complete-{context}-proc>>.

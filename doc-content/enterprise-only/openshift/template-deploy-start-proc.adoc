@@ -4,7 +4,7 @@
 
 :template_name!:
 :template_add_params:
-:modifylink!: 
+:modifylink!:
 :modifytype:
 :single_template_file:
 
@@ -29,7 +29,7 @@ ifeval::["{context}"=="server-immutable-s2i"]
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml
 :template_add_params: -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
 ifdef::PAM[]
-:modifylink: environment-immutable-modify-proc 
+:modifylink: environment-immutable-modify-proc
 :modifytype: fixed
 endif::PAM[]
 endif::[]
@@ -37,7 +37,7 @@ endif::[]
 ifeval::["{context}"=="fixed"]
 :template_name: {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod
 :template_add_params: {CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET={CENTRAL_ONEWORD}-app-secret -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret
-:modifylink: environment-managed-modify-proc 
+:modifylink: environment-managed-modify-proc
 :modifytype: fixed
 endif::[]
 
@@ -65,16 +65,16 @@ endif::DM[]
 endif::[]
 
 ifdef::single_template_file[]
-To deploy {what_deploying}, use the `{template_name}` template file. 
+To deploy {what_deploying}, use the `{template_name}` template file.
 endif::single_template_file[]
 
 ifdef::server_template_files[]
 :template_name: <template-file-name>.yaml
 To deploy {what_deploying}, use one of the following template files:
 
-* `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-postgresql.yaml` to use a PostgreSQL pod for persistent storage. Use this template unless there is a sufficient reason to use another template.
+* `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-postgresql.yaml` to use a PostgreSQL pod for persistent storage. Use this template unless you have a specific reason to use another template.
 
-* `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mysql.yaml` to use a MySQL pod for persistent storage. 
+* `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mysql.yaml` to use a MySQL pod for persistent storage.
 
 * `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-externaldb.yaml` to use an external database server for persistent storage.
 +
@@ -83,12 +83,12 @@ endif::server_template_files[]
 
 ifeval::["{context}"=="authoring"]
 :template_name: <template-file-name>.yaml
-If you want to deploy a single authoring environment, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring.yaml` template file. 
+If you want to deploy a single authoring environment, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring.yaml` template file.
 ifdef::PAM[]
 By default, the single authoring template uses the H2 database with permanent storage. If you prefer to create a MySQL or PostgreSQL pod or to use an external database server (outside the OpenShift project), modify the template before deploying the environment. For instructions about modifying the template, see <<environment-authoring-single-modify-proc>>.
 endif::PAM[]
 
-If you want to deploy a high-availability authoring environment, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring-ha.yaml` template file. 
+If you want to deploy a high-availability authoring environment, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring-ha.yaml` template file.
 ifdef::PAM[]
 By default, the high-availability authoring template creates a MySQL pod to provide the database server for the {KIE_SERVER}. If you prefer to use PostgreSQL or to use an external server (outside the OpenShift project) you need to modify the template before deploying the environment. You can also modify the template to change the number of replicas initially created for {CENTRAL}. For instructions about modifying the template, see <<environment-authoring-ha-modify-proc>>.
 endif::PAM[]
@@ -127,7 +127,7 @@ In this command line, make the following changes:
 ifndef::single_template_file[]
 ** Replace `<template-file-name>` with the name of the template file.
 endif::single_template_file[]
-** Use as many `-p PARAMETER=value` pairs as needed to set the required parameters. 
+** Use as many `-p PARAMETER=value` pairs as needed to set the required parameters.
 
 .Next steps
 
