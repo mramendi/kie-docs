@@ -17,7 +17,7 @@ endif::replicas_smartrouter[]
 
 .Prerequisites
 
-* You started the configuration of the template, as described in {startlink
+* You started the configuration of the template, as described in {startlink}.
 
 .Procedure
 

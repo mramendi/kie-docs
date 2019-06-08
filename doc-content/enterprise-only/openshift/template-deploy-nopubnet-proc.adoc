@@ -5,7 +5,7 @@ When configuring the template to deploy {what_deploying}, if your OpenShift envi
 
 .Prerequisites
 
-* You started the configuration of the template, as described in {startlink
+* You started the configuration of the template, as described in {startlink}.
 
 .Procedure
 

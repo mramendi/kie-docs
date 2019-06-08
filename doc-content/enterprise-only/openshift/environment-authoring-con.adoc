@@ -12,5 +12,5 @@ You can also deploy additional managed or immutable {KIE_SERVERS}, if desired. {
 
 [IMPORTANT]
 ====
-In the current version, high-availability {CENTRAL} functionality is for Technology Preview only. For more information on Red Hat Technology Preview features, see https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Scope].
+In {PRODUCT} {PRODUCT_VERSION}, high-availability {CENTRAL} functionality is for Technology Preview only. For more information on Red Hat Technology Preview features, see https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Scope].
 ====

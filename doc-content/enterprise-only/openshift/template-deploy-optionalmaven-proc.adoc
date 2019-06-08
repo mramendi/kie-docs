@@ -12,7 +12,7 @@ you must set parameters to access the repository.
 
 .Prerequisites
 
-* You started the configuration of the template, as described in {startlink
+* You started the configuration of the template, as described in {startlink}.
 
 .Procedure
 

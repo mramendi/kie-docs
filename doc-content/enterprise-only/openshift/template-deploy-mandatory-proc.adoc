@@ -91,7 +91,7 @@ When configuring the template to deploy {what_deploying}, you must set the follo
 
 .Prerequisites
 
-* You started the configuration of the template, as described in {startlink
+* You started the configuration of the template, as described in {startlink}.
 
 .Procedure
 
