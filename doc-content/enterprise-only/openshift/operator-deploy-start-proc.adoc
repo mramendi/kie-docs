@@ -1,0 +1,16 @@
+[id='operator-deploy-start-proc']
+= Starting the deployment of a {PRODUCT} environment using the Operator
+
+To start deploying a {PRODUCT} environment using the Operator, access the installer. The installer is deployed when you subscribe to the Operator.
+
+.Prerequisites
+
+* You have subscribed to the Operator. For instructions about subscribing to the Operator, see <<operator-subscribe-proc>>.
+
+.Procedure
+. In the {OPENSHIFT} Cluster Console menu, select *Networking* > *Routes*.
+. Find the *console-cf-form* route and click its location to access the installer wizard.
+. If prompted, log in with your OpenShift credentials.
+
+.Result
+The *Installation* tab of the wizard is displayed.
