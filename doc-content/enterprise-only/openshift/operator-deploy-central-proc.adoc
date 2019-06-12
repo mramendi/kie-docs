@@ -1,0 +1,26 @@
+[id='operator-deploy-central-proc']
+= Setting the {CENTRAL} configuration for the environment
+
+After setting the basic and security configuration of a {PRODUCT} environment using the Operator, you can optionally configure settings for the {CENTRAL} or {CENTRAL} Monitoring component environment.
+
+ifdef::PAM[]
+Do not change these settings for an immutable server environment, as this environment does not include {CENTRAL} or {CENTRAL} Monitoring.
+
+.Prerequisites
+
+* You completed basic configuration of a {PRODUCT} environment using the Operator in the installer wizard according to the instructions in <<operator-deploy-basic-proc>>.
+* If you want to use RH-SSO or LDAP for authentication, you completed security configuration according to the instructions in <<operator-deploy-security-proc>>.
+
+.Procedure
+. If the *Installation* or *Security* tab is open, click *Next* until you view the *Console* tab.
+. If you created the secret for {CENTRAL} according to the instructions in <<secrets-central-create-proc>>, enter the name of the secret in the *Secret* field.
+. Optionally, enter the number of replicas for {CENTRAL} or {CENTRAL} monitoring in the *Replicas* field. Do not change this number in a `{PRODUCT_INIT}-authoring` environment.
+. Optionally, enter requested and maximum CPU and memory limits in the fields under *Resource quotas*.
+. If you selected RH-SSO authentication, configure RH-SSO for {CENTRAL}:
+.. If you created the client for {CENTRAL}, enter the client name in the *Client name* field and the client secret in the *Client secret* field.
+.. Enter the HTTP and HTTPS URLs that will be used for accessing {CENTRAL} into the *SSO HTTP URL* and *SSO HTTPS URL* fields.
+. 
+
+.Next steps
+
+If you want to deploy the environment with the default configuration of {CENTRAL} and {KIE_SERVERS}, click *Finish*. Otherwise, continue to set configuration parameters for {CENTRAL} and {KIE_SERVERS}.
