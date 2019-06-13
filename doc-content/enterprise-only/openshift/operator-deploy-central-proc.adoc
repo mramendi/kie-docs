@@ -1,10 +1,11 @@
 [id='operator-deploy-central-proc']
 = Setting the {CENTRAL} configuration for the environment
 
-After setting the basic and security configuration of a {PRODUCT} environment using the Operator, you can optionally configure settings for the {CENTRAL} or {CENTRAL} Monitoring component environment.
+After setting the basic and security configuration of a {PRODUCT} environment using the Operator, you can optionally configure settings for the {CENTRAL} or {CENTRAL} Monitoring component of the environment.
 
-ifdef::PAM[]
+ifdef::DM[]
 Do not change these settings for an immutable server environment, as this environment does not include {CENTRAL} or {CENTRAL} Monitoring.
+endif::DM[]
 
 .Prerequisites
 
@@ -19,8 +20,36 @@ Do not change these settings for an immutable server environment, as this enviro
 . If you selected RH-SSO authentication, configure RH-SSO for {CENTRAL}:
 .. If you created the client for {CENTRAL}, enter the client name in the *Client name* field and the client secret in the *Client secret* field.
 .. Enter the HTTP and HTTPS URLs that will be used for accessing {CENTRAL} into the *SSO HTTP URL* and *SSO HTTPS URL* fields.
-. 
+. Optionally, depending on your needs, set environment variables. To set an environment variable, click *Add new Environment variable*, then enter the name and value for the variable in the *Name* and *Value* fields.
+** If you want to use an external Maven repository, set the following variables:
+*** `MAVEN_REPO_URL`: The URL for the Maven repository.
+*** `MAVEN_REPO_ID`: An identifier for the Maven repository, for example, `repo-custom`.
+*** `MAVEN_REPO_USERNAME`: The username for the Maven repository.
+*** `MAVEN_REPO_PASSWORD` The password for the Maven repository.
++
+[IMPORTANT]
+====
+In an authoring environment, if you want {CENTRAL} to push a project into an external Maven repository, you must configure this repository during deployment and also configure exporting to the repository in every project.
+====
++
+** If your OpenShift environment does not have a connection to the public Internet, configure access to a Maven mirror that you set up according to <<offline-repo-proc>>. Set the following variables:
+*** `MAVEN_MIRROR_URL`: The URL for the Maven mirror repository that you set up in <<offline-repo-proc>>. This URL must be accessible from a pod in your OpenShift environment.
+*** `MAVEN_MIRROR_OF`: The value that determines which artifacts are to be retrieved from the mirror. For instructions about setting the `mirrorOf` value, see https://maven.apache.org/guides/mini/guide-mirror-settings.html[Mirror Settings] in the Apache Maven documentation. The default value is `external:*`. With this value, Maven retrieves every required artifact from the mirror and does not query any other repositories.
++
+If you configure an external Maven repository (`MAVEN_REPO_URL`), change `MAVEN_MIRROR_OF` to exclude the artifacts in this repository from the mirror, for example, `external:*,!repo-custom`. Replace `repo-custom` with the ID that you configured in `MAVEN_REPO_ID`.
++
+If your authoring environment uses a built-in {CENTRAL} Maven repository, change `MAVEN_MIRROR_OF` to exclude the artifacts in this repository from the mirror: `external:*,!repo-{PRODUCT_INIT}centr`.
++
+** In an authoring environment, to configure a Git hooks directory, set the following variable:
+*** `GIT_HOOKS_DIR`: The fully qualified path to a Git hooks directory, for example, `/opt/eap/standalone/data/kie/git/hooks`. You must provide the content of this directory and mount it at the specified path. For instructions about providing and mounting the Git hooks directory, see <<githooks-proc>>.
 
 .Next steps
 
-If you want to deploy the environment with the default configuration of {CENTRAL} and {KIE_SERVERS}, click *Finish*. Otherwise, continue to set configuration parameters for {CENTRAL} and {KIE_SERVERS}.
+If you want to deploy the environment with the default configuration of
+ifdef::PAM[]
+{KIE_SERVERS} and Smart Router,
+endif::PAM[]
+ifdef::DM[]
+{KIE_SERVERS} and Smart Router,
+endif::DM[]
+click *Finish*, then click *Deploy* to deploy the environment. Otherwise, continue to set configuration parameters for {KIE_SERVERS} and Smart Router.
