@@ -42,4 +42,4 @@ By default, both the roles that you define in the mapping file and the roles def
 
 .Next steps
 
-If you want to deploy the environment with the default configuration of {CENTRAL} and {KIE_SERVERS}, click *Finish*. Otherwise, continue to set configuration parameters for {CENTRAL} and {KIE_SERVERS}.
+If you want to deploy the environment with the default configuration of all components, click *Finish*, then click *Deploy* to deploy the environment. Otherwise, continue to set configuration parameters for {CENTRAL}, {KIE_SERVERS}, and Smart Router.

@@ -8,7 +8,7 @@ After starting to deploy a {PRODUCT} environment using the Operator, you must se
 * You started to deploy a {PRODUCT} environment using the Operator and accessed the installer wizard according to the instructions in <<operator-deploy-start-proc>>.
 
 .Procedure
-. In the *Application Name* field, enter a name for the OpenShift application . This name is used in the default URLs for all components.
+. In the *Application Name* field, enter a name for the OpenShift application. This name is used in the default URLs for all components.
 . In the *Environment* list, select the type of environment. This type determines the default configuration; you can modify this configuration as necessary. The following types are available for {PRODUCT}::
 ifdef::PAM[]
 ** `rhpam-trial`: A trial environment that you can set up quickly and use to evaluate or demonstrate developing and running assets. Includes {CENTRAL} and a {KIE_SERVER}. This environment does not use any persistent storage, and any work you do in the environment is not saved.
@@ -45,4 +45,4 @@ endif::DM[]
 
 .Next steps
 
-If you want to deploy the environment with the default configuration, click *Finish*. Otherwise, continue to set other configuration parameters.
+If you want to deploy the environment with the default configuration, click *Finish*, then click *Deploy* to deploy the environment. Otherwise, continue to set other configuration parameters.
