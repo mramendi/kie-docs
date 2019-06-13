@@ -4,10 +4,10 @@
 After subscribing to the operator, you can use the installer to configure and deploy a {PRODUCT} environment.
 
 include::operator-deploy-start-proc.adoc[leveloffset=+1]
-
-
-include::template-deploy-mandatory-proc.adoc[leveloffset=+1]
-include::template-deploy-nopubnet-proc.adoc[leveloffset=+1]
-include::template-deploy-rhsso-proc.adoc[leveloffset=+1]
-include::template-deploy-ldap-proc.adoc[leveloffset=+1]
-include::template-deploy-complete-proc.adoc[leveloffset=+1]
+include::operator-deploy-basic-proc.adoc[leveloffset=+1]
+include::operator-deploy-security-proc.adoc[leveloffset=+1]
+include::operator-deploy-central-proc.adoc[leveloffset=+1]
+include::operator-deploy-kieserver-proc.adoc[leveloffset=+1]
+//ifdef::PAM[]
+//include::operator-deploy-smartrouter-proc.adoc[leveloffset=+1]
+//endif::PAM[]
