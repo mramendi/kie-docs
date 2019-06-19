@@ -8,8 +8,11 @@ To start deploying a {PRODUCT} environment using the Operator, access the instal
 * You have subscribed to the Operator. For instructions about subscribing to the Operator, see <<operator-subscribe-proc>>.
 
 .Procedure
-. In the {OPENSHIFT} Cluster Console menu, select *Networking* > *Routes*.
-. Find the *console-cf-form* route and click its location to access the installer wizard.
+
+. In the {OPENSHIFT} Cluster Console menu, select *Operators* and then Subscriptions.
+. Click the name of the subscription that contains `businessautomation`. Information about this subscription is displayed.
+. Under the *Installed version* heading, click the version name of the subscription. An overview of the subscription is displayed.
+. Click the *Installer* link in the left part of the window.
 . If prompted, log in with your OpenShift credentials.
 
 .Result
