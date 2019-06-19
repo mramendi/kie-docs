@@ -1,7 +1,7 @@
 [id='operator-modify-proc']
 = Modifying an environment that is deployed using operators
 
-If an environment is deployed using operators, you cannot modify it using typical OpenShift methods. For example, if you delete a pod, it is re-created automatically with the same parameters.
+If an environment is deployed using operators, you cannot modify it using typical OpenShift methods. For example, if you delete a deployment configuration or a service, it is re-created automatically with the same parameters.
 
 To modify the environment, you must modify the YAML description of the environment. You can change common settings such as passwords, add new {KIE_SERVERS}, and scale {KIE_SERVERS}.
 
