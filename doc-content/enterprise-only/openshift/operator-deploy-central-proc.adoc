@@ -18,7 +18,7 @@ endif::DM[]
 . Optionally, enter the number of replicas for {CENTRAL} or {CENTRAL} monitoring in the *Replicas* field. Do not change this number in a `{PRODUCT_INIT}-authoring` environment.
 . Optionally, enter requested and maximum CPU and memory limits in the fields under *Resource quotas*.
 . If you selected RH-SSO authentication, configure RH-SSO for {CENTRAL}:
-.. If you created the client for {CENTRAL}, enter the client name in the *Client name* field and the client secret in the *Client secret* field.
+.. If you created the client for {CENTRAL}, enter the client name in the *Client name* field and the client secret in the *Client secret* field. If you leave these fields blank, the deployment attempts to create a new client.
 .. Enter the HTTP and HTTPS URLs that will be used for accessing {CENTRAL} into the *SSO HTTP URL* and *SSO HTTPS URL* fields.
 . Optionally, depending on your needs, set environment variables. To set an environment variable, click *Add new Environment variable*, then enter the name and value for the variable in the *Name* and *Value* fields.
 ** If you want to use an external Maven repository, set the following variables:
@@ -39,9 +39,9 @@ In an authoring environment, if you want {CENTRAL} to push a project into an ext
 If you configure an external Maven repository (`MAVEN_REPO_URL`), change `MAVEN_MIRROR_OF` to exclude the artifacts in this repository from the mirror, for example, `external:*,!repo-custom`. Replace `repo-custom` with the ID that you configured in `MAVEN_REPO_ID`.
 +
 If your authoring environment uses a built-in {CENTRAL} Maven repository, change `MAVEN_MIRROR_OF` to exclude the artifacts in this repository from the mirror: `external:*,!repo-{PRODUCT_INIT}centr`.
-+
-** In an authoring environment, to configure a Git hooks directory, set the following variable:
-*** `GIT_HOOKS_DIR`: The fully qualified path to a Git hooks directory, for example, `/opt/eap/standalone/data/kie/git/hooks`. You must provide the content of this directory and mount it at the specified path. For instructions about providing and mounting the Git hooks directory, see <<githooks-proc>>.
+//+
+//** In an authoring environment, to configure a Git hooks directory, set the following variable:
+//*** `GIT_HOOKS_DIR`: The fully qualified path to a Git hooks directory, for example, `/opt/eap/standalone/data/kie/git/hooks`. You must provide the content of this directory and mount it at the specified path. For instructions about providing and mounting the Git hooks directory, see <<githooks-proc>>.
 
 .Next steps
 
