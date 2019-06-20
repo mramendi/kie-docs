@@ -41,8 +41,8 @@ Optionally, you can set custom configuration for {KIE_SERVERS}. In this case, de
 .. If you want to use a custom base {KIE_SERVER} image for the S2I build, click *Set Base build image*. Then enter the name of the image stream in the *Name* field. If the image stream is not in the `openshift` namespace, enter the namespace in the *Namespace* field.
 . Optionally, enter requested and maximum CPU and memory limits in the fields under *Resource quotas*. If you are configuring several {KIE_SERVERS}, the limits apply to each server separately.
 . If you selected RH-SSO authentication, configure RH-SSO for the {KIE_SERVER}:
-.. If you created the client for the {KIE_SERVER}, enter the client name in the *Client name* field and the client secret in the *Client secret* field. If you leave these fields blank, the deployment attempts to create a new client.
-.. Enter the HTTP and HTTPS URLs that will be used for accessing the {KIE_SERVER} into the *SSO HTTP URL* and *SSO HTTPS URL* fields.
+.. Enter the client name in the *Client name* field and the client secret in the *Client secret* field. If a client with this name does not exist, the deployment attempts to create a new client with this name and secret.
+.. If the deployment is to create a new client, enter the HTTP and HTTPS URLs that will be used for accessing the {KIE_SERVER} into the *SSO HTTP URL* and *SSO HTTPS URL* fields. This information is recorded in the client.
 ifdef::PAM[]
 . Select the database that the {KIE_SERVER} must use. The following values are available:
 ** `mysql`: A MySQL server, created in a separate pod.
@@ -80,6 +80,7 @@ ifdef::PAM[]
 .. Optionally select the *Background validation* box to enable background SQL valication and enter the background validation interval.
 endif::PAM[]
 . Optionally, depending on your needs, set environment variables. To set an environment variable, click *Add new Environment variable*, then enter the name and value for the variable in the *Name* and *Value* fields.
+** If you want to configure your {KIE_SERVER} deployment to use Prometheus to collect and store metrics, set the `PROMETHEUS_SERVER_EXT_DISABLED` environment variable to `false`. For instructions about configuring Prometheus metrics collection, see {URL_MANAGING_KIE_SERVER}#prometheus-monitoring-ocp-proc_execution-server[_{MANAGING_KIE_SERVER}_].
 ** If you want to use an external Maven repository, set the following variables:
 *** `MAVEN_REPO_URL`: The URL for the Maven repository.
 *** `MAVEN_REPO_ID`: An identifier for the Maven repository, for example, `repo-custom`.
