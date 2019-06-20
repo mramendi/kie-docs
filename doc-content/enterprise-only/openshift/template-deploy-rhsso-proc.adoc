@@ -67,8 +67,8 @@ Do not configure LDAP authentication and RH-SSO authentication in the same deplo
 
 .Prerequisites
 
-* You created a realm for {PRODUCT} in the RH-SSO authentication system.
-* You created user names and passwords for {PRODUCT} in the RH-SSO authentication system. For a list of the available roles, see <<roles-users-con>>.
+* A realm for {PRODUCT} is created in the RH-SSO authentication system.
+* User names and passwords for {PRODUCT} are created in the RH-SSO authentication system. For a list of the available roles, see <<roles-users-con>>.
 ifdef::sso_serveruser[]
 The following users are required in order to set the parameters for the environment:
 ** An administrative user with the `kie-server,rest-all,admin` roles. This user can administer and use the environment. {KIE_SERVERS} use this user to authenticate with {LOCAL_CENTRAL}.
@@ -77,7 +77,7 @@ endif::sso_serveruser[]
 ifndef::sso_serveruser[]
 In order to set the parameters for the environment, an administrative user with the `kie-server,rest-all,admin` roles is required. The default user name for this user is `adminUser`. This user can administer and use the environment.
 endif::sso_serveruser[]
-* You created clients in the RH-SSO authentication system for all components of the {PRODUCT} environment that you are deploying. The client setup contains the URLs for the components. You can review and edit the URLs after deploying the environment. Alternatively, the {PRODUCT} deployment can create the clients. However, this option provides less detailed control over the environment.
+* Clients are created in the RH-SSO authentication system for all components of the {PRODUCT} environment that you are deploying. The client setup contains the URLs for the components. You can review and edit the URLs after deploying the environment. Alternatively, the {PRODUCT} deployment can create the clients. However, this option provides less detailed control over the environment.
 * You started the configuration of the template, as described in {startlink}.
 
 .Procedure
