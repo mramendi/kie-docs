@@ -66,7 +66,7 @@ endif::PAM[]
 :template_name: <template-file-name>.yaml
 To deploy {what_deploying}, use one of the following template files:
 
-* If you want to configure the immutable {KIE_SERVER} to receive and respond to API messages using JMS, communicating with an AMQ server, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver-amq.yaml` template file.
+* If you want to enable JMS capabilities of the immutable {KIE_SERVER}, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver-amq.yaml` template file.
 * Otherwise, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml` template file.
 endif::[]
 
