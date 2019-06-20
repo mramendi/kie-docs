@@ -82,7 +82,7 @@ endif::sso_serveruser[]
 * You started the configuration of the template, as described in {startlink}.
 
 .Procedure
-+
+
 . Set the `KIE_ADMIN_USER` and `KIE_ADMIN_PASSWORD` parameters of the template to the user name and password of the administrative user that you created in the RH-SSO authentication system.
 ifdef::sso_serveruser[]
 . Set the `KIE_SERVER_USER` and `KIE_SERVER_PASSWORD` parameters of the template to the user name and password of the server user that you created in the RH-SSO authentication system.
