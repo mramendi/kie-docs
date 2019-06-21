@@ -129,6 +129,7 @@ into this repository.
 endif::params_mandatory_maven[]
 ifdef::params_kieserver_container_deployment[]
 ** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision services (KJAR files) that the deployment must pull from the Maven repository. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, as illustrated in the following example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. 
+endif::params_kieserver_container_deployment[]
 ifdef::params_kieserver_s2i[]
 ** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision service (KJAR file) that the deployment must pull from the local repository after building your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, as illustrated in the following example: `containerId=groupId:artifactId:version|c2=g2:a2:v2`. If this value is not defined, the server discovers the group ID, artifact ID, and version of the artifacts by inspecting the `pom.xml` file of your project and uses the artifact ID as the container ID. To avoid duplicate container IDs, the artifact ID must be unique for each artifact built or used in your project.
 ** *Git Repository URL* (`SOURCE_REPOSITORY_URL`): The URL for the Git repository that contains the source for your decision service.
