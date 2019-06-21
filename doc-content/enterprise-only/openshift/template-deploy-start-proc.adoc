@@ -64,10 +64,7 @@ ifdef::PAM[]
 :modifytype: fixed
 endif::PAM[]
 :template_name: <template-file-name>.yaml
-To deploy {what_deploying}, use one of the following template files:
-
-* If you want to enable JMS capabilities of the immutable {KIE_SERVER}, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver-amq.yaml` template file.
-* Otherwise, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml` template file.
+To deploy {what_deploying}, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver-amq.yaml` template file if you want to enable JMS capabilities. Otherwise, use the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-prod-immutable-kieserver.yaml` template file.
 endif::[]
 
 
