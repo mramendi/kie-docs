@@ -138,6 +138,8 @@ endif::OP[]
 :RUNNING_ROSTER_FOR_PLANNER_IDE: Running and modifying the employee roster starter application for {PLANNER} using an IDE
 :RUNNING_ROSTER_FOR_PLANNER_CENTRAL: Creating and running a {PLANNER} solver for employee rostering using {CENTRAL}
 
+:DESIGNING_BUSINESS_PROCESSES: Designing a business process in {CENTRAL}
+
 // URL components
 :URL_COMPONENT_FORMAT: html-single
 :URL_BASE_ENTERPRISE: https://access.redhat.com/documentation/en-us/{URL_COMPONENT_PRODUCT}/{ENTERPRISE_VERSION}/{URL_COMPONENT_FORMAT}
@@ -206,6 +208,7 @@ endif::OP[]
 :URL_RUNNING_ROSTER_FOR_PLANNER_OPENSHIFT: {URL_BASE_ENTERPRISE}/deploying_and_using_the_employee_roster_starter_application_for_red_hat_business_optimizer_on_red_hat_openshift_container_platform
 :URL_RUNNING_ROSTER_FOR_PLANNER_IDE: {URL_BASE_ENTERPRISE}/running_and_modifying_the_employee_roster_starter_application_for_red_hat_business_optimizer_using_an_IDE
 :URL_RUNNING_ROSTER_FOR_PLANNER_CENTRAL: {URL_BASE_ENTERPRISE}/creating_and_running_a_red_hat_business_optimizer_solver_for_employee_rostering_using_{URL_COMPONENT_CENTRAL_UNDER}
+:URL_DESIGNING_BUSINESS_PROCESSES: {URL_BASE_ENTERPRISE}/designing_a_business_process_in_{URL_COMPONENT_CENTRAL_UNDER}
 
 :ndash: &ndash;
 
