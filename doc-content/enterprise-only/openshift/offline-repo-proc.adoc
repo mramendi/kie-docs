@@ -28,16 +28,16 @@ Alternatively, if you use a custom external repository (for example, Nexus) for 
 endif::[]
 +
 . On the computer that has an outgoing connection to the public Internet, complete the following steps:
-.. Download the http://release-engineering.github.io/offliner/[Offliner tool].
+.. Download the latest version of the http://release-engineering.github.io/offliner/[Offliner tool].
 .. Download the `{PRODUCT_FILE}-offliner.txt` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
 .. Enter the following command to download the required artifacts using the Offliner tool:
 +
 [subs="attributes,verbatim,macros"]
 ----
-java -jar offliner-1.3.jar -r https://maven.repository.redhat.com/ga/ -d /home/user/temp rhpam-7.3.1-offliner.txt
+java -jar offliner-<version>.jar -r https://maven.repository.redhat.com/ga/ -d /home/user/temp rhpam-7.3.1-offliner.txt
 ----
 +
-Replace `/home/user/temp` with an empty temporary directory on the computer.
+Replace `/home/user/temp` with an empty temporary directory on the computer and `<version>` with the version of the Offliner tool.
 .. Upload all artifacts from the temporary directory to the Maven mirror repository that you prepared. You can use the https://github.com/simpligility/maven-repository-tools/tree/master/maven-repository-provisioner[Maven Repository Provisioner] utility to upload the artifacts.
 . If you developed any services outside {CENTRAL} and they have additional dependencies, upload the dependencies to the mirror repository. If you developed the services as Maven projects, you can use the following steps to prepare these dependencies automatically. Complete the steps on the computer that has an outgoing connection to the public Internet.
 .. Clear the local Maven cache directory (`~/.m2/repository`).
