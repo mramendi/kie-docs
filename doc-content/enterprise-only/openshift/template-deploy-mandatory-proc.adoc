@@ -137,7 +137,7 @@ containerId=groupId:artifactId:version|c2=g2:a2:v2
 +
 endif::params_kieserver_container_deployment[]
 ifdef::params_kieserver_s2i[]
-** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision service (KJAR file) that the deployment must pull from the local repository after building your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, as illustrated in the following example:
+** *KIE Server Container Deployment* (`KIE_SERVER_CONTAINER_DEPLOYMENT`): The identifying information of the decision service (KJAR file) that the deployment must pull from the local or external repository after building your source. The format is: `<containerId>=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, as illustrated in the following example:
 +
 [source]
 ----
