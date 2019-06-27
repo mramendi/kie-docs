@@ -145,10 +145,10 @@ containerId=groupId:artifactId:version|c2=g2:a2:v2
 ----
 + 
 If the `KIE_SERVER_CONTAINER_DEPLOYMENT` value is not defined, the server discovers the group ID, artifact ID, and version of the artifacts by inspecting the `pom.xml` file of your project and uses the artifact ID as the container ID. To avoid duplicate container IDs, the artifact ID must be unique for each artifact built or used in your project.
-** *Git Repository URL* (`SOURCE_REPOSITORY_URL`): The URL for the Git repository that contains the source for your decision service.
+** *Git Repository URL* (`SOURCE_REPOSITORY_URL`): The URL for the Git repository that contains the source for your services.
 ** *Git Reference* (`SOURCE_REPOSITORY_REF`): The branch in the Git repository
 ** *Context Directory* (`CONTEXT_DIR`): The path to the source within the project downloaded from the Git repository
-** *Artifact Directory* (`ARTIFACT_DIR`): The path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository
+** *Artifact Directory* (`ARTIFACT_DIR`): The path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository.
 endif::params_kieserver_s2i[]
 ifdef::mode_production_template[]
 ** *KIE Server Mode* (`KIE_SERVER_MODE`): In the `{mode_production_template}` {mode_template_word} the default value is `PRODUCTION`. In `PRODUCTION` mode, you cannot deploy `SNAPSHOT` versions of KJAR artifacts on the {KIE_SERVER} and cannot change versions of an artifact in an existing container. To deploy a new version with `PRODUCTION` mode, create a new container on the same {KIE_SERVER}. To deploy `SNAPSHOT` versions or to change versions of an artifact in an existing container, set this parameter to `DEVELOPMENT`.
