@@ -1,15 +1,15 @@
 [id='operator-deploy-basic-proc']
 = Setting the basic configuration of the environment
 
-After starting to deploy a {PRODUCT} environment using the Operator, you must select the type of the environment and set other basic configuration.
+After you start to deploy a {PRODUCT} environment using {operator_name}, you must select the type of the environment and set other basic configuration.
 
 .Prerequisites
 
-* You started to deploy a {PRODUCT} environment using the Operator and accessed the installer wizard according to the instructions in <<operator-deploy-start-proc>>.
+* You started to deploy a {PRODUCT} environment using {operator_name} and accessed the installer wizard according to the instructions in <<operator-deploy-start-proc>>.
 
 .Procedure
 . In the *Application Name* field, enter a name for the OpenShift application. This name is used in the default URLs for all components.
-. In the *Environment* list, select the type of environment. This type determines the default configuration; you can modify this configuration as necessary. The following types are available for {PRODUCT}::
+. In the *Environment* list, select the type of environment. This type determines the default configuration; you can modify this configuration as necessary. The following types are available for {PRODUCT}:
 ifdef::PAM[]
 ** `rhpam-trial`: A trial environment that you can set up quickly and use to evaluate or demonstrate developing and running assets. Includes {CENTRAL} and a {KIE_SERVER}. This environment does not use any persistent storage, and any work you do in the environment is not saved.
 ** `rhpam-authoring`: An environment for creating and modifying services using {CENTRAL}. It consists of pods that provide {CENTRAL} for the authoring work and a {KIE_SERVER} for test execution of the services.
@@ -17,11 +17,11 @@ ifdef::PAM[]
 +
 [IMPORTANT]
 ====
-In the current version, high-availability {CENTRAL} functionality is for Technology Preview only. For more information on Red Hat Technology Preview features, see https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Scope].
+In {PRODUCT} {VERSION}, high-availability {CENTRAL} functionality is for Technology Preview only. For more information on Red Hat Technology Preview features, see https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope].
 ====
 +
 ** `rhpam-production`: An environment for running existing services for staging and production purposes. This environment includes {CENTRAL} Monitoring, Smart Router, and two groups of {KIE_SERVER} pods. You can deploy and undeploy services on every such group and also scale the group up or down as necessary. Use {CENTRAL} Monitoring to deploy, run, and stop the services and to monitor their execution.
-** `rhpam-production-immutable`: An alternate environment for running existing services for staging and production purposes. This environment includes {CENTRAL} Monitoring. You can configure one or more {KIE_SERVER} replicated pods that build a service from source. In this environment, when you deploy a {KIE_SERVER} pod, it builds an image that loads and starts a service or group of services. You cannot stop any service on the pod or add any new service to the pod. If you want to use another version of a service or modify the configuration in any other way, you deploy a new server image and displace the old one. In this system, the {KIE_SERVER} runs like any other pod on the OpenShift environment. You can use any container-based integration workflows and do not need to use any other tools to manage the pods.
+** `rhpam-production-immutable`: An alternate environment for running existing services for staging and production purposes. This environment includes {CENTRAL} Monitoring. You can configure one or more {KIE_SERVER} pods that build a service from source and replicate each pod as necessary. In this environment, when you deploy a {KIE_SERVER} pod, it builds an image that loads and starts a service or group of services. You cannot stop any service on the pod or add any new service to the pod. If you want to use another version of a service or modify the configuration in any other way, you deploy a new server image to replace the old one. In this system, the {KIE_SERVER} runs like any other pod on the OpenShift environment. You can use any container-based integration workflows and you do not need to use any other tools to manage the pods.
 endif::PAM[]
 ifdef::DM[]
 ** `rhdm-trial`: A trial environment that you can set up quickly and use to evaluate or demonstrate developing and running assets. Includes {CENTRAL} and a {KIE_SERVER}. This environment does not use any persistent storage, and any work you do in the environment is not saved.
@@ -45,4 +45,4 @@ endif::DM[]
 
 .Next steps
 
-If you want to deploy the environment with the default configuration, click *Finish*, then click *Deploy* to deploy the environment. Otherwise, continue to set other configuration parameters.
+If you want to deploy the environment with the default configuration, click *Finish* and then click *Deploy* to deploy the environment. Otherwise, continue to set other configuration parameters.

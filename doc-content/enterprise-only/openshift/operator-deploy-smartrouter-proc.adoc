@@ -7,7 +7,7 @@ You can add a Smart Router to an environment if it is not present. You can also 
 
 .Prerequisites
 
-* You completed basic configuration of a {PRODUCT} environment using the Operator in the installer wizard according to the instructions in <<operator-deploy-basic-proc>>.
+* You completed basic configuration of a {PRODUCT} environment using {operator_name} in the installer wizard according to the instructions in <<operator-deploy-basic-proc>>.
 
 .Procedure
 . If the *Installation*, *Security*, *Console*, or *KIE Servers* tab is open, click *Next* until you view the *Smart Router* tab.
