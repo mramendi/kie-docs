@@ -18,6 +18,8 @@ ifndef::offline_onprem[]
 endif::offline_onprem[]
 does not have outgoing access to the public Internet, you must prepare a Maven repository with a mirror of all the necessary artifacts and make this repository available to your environment.
 
+[NOTE]
+====
 You do not need to complete this procedure if your
 ifdef::offline_onprem[]
 {PRODUCT} deployment 
@@ -26,6 +28,7 @@ ifndef::offline_onprem[]
 {OPENSHIFT} environment 
 endif::offline_onprem[]
 is connected to the Internet.
+====
 
 .Prerequisites
 
@@ -54,14 +57,14 @@ endif::offline_onprem[]
 . On the computer that has an outgoing connection to the public Internet, complete the following steps:
 .. Download the latest version of the http://release-engineering.github.io/offliner/[Offliner tool].
 .. Download the `{PRODUCT_FILE}-offliner.txt` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
-.. Enter the following command to download the required artifacts using the Offliner tool:
+.. Enter the following command to use the Offliner tool to download the required artifacts:
 +
 [subs="attributes,verbatim,macros"]
 ----
 java -jar offliner-<version>.jar -r https://maven.repository.redhat.com/ga/ -d /home/user/temp {PRODUCT_FILE}-offliner.txt
 ----
 +
-Replace `/home/user/temp` with an empty temporary directory on the computer and `<version>` with the version of the Offliner tool.
+Replace `/home/user/temp` with an empty temporary directory and `<version>` with the version of the Offliner tool.
 ifndef::offline_onprem[]
 .. Upload all artifacts from the temporary directory to the Maven mirror repository that you prepared. You can use the https://github.com/simpligility/maven-repository-tools/tree/master/maven-repository-provisioner[Maven Repository Provisioner] utility to upload the artifacts.
 endif::offline_onprem[]
