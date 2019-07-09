@@ -20,7 +20,7 @@ The build procedure creates a custom extension image that extends the existing {
 * For Oracle Database or Sybase, you downloaded the JDBC driver from the database server vendor.
 * You have installed the following required software:
 ** Docker
-** Cekit version 2 or 3
+** Cekit version 3
 ** The following libraries and extensions for Cekit:
 *** `odcs-client`, provided by the `python3-odcs-client` or similar package
 *** `docker`, provided by the `python3-docker` or similar package
@@ -83,7 +83,7 @@ docker images
 Note the name of the image that was built, for example, `jboss-kie-db2-extension-openshift-image`, and the version tag of the image, for example, `11.1.4.4` (not the `latest` tag).
 +
 . Access the registry of your OpenShift environment directly and push the image to the registry. Depending on your user permissions, you can push the image into the `openshift` namespace or into a project namespace. For instructions about accessing the registry and pushing the images, see https://docs.openshift.com/container-platform/3.11/install_config/registry/accessing_registry.html#access[Accessing the Registry Directly].
-. When configuring your {KIE_SERVER} deployment, set the following parameters:
+. When configuring your {KIE_SERVER} deployment with a template that supports an external database server, set the following parameters:
 ** *Drivers Extension Image* (`EXTENSIONS_IMAGE`): The ImageStreamTag definition of the extension image, for example, `jboss-kie-db2-extension-openshift-image:11.1.4.4`
 ** *Drivers ImageStream Namespace* (`EXTENSIONS_IMAGE_NAMESPACE`): The namespace to which you uploaded the extension image, for example, `openshift` or your project namespace.
 
