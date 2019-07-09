@@ -61,7 +61,7 @@ endif::offline_onprem[]
 +
 [subs="attributes,verbatim,macros"]
 ----
-java -jar offliner-<version>.jar -r https://maven.repository.redhat.com/ga/ -d /home/user/temp {PRODUCT_FILE}-offliner.txt
+java -jar offliner-<version>.jar -r https://maven.repository.redhat.com/ga/ -r https://repo1.maven.org/maven2/ -d /home/user/temp {PRODUCT_FILE}-offliner.txt
 ----
 +
 Replace `/home/user/temp` with an empty temporary directory and `<version>` with the version of the Offliner tool.
@@ -130,3 +130,5 @@ Replace `/path/to/repo` with the full path to the local Maven mirror repository 
 +
 Replace `/path/to/repo` with the full path to the local Maven mirror repository directory.
 endif::offline_onprem[]
++
+. Set the `kie.maven.offline.force` property for {CENTRAL} to `true`. For instructions about setting properties for {CENTRAL}, see <<run-standalone-properties-con>>.
