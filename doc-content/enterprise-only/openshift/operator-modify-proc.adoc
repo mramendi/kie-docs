@@ -8,7 +8,7 @@ To modify the environment, you must modify the YAML description of the environme
 .Procedure
 . Enter your project in the OpenShift web cluster console. 
 . In the OpenShift Web console navigation panel, select *Catalog -> Installed Operators*.
-. Find the `Business Automation` operator line in the table and click `KieApp` in the line. Information about the environments that youdeployed using this operator is displayed.
+. Find the `Business Automation` operator line in the table and click `KieApp` in the line. Information about the environments that you deployed using this operator is displayed.
 . Click the name of a deployed environment. 
 . Select the *YAML* tab. A YAML source is displayed.
 . If you want to change common settings, such as passwords, edit the values under `commonConfig:`.
