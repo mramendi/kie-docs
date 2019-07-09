@@ -6,8 +6,9 @@ To be able to deploy {PRODUCT} using operators, you must subscribe to {operator_
 .Procedure
 
 . Enter your project in the OpenShift Web cluster console. 
-. In the OpenShift Web console navigation panel, select *Operators* and then *Catalog Sources*.
-. Search for *Business Automation*. If you find it, click *Create Subscription* next to it.
+. In the OpenShift Web console navigation panel, select *Catalog* and then *OperatorHub*.
+. Search for *Business Automation*. If you find it, select it and click *Install*.
+. On the *Create Operator Subscription* page, keep the default options selected and click *Subscribe* to create a subscription.
 . If the *Business Automation* entry is not available, complete the following steps:
 .. Log in to the OpenShift environment as an administrator.
 .. Enter the following command:
