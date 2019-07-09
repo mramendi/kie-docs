@@ -144,6 +144,8 @@ Replace `/path/to/repo` with the full path to the local Maven mirror repository 
 ----
 +
 Replace `/path/to/repo` with the full path to the local Maven mirror repository directory.
-endif::offline_onprem[]
+ifeval::["{context}"=="install-on-eap"]
 +
 . Set the `kie.maven.offline.force` property for {CENTRAL} to `true`. For instructions about setting properties for {CENTRAL}, see <<run-standalone-properties-con>>.
+endif::[]
+endif::offline_onprem[]
