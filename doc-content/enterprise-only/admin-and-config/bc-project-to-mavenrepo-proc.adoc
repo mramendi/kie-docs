@@ -1,0 +1,36 @@
+[id='export-project-to-maven']
+
+= Exporting a {CENTRAL} project to an external Maven repository
+
+If you want to export or push a project as a `kjar` artifact into an external Maven repository, you must edit the `pom.xml` file for the project.
+
+.Prerequisites
+
+* You configured {CENTRAL} to use the external Maven repository. If you deployed {CENTRAL} on-premises, for instructions about configuring it to use an external Maven repository see maven-external-configure-proc_{context}. If you deployed your authoring environment on {OPENSHIFT}, for more information see the following documents:
++
+ifdef::PAM[]
+{URL_DEPLOYING_AUTHORING_ON_OPENSHIFT}#template-deploy-optionalmaven-authoring-proc[_{DEPLOYING_AUTHORING_ON_OPENSHIFT}_]
+endif::PAM[]
+ifdef::DM[]
+{URL_DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}#template-deploy-optionalmaven-authoring-proc[_{DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}_]
+endif::DM[]
+{URL_DEPLOYING_OPENSHIFT_OPERATOR}#operator-deploy-kieserver-proc[_{DEPLOYING_OPENSHIFT_OPERATOR}_]
+
+
+.Procedure
+. In {CENTRAL}, go to *Menu* -> *Design* -> *Projects* and click the project name. The *Assets* view of the project opens.
+. Click on any asset and in the top left corner of the window, click image:BPMN2/expand-proj-explorer.png[] to expand the Project Explorer.
+. Click image:BPMN2/gear-icon.png[] and switch to the *Repository View*.
+. Click on the *pom.xml* file and add the following lines to the end of the file before *</project>*:
+
+----
+<distributionManagement>
+<repository>
+<id>maven-DM</id>
+<name>maven-DM</name>
+<url>url_of_external_maven_repo</url>
+<layout>default</layout>
+</repository>
+</distributionManagement>
+----
+. Click *Save*.

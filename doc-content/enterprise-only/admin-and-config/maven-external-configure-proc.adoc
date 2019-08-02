@@ -11,6 +11,20 @@ You can configure {CENTRAL} and {KIE_SERVER} to use an external Maven repository
 .Prerequisites
 * {CENTRAL} and {KIE_SERVER} are installed. For installation options, see {URL_PLANNING_INSTALL}[_{PLANNING_INSTALL}_].
 
+[NOTE]
+====
+If you deploy your authoring environment on {OPENSHIFT}, you do not need to complete this procedure. Instead, set the `MAVEN_REPO_URL` parameter during deployment. For more information, see the following documents:
++
+ifdef::PAM[]
+{URL_DEPLOYING_AUTHORING_ON_OPENSHIFT}#template-deploy-optionalmaven-authoring-proc[_{DEPLOYING_AUTHORING_ON_OPENSHIFT}_]
+endif::PAM[]
+ifdef::DM[]
+{URL_DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}#template-deploy-optionalmaven-authoring-proc[_{DEPLOYING_AUTHORING_MANAGED_ON_OPENSHIFT}_]
+endif::DM[]
+{URL_DEPLOYING_OPENSHIFT_OPERATOR}#operator-deploy-kieserver-proc[_{DEPLOYING_OPENSHIFT_OPERATOR}_]
+====
+
+
 .Procedure
 . Create a Maven `settings.xml` file with connection and access details for your external repository. For details about the `settings.xml` file, see the Maven link:https://maven.apache.org/settings.html[Settings Reference].
 . Save the file in a known location, for example, `/opt/custom-config/settings.xml`.
@@ -25,3 +39,7 @@ For example:
 ----
 +
 . Start or restart {CENTRAL} and {KIE_SERVER}.
+
+.Next steps
+
+You must also edit the `pom.xml` file for every project, so that Maven pushes the KJAR artifacts for the project into the external Maven repository. For instructions, see <<export-project-to-maven>>.
