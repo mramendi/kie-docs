@@ -15,10 +15,14 @@ git clone https://<{URL_COMPONENT_CENTRAL}-host>:443/git/<MySpace>/<MyProject>
 
 In this command, replace the following variables:
 
-** `<adminUser>` with the administrative user for {CENTRAL}
 ** `<{URL_COMPONENT_CENTRAL}-host>` with the host on which {CENTRAL} is running
 ** `<MySpace>` with the name of the {CENTRAL} space in which the project is located
 ** `<MyProject>` with the name of the project
+
+[NOTE]
+====
+To view the full Git URL for a project in {CENTRAL}, open the Project Settings page.
+====
 
 [NOTE]
 ====
