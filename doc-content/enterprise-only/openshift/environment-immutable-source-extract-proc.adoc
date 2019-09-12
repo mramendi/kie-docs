@@ -21,7 +21,7 @@ In this command, replace the following variables:
 
 [NOTE]
 ====
-To view the full Git URL for a project in {CENTRAL}, open the Project Settings page.
+To view the full Git URL for a project in {CENTRAL}, click *Menu* -> *Design* -> *_<MyProject>_* -> *Settings*.
 ====
 
 [NOTE]
