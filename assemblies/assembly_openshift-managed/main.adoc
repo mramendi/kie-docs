@@ -32,7 +32,7 @@ and other business assets. This environment includes a fixed number of {KIE_SERV
 
 [NOTE]
 ====
-Since {PRODUCT} version 7.5, support for {OPENSHIFT} 3.x, including installation using all templates and using the Automation Broker (Ansible Playbook) is deprecated. New features might not be added, and this functionality will be removed in a future release. 
+Since {PRODUCT} version 7.5, support for {OPENSHIFT} 3.x is deprecated, including installation using all templates and using the Automation Broker (Ansible Playbook). New features might not be added, and this functionality will be removed in a future release.
 ====
 
 include::{enterprise-dir}/openshift/ba-openshift-overview-con.adoc[leveloffset=+1]
