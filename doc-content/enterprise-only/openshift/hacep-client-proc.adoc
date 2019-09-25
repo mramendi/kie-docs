@@ -1,0 +1,42 @@
+[id='hacep-client-proc']
+= Creating the HA CEP client
+
+You must adapt your CEP client code to communicate with the HA CEP server image. You can use the sample project included in the reference implementation for your client code. You can run your client code inside or outside the OpenShift environment.
+
+.Procedure
+
+. Download the ??? product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
+. Extract the contents of the file.
+. Using an IDE, develop the client code based on the project in the `sample-hacep-project/sample-hacep-project-client` directory.
+. In the `sample-hacep-project/sample-hacep-project-client` directory, generate a keystore, using `password` as a password. Enter the following command:
++
+----
+keytool -genkeypair -keyalg RSA -keystore src/main/resources/keystore.jks
+----
++
+. Extract the HTPS certificate from the OpenShift envionment and add it to the keystore. Enter the following commands:
++
+----
+oc extract secret/my-cluster-cluster-ca-cert --keys=ca.crt --to=- > src/main/resources/ca.crt
+keytool -import -trustcacerts -alias root -file src/main/resources/ca.crt -keystore src/main/resources/keystore.jks -storepass password -noprompt
+----
++
+. In the `src/main/resources` subdirectory of the project, create a `configuration.properties` file with the following content:
++
+----
+ssl.keystore.location=keystore.jks
+ssl.truststore.location=keystore.jks
+ssl.keystore.password=password
+ssl.truststore.password=password
+bootstrap.servers=http://<serveraddress>
+----
++
+Replace <serveraddress> with the address that the route for the server uses.
++
+. Build the project using the standard Maven command:
++
+----
+mvn clean install -DskipTests
+----
++
+. _??? need the command to run the project_

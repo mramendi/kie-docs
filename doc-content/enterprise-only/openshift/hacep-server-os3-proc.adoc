@@ -1,0 +1,40 @@
+[id='hacep-server-os3-proc']
+= Building and deploying the HA CEP server image on {OPENSHIFT} 3.11
+
+If you have an {OPENSHIFT} 3.11 environment, complete the following procedure to build deploy the HA CEP server image.
+
+.Prerequisites
+
+. You prepared the source for the HA CEP server image, as described in <<hacep-server-prepare-proc>>.
+
+.Procedure
+. Log into the OpenShift environment using the `oc` command and switch to the required project. The user must have full control over this project.
+. Change to the `springboot` subdirectory.
+. Enter the following commands to configure RBAC for the required ConfigMap configuration:
++
+----
+oc create -f kubernetes/service-account.yaml
+oc create -f kubernetes/role.yaml
+oc create -f kubernetes/role-binding.yaml
+----
++
+. If necessary, edit the `kubernetes/deployment.yaml` to change the name of the image to be created. The default name is `quickstarter/openshift-kie-springboot`.
+. Enter the following commands to build the image:
++
+----
+docker build -t quickstarter/openshift-kie-springboot:latest .
+docker images | grep openshift-kie
+----
++
+If necessary, replace `quickstarter/openshift-kie-springboot` with the name of the image that you configured.
+. Enter the following commands to deploy the image and create the service:
++
+----
+kubectl create -f kubernetes/deployment.yaml 
+kubectl create -f kubernetes/service.yaml 
+oc expose service  openshift-kie-springboot
+----
++
+If necessary, replace `openshift-kie-springboot` with the name of the image that you configured.
++
+. Enter the `oc get route` command to view the route that was created for the service. The route shows the address that you can use to send requests to the server.

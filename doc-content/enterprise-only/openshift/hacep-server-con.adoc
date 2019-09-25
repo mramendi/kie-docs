@@ -1,0 +1,8 @@
+[id='hacep-server-con']
+= Procedures for implementing the HA CEP server
+
+The high-availability CEP server runs on the {OPENSHIFT} environment. It includes all necessary Drools rules and other code required to process events.
+
+You must prepare the source and then build and deploy it. The procedure to build and deploy the image depends on your OpenShift version. Alternatively, you can build and deploy the image using fabric8.
+
+

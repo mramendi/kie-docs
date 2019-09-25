@@ -1,0 +1,35 @@
+[id='hacep-con']
+= Overview of High-Availability Complex Event Processing on {OPENSHIFT}
+
+With the Complex Event Processing (CEP) API, you can use the {DECISION_ENGINE} to process complex series of decisions based on events.
+
+An _event_ models a fact that happened in a specific point in time. The {DECISION_ENGINE} offers a rich set of temporal operators to compare, correlate and accumulate events. 
+
+The engine needs to determine the sequence in which events happen. For this reason every event must have an associated timestamp assigned to it. In a high-availability environment, make this timestamp a property of the Java bean modelling
+the event. You must then annotate the event class with `@Timestamp` annotation, where the name of the timestamp attribute itself is the parameter, as in the following example:
+
+[source,java]
+----
+@Role(Role.Type.EVENT)
+@Timestamp("myTime")
+public class StockTickEvent implements Serializable {
+
+    private String company;
+    private double price;
+    private long myTime;
+}
+----
+
+If you do not provide a timestamp attribute, Drools assigns a timestamp to every event based on the time  when the event is inserted by the client into a remote session. However, this mechanism depends on the clocks on the client machines. If clocks between different clients diverge, inconsistencies between events inserted by these hosts can happen.
+
+You can not use a regular deployment of {PRODUCT} on {OPENSHIFT} to run high-availability CEP services. The deployment includes {KIE_SERVER} pods, which remain independent of each other when scaled. The states of the pods are not synchronized. Therefore, only stateless calls can be processed reliably.
+
+You can implement high-availability CEP on {OPENSHIFT} based on the HA CEP reference implementation provided with {PRODUCT}.
+
+In this reference implementation, you can scale the pod with the processing code. The replicas of the pod are not independent. At every moment, one of the replicas is automatically designated _leader_.
+
+To achieve high availability, every event is processed on all replicas, including the leader. In this way, when the leader has a failure, one of the replicas can seamlessly take its place and continue processing of new events without any significant interruption. 
+
+The election of the leader is implemented with Kubernetes ConfigMaps. Coordination of the leader with other replicas is performed via messages exchange through Kafka. The leader is always the first to process an event; when processing s complete, the leader notifies other replicas. A replica that is not the leader starts executing an event only after it has been completely processed on the leader. 
+
+When a new replica joins the cluster it requests a snapshot of the current Drools session from the leader. The leader can use a recent existing snapshot if available; otherwise, it produces a new snapshot on demand. After receiving the snapshot, the new replica deserialzes it and eventually executes the last events not included in the snapshot before starting to process new events in coordination with the leader.
