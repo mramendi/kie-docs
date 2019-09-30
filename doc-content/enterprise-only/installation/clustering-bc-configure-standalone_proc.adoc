@@ -20,10 +20,11 @@ These steps describe a basic cluster configuration. For more complex configurati
 [subs="attributes,verbatim,macros"]
 ----
 mkdir /data
-mount <NFS_SERVER_IP>:/opt/kie/data /data
+mount <NFS_SERVER_IP>:<DATA_SHARE> /data
 ----
 +
-Replace _<NFS_SERVER_IP>_ with the IP address or hostname of the NFS server machine.
+Replace _<NFS_SERVER_IP>_ with the IP address or hostname of the NFS server machine. Replace _<DATA_SHARE>_ with the share name that you configured (for example, `/opt/kie/data`).
++
 . Open the `_EAP_HOME_/standalone/configuration/standalone-full-ha.xml` file in a text editor.
 . Edit or add the following properties to the `<system-properties>` element and replace the following placeholders:
 * `<AMQ_USER>` and `<AMQ_PASSWORD>` are the credentials that you defined when creating the AMQ Broker.
@@ -70,11 +71,11 @@ Replace _<NFS_SERVER_IP>_ with the IP address or hostname of the NFS server mach
 +
 [source,bash]
 ----
-$ ./standalone.sh -c standalone-full-ha.xml
+$ ./standalone.sh -c standalone-full.xml
 ----
 ** On Windows:
 +
 [source,bash]
 ----
-standalone.bat -c standalone-full-ha.xml
+standalone.bat -c standalone-full.xml
 ----
