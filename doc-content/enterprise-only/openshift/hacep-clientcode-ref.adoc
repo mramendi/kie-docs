@@ -1,0 +1,43 @@
+[id='hacep-clientcode-ref']
+= Requirements for client code
+
+When developing client code for high-availability CEP, you must follow certain additional requirements.
+
+[float]
+== kie-remote API
+
+The code must use the kie-remote API and not the kie API.
+
+[float]
+== Explicit timestamps
+
+The engine needs to determine the sequence in which events happen. For this reason every event must have an associated timestamp assigned to it. In a high-availability environment, make this timestamp a property of the Java bean modelling
+the event. You must then annotate the event class with `@Timestamp` annotation, where the name of the timestamp attribute itself is the parameter, as in the following example:
+
+[source,java]
+----
+@Role(Role.Type.EVENT)
+@Timestamp("myTime")
+public class StockTickEvent implements Serializable {
+
+    private String company;
+    private double price;
+    private long myTime;
+}
+----
+
+If you do not provide a timestamp attribute, Drools assigns a timestamp to every event based on the time  when the event is inserted by the client into a remote session. However, this mechanism depends on the clocks on the client machines. If clocks between different clients diverge, inconsistencies between events inserted by these hosts can happen.
+
+[float]
+== Lambda expressions for non-memory actions
+
+If any action that is not a memory action is required, it must be wrapped inside a lambda expression, for example:
+
+[source,java]
+----
+DroolsExecutor.getInstance().execute( () -> {
+   String id = UUID.randomUUID().toString();
+   System.out.println("Price for " + $stock.getCompany() + " is " + $stock.getPrice() + " id:" + id);
+   return id;
+});
+----

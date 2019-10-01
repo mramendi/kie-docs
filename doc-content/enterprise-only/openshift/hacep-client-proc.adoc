@@ -7,7 +7,7 @@ You must adapt your CEP client code to communicate with the HA CEP server image.
 
 . Download the ??? product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
 . Extract the contents of the file.
-. Using an IDE, develop the client code based on the project in the `sample-hacep-project/sample-hacep-project-client` directory.
+. Develop the client code based on the project in the `sample-hacep-project/sample-hacep-project-client` directory. Ensure that the code fulfils the additional requirements described in <<hacep-clientcode-ref>>.
 . In the `sample-hacep-project/sample-hacep-project-client` directory, generate a keystore, using `password` as a password. Enter the following command:
 +
 ----
@@ -36,7 +36,13 @@ Replace <serveraddress> with the address that the route for the server uses.
 . Build the project using the standard Maven command:
 +
 ----
-mvn clean install -DskipTests
+mvn clean install
 ----
 +
-. _??? need the command to run the project_
+. Change the `sample-hacep-project-client` project directory and enter the following command to run the client:
++
+----
+mvn exec:java -Dexec.mainClass="org.kie.hacep.sample.client.ClientProducerDemo
+----
++
+This command executes the `main` method of the `ClientProducerDemo` class.
