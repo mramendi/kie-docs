@@ -1,0 +1,35 @@
+[id='imagestreams-operator-proc']
+= Ensuring the availability of image streams 
+
+To deploy {PRODUCT} components on {OPENSHIFT} using the Business AUtomation operator, you must ensure that OpenShift can download the correct images from the Red Hat registry. To download the images, OpenShift requires _image streams_, which contain the information about the location of images. 
+
+In most cases, the required inage streams are already present in the `openshift` namespace. If they  not present in the `openshift` namespace, the operator can create them in the user namespace.
+
+OpenShift also must be configured to authenticate with the Red Hat registry using your service account user name and password. This configuration is specific for a namespace, and if operators work, the configuration is already completed for the `openshift` namespace. But if the image streams are not present in the `openshift` namespace, you must complete the authentication configuration for the user namespace.
+
+.Procedure
+
+. Enter the following commands:
++
+----
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-{CENTRAL_ONEWORD}
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver
+----
++
+If the outputs of both commands are not empty, the required image streams are available in the `openshift` namespace and no further action is required.
++
+. If the output of one or both of the commands is empty, complete the following steps:
+.. Log in to OpenShift with the `oc` command as a user with control over your project and switch to your project.
+.. Complete the steps documented in https://access.redhat.com/RegistryAuthentication#registry-service-accounts-for-shared-environments-4[Registry Service Accounts for Shared Environments]. You must log in to the Red Hat Customer Portal to access the document and to complete the steps to create a registry service account.
+.. Select the *OpenShift Secret* tab and click the link under *Download secret* to download the YAML secret file.
+.. View the downloaded file and note the name that is listed in the `name:` entry.
+.. Enter the following commands:
++
+[subs="attributes,verbatim,macros"]
+----
+oc create -f <file_name>.yaml
+oc secrets link default <secret_name> --for=pull
+oc secrets link builder <secret_name> --for=pull
+----
++
+Replace `<file_name>` with the name of the downloaded file and `<secret_name>` with the name that is listed in the `name:` entry of the file.
