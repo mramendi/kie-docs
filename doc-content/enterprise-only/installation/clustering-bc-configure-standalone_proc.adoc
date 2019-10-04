@@ -25,7 +25,7 @@ mount <NFS_SERVER_IP>:<DATA_SHARE> /data
 +
 Replace _<NFS_SERVER_IP>_ with the IP address or hostname of the NFS server machine. Replace _<DATA_SHARE>_ with the share name that you configured (for example, `/opt/kie/data`).
 +
-. Open the `_EAP_HOME_/standalone/configuration/standalone-full-ha.xml` file in a text editor.
+. Open the `_EAP_HOME_/standalone/configuration/standalone-full.xml` file in a text editor.
 . Edit or add the properties under the `<system-properties>` element and replace the following placeholders:
 * `<AMQ_USER>` and `<AMQ_PASSWORD>` are the credentials that you defined when creating the AMQ Broker.
 * `<AMQ_BROKER_IP_ADDRESS>` is the IP address of the AMQ Broker.
@@ -71,7 +71,7 @@ Replace _<NFS_SERVER_IP>_ with the IP address or hostname of the NFS server mach
 <property name="org.appformer.ext.metadata.infinispan.password"
    value=""/>
 ----
-. Save the `standalone-full-ha.xml` file.
+. Save the `standalone-full.xml` file.
 . To start the cluster, navigate to `__EAP_HOME__/bin` and enter one of the following commands:
 ** On Linux or UNIX-based systems:
 +
