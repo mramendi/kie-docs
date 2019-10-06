@@ -1,22 +1,25 @@
 [id='hacep-con']
-= Overview of High-Availability Complex Event Processing on {OPENSHIFT}
+= Overview of high available event-driven decisioning on {OPENSHIFT}
 
-With the Complex Event Processing (CEP) API, you can use the {DECISION_ENGINE} to process complex series of decisions based on events.
+You can use {DECISION_ENGINE} to implement high available event-driven decisioning on {OPENSHIFT}.
 
-An _event_ models a fact that happened in a specific point in time. The {DECISION_ENGINE} offers a rich set of temporal operators to compare, correlate and accumulate events. 
+An _event_ models a fact that happened in a specific point in time. The {DECISION_ENGINE} offers a rich set of temporal operators to compare, correlate and accumulate events. In event-driven decisioning, the {DECISION_ENGINE} processes complex series of decisions based on events. Every event can alter the state of the engine, influencing decisions for subsequent events.
 
-You can not use a regular deployment of {PRODUCT} on {OPENSHIFT}, as described in {URL_DEPLOYING_OPENSHIFT_OPERATOR}[{DEPLOYING_OPENSHIFT_OPERATOR}], to run high-availability CEP services. The deployment includes {KIE_SERVER} (KIE Server) pods, which remain independent of each other when scaled. The states of the pods are not synchronized. Therefore, only stateless calls can be processed reliably.
+You can not use a regular deployment of {PRODUCT} on {OPENSHIFT}, as described in {URL_DEPLOYING_OPENSHIFT_OPERATOR}[{DEPLOYING_OPENSHIFT_OPERATOR}], to run high available event-driven decisioning. The deployment includes {KIE_SERVER} (KIE Server) pods, which remain independent of each other when scaled. The states of the pods are not synchronized. Therefore, only stateless calls can be processed reliably.
 
-You can implement high-availability CEP on {OPENSHIFT} based on the HA CEP reference implementation provided with {PRODUCT}. This implementation provides a horizontally scalable environment with safe failover.
+The Complex Event Processing (CEP) API is useful for event-driven decisioning on {DECISION_ENGINE}
+
+You can implement high available event-driven decisioning on {OPENSHIFT} based on the reference implementation provided with {PRODUCT}. This implementation provides an environment with safe failover.
 
 In this reference implementation, you can scale the pod with the processing code. The replicas of the pod are not independent. One of the replicas is automatically designated _leader_. If the leader ceases to function, another replica is automatically made leader, and the processing continues without interruption or data loss.
 
 The election of the leader is implemented with Kubernetes ConfigMaps. Coordination of the leader with other replicas is performed via messages exchange through Kafka. The leader is always the first to process an event; when processing is complete, the leader notifies other replicas. A replica that is not the leader starts executing an event only after it has been completely processed on the leader. 
 
-When a new replica joins the cluster it requests a snapshot of the current Drools session from the leader. The leader can use a recent existing snapshot if one is  available in a Kafka topic; otherwise, it produces a new snapshot on demand. After receiving the snapshot, the new replica deserialzes it and eventually executes the last events not included in the snapshot before starting to process new events in coordination with the leader.
+When a new replica joins the cluster it requests a snapshot of the current Drools session from the leader. The leader can use a recent existing snapshot if one is  available in a Kafka topic; otherwise, it produces a new snapshot on demand. After receiving the snapshot, the new replica deserializes it and eventually executes the last events not included in the snapshot before starting to process new events in coordination with the leader.
 
-When a client sends a message to the cluster, the message is processed by the leader node first. Every action in this message that is not a memory action is called a _side effect_, because it changes the state of the engine and can affect subseequent processing of rules.
+When a client sends a message to the cluster, the message is processed by the leader node first. Memory actions (actions to insert, modify, or delete information in the working memory of the engine) are also processed on every node of the cluster. Every action in the message that is not a memory action is called a _side effect_.
 
 Every time processing an event on the leader produces any side effects, the leader propagates the side effects in a new message in the kafka control topic. Replicas then process the side effects. 
 
 If during the evaluation of the side effects the leader ceases to function, another replica is designated the new leader and processes all events that were not yet completely processed. Therefore, a response is sent for every event and all side effects are propagated at least once. 
+

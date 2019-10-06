@@ -6,7 +6,7 @@ When developing client code for high-availability CEP, you must follow certain a
 [float]
 == kie-remote API
 
-The code must use the kie-remote API and not the kie API.
+The code must use the kie-remote API and not the kie API. The kie-remote API is specified in the `org.kie:kie-remote` Maven artifact. You can find the source code in the `kie-remote` Maven module.
 
 [float]
 == Explicit timestamps
@@ -31,7 +31,7 @@ If you do not provide a timestamp attribute, Drools assigns a timestamp to every
 [float]
 == Lambda expressions for non-memory actions
 
-If any action that is not a memory action is required, it must be wrapped inside a lambda expression, for example:
+Memory actions (actions to insert, modify, or delete information in the working memory of the engine) also processed on every node of the cluster. Actions that are not memory actions must be executed only on the leader. For this reason, if any action that is not a memory action is required, it must be wrapped inside a lambda expression, for example:
 
 [source,java]
 ----
