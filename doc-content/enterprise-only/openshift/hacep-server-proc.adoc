@@ -8,7 +8,7 @@ You must prepare the source, then build it, and then deploy it in {OPENSHIFT}.
 .Procedure
 
 .  Download the `{PRODUCT_FILE}-reference-implementation.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
-. Extract the contents of the file. Then extract the `{PRODUCT_FILE}-openshift-drools-hacep-distribution.zip` file.
+. Extract the contents of the file. Then extract the `{PRODUCT_INIT}-{BOM_VERSION}-openshift-drools-hacep-distribution.zip` file.
 . Change to the `openshift-drools-hacep-distribution/sources` directory.
 . Develop the server code based on the project in the `sample-hacep-project/sample-hacep-project-kjar` directory. In partiular, place the Drools language source files in the `src/main/recources/org.drools.cep` subdirectory.
 . Build the project using the standard Maven command:
@@ -22,6 +22,14 @@ mvn clean install -DskipTests
 +
 For instructions about creating topics using the `KafkaTopic` resource, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html/using_amq_streams_on_openshift_container_platform/using-the-topic-operator-str[Using the topic operator] in the Red Hat AMQ documentation.
 +
+. To configure role-based access control for the ConfigMap that is used in the leader election, change to the `springboot` directory and enter the following commands:
++
+----
+oc create -f kubernetes/service-account.yaml
+oc create -f kubernetes/role.yaml
+oc create -f kubernetes/role-binding.yaml
+----
++
 . In the `springboot` directory, enter the following commands to build the docker image and push into docker hub. This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` fat jar file. The Docker build then uses the fat jar file to create the image.
 +
 ----
@@ -33,10 +41,3 @@ docker push <user_username>/openshift-kie-springboot:<tag>
 Alternatively, you can use a private Docker repository instead of Docker Hub.
 +
 . In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment_registry.yaml`. Change the docker image name as necessary. Then click *Deploy* to deploy the server.
-. To configure role-based access control for the ConfigMap that is used in the leader election, enter the following commands:
-+
-----
-oc create -f kubernetes/service-account.yaml
-oc create -f kubernetes/role.yaml
-oc create -f kubernetes/role-binding.yaml
-----
