@@ -6,9 +6,9 @@ You must adapt your CEP client code to communicate with the HA CEP server image.
 .Procedure
 
 .  Download the `{PRODUCT_FILE}-reference-implementation.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
-. Extract the contents of the file. Then extract the `{PRODUCT_INIT}-{BOM_VERSION}-openshift-drools-hacep-distribution.zip` file.
+. Extract the contents of the file and then extract the `{PRODUCT_INIT}-{BOM_VERSION}-openshift-drools-hacep-distribution.zip` file.
 . Change to the `openshift-drools-hacep-distribution/sources` directory.
-. Develop the client code based on the project in the `sample-hacep-project/sample-hacep-project-client` directory. Ensure that the code fulfils the additional requirements described in <<hacep-clientcode-ref>>.
+. Develop the client code based on the project in the `sample-hacep-project/sample-hacep-project-client` directory. Ensure that the code fulfills the additional requirements described in <<hacep-clientcode-ref>>.
 . In the `sample-hacep-project/sample-hacep-project-client` directory, generate a keystore, using `password` as a password. Enter the following command:
 +
 ----
@@ -32,7 +32,7 @@ ssl.truststore.password=password
 bootstrap.servers=http://<serveraddress>
 ----
 +
-Replace <serveraddress> with the address that the route for the Kafka server uses.
+Replace `<serveraddress>` with the address that the route for the Kafka server uses.
 +
 . Build the project using the standard Maven command:
 +

@@ -1,23 +1,23 @@
 [id='hacep-server-proc']
 = Implementing the HA CEP server
 
-The high-availability CEP server runs on the {OPENSHIFT} environment. It includes all necessary Drools rules and other code required to process events.
+The high-availability (HA) CEP server runs on the {OPENSHIFT} environment. It includes all necessary {PRODUCT_DROOLS} rules and other code required to process events.
 
-You must prepare the source, then build it, and then deploy it in {OPENSHIFT}. 
+You must prepare the source, build it, and then deploy it on {OPENSHIFT}. 
 
 .Procedure
 
 .  Download the `{PRODUCT_FILE}-reference-implementation.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
-. Extract the contents of the file. Then extract the `{PRODUCT_INIT}-{BOM_VERSION}-openshift-drools-hacep-distribution.zip` file.
+. Extract the contents of the file and then extract the `{PRODUCT_INIT}-{BOM_VERSION}-openshift-drools-hacep-distribution.zip` file.
 . Change to the `openshift-drools-hacep-distribution/sources` directory.
-. Develop the server code based on the project in the `sample-hacep-project/sample-hacep-project-kjar` directory. In partiular, place the Drools language source files in the `src/main/recources/org.drools.cep` subdirectory.
+. Develop the server code based on the project in the `sample-hacep-project/sample-hacep-project-kjar` directory. In partiular, place the {PRODUCT_DROOLS} language source files in the `src/main/recources/org.drools.cep` subdirectory.
 . Build the project using the standard Maven command:
 +
 ----
 mvn clean install -DskipTests
 ----
 +
-. Use the OpenShift operator infrastructure to install Red Hat AMQ Streams. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_streams_on_openshift_container_platform/index[Using AMQ Streams on OpenShift Container Platform].
+. Use the OpenShift operator infrastructure to install Red Hat AMQ Streams. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_streams_on_openshift_container_platform/index[_Using AMQ Streams on OpenShift Container Platform_].
 . Using the `KafkaTopic` resource on {OPENSHIFT}, create the topics from all the YAML files in the `kafka-topics` subdirectory. 
 +
 For instructions about creating topics using the `KafkaTopic` resource, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html/using_amq_streams_on_openshift_container_platform/using-the-topic-operator-str[Using the topic operator] in the Red Hat AMQ documentation.
@@ -30,7 +30,7 @@ oc create -f kubernetes/role.yaml
 oc create -f kubernetes/role-binding.yaml
 ----
 +
-. In the `springboot` directory, enter the following commands to build the docker image and push into docker hub. This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` fat jar file. The Docker build then uses the fat jar file to create the image.
+. In the `springboot` directory, enter the following commands to build the Docker image and push into Docker Hub. This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` jar file. The Docker build then uses the jar file to create the image.
 +
 ----
 docker login --username=<user username>
@@ -40,4 +40,4 @@ docker push <user_username>/openshift-kie-springboot:<tag>
 +
 Alternatively, you can use a private Docker repository instead of Docker Hub.
 +
-. In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment_registry.yaml`. Change the docker image name as necessary. Then click *Deploy* to deploy the server.
+. In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment_registry.yaml` and change the Docker image name as necessary. Click *Deploy* to deploy the server.
