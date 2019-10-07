@@ -30,7 +30,7 @@ oc create -f kubernetes/role.yaml
 oc create -f kubernetes/role-binding.yaml
 ----
 +
-. In the `springboot` directory, enter the following commands to build the Docker image and push into Docker Hub. This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` jar file. The Docker build then uses the jar file to create the image.
+. In the `springboot` directory, enter the following commands to build the Docker image and push into Docker Hub. This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` file. The Docker build then uses the JAR file to create the image.
 +
 ----
 docker login --username=<user username>
