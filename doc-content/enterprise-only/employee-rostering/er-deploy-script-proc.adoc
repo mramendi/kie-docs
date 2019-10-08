@@ -15,7 +15,7 @@ You can deploy the {PLANNER} Employee Rostering starter application to {OPENSHIF
 . Download the `{PRODUCT_FILE}-reference-implementation.zip` file from the https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=rhdm&productChanged=yes[Software Downloads] page for Red Hat Decision Manager {PRODUCT_VERSION}.
 . Expand the downloaded archive.
 . Unzip the `{PRODUCT_FILE}-employee-rostering.zip` file that is extracted from the reference implementation archive.
-. Using the command line, change to the `employee-rostering-distrubution-{MAVEN_ARTIFACT_VERSION}/sources` folder.
+. Using the command line, change to the `employee-rostering-distribution-{MAVEN_ARTIFACT_VERSION}/sources` folder.
 . Run the provision script to build and deploy the application:
 +
 [source]
