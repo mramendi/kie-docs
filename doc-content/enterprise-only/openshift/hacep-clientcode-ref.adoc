@@ -44,7 +44,7 @@ then
 end
 ----
 
-When this rule is triggered, the person must be marked as an adult on every node. However, only the the leader must send the email, so that only one copy of the email is sent.
+When this rule is triggered, the person must be marked as an adult on every node. However, only the leader must send the email, so that only one copy of the email is sent.
 
 Therefore, in your code, you must wrap the email action (called a _side effect_) in a lambda expression, as shown in the following example:
 
