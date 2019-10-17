@@ -43,7 +43,7 @@ oc get storageclass gluster-container -o yaml >storage_config.yaml
 ** `resourceVersion`
 ** `selfLink`
 ** `uid`
-.. On the line with the `volumeoptions` key, add the following options:
+.. If you are planning to use {CENTRAL} in a high-availability configuration, on the line with the `volumeoptions` key, add the following options:
 +
 [subs="attributes,verbatim,macros"]
 ----
@@ -65,6 +65,18 @@ performance.strict-o-direct on
 For example:
 +
 `volumeoptions: client.ssl off, server.ssl off, features.cache-invalidation on, nfs.trusted-write on, nfs.trusted-sync on, performance.nl-cache on, performance.stat-prefetch off, performance.read-ahead off, performance.write-behind off, performance.readdir-ahead off, performance.io-cache off, performance.quick-read off, performance.open-behind off, locks.mandatory-locking off, performance.strict-o-direct on`
++
+.. If you are planning to use {CENTRAL} only as a single pod, without high-availability configuration, on the line with the `volumeoptions` key, add the following options:
++
+[subs="attributes,verbatim,macros"]
+----
+features.cache-invalidation on
+performance.nl-cache on
+----
++
+For example:
++
+`volumeoptions: client.ssl off, server.ssl off, features.cache-invalidation on, performance.nl-cache on`
 +
 . To remove the existing default storage class, enter the following command:
 +
