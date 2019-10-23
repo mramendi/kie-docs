@@ -27,8 +27,8 @@ endif::DM[]
 ifdef::PAM[]
 [subs="attributes,verbatim,macros"]
 ----
-$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-{CENTRAL_ONEWORD}
-$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}-{CENTRAL_ONEWORD} | grep {ENTERPRISE_VERSION}
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}-kieserver | grep {ENTERPRISE_VERSION}
 ----
 endif::PAM[]
 +
