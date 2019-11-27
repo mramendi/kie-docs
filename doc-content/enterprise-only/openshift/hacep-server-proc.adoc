@@ -53,4 +53,4 @@ docker push <user_username>/openshift-kie-springboot:<tag>
 +
 Alternatively, to use Podman for the build process, replace `docker` with `podman` in the commands. 
 +
-. In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment_registry.yaml` and change the Docker image name as necessary. Click *Deploy* to deploy the server.
+. In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment.yaml` and change the Docker image name as necessary. Click *Deploy* to deploy the server.
