@@ -470,7 +470,7 @@ docker tag docker.io/busybox:1.28.4 myopenshiftcluster/openshift/busybox:latest
 ** For  {OPENSHIFT} version 3.11, see the "Accessing the Registry" section of the https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html-single/developer_guide/index[OpenShift Container Platform 3.11 Developer Guide].
 ** For  {OPENSHIFT} version 4.1, see the "Accessing the Registry" section of https://access.redhat.com/documentation/en-us/openshift_container_platform/4.1/html-single/registry/index[Configuring registries for OpenShift Container Platform 4.1].
 
-.High available event-driven decisioning (HA CEP server) build fails  [https://issues.jboss.org/browse/RHDM-1129[RHDM-1129]]
+.High available event-driven decisioning (HA CEP server) build fails  [https://issues.jboss.org/browse/RHPAM-2530[RHPAM-2530]]
 
 Issue: The image build for the HA CEP server fails with the following message: 
 
