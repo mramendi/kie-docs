@@ -20,7 +20,7 @@ A single authoring environment contains two pods. One of the pods runs {CENTRAL}
 ifdef::PAM[The {KIE_SERVER} includes an embedded H2 database engine.]
 This type of environment uses the least possible amount of resources. 
 
-An HA authoring environment contains several pods. Both {CENTRAL} and {KIE_SERVER} are provided in scalable pods that can run in parallel and share persistent storage. 
+In HA authoring environment both {CENTRAL} and {KIE_SERVER} are provided in scalable pods that run in parallel and have share persistent storage. 
 ifdef::PAM[The database is provided by a separate pod.]
 To enable high-availability functionality in {CENTRAL} additional pods with AMQ and Data Grid are required. These pods are configured and deployed by templates or operator. Use a high-availability authoring environment to provide maximum reliability and responsiveness, especially if several users are involved in authoring at the same time.
 
