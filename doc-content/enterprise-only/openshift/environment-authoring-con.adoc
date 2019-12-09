@@ -30,7 +30,7 @@ In the current version of {PRODUCT}, an HA authoring environment is supported wi
 
 * If a {CENTRAL} pod crashes while a user works with it, the user can get an error message and then is redirected to another pod. Logging on again is not required. 
 
-* If a {CENTRAL} pod crashes during a user operation, data that was not committed might be lost. 
+* If a {CENTRAL} pod crashes during a user operation, data that was not committed (saved) might be lost. 
 
 * If a {CENTRAL} pod crashes during creation of a project, an unusable project might be created. 
 
