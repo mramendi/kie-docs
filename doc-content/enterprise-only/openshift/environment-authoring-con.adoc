@@ -11,7 +11,7 @@ You can use {CENTRAL} both to develop services and to deploy them to {KIE_SERVER
 
 If necessary, you can create separate environments, so that you can use one deployment of {CENTRAL} to author services (_authoring environment_) and another deployment of {CENTRAL} to manage deployment of staging or production services on several {KIE_SERVERS} (_managed server environment_). Usually, one {KIE_SERVER} is sufficient for a dedicated authoring environment. You can use an external Maven repository to store services from an authoring environment and deploy them to a separate managed server environment.
 
-For {PRODUCT}, the procedures to deploy an authoring environment and a managed server environment are the same. You must first deploy an authoring environment template, consisting of {CENTRAL} and one {KIE_SERVER}. Then, if necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment  with multiple {KIE_SERVERS}.
+For {PRODUCT}, the procedures to deploy an authoring environment and a managed server environment are the same. You must first deploy an authoring environment template, consisting of {CENTRAL} and one {KIE_SERVER}. Then, if necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}.
 endif::DM[]
 
 Depending on your needs, you can deploy either a single authoring environment template or a high-availability (HA) authoring environment template.
