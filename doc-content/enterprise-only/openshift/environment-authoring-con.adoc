@@ -11,7 +11,9 @@ You can use {CENTRAL} both to develop services and to deploy them to {KIE_SERVER
 
 If necessary, you can create separate environments, so that you can use one deployment of {CENTRAL} to author services (_authoring environment_) and another deployment of {CENTRAL} to manage deployment of staging or production services on several {KIE_SERVERS} (_managed server environment_). Usually, one {KIE_SERVER} is sufficient for a dedicated authoring environment. You can use an external Maven repository to store services from an authoring environment and deploy them to a separate managed server environment.
 
-For {PRODUCT}, the procedures to deploy an authoring environment and a managed server environment are the same. You must first deploy an authoring environment template, consisting of {CENTRAL} and one {KIE_SERVER}. Then, if necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}.
+For {PRODUCT}, the procedures to deploy an authoring environment and a managed server environment are the same. You must first deploy an authoring environment template, consisting of {CENTRAL} and one {KIE_SERVER}. 
+
+Then, if necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}. This environment can be a managed server environment for staging and production deployment of services. 
 endif::DM[]
 
 Depending on your needs, you can deploy either a single authoring environment template or a high-availability (HA) authoring environment template.
@@ -26,8 +28,6 @@ To enable high-availability functionality in {CENTRAL}, additional pods with AMQ
 
 In the current version of {PRODUCT}, an HA authoring environment is supported with certain limitations:
 
-* If one user is deploying a service to the {KIE_SERVER}, another user will not be able to deploy a service to the same {KIE_SERVER} until the first deployment completes. 
-
 * If a {CENTRAL} pod crashes while a user works with it, the user can get an error message and then is redirected to another pod. Logging on again is not required. 
 
 * If a {CENTRAL} pod crashes during a user operation, data that was not committed (saved) might be lost. 
@@ -35,6 +35,10 @@ In the current version of {PRODUCT}, an HA authoring environment is supported wi
 * If a {CENTRAL} pod crashes during creation of a project, an unusable project might be created. 
 
 * If a {CENTRAL} pod crashes during creation of an asset, the asset might be created but not indexed, so it can not be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
+
+Another limitation also applies to all authoring
+ifdef::DM[and managed]
+environment deployments. If a user is deploying a service to the {KIE_SERVER}, no user is able to deploy another service to the same {KIE_SERVER} until the first deployment completes. 
 
 You can also deploy additional managed or immutable {KIE_SERVERS}, if required. {CENTRAL} can automatically discover any {KIE_SERVERS} in the same namespace, including immutable {KIE_SERVERS} and managed {KIE_SERVERS}. This feature requires the `OpenShiftStartupStrategy` setting, 
 ifdef::DM[]
