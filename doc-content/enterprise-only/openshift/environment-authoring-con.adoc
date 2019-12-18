@@ -13,7 +13,7 @@ If necessary, you can create separate environments, so that you can use one depl
 
 For {PRODUCT}, the procedures to deploy an authoring environment and a managed server environment are the same. You must first deploy an authoring environment template, consisting of {CENTRAL} and one {KIE_SERVER}. 
 
-Then, if necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}. This environment can be a managed server environment for staging and production deployment of services. 
+If necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}. This environment can be a managed server environment for staging and production deployment of services. 
 endif::DM[]
 
 Depending on your needs, you can deploy either a single authoring environment template or a high-availability (HA) authoring environment template.
@@ -34,7 +34,7 @@ In the current version of {PRODUCT}, an HA authoring environment is supported wi
 
 * If a {CENTRAL} pod crashes during creation of a project, an unusable project might be created. 
 
-* If a {CENTRAL} pod crashes during creation of an asset, the asset might be created but not indexed, so it can not be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
+* If a {CENTRAL} pod crashes during creation of an asset, the asset might be created but not indexed, so it cannot be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
 
 Another limitation also applies to all authoring
 ifdef::DM[and managed]
