@@ -42,7 +42,7 @@ complete the following additional steps:
 .. In the *KIE Server container deployment* field, enter the identifying information of the decision services (KJAR files) that the deployment must pull from the Maven repository. The format is `<containerId>=<groupId>:<artifactId>:<version>` or, if you want to specify an alias name for the container, `<containerId>(<aliasId>)=<groupId>:<artifactId>:<version>`. You can provide two or more KJAR files using the `|` separator, as illustrated in the following example: `containerId=groupId:artifactId:version|c2(alias2)=g2:a2:v2`.
 .. If your OpenShift environment does not have a connection to the public Internet, enter the URL of the Maven mirror that you set up according to <<offline-repo-proc>> in the *Maven mirror URL* field.
 .. In the *Artifact directory* field, enter the path within the project that contains the required binary files (KJAR files and any other necessary files) after a successful Maven build. Normally this directory is the target directory of the build. However, you can provide prebuilt binaries in this directory in the Git repository.
-.. If you want to use a custom base {KIE_SERVER} image for the S2I build, click *Set Base build image*. Then enter the name of the image stream in the *Name* field. If the image stream is not in the `openshift` namespace, enter the namespace in the *Namespace* field. If you want to use a Docker image name and not an OpenShift image stream tag, change the *Kind* value to `DockerImage`.
+.. If you want to use a custom base {KIE_SERVER} image for the S2I build, click *Set Base build image* and then enter the name of the image stream in the *Name* field. If the image stream is not in the `openshift` namespace, enter the namespace in the *Namespace* field. If you want to use a Docker image name and not an OpenShift image stream tag, change the *Kind* value to `DockerImage`.
 .. If you want to create the immutable server from source in a Git repository using the Source to Image (S2I) process, click the *Set Git source* button and enter information in the following fields:
 *** *S2I Git URI*:The URI for the Git repository that contains the source for your services.
 *** *Reference*: The branch in the Git repository.
@@ -58,7 +58,7 @@ complete the following additional steps:
 * *Executor transacted*: Select this setting to enable JMS transactions on the executor queue.
 * *Enable signal*: Select this setting to enable signal configuration through JMS.
 * *Enable audit*: Select this setting to enable audit logging through JMS.
-* *Audit transacted*: Select this setting to enable JMS transactions on the audot queue.
+* *Audit transacted*: Select this setting to enable JMS transactions on the audit queue.
 * *Queue executor*, *Queue request*, *Queue response*, *Queue signal*, *Queue audit*: Custom JNDI names of the queues to use. If you set any of these values, you must also set the *AMQ queues* parameter.
 * *AMQ Queues*: AMQ queue names, separated by commas. These queues are automatically created when the broker starts and are accessible as JNDI resources in the JBoss EAP server. If you are using any custom queue names, you must enter the names of all the queues uses by the server in this field.
 * *Enable SSL integration*: Select this setting if you want to use an SSL connection to the AMQ broker. In this case you must also provide the name of the secret that you created in <<secrets-amq-create-proc>> and the names and passwords of the key store and trust store that you used for the secret. 
