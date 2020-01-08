@@ -36,7 +36,7 @@ For more information about configuring role-based access control in {OPENSHIFT},
 +
 ----
 oc new-build --binary --strategy=docker --name openshift-kie-springboot
-oc start-build openshift-kie-springboot --from-dir=. --follow----
+oc start-build openshift-kie-springboot --from-dir=. --follow
 ----
 +
 . Enter the following command to detect the name of the image that was built:
