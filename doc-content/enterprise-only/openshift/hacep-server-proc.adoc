@@ -32,14 +32,27 @@ oc create -f kubernetes/role-binding.yaml
 +
 For more information about configuring role-based access control in {OPENSHIFT}, see https://access.redhat.com/documentation/en-us/openshift_container_platform/4.1/html/authentication/using-rbac[Using RBAC to define and apply permissions] in the {OPENSHIFT} product documentation.
 +
-. In the `springboot` directory, enter the following commands to build the Docker image and push it into the Docker registry that is configured on your system. (Consider configuring a private registry before running these commands). This build imports the built `sample-hacep-project-kjar` code as a Maven dependency and includes it in the `BOOT-INF/lib` directory of the `openshift-kie-springboot.jar` file. The Docker build then uses the JAR file to create the image.
+. In the `springboot` directory, enter the following commands to create the image for deployment and push it into the repository configured for your OpenShift environment:
 +
 ----
-docker login --username=<user username>
-docker build -t <user_username>/openshift-kie-springboot:<tag> .  
-docker push <user_username>/openshift-kie-springboot:<tag>
+oc new-build --binary --strategy=docker --name openshift-kie-springboot
+oc start-build openshift-kie-springboot --from-dir=. --follow----
 ----
 +
-Alternatively, to use Podman for the build process, replace `docker` with `podman` in the commands. 
+. Enter the following command to detect the name of the image that was built:
 +
-. In the OpenShift user interface, create a YAML source. Paste in the contents of the `kubernetes/deployment_registry.yaml` and change the Docker image name as necessary. Click *Deploy* to deploy the server.
+----
+oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}}{{range .items}}{{.dockerImageReference}}{{end}}{{end}}'
+----
++
+. Edit the `kubernetes/deployment.yaml` file. Replace the existing image URL with the result of the previous command, removing all characters at the end starting with the `@` symbol, then add `:latest` to the line. For example: 
++
+----
+image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-springboot:latest
+----
++
+. Enter the following command to deploy the image:
++
+----
+oc apply -f kubernetes/deployment.yaml
+----
