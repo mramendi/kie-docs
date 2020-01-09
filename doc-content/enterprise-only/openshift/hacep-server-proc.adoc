@@ -7,8 +7,6 @@ You must prepare the source, build it, and then deploy it on {OPENSHIFT}.
 
 .Prerequisites
 
-* The kafka operator is up and running on an OpenShift cluster and you have administrator privilege for this cluster.
-* You created a kafka cluster in the OpenShift project to which you are planning to deploy the server.
 * You are logged into the project with administrator privilege using the `oc` command-line tool.
 
 .Procedure
@@ -23,7 +21,7 @@ You must prepare the source, build it, and then deploy it on {OPENSHIFT}.
 mvn clean install -DskipTests
 ----
 +
-. Use the OpenShift operator infrastructure to install Red Hat AMQ Streams. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_streams_on_openshift_container_platform/index[_Using AMQ Streams on OpenShift Container Platform_].
+. Enable the OpenShift operator for Red Hat AMQ Streams and then create an AMQ Streams (kafka) cluster in the project. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.5/html/using_amq_streams_on_openshift/[_Using AMQ Streams on OpenShift_].
 . To create the kafka topics that are required for operation of the server, remain in the `openshift-drools-hacep-distribution/sources` directory and run the following commands:
 +
 ----
