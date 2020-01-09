@@ -5,6 +5,12 @@ The high-availability (HA) CEP server runs on the {OPENSHIFT} environment. It in
 
 You must prepare the source, build it, and then deploy it on {OPENSHIFT}. 
 
+.Prerequisites
+
+* The kafka operator is up and running on an OpenShift cluster and you have administrator privilege for this cluster.
+* You created a kafka cluster in the OpenShift project to which you are planning to deploy the server.
+* You are logged into the project with administrator privilege using the `oc` command-line tool.
+
 .Procedure
 
 .  Download the `{PRODUCT_FILE}-reference-implementation.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
@@ -18,9 +24,14 @@ mvn clean install -DskipTests
 ----
 +
 . Use the OpenShift operator infrastructure to install Red Hat AMQ Streams. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.3/html/using_amq_streams_on_openshift_container_platform/index[_Using AMQ Streams on OpenShift Container Platform_].
-. Using the `KafkaTopic` resource on {OPENSHIFT}, create the topics from all the YAML files in the `kafka-topics` subdirectory. 
+. To create the kafka topics that are required for operation of the server, remain in the `openshift-drools-hacep-distribution/sources` directory and run the following commands:
 +
-For instructions about creating topics using the `KafkaTopic` resource, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.4/html/using_amq_streams_on_openshift_container_platform/using-the-topic-operator-str[Using the topic operator] in the Red Hat AMQ documentation.
+----
+oc apply -f kafka-topics/control.yaml
+oc apply -f kafka-topics/events.yaml
+oc apply -f kafka-topics/kiesessioninfos.yaml
+oc apply -f kafka-topics/snapshot.yaml
+----
 +
 . In order to enable application access to the ConfigMap that is used in the leader election, you must configure role-based access control. Change to the `springboot` directory and enter the following commands:
 +
