@@ -54,11 +54,15 @@ oc start-build openshift-kie-springboot --from-dir=. --follow
 oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}}{{range .items}}{{.dockerImageReference}}{{end}}{{end}}'
 ----
 +
-. Edit the `kubernetes/deployment.yaml` file. Replace the existing image URL with the result of the previous command, removing all characters at the end starting with the `@` symbol, then add `:latest` to the line. For example: 
+. Open the `kubernetes/deployment.yaml` file in a text editor.
+. Replace the existing image URL with the result of the previous command.
+. Remove all characters at the end f the line starting with the `@` symbol, then add `:latest` to  the line. For example: 
 +
 ----
 image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-springboot:latest
 ----
++
+. Save the file.
 +
 . Enter the following command to deploy the image:
 +
