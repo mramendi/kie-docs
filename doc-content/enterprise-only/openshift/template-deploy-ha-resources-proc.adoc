@@ -17,14 +17,14 @@ For more information about sizing resources, see the following sections in the {
 
 .Procedure
 
-Set any of the following parameters of the template as necessary:
+Set the following parameters of the template as applicable:
 
 ** *{CENTRAL} Container Memory Limit* (`{CENTRAL_CAPITAL_UNDER}_MEMORY_LIMIT`): The amount of memory requested in the OpenShift environment for the {CENTRAL} container. The default value is `8Gi`.
-** *{CENTRAL} JVM Max Memory Ratio* (`{CENTRAL_CAPITAL_UNDER}_JAVA_MAX_MEM_RATIO`): The percentage of container memory that is used for the Java Virtual Machine for {CENTRAL}. The remaining memory is used for the operating system. The default is `80`, for a limit of 80%. 
-** *{CENTRAL} Container CPU Limit* (`{CENTRAL_CAPITAL_UNDER}_CPU_LIMIT`): The maximum CPU usage for {CENTRAL}. The default is `2000m`.
+** *{CENTRAL} JVM Max Memory Ratio* (`{CENTRAL_CAPITAL_UNDER}_JAVA_MAX_MEM_RATIO`): The percentage of container memory that is used for the Java Virtual Machine for {CENTRAL}. The remaining memory is used for the operating system. The default value is `80`, for a limit of 80%. 
+** *{CENTRAL} Container CPU Limit* (`{CENTRAL_CAPITAL_UNDER}_CPU_LIMIT`): The maximum CPU usage for {CENTRAL}. The default value is `2000m`.
 ** *KIE Server Container Memory Limit* (`KIE_SERVER_MEMORY_LIMIT`): The amount of memory requested in the OpenShift environment for the {KIE_SERVER} container. The default value is `1Gi`.
-** *KIE Server Container CPU Limit* (`KIE_SERVER_CPU_LIMIT`): The maximum CPU usage for {KIE_SERVER}. The default is `1000m`.
+** *KIE Server Container CPU Limit* (`KIE_SERVER_CPU_LIMIT`): The maximum CPU usage for {KIE_SERVER}. The default value is `1000m`.
 ** *DataGrid Container Memory Limit* (`DATAGRID_MEMORY_LIMIT`): The amount of memory requested in the OpenShift environment for the Red Hat Data Grid container. The default value is `2Gi`.
-** *DataGrid Container CPU Limit* (`DATAGRID_CPU_LIMIT`): The maximum CPU usage for Red Hat Data Grid. The default is `1000m`.
+** *DataGrid Container CPU Limit* (`DATAGRID_CPU_LIMIT`): The maximum CPU usage for Red Hat Data Grid. The default value is `1000m`.
 
   
