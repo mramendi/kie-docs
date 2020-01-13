@@ -1,0 +1,108 @@
+[id='rn-750-fixed-issues-ref']
+= Fixed issues in {PRODUCT} 7.6.0
+
+{PRODUCT} 7.6.0 provides increased stability and fixed issues listed in this section.
+
+ifdef::PAM[]
+[NOTE]
+====
+{PRODUCT_DM} fixed issues apply to {PRODUCT_PAM} as well. For a list of {PRODUCT_DM} 7.6.0 fixed issues, see the https://access.redhat.com/documentation/en-us/red_hat_decision_manager/7.6/html-single/release_notes_for_red_hat_decision_manager_7.6/index[_Release Notes for Red Hat Decision Manager 7.6_]
+====
+
+== Installer
+
+* JWS only datasource configuration is missing elements [https://issues.redhat.com/browse/RHPAM-2428[RHPAM-2428]]
+
+== {CENTRAL}
+
+* Cloning from remote git repo that requires credentials does not work [https://issues.redhat.com/browse/RHPAM-2531[RHPAM-2531]]
+
+* Nodes after multi-instance subprocess are not blurred even though process instance is completed [https://issues.redhat.com/browse/RHPAM-2472[RHPAM-2472]]
+
+* Error dialog when importing sample project twice [https://issues.redhat.com/browse/RHPAM-2434[RHPAM-2434]]
+
+* Not able to upload/download files with spaces and & in name [https://issues.redhat.com/browse/RHPAM-2368[RHPAM-2368]]
+
+* Performance issues when opening assets with open Project Explorer [https://issues.redhat.com/browse/RHPAM-2359[RHPAM-2359]]
+
+* Roles permissions are not persisted and reset [https://issues.redhat.com/browse/RHPAM-2342[RHPAM-2342]]
+
+* JavaScript error when trying to modify action columns in guided decision table [https://issues.redhat.com/browse/RHPAM-2286[RHPAM-2286]]
+
+* Default runtime strategy of "New Deployment Unit" wizard should respect kie-deployment-descriptor.xml [https://issues.redhat.com/browse/RHPAM-2119[RHPAM-2119]]
+
+* Stunner - performance degradation for large processes [https://issues.redhat.com/browse/RHPAM-1976[RHPAM-1976]]
+
+* Manage section filter tag shows raw query versus named filter [https://issues.redhat.com/browse/RHPAM-1194[RHPAM-1194]]
+
+* [Form Modeler] Error appears after clicking New Instance in MultipleSubForm Field properties modal window [https://issues.redhat.com/browse/RHPAM-1027[RHPAM-1027]]
+
+== High availability
+* Indexing in BC HA repeatedly creates threads which cause BC pod failure [https://issues.redhat.com/browse/RHPAM-2477[RHPAM-2477]]
+
+* Sample project is imported several times [https://issues.redhat.com/browse/RHPAM-2372[RHPAM-2372]]
+
+* TimeoutException when logging into clustered Business central [https://issues.redhat.com/browse/RHPAM-1749[RHPAM-1749]]
+
+== {OPENSHIFT}
+* Unable to build HA-CEP image because of microdnf bug [https://issues.redhat.com/browse/RHPAM-2500[RHPAM-2500]]
+
+* Add AMQ support to Operator installer UI [https://issues.redhat.com/browse/RHPAM-2205[RHPAM-2205]]
+
+
+
+== Process engine
+* GlobalTimerService.timerJobsPerSession leak with StartProcess timer [https://issues.redhat.com/browse/RHPAM-2479[RHPAM-2479]]
+
+* Perform security (based on required roles) on process operations only [https://issues.redhat.com/browse/RHPAM-2449[RHPAM-2449]]
+
+* Invalid REST API return type - quated string instead of json/xml [https://issues.redhat.com/browse/RHPAM-2012[RHPAM-2012]]
+
+== {KIE_SERVER}
+
+* {KIE_SERVER} periodically restarts in case container deployment fails [https://issues.redhat.com/browse/RHPAM-1793[RHPAM-1793]]
+
+== Smart Router
+
+* Smart Router management endpoints authentication [https://issues.redhat.com/browse/RHPAM-2462[RHPAM-2462]]
+
+endif::[]
+
+ifdef::DM[]
+== Decision engine
+
+* Newline within the rule cell of spreadsheet is included as a value incorrectly [https://issues.redhat.com/browse/RHDM-1147[RHDM-1147]]
+
+* int value doesn't get promoted to double when necessary to invoke a method in LHS with executable model [https://issues.redhat.com/browse/RHDM-1135[RHDM-1135]]
+
+* Support consequence up to 24 parameters [https://issues.redhat.com/browse/RHDM-1133[RHDM-1133]]
+
+* Issue with STREAM mode, expired events and instanceof [https://issues.redhat.com/browse/RHDM-1126[RHDM-1126]]
+
+* Issue with rules sharing same constraint involving expired events and mvel [https://issues.redhat.com/browse/RHDM-1124[RHDM-1124]]
+
+* Inserting already expired events are not taken into account in the collect operation in the first fireAllRules [https://issues.redhat.com/browse/RHDM-1112[RHDM-1112]]
+
+== {CENTRAL}
+
+* DMN Designer - validation doesn't report non existing operator [https://issues.redhat.com/browse/RHDM-1119[RHDM-1119]]
+
+* Suggested values for DMN context expression in test scenarios are wrong [https://issues.redhat.com/browse/RHDM-1116[RHDM-1116]]
+
+* Errors in log on Windows when login user account contains special character [https://issues.redhat.com/browse/RHDM-813[RHDM-813]]
+
+== {KIE_SERVER}
+
+* KieContainer creation fails without helpful error message if kmodule.xml is invalid [https://issues.redhat.com/browse/RHDM-1118[RHDM-1118]]
+
+== Decision Model and Notation (DMN)
+
+* When a decision service is deleted all associated decisions are also deleted [https://issues.redhat.com/browse/RHDM-970[RHDM-970]]
+
+== {OPENSHIFT}
+
+* Increase AMQ broker version to 7.5 in OpenShift templates [https://issues.redhat.com/browse/RHDM-1122[RHDM-1122]]
+
+* Add missing environment variable for optaplanner thread pool queue size [https://issues.redhat.com/browse/RHDM-1096[RHDM-1096]]
+
+endif::[]
