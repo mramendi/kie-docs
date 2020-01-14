@@ -94,6 +94,7 @@ Actual result: The deployment starts and fails.
 
 Workaround: Manually delete the server template in {CENTRAL} before restarting the {SERVER}. Alternatively, change the name of the {SERVER} when you reconfigure it.
 
+ifdef::PAM[]
 .When you save a filter and then activate it, an error message displays [https://issues.redhat.com/browse/RHPAM-2545[RHPAM-2545]]
 
 Issue: When you save a filter and immediately after this action activate it from the *Saved filters* view, an error message displays.
@@ -111,6 +112,7 @@ Expected result: The filter is activated.
 Actual result: An *Unexpected system error* message displays. The filter is activated.
 
 Workaround: none.
+endif::PAM[]
 
 .In scenario simulation, the right-hand *Test Tools* panel displays the name of a field instead of the type [https://issues.redhat.com/browse/RHDM-1153[RHDM-1153]]
 
@@ -363,8 +365,6 @@ Actual result: You do not see the warning message.
 Workaround: None.
 
 
-endif::[]
-
 == Process instance migration
 
 .The process instance migration service does not work with an Oracle database [https://issues.redhat.com/browse/RHPAM-2558[RHPAM-2558]]
@@ -382,6 +382,7 @@ Actual result: The process migration service fails to start.
 
 Workaround: Configure the process migration service to use a database on a non-Oracle database server.
 
+endif::[]
 
 == {OPENSHIFT}
 
