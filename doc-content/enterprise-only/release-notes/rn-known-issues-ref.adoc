@@ -208,7 +208,7 @@ Expected result: The nodes are spread across the canvas.
 
 Actual result: All nodes are in the same position.
 
-Workaround: Click the automatic layout buttin in the toolbar.
+Workaround: Click the automatic layout button in the toolbar.
 
 
 ifdef::PAM[]
@@ -224,7 +224,7 @@ Steps to reproduce:
 . Create a process.
 . Open the properties panel for the process.
 . Click the image:ReleaseNotes/maximize-button.png[] *Maximize* button to maximize the panel to the size of the entire screen.
-. Click the image:ReleaseNotes/min`imize-button.png[] *Maximize* button to restore the panel to its previous size.
+. Click the image:ReleaseNotes/minimize-button.png[] *Maximize* button to restore the panel to its previous size.
 
 Expected result: The properties panel remains open.
 
