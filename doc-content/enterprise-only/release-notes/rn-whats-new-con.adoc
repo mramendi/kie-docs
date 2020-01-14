@@ -63,7 +63,7 @@ In {PRODUCT} version 7.6, HA deployment of {CENTRAL} is supported with certain l
 
 * If a {CENTRAL} instance fails while the instance is creating a project, an unusable project might be created. 
 
-* If a {CENTRAL} instance fails while the instance is creating an asset, the asset might be created but not indexed, so it cannot be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
+* If a {CENTRAL} instance fails while the instance is creating an asset, the asset might be created but not indexed so it cannot be used. To make the asset indexed, the user can open the asset in {CENTRAL} and save it again.
 
 ifdef::PAM[]
 == Process designer
