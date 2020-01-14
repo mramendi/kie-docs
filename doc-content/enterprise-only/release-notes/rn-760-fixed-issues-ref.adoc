@@ -97,6 +97,8 @@ ifdef::DM[]
 
 * Suggested values for DMN context expressions in test scenarios are wrong [https://issues.redhat.com/browse/RHDM-1116[RHDM-1116]]
 
+* When you attempt to modify action columns of a guided decision table, a JavaScript error occurs [https://issues.redhat.com/browse/RHDM-1036[RHDM-1036]]
+
 * On Windows, when the user name contains special characters an error occurs during log in [https://issues.redhat.com/browse/RHDM-813[RHDM-813]]
 
 == High availability

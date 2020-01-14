@@ -7,25 +7,25 @@ This section lists known issues with {PRODUCT} {PRODUCT_VERSION}.
 
 .When you add a deployment unit and manually enter GAV values, the runtime strategy is not set to the configured default value [https://issues.redhat.com/browse/RHPAM-2623[RHPAM-2623]]
 
-Issue: In {CENTRAL}, you can configure a default runtime strategy. However, when you add a new deployment unit and enter the group, artifact, and version values manually, the runtime strategy is not set to this configured default.
+Issue: In {CENTRAL}, you can configure a default runtime strategy. However, when you add a new deployment unit and enter the group, artifact, and version (GAV) values manually, the runtime strategy is not set to this configured default.
 
 Steps to reproduce:
 
-. Import the *Evaluation_Process* example in {CENTRAL}.
-. In the main menu, select *Settings* -> *Deployments* -> *General Settings*.
+. Import the *Evaluation_Process* sample project into {CENTRAL}.
+. Click the *Settings* icon and then select *General Settings* -> *Deployments*.
 . Change *Runtime Strategy* to `Per Process Instance`.
 . Click *Build&Install*.
-. In the main menu, select *Execution Servers* -> *Add Deployment Unit*.
+. In the main menu, select *Deploy* -> *Execution Servers* and then click *Add Deployment Unit*.
 . Enter values into the following fields:
 ** *Name*: `evaluation:evaluation:1.0.0-SNAPSHOT`
 ** *Group Name*: `evaluation`
 ** *Artifact Id*: `evaluation`
 ** *Version*: `1.0.0-SNAPSHOT`
-. Click *Next* (the result is not changed if you click *Finish* instead, creating the unit immediately).
-. In the window, note that the *Runtime Strategy* is `Singleton`.
+. Click *Next* (if you click *Finish* at this stage, the result is not changed).
+. In the window that appears, note that the runtime strategy is `Singleton`.
 . Click *Finish*.
 . Start the deployment.
-. When the deployment is complete, click the deployment link (for example, `http://localhost:8080/kie-server/services/rest/server/containers/evaluation:evaluation:1.0.0-SNAPSHOT`)
+. When the deployment has completed, click the deployment link, for example, `\http://localhost:8080/kie-server/services/rest/server/containers/evaluation:evaluation:1.0.0-SNAPSHOT`)
 . View the runtime strategy in the XML information displayed at the link, for example:
 +
 ---- 
@@ -96,7 +96,7 @@ Workaround: Manually delete the server template in {CENTRAL} before restarting t
 
 .When you save a filter and then activate it, an error message displays [https://issues.redhat.com/browse/RHPAM-2545[RHPAM-2545]]
 
-When you save a filter and immediately after this action activate it from the *Saved filters* view, an error message displays.
+Issue: When you save a filter and immediately after this action activate it from the *Saved filters* view, an error message displays.
 
 Steps to reproduce:
 
@@ -112,22 +112,22 @@ Actual result: An *Unexpected system error* message displays. The filter is acti
 
 Workaround: none.
 
-.In scenario simulation, the right-hand *Test tools* panel displays the name of a field instead of the type [https://issues.redhat.com/browse/RHDM-1153[RHDM-1153]]
+.In scenario simulation, the right-hand *Test Tools* panel displays the name of a field instead of the type [https://issues.redhat.com/browse/RHDM-1153[RHDM-1153]]
 
-Issue: In come cases, instead of the type of a field, the right-hand *Test tools* panel displays the name of the field.
+Issue: In come cases, instead of the type of a field, the right-hand *Test Tools* panel displays the name of the field.
 
 Steps to reproduce:
 
-. Open an existing DMN file in {CENTRAL}
-. Add a new structure, for example, `Vacation`
+. Open an existing DMN file in {CENTRAL}.
+. Add a new structure, for example, `Vacation`.
 . Add a new field to `Vacation`, for example, `Price` of type `number`.
-. Start editing the Price field. 
-. Click *Add Constraints* and enter some constraints for the `Price` field.
+. Start editing the *Price* field. 
+. Click *Add Constraints* and enter some constraints for the *Price* field.
 . Save all changes to the DMN file and close the file.
-. Create a new Test Scenario for the DMN file.
+. Create a new test scenario for the DMN file.
 . Select a column. 
 . Expand the right-hand panel.
-. Click the *Test Tools* dock.
+. Click the *Test Tools* panel.
 
 Expected result: The panel displays the name and type of the field: `Price[number]`.
 
@@ -172,9 +172,9 @@ Workaround: In the *Project Explorer* view, open the asset and click *Save*.
 
 == DMN designer
 
-.When importing a data object from a Java class, a field of the Java Date type is not converted to the DMN date type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
+.When you importi a data object from a Java class, fields that have the Java `Date` type are not converted to the DMN `date` type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
 
-Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type Date, the resulting DMN field is not of a DMN date type.
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `Date` the resulting DMN field does not have the DMN `date` type.
 
 Steps to reproduce:
 
@@ -195,9 +195,9 @@ Actual result: The field has the type `Any`.
 
 Workaround: Manually change the type of the field to `date` or `date and time`.
 
-.When importing a data object from a Java class, a field of the Java List type is not converted to the DMN collection type [https://issues.redhat.com/browse/RHDM-1144[RHDM-1144]]
+.When you import a data object from a Java class, a field of the Java `List` type is not converted to the DMN `collection` type [https://issues.redhat.com/browse/RHDM-1144[RHDM-1144]]
 
-Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type List, the resulting DMN field is not of a DMN collection type.
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `List` the resulting DMN field does not have the DMN `collection` type.
 
 Steps to reproduce:
 
@@ -221,7 +221,7 @@ Workaround: Manually change the type of the field to `collection`.
 
 .When you change a decision table header in the properties panel, the change is not saved [https://issues.redhat.com/browse/RHDM-1181[RHDM-1181]]
 
-Issue: In the DMN designer, when editing a decision table, you can click a header to view its properties panel. However, if you change settings for the header in the properties panel, the change is not saved.
+Issue: In the DMN designer, when you edit a decision table you can click a header to view its properties panel. However, if you change settings for the header in the properties panel, the change is not saved.
 
 Steps to reproduce:
 
@@ -235,7 +235,7 @@ Actual result: The change is not reflected in the table.
 
 Workaround: Click the header to view the pop-up window next to the header. Edit the settings in this window.
 
-.When you open a DMN diagram without layout information, nodes are all in the same position[https://issues.redhat.com/browse/RHDM-1150[RHDM-1150]]
+.When you open a DMN diagram that does not contain layout information, nodes are all in the same position[https://issues.redhat.com/browse/RHDM-1150[RHDM-1150]]
 
 Issue: When you open a DMN model file and this file does not contain layout information, all DMN nodes are displayed in the same position.
 
@@ -255,54 +255,56 @@ ifdef::PAM[]
 
 == Process designer
 
-.If the properties panel is opened, after you maximize and restore the panel, it closes [https://issues.redhat.com/browse/RHPAM-2613[RHPAM-2613]]
+.If the process designer *Properties* panel is opened and you maximize and then restore the panel, it closes [https://issues.redhat.com/browse/RHPAM-2613[RHPAM-2613]]
 
-Issue: If the properties panel for a process is open and then you maximize and restore the panel, it closes.
+Issue: If the process designer *Properties* panel is open and then you maximize and restore the panel, it closes.
 
 Steps to reproduce:
 
-. Create a process.
-. Open the properties panel for the process.
+. Open the process designer.
+. In the process designer, create and save a business process.
+. Open the process designer *Properties* panel.
 . Click the image:ReleaseNotes/maximize-button.png[] *Maximize* button to maximize the panel to the size of the entire screen.
 . Click the image:ReleaseNotes/minimize-button.png[] *Maximize* button to restore the panel to its previous size.
 
-Expected result: The properties panel remains open.
+Expected result: The *Properties* panel remains open.
 
-Actual result: The properties panel closes.
+Actual result: The *Properties* panel is closed.
 
-Workaround: Open the properties panel again.
+Workaround: Open the *Properties* panel again.
 
-.If the properties panel is opened, after you switch to a different view, the panel closes [https://issues.redhat.com/browse/RHPAM-2612[RHPAM-2612]]
+.If the process designer *Properties* panel and you switch to a different view, the panel closes [https://issues.redhat.com/browse/RHPAM-2612[RHPAM-2612]]
 
-Issue: If the properties panel for a process is open and you switch to a different view, the panel closes.
+Issue: If the process designer *Properties* panel is open and you switch to a different view, the panel closes.
 
 Steps to reproduce:
 
-. Create a process.
-. Open the properties panel for the process.
+. Open the process designer.
+. In the process designer, create and save a business process.
+. Open the process designer *Properties* panel.
 . Switch the view in one of the following ways:
-** Click the process name in the breadcrumb trail in the top part of the window
-** Click the process in a drop-down menu
+** Click the process name in the breadcrumb trail in the top part of the window and then select the business process asset again.
+** Click the process in a drop-down menu and then select the business process asset again.
 ** Switch to the *Documentation* tab and then switch back to the *Model* tab.
 
-Expected result: The properties panel remains open.
+Expected result: The *Properties* panel remains open.
 
-Actual result: The properties panel closes.
+Actual result: The *Properties* panel is closed.
 
-Workaround: Open the properties panel again.
+Workaround: Open the *Properties* panel again.
 
-.When you create a gateway, options for the *Default route* property might not be available [https://issues.redhat.com/browse/RHPAM-2536[RHPAM-2536]]
+.When you create a gateway, no options are available from the *Default route* drop-down list in the *Properties* panel [https://issues.redhat.com/browse/RHPAM-2536[RHPAM-2536]]
 
-Issue: In some cases, when you create a gateway, no options are available in the drop-down list for the *Default route* option.
+Issue: In some cases, when you create a gateway, no options are available from the *Default route* drop-down list in the *Properties* panel.
 
 Steps to reproduce:
 
 . Create a process with a parallel gateway.
 . Append several nodes to the parallel gateway.
-. Morph the parallel gateway into an exclusive gateway.
-. Click the *Default route* option of the new exclusive gateway.
+. Convert the parallel gateway into an exclusive gateway.
+. Select the gateway and click the *Default route* option in the *Properties* panel.
 
-Expected result: The drop-down list contains all the nodes that follow the gateway.
+Expected result: The drop-down list contains all of the nodes that follow the gateway.
 
 Actual result: The drop-down list is empty.
 
@@ -367,7 +369,7 @@ endif::[]
 
 .The process instance migration service does not work with an Oracle database [https://issues.redhat.com/browse/RHPAM-2558[RHPAM-2558]]
 
-Problem: The process instance migration service fails to start when configured to use an Oracle database.
+Issue: The process instance migration service fails to start when it is configured to use an Oracle database.
 
 Steps to reproduce:
 
