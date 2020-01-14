@@ -94,6 +94,46 @@ Actual result: The deployment starts and fails.
 
 Workaround: Manually delete the server template in {CENTRAL} before restarting the {SERVER}. Alternatively, change the name of the {SERVER} when you reconfigure it.
 
+.When you save a filter and then activate it, an error message displays [https://issues.redhat.com/browse/RHPAM-2545[RHPAM-2545]]
+
+When you save a filter and immediately after this action activate it from the *Saved filters* view, an error message displays.
+
+Steps to reproduce:
+
+. Open the *Manage Process Instances* perspective.
+. Configure a quick filter.
+. Save the filter.
+. Click the image:ReleaseNotes/maximize-button.png[] *Saved filters* dock icon.
+. Click the new filter to activate it.
+
+Expected result: The filter is activated.
+
+Actual result: An *Unexpected system error* message displays. The filter is activated.
+
+Workaround: none.
+
+.In scenario simulation, the right-hand *Test tools* panel displays the name of a field instead of the type [https://issues.redhat.com/browse/RHDM-1153[RHDM-1153]]
+
+Issue: In come cases, instead of the type of a field, the right-hand *Test tools* panel displays the name of the field.
+
+Steps to reproduce:
+
+. Open an existing DMN file in {CENTRAL}
+. Add a new structure, for example, `Vacation`
+. Add a new field to `Vacation`, for example, `Price` of type `number`.
+. Start editing the Price field. 
+. Click *Add Constraints* and enter some constraints for the `Price` field.
+. Save all changes to the DMN file and close the file.
+. Create a new Test Scenario for the DMN file.
+. Select a column. 
+. Expand the right-hand panel.
+. Click the *Test Tools* dock.
+
+Expected result: The panel displays the name and type of the field: `Price[number]`.
+
+Actual result: The panel displays the name of the field twice: `Price[Price]`.
+
+Workaround: none.
 
 == High availability
 
@@ -151,7 +191,7 @@ Steps to reproduce:
 
 Expected result: The field has the type `date` or `date and time`.
 
-Actual result: The field does not have any of these two types.
+Actual result: The field has the type `Any`.
 
 Workaround: Manually change the type of the field to `date` or `date and time`.
 
@@ -174,7 +214,7 @@ Steps to reproduce:
 
 Expected result: The field has the type `collection`.
 
-Actual result: The field does not have this type.
+Actual result: The field has the type `Any`.
 
 Workaround: Manually change the type of the field to `collection`.
 
@@ -185,7 +225,7 @@ Issue: In the DMN designer, when editing a decision table, you can click a heade
 
 Steps to reproduce:
 
-. Edit a decision table in an element in the process designer.
+. Edit a decision table in an element in the DMN designer.
 . Click a header in the table.
 . Change a field, such as *Input expression*, in the properties panel on the right side of the screen.
 
@@ -208,7 +248,7 @@ Expected result: The nodes are spread across the canvas.
 
 Actual result: All nodes are in the same position.
 
-Workaround: Click the automatic layout button in the toolbar.
+Workaround: Click the image:ReleaseNotes/automatic_layout.png[] *Automatic layout* button in the toolbar.
 
 
 ifdef::PAM[]

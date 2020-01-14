@@ -13,7 +13,12 @@ The following list provides a summery of {CENTRAL} UI updates:
 * Ability to rearrange the order of columns on the Task Inbox page
 
 === Change requests
+
 You can now submit a change request from one branch to another branch of the same project.
+
+=== Removing a service task
+
+If you configured service tasks in the administration menu of {CENTRAL}, you can now remove any of these service tasks.
 
 === Test Scenarios
 
@@ -60,7 +65,7 @@ In {PRODUCT} version 7.6, HA deployment of {CENTRAL} is supported with certain l
 
 * If a {CENTRAL} instance fails while the instance is creating an asset, the asset might be created but not indexed, so it cannot be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
 
-
+ifdef::PAM[]
 == Process designer
 
 === Process designer updates
@@ -77,6 +82,16 @@ For more information about case management support in process designer, see the 
 * {URL_DESIGNING_CASES}[_{DESIGNING_CASES}_]
 * {URL_GETTING_STARTED_CASES}[_{GETTING_STARTED_CASES}_]
 * {URL_SHOWCASE_APPLICATION_CASE_MANAGEMENT}[_{SHOWCASE_APPLICATION_CASE_MANAGEMENT}_]
+
+== Process engine
+
+=== Assigning roles for operations
+You can now assign required security roles for specific types of operations, for example `execute` or `view`, on a process.
+endif::PAM[]
+
+== API support for requesting all sub-cases that belong to a parent case
+
+In the process engine, when using case management, you can now use the API to request a list of all sub-cases immediately belonging to a parent case or a list of sub-cases belonging to a parent case and to all its sub-cases.
 
 == {PLANNER}
 

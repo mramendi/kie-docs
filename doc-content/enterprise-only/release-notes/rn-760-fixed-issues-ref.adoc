@@ -15,39 +15,13 @@ ifdef::PAM[]
 
 == {CENTRAL}
 
-* Cloning from a remote git repostory that requires credentials does not work [https://issues.redhat.com/browse/RHPAM-2531[RHPAM-2531]]
-
 * After execution of a multi-instance subprocess, nodes are not blurred even though the process instance is completed [https://issues.redhat.com/browse/RHPAM-2472[RHPAM-2472]]
-
-* An error dialog appears when you import a sample project twice [https://issues.redhat.com/browse/RHPAM-2434[RHPAM-2434]]
-
-* You cannot upload or download files that contain spaces or ampersands (`&`) in name [https://issues.redhat.com/browse/RHPAM-2368[RHPAM-2368]]
-
-* Performance issues occur when you open assets with Project Explorer [https://issues.redhat.com/browse/RHPAM-2359[RHPAM-2359]]
-
-* Roles permissions do persisted and can reset after some time [https://issues.redhat.com/browse/RHPAM-2342[RHPAM-2342]]
-
-* JavaScript error when trying to modify action columns in guided decision table [https://issues.redhat.com/browse/RHPAM-2286[RHPAM-2286]]
-
-* The default runtime strategy of the New Deployment Unit wizard should be set as in `kie-deployment-descriptor.xml` [https://issues.redhat.com/browse/RHPAM-2119[RHPAM-2119]]
 
 * Process designer performance degradation occurs for large processes [https://issues.redhat.com/browse/RHPAM-1976[RHPAM-1976]]
 
 * The *Manage section* filter tag displays the raw query instead of the named filter [https://issues.redhat.com/browse/RHPAM-1194[RHPAM-1194]]
 
 * A form modeler error occurs after you click *New Instance* in the *MultipleSubForm Field properties* window [https://issues.redhat.com/browse/RHPAM-1027[RHPAM-1027]]
-
-== High availability
-* Indexing in High-availability {CENTRAL} repeatedly creates threads that cause a {CENTRAL} pod to fail [https://issues.redhat.com/browse/RHPAM-2477[RHPAM-2477]]
-
-* {CENTRAL} imports a sample project several times [https://issues.redhat.com/browse/RHPAM-2372[RHPAM-2372]]
-
-* A `TimeoutException` occurs when you log in to clustered {CENTRAL} [https://issues.redhat.com/browse/RHPAM-1749[RHPAM-1749]]
-
-== {OPENSHIFT}
-* It is not possible to build a High Availability Complex Image Processing image because of a microdnf bug [https://issues.redhat.com/browse/RHPAM-2500[RHPAM-2500]]
-
-* Add AMQ support to the Operator installer UI [https://issues.redhat.com/browse/RHPAM-2205[RHPAM-2205]]
 
 == Process engine
 * A `GlobalTimerService.timerJobsPerSession` leak occurs with the `StartProcess` timer [https://issues.redhat.com/browse/RHPAM-2479[RHPAM-2479]]
@@ -83,11 +57,32 @@ ifdef::DM[]
 
 == {CENTRAL}
 
+* Cloning from a remote git repostory that requires credentials does not work [https://issues.redhat.com/browse/RHPAM-2531[RHPAM-2531]]
+
+* An error dialog appears when you import a sample project twice [https://issues.redhat.com/browse/RHPAM-2434[RHPAM-2434]]
+
+* You cannot upload or download files that contain spaces or ampersands (`&`) in name [https://issues.redhat.com/browse/RHPAM-2368[RHPAM-2368]]
+
+* Performance issues occur when you open assets with Project Explorer [https://issues.redhat.com/browse/RHPAM-2359[RHPAM-2359]]
+
+* Roles permissions do not persist and can reset after some time [https://issues.redhat.com/browse/RHPAM-2342[RHPAM-2342]]
+
+* JavaScript error when trying to modify action columns in guided decision table [https://issues.redhat.com/browse/RHPAM-2286[RHPAM-2286]]
+
+* The default runtime strategy of the New Deployment Unit wizard should be set as in `kie-deployment-descriptor.xml` [https://issues.redhat.com/browse/RHPAM-2119[RHPAM-2119]]
+
 * In the DMN Designer, validation does not report a non-existing operator [https://issues.redhat.com/browse/RHDM-1119[RHDM-1119]]
 
 * Suggested values for DMN context expressions in test scenarios are wrong [https://issues.redhat.com/browse/RHDM-1116[RHDM-1116]]
 
 * On Windows, when the user name contains special characters, an error occurs during logging in [https://issues.redhat.com/browse/RHDM-813[RHDM-813]]
+
+== High availability
+* Indexing in High-availability {CENTRAL} repeatedly creates threads that cause a {CENTRAL} pod to fail [https://issues.redhat.com/browse/RHPAM-2477[RHPAM-2477]]
+
+* {CENTRAL} imports a sample project several times [https://issues.redhat.com/browse/RHPAM-2372[RHPAM-2372]]
+
+* A `TimeoutException` occurs when you log in to clustered {CENTRAL} [https://issues.redhat.com/browse/RHPAM-1749[RHPAM-1749]]
 
 == {KIE_SERVER}
 
@@ -98,6 +93,10 @@ ifdef::DM[]
 * When you delete a decision service, all associated decisions are also deleted [https://issues.redhat.com/browse/RHDM-970[RHDM-970]]
 
 == {OPENSHIFT}
+
+* It is not possible to build a High Availability Complex Image Processing image because of a microdnf bug [https://issues.redhat.com/browse/RHPAM-2500[RHPAM-2500]]
+
+* Add AMQ support to the Operator installer UI [https://issues.redhat.com/browse/RHPAM-2205[RHPAM-2205]]
 
 * Increase AMQ broker version to 7.5 in OpenShift templates [https://issues.redhat.com/browse/RHDM-1122[RHDM-1122]]
 
