@@ -172,7 +172,7 @@ Workaround: In the *Project Explorer* view, open the asset and click *Save*.
 
 == DMN designer
 
-.When you importi a data object from a Java class, fields that have the Java `Date` type are not converted to the DMN `date` type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
+.When you import a data object from a Java class, fields that have the Java `Date` type are not converted to the DMN `date` type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
 
 Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `Date` the resulting DMN field does not have the DMN `date` type.
 
