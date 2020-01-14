@@ -35,7 +35,7 @@ The following list provides a summary of generic error dialog enhancements:
 
 * When an error is generated, the error is logged in the server logs. You can fetch and retrieve the generated errors if required.
 * You can see the stack trace of the generated error in the popup itself.
-* To suppress the error notifications temporarily, you can select the *Don't show this message again for* checkbox and select the time duration from the dropdown. However, the error messages are still logged in the server logs.
+* To suppress the error notifications temporarily, select the *Don't show this message again for* checkbox and select the time duration from the drop-down list. However, the error messages are still logged in the server logs.
 * It provides an error ID to fetch the error details if required.
 
 === Decision Model and Notation (DMN) designer improvements
@@ -57,7 +57,7 @@ High-availability (HA) deployment of {CENTRAL} is now supported on premises (usi
 
 In {PRODUCT} version 7.6, HA deployment of {CENTRAL} is supported with certain limitations:
 
-* If a {CENTRAL} instance fails while a user works with it, the user can get an error message and then is redirected to another pod. If {CENTRAL} is configured to use Red Hat Single Sign-on, logging on again is not required. 
+* If a {CENTRAL} instance fails while a user is using it, the user might receive an error message. In this case, the user is redirected to another pod. If {CENTRAL} is configured to use Red Hat Single Sign-on, logging on again is not required. 
 
 * If a {CENTRAL} instance fails during a user operation, data that was not committed (saved) might be lost. 
 
