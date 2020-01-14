@@ -3,34 +3,46 @@
 
 This section lists known issues with {PRODUCT} {PRODUCT_VERSION}.
 
-ifdef::PAM[]
-
-== Installation
-
 == {CENTRAL}
 
-.In the DMN designer, when importing a data object from a Java class, a field of the Java Date type is not converted to the DMN date type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
+.When you add a deployment unit and manually enter GAV values, the runtime strategy is not set to the configured default value [https://issues.redhat.com/browse/RHPAM-2623[RHPAM-2623]]
 
-Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type Date, the resulting DMN field is not of a DMN date type.
+Issue: In {CENTRAL}, you can configure a default runtime strategy. However, when you add a new deployment unit and enter the group, artifact, and version values manually, the runtime strategy is not set to this configured default.
 
 Steps to reproduce:
 
-. Open a project in {CENTRAL}.
-. Add a Java data object.
-. Create a `java.util.Date` field in this object.
-. Save and close the Java class.
-. Open a DMN file.
-. Select the *Data Types* tab.
-. Click *Import Data Object*.
-. Select the Java class that you created.
-. Click *Import*.
-. Check the type of the field into which the `java.util.Date` field was converted.
+. Import the *Evaluation_Process* example in {CENTRAL}.
+. In the main menu, select *Settings* -> *Deployments* -> *General Settings*.
+. Change *Runtime Strategy* to `Per Process Instance`.
+. Click *Build&Install*.
+. In the main menu, select *Execution Servers* -> *Add Deployment Unit*.
+. Enter values into the following fields:
+** *Name*: `evaluation:evaluation:1.0.0-SNAPSHOT`
+** *Group Name*: `evaluation`
+** *Artifact Id*: `evaluation`
+** *Version*: `1.0.0-SNAPSHOT`
+. Click *Next* (the result is not changed if you click *Finish* instead, creating the unit immediately).
+. In the window, note that the *Runtime Strategy* is `Singleton`.
+. Click *Finish*.
+. Start the deployment.
+. When the deployment is complete, click the deployment link (for example, `http://localhost:8080/kie-server/services/rest/server/containers/evaluation:evaluation:1.0.0-SNAPSHOT`)
+. View the runtime strategy in the XML information displayed at the link, for example:
++
+---- 
+        <config-items>
+            <itemName>RuntimeStrategy</itemName>
+            <itemValue>SINGLETON</itemValue>
+            <itemType>BPM</itemType>
+        </config-items>
+----
 
-Expected result: The field has the type `date` or `date and time`.
+Expected result: The runtime strategy is `Per Process Instance`.
 
-Actual result: The field does ont have any of these two types.
+Actual result: The runtime strategy is `Singleton`.
 
-Workaround: Manually change the type of the field to `date` or `date and time`.
+Workaround: When you create a new deployment unit, select the artifact from the list without entering GAV values manually. Alternatively, manually select the runtime strategy when creating a new deployment unit.
+
+
 
 //approved by Barbora Siskova
 .You cannot start a task if the Elytron adapter is installed [https://issues.jboss.org/browse/RHPAM-2450[RHPAM-2450]]
@@ -57,8 +69,6 @@ Workaround: Use the legacy adapter instead of the Elytron adapter. Enter the fol
 ----
 
 
-ifdef::PAM[]
-
 //approved
 .In the guided rule editor, you cannot use the `is contained in comma separated list` constraint in combination with complex values [https://issues.jboss.org/browse/RHPAM-2457[RHPAM-2457]]
 
@@ -66,7 +76,24 @@ Issue: In the guided rule editor, you cannot use the `is contained in comma sepa
 
 Workaround: None.
 
-endif::[]
+.The state of a {KIE_SERVER} is not updated in the server template n {CENTRAL} after the server disconnects and reconnects to {CENTRAL} [https://issues.redhat.com/browse/RHPAM-2544[RHPAM-2544]]
+
+Issue: After a {KIE_SERVER} disconnects and reconnects to {CENTRAL}, the state of this server in the server template in {CENTRAL} is not updated. For example, if the {KIE_SERVER} is switched from development mode into production mode, {CENTRAL} does not recognize the change.
+
+Steps to reproduce:
+
+. Ensure a {KIE_SERVER} is connected to {CENTRAL} and set to development mode.
+. Shut down the {KIE_SERVER}.
+. Reconfigure the {KIE_SERVER} to use production mode. Do not change other configuration settings.
+. Start the {KIE_SERVER}.
+. Deploy a service with a `SNAPSHOT` version onto the server template.
+
+Expected result: {CENTRAL} displays a message that the server is in production mode and the service can not be deployed.
+
+Actual result: The deployment starts and fails.
+
+Workaround: Manually delete the server template in {CENTRAL} before restarting the {SERVER}. Alternatively, change the name of the {SERVER} when you reconfigure it.
+
 
 == High availability
 
@@ -103,9 +130,145 @@ Issue: When you create an asset, the asset is not indexed. It is displayed in {C
 
 Workaround: In the *Project Explorer* view, open the asset and click *Save*.
 
+== DMN designer
+
+.When importing a data object from a Java class, a field of the Java Date type is not converted to the DMN date type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
+
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type Date, the resulting DMN field is not of a DMN date type.
+
+Steps to reproduce:
+
+. Open a project in {CENTRAL}.
+. Add a Java data object.
+. Create a `java.util.Date` field in this object.
+. Save and close the Java class.
+. Open a DMN file.
+. Select the *Data Types* tab.
+. Click *Import Data Object*.
+. Select the Java class that you created.
+. Click *Import*.
+. Check the type of the field into which the `java.util.Date` field was converted.
+
+Expected result: The field has the type `date` or `date and time`.
+
+Actual result: The field does not have any of these two types.
+
+Workaround: Manually change the type of the field to `date` or `date and time`.
+
+.When importing a data object from a Java class, a field of the Java List type is not converted to the DMN collection type [https://issues.redhat.com/browse/RHDM-1144[RHDM-1144]]
+
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type List, the resulting DMN field is not of a DMN collection type.
+
+Steps to reproduce:
+
+. Open a project in {CENTRAL}.
+. Add a Java data object.
+. Create a `List` field in this object.
+. Save and close the Java class.
+. Open a DMN file.
+. Select the *Data Types* tab.
+. Click *Import Data Object*.
+. Select the Java class that you created.
+. Click *Import*.
+. Check the type of the field into which the `List` field was converted.
+
+Expected result: The field has the type `collection`.
+
+Actual result: The field does not have this type.
+
+Workaround: Manually change the type of the field to `collection`.
+
+
+.When you change a decision table header in the properties panel, the change is not saved [https://issues.redhat.com/browse/RHDM-1181[RHDM-1181]]
+
+Issue: In the DMN designer, when editing a decision table, you can click a header to view its properties panel. However, if you change settings for the header in the properties panel, the change is not saved.
+
+Steps to reproduce:
+
+. Edit a decision table in an element in the process designer.
+. Click a header in the table.
+. Change a field, such as *Input expression*, in the properties panel on the right side of the screen.
+
+Expected result: The change is reflected in the table.
+
+Actual result: The change is not reflected in the table.
+
+Workaround: Click the header to view the pop-up window next to the header. Edit the settings in this window.
+
+.When you open a DMN diagram without layout information, nodes are all in the same position[https://issues.redhat.com/browse/RHDM-1150[RHDM-1150]]
+
+Issue: When you open a DMN model file and this file does not contain layout information, all DMN nodes are displayed in the same position.
+
+Steps to reproduce:
+
+. Open or create a project in {CENTRAL}.
+. Import a DMN model file that does not contain layout information.
+
+Expected result: The nodes are spread across the canvas.
+
+Actual result: All nodes are in the same position.
+
+Workaround: Click the automatic layout buttin in the toolbar.
+
+
 ifdef::PAM[]
 
 == Process designer
+
+.If the properties panel is opened, after you maximize and restore the panel, it closes [https://issues.redhat.com/browse/RHPAM-2613[RHPAM-2613]]
+
+Issue: If the properties panel for a process is open and then you maximize and restore the panel, it closes.
+
+Steps to reproduce:
+
+. Create a process.
+. Open the properties panel for the process.
+. Click the image:ReleaseNotes/maximize-button.png[] *Maximize* button to maximize the panel to the size of the entire screen.
+. Click the image:ReleaseNotes/min`imize-button.png[] *Maximize* button to restore the panel to its previous size.
+
+Expected result: The properties panel remains open.
+
+Actual result: The properties panel closes.
+
+Workaround: Open the properties panel again.
+
+.If the properties panel is opened, after you switch to a different view, the panel closes [https://issues.redhat.com/browse/RHPAM-2612[RHPAM-2612]]
+
+Issue: If the properties panel for a process is open and you switch to a different view, the panel closes.
+
+Steps to reproduce:
+
+. Create a process.
+. Open the properties panel for the process.
+. Switch the view in one of the following ways:
+** Click the process name in the breadcrumb trail in the top part of the window
+** Click the process in a drop-down menu
+** Switch to the *Documentation* tab and then switch back to the *Model* tab.
+
+Expected result: The properties panel remains open.
+
+Actual result: The properties panel closes.
+
+Workaround: Open the properties panel again.
+
+.When you create a gateway, options for the *Default route* property might not be available [https://issues.redhat.com/browse/RHPAM-2536[RHPAM-2536]]
+
+Issue: In some cases, when you create a gateway, no options are available in the drop-down list for the *Default route* option.
+
+Steps to reproduce:
+
+. Create a process with a parallel gateway.
+. Append several nodes to the parallel gateway.
+. Morph the parallel gateway into an exclusive gateway.
+. Click the *Default route* option of the new exclusive gateway.
+
+Expected result: The drop-down list contains all the nodes that follow the gateway.
+
+Actual result: The drop-down list is empty.
+
+Workaround: Deactivate the gateway and activate it again. Alternatively, save and reopen the process.
+
+
 
 //approved
 .If you try to migrate a process with a sequence flow without the source and target nodes set, you should receive a warning message, but you do not [https://issues.jboss.org/browse/RHPAM-2453[RHPAM-2453]]
@@ -159,6 +322,24 @@ Workaround: None.
 
 
 endif::[]
+
+== Process instance migration
+
+.The process instance migration service does not work with an Oracle database [https://issues.redhat.com/browse/RHPAM-2558[RHPAM-2558]]
+
+Problem: The process instance migration service fails to start when configured to use an Oracle database.
+
+Steps to reproduce:
+
+. Configure the process migration service to use an Oracle database.
+. Start the process migration service.
+
+Expected result: The process migration service starts.
+
+Actual result: The process migration service fails to start.
+
+Workaround: Configure the process migration service to use a database on a non-Oracle database server.
+
 
 == {OPENSHIFT}
 
