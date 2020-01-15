@@ -12,20 +12,20 @@ Issue: In {CENTRAL}, you can configure a default runtime strategy. However, when
 Steps to reproduce:
 
 . Import the *Evaluation_Process* sample project into {CENTRAL}.
-. Click the *Settings* icon and then select *General Settings* -> *Deployments*.
+. In the project window, click *Settings* and then select *Deployments* -> *General Settings*.
 . Change *Runtime Strategy* to `Per Process Instance`.
-. Click *Build&Install*.
+. Click the drop-down list next to the *Build* button and select *Build & Install*.
 . In the main menu, select *Deploy* -> *Execution Servers* and then click *Add Deployment Unit*.
-. Enter values into the following fields:
+. Enter the values in the following list into the corresponding fields:
 ** *Name*: `evaluation:evaluation:1.0.0-SNAPSHOT`
 ** *Group Name*: `evaluation`
 ** *Artifact Id*: `evaluation`
 ** *Version*: `1.0.0-SNAPSHOT`
-. Click *Next* (if you click *Finish* at this stage, the result is not changed).
+. Click *Next*. If you click *Finish* at this stage, the result will not be changed.
 . In the window that appears, note that the runtime strategy is `Singleton`.
 . Click *Finish*.
 . Start the deployment.
-. When the deployment has completed, click the deployment link, for example, `\http://localhost:8080/kie-server/services/rest/server/containers/evaluation:evaluation:1.0.0-SNAPSHOT`)
+. When the deployment has completed, click the deployment link, for example, `\http://localhost:8080/kie-server/services/rest/server/containers/evaluation:evaluation:1.0.0-SNAPSHOT`.
 . View the runtime strategy in the XML information displayed at the link, for example:
 +
 ---- 
@@ -176,7 +176,7 @@ Workaround: In the *Project Explorer* view, open the asset and click *Save*.
 
 .When you import a data object from a Java class, fields that have the Java `Date` type are not converted to the DMN `date` type [https://issues.redhat.com/browse/RHDM-1145[RHDM-1145]]
 
-Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `Date` the resulting DMN field does not have the DMN `date` type.
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `Date`, the resulting DMN field does not have the DMN `date` type.
 
 Steps to reproduce:
 
@@ -199,7 +199,7 @@ Workaround: Manually change the type of the field to `date` or `date and time`.
 
 .When you import a data object from a Java class, a field of the Java `List` type is not converted to the DMN `collection` type [https://issues.redhat.com/browse/RHDM-1144[RHDM-1144]]
 
-Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `List` the resulting DMN field does not have the DMN `collection` type.
+Issue: When you use DMN designer to import a data object from a Java class and the class has a field of type `List`, the resulting DMN field does not have the DMN `collection` type.
 
 Steps to reproduce:
 
@@ -257,7 +257,7 @@ ifdef::PAM[]
 
 == Process designer
 
-.If the process designer *Properties* panel is opened and you maximize and then restore the panel, it closes [https://issues.redhat.com/browse/RHPAM-2613[RHPAM-2613]]
+.If the process designer *Properties* panel is open and you maximize and then restore the panel, it closes [https://issues.redhat.com/browse/RHPAM-2613[RHPAM-2613]]
 
 Issue: If the process designer *Properties* panel is open and then you maximize and restore the panel, it closes.
 
@@ -266,8 +266,8 @@ Steps to reproduce:
 . Open the process designer.
 . In the process designer, create and save a business process.
 . Open the process designer *Properties* panel.
-. Click the image:ReleaseNotes/maximize-button.png[] *Maximize* button to maximize the panel to the size of the entire screen.
-. Click the image:ReleaseNotes/minimize-button.png[] *Maximize* button to restore the panel to its previous size.
+. Click the image:ReleaseNotes/maximize-button.png[] *Maximize* button to maximize the process designer panel to the size of the entire screen.
+. Click the image:ReleaseNotes/minimize-button.png[] *Minimize* button to restore the process designer panel to its previous size.
 
 Expected result: The *Properties* panel remains open.
 
@@ -275,7 +275,7 @@ Actual result: The *Properties* panel is closed.
 
 Workaround: Open the *Properties* panel again.
 
-.If the process designer *Properties* panel and you switch to a different view, the panel closes [https://issues.redhat.com/browse/RHPAM-2612[RHPAM-2612]]
+.If the process designer *Properties* panel is open and you switch to a different view, the panel closes [https://issues.redhat.com/browse/RHPAM-2612[RHPAM-2612]]
 
 Issue: If the process designer *Properties* panel is open and you switch to a different view, the panel closes.
 
@@ -297,14 +297,14 @@ Workaround: Open the *Properties* panel again.
 
 .When you create a gateway, no options are available from the *Default route* drop-down list in the *Properties* panel [https://issues.redhat.com/browse/RHPAM-2536[RHPAM-2536]]
 
-Issue: In some cases, when you create a gateway, no options are available from the *Default route* drop-down list in the *Properties* panel.
+Issue: In some cases, when you create a gateway no options are available from the *Default Route* drop-down list in the *Properties* panel.
 
 Steps to reproduce:
 
 . Create a process with a parallel gateway.
 . Append several nodes to the parallel gateway.
 . Convert the parallel gateway into an exclusive gateway.
-. Select the gateway and click the *Default route* option in the *Properties* panel.
+. Select the gateway and click the *Default Route* option in the *Properties* panel.
 
 Expected result: The drop-down list contains all of the nodes that follow the gateway.
 

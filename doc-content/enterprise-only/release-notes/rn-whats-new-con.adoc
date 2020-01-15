@@ -24,7 +24,7 @@ If you configured service tasks in the administration menu of {CENTRAL}, you can
 
 The test scenarios designer in {CENTRAL} is now available with the new features supported in {PRODUCT} {PRODUCT_VERSION}.
 
-* If the same data is shared by multiple test scenarios, you can use the *Background* tab to define them once for rules-based as well as DMN-based test scenarios. You can add and define the `GIVEN` data which is common for the dedicated test scenario simulation, based on the available data objects.
+* If the same data is shared by multiple test scenarios, you can use the *Background* tab to define them once for rules-based as well as DMN-based test scenarios. You can add and define the `GIVEN` data, which is common for the dedicated test scenario simulation, based on the available data objects.
 
 * In rule-based test scenarios, you can use the MVEL expression with the prefix *#* to call a java method to a property or instance header cell during test scenarios execution.  
 
@@ -89,7 +89,7 @@ For more information about case management support in process designer, see the 
 You can now assign required security roles for specific types of operations, for example `execute` or `view`, on a process.
 endif::PAM[]
 
-== API support for requesting all sub-cases that belong to a parent case
+=== API support for requesting all sub-cases that belong to a parent case
 
 In the process engine, when using case management, you can now use the API to request a list of all sub-cases immediately belonging to a parent case or a list of sub-cases belonging to a parent case and to all its sub-cases.
 
