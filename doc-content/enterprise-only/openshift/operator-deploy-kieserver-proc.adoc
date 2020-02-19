@@ -63,6 +63,11 @@ complete the following additional steps:
 * *AMQ Queues*: AMQ queue names, separated by commas. These queues are automatically created when the broker starts and are accessible as JNDI resources in the JBoss EAP server. If you are using any custom queue names, you must enter the names of all the queues uses by the server in this field.
 * *Enable SSL integration*: Select this setting if you want to use an SSL connection to the AMQ broker. In this case you must also provide the name of the secret that you created in <<secrets-amq-create-proc>> and the names and passwords of the key store and trust store that you used for the secret. 
 ifdef::PAM[]
+. If you want to customize the configuration of the Java virtual machine on the {KIE_SERVER} pods, select the *Enable JVM configuration* box and then enter information in any of the following fields under *Enable JVM configuration*. All fields are optional.
+.. *Java Opts Append*: Specify any valid JVM options in this field.
+.. *Java max memory ratio*: The maximum percentage of container memory that can be used for the Java Virtual Machine for the {KIE_SERVER}. The remaining memory is used for the operating system. The default value is `50`, for a limit of 50%.
+.. *Java initial memory ratio*: The percentage of container memory that is initially used for the Java Virtual Machine for the {KIE_SERVER}. The default value is `25`, so 25% of the pod memory is initially allocated for the JVM if this value does not exceed the *Java Max Initial Memory* value.
+.. *Java max initial memory*: The maximum amount of memory, in megabytes, that can be initially used for the Java Virtual Machine for the {KIE_SERVER}. If the initial allocated memory, as set in the *Java initial memory ratio* parameter, would otherwise be greater than this value, the amount of memory set in this value is allocated. The default value is `4096`.
 . Select the database that the {KIE_SERVER} must use. The following values are available:
 ** `mysql`: A MySQL server, created in a separate pod.
 ** `postgresql`: A PostgreSQL server, created in a separate pod. Use this setting unless you have a specific reason to use any other setting.
