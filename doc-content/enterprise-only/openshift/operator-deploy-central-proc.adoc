@@ -20,13 +20,7 @@ endif::DM[]
 .. In the fields under *GitHooks Configuration object*, select the *Kind* of the object that provides the file (`ConfigMap`, `Secret`, or `PersistentVolumeClaim`) and enter the *Name* of the object. This object is automatically mounted on the {CENTRAL} pods in the path that you specified for the Git hooks directory.
 . Optionally, enter the number of replicas for {CENTRAL} or {CENTRAL} monitoring in the *Replicas* field. Do not change this number in a `{PRODUCT_INIT}-authoring` environment.
 . Optionally, enter requested and maximum CPU and memory limits in the fields under *Resource quotas*.
-. If you want to customize the configuration of the Java virtual machine on the {CENTRAL} pods, select the *Enable JVM configuration* box and then enter information in any of the following fields under *Enable JVM configuration*. All fields are optional.
-.. *Java Opts Append*: Specify any valid JVM options in this field.
-.. *Java max memory ratio*: The maximum percentage of container memory that can be used for the Java Virtual Machine for {CENTRAL}. The remaining memory is used for the operating system. The default value is `50`, for a limit of 50%.
-.. *Java initial memory ratio*: The percentage of container memory that is initially used for the Java Virtual Machine for {CENTRAL}. The default value is `25`, so 25% of the pod memory is initially allocated for the JVM if this value does not exceed the *Java Max Initial Memory* value.
-.. *Java max initial memory*: The maximum amount of memory, in megabytes, that can be initially used for the Java Virtual Machine for {CENTRAL}. If the initial allocated memory, as set in the *Java initial memory ratio* parameter, would otherwise be greater than this value, the amount of memory set in this value is allocated. The default value is `4096`.
-.. *Java diagnostics* and *Java debug* settings are intended for debugging Java code. Do not use these settings for {CENTRAL} unless directed by Red Hat support.
-.. *Container core limit* and *
+. If you want to customize the configuration of the Java virtual machine on the {CENTRAL} pods, select the *Enable JVM configuration* box and then enter information in any of the fields under *Enable JVM configuration*. All fields are optional. For the JVM parameters that you can configure, see <<jvm-settings-ref>>.
 . If you selected RH-SSO authentication, configure RH-SSO for {CENTRAL}:
 .. Enter the client name in the *Client name* field and the client secret in the *Client secret* field. If a client with this name does not exist, the deployment attempts to create a new client with this name and secret.
 .. If the deployment is to create a new client, enter the HTTP and HTTPS URLs that will be used for accessing the {KIE_SERVER} into the *SSO HTTP URL* and *SSO HTTPS URL* fields. This information is recorded in the client.

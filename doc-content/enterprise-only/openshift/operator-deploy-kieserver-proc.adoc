@@ -26,16 +26,6 @@ complete the following additional steps:
 .. Click *Set KIE Server image*.
 .. If you want to use a Docker image name and not an OpenShift image stream tag, change the *Kind* value to `DockerImage`.
 .. Enter the name of the image stream in the *Name* field. 
-//ifdef::PAM[]
-//If you created a custom image for using an external database server other than MySQL or PostgreSQL, as described in <<externaldb-build-proc>>, enter the following value:
-//+
-//*** For Microsoft SQL Server, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mssql-openshift`
-//*** For MariaDB, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-mariadb-openshift`
-//*** For IBM DB2, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-db2-openshift`
-//*** For Oracle Database, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-oracle-openshift`
-//*** For Sybase, `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-sybase-openshift`
-//+
-//endif::PAM[]
 .. If the image stream is not in the `openshift` namespace, enter the namespace in the *Namespace* field.
 . If you want to configure an immutable {KIE_SERVER}, complete the following additional steps:
 .. Click *Set Immutable server configuration*.
@@ -63,24 +53,18 @@ complete the following additional steps:
 * *AMQ Queues*: AMQ queue names, separated by commas. These queues are automatically created when the broker starts and are accessible as JNDI resources in the JBoss EAP server. If you are using any custom queue names, you must enter the names of all the queues uses by the server in this field.
 * *Enable SSL integration*: Select this setting if you want to use an SSL connection to the AMQ broker. In this case you must also provide the name of the secret that you created in <<secrets-amq-create-proc>> and the names and passwords of the key store and trust store that you used for the secret. 
 ifdef::PAM[]
-. If you want to customize the configuration of the Java virtual machine on the {KIE_SERVER} pods, select the *Enable JVM configuration* box and then enter information in any of the following fields under *Enable JVM configuration*. All fields are optional.
-.. *Java Opts Append*: Specify any valid JVM options in this field.
-.. *Java max memory ratio*: The maximum percentage of container memory that can be used for the Java Virtual Machine for the {KIE_SERVER}. The remaining memory is used for the operating system. The default value is `50`, for a limit of 50%.
-.. *Java initial memory ratio*: The percentage of container memory that is initially used for the Java Virtual Machine for the {KIE_SERVER}. The default value is `25`, so 25% of the pod memory is initially allocated for the JVM if this value does not exceed the *Java Max Initial Memory* value.
-.. *Java max initial memory*: The maximum amount of memory, in megabytes, that can be initially used for the Java Virtual Machine for the {KIE_SERVER}. If the initial allocated memory, as set in the *Java initial memory ratio* parameter, would otherwise be greater than this value, the amount of memory set in this value is allocated. The default value is `4096`.
+. If you want to customize the configuration of the Java virtual machine on the {KIE_SERVER} pods, select the *Enable JVM configuration* box and then enter information in any of the fields under *Enable JVM configuration*. All fields are optional. For the JVM parameters that you can configure, see <<jvm-settings-ref>>.
 . Select the database that the {KIE_SERVER} must use. The following values are available:
 ** `mysql`: A MySQL server, created in a separate pod.
 ** `postgresql`: A PostgreSQL server, created in a separate pod. Use this setting unless you have a specific reason to use any other setting.
 ** `h2`: A built-in `h2` database engine that does not require a separate pod. Do not scale the {KIE_SERVER} pod if you use this setting.
 ** `external`: An external database server. 
-+
-[NOTE]
-====
-In {PRODUCT} {PRODUCT_VERSION}, when you deploy an environment using {operator_name}, only MySQL and PostgreSQL external database servers are supported.
-====
-+
-//If you use any database server except PostgreSQL or MySQL, you must provide a {KIE_SERVER} image with the database server driver according to instructions in <<externaldb-build-proc>>.
-. Optionally, in the *Size* field, enter the size of the persistence volume to create for the database server.
+. If you selected any database except `external`, a Persistent Volume Claim will be created to store the database. Optionally, in the *Size* field, enter the size of the persistence volume to create.
+. If you selected the `external` database and you want to use a database server except PostgreSQL or MySQL, you must provide a {KIE_SERVER} extension image with the database server driver according to instructions in <<externaldb-build-proc>>. To configure the {KIE_SERVER} to use this extension image, make the following changes:
+.. Select the *Enable extension image stream* box.
+.. In the *Extension image stream tag* field, enter the ImageStreamTag definition for the image that you created, for example, `jboss-kie-db2-extension-openshift-image:11.1.4.4`
+.. Optionally, in the *Extension image stream namespace* field, enter the namespace into which you pushed the image. If you do not enter any value in this field, the operator expects the image to be in the `openshift` namespace.
+.. Optionally, in the *Extension image install directory* field, enter the directory within the extensions image where the extensions are located. If you used the procedure in <<externaldb-build-proc>> to build the image, do not enter any value for this field.
 . If you selected an external database server, provide the following information in additional fields:
 .. *Driver*: Enter the database server driver, depending on the server type:
 +
