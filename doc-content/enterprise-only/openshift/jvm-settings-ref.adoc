@@ -2,7 +2,7 @@
 = JVM configuration parameters
 When deploying {PRODUCT} using the operator, you can optionally set a number of JVM configuration parameters for {CENTRAL} and {KIE_SERVERS}. These parameters set environment variables for the corresponding containers.
 
-The following table lists all JVM configuration parameters that you can set whe deploying {PRODUCT} using the operator. 
+The following table lists all JVM configuration parameters that you can set when deploying {PRODUCT} using the operator. 
 
 .JVM configuration parameters
 [cols="14%,26%,40%,20%", options="header"]
@@ -72,7 +72,7 @@ The following table lists all JVM configuration parameters that you can set whe 
 |`100`
 
 |GC_CONTAINER_OPTIONS 
-|Specify the Java garbage collector to use. You can use this parameter provide the JRE command-line options to specify the required GC. If you enter a value for this parameter, it overrides the use of the default JRE option, `-XX:+UseParallelOldGC`. 
+|Specify the Java garbage collector to use. You can use this parameter provide the JRE command-line options to specify the required garbage collector. If you enter a value for this parameter, it overrides the use of the default JRE option, `-XX:+UseParallelOldGC`. 
 |`-XX:+UseG1GC`
 
 |===

@@ -60,7 +60,7 @@ ifdef::PAM[]
 ** `h2`: A built-in `h2` database engine that does not require a separate pod. Do not scale the {KIE_SERVER} pod if you use this setting.
 ** `external`: An external database server. 
 . If you selected any database except `external`, a Persistent Volume Claim will be created to store the database. Optionally, in the *Size* field, enter the size of the persistence volume to create.
-. If you selected the `external` database and you want to use a database server except PostgreSQL or MySQL, you must provide a {KIE_SERVER} extension image with the database server driver according to instructions in <<externaldb-build-proc>>. To configure the {KIE_SERVER} to use this extension image, make the following changes:
+. If you selected the `external` database and you want to use any database server except PostgreSQL or MySQL, you must provide a {KIE_SERVER} extension image with the database server driver according to instructions in <<externaldb-build-proc>>. To configure the {KIE_SERVER} to use this extension image, make the following changes:
 .. Select the *Enable extension image stream* box.
 .. In the *Extension image stream tag* field, enter the ImageStreamTag definition for the image that you created, for example, `jboss-kie-db2-extension-openshift-image:11.1.4.4`
 .. Optionally, in the *Extension image stream namespace* field, enter the namespace into which you pushed the image. If you do not enter any value in this field, the operator expects the image to be in the `openshift` namespace.
