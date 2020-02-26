@@ -26,8 +26,8 @@ and other business assets.
 * For a high-availability deployment, the following resources are available on the OpenShift cluster:
 ** For the {CENTRAL} replicated pod, 8 gigabytes of memory and 2 CPU cores are required for each replica. Two replicas are created by default.
 ** For the {KIE_SERVER} replicated pod, 1 gigabyte of memory and 1 CPU core are required for each replica. Two replicas are created by default.
-** For the Red Hat Data Grid replicated pod, 2 gigabytes of memory and 1 CPU core are required for each replica. Two replicas are created by default.
 ** The Red Hat AMQ replicated pod uses the default resource limits configured on your cluster.
+** For the Red Hat Data Grid replicated pod, 2 gigabytes of memory and 1 CPU core are required for each replica. Two replicas are created by default.
 
 [NOTE]
 ====
@@ -66,8 +66,9 @@ include::{enterprise-dir}/openshift/readwritemany-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/environment-authoring-con.adoc[leveloffset=+1]
 include::{enterprise-dir}/openshift/authoring-deploy-assy.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/githooks-proc.adoc[leveloffset=+2]
-include::{enterprise-dir}/openshift/additional-server-managed-deploy-assy.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/rolemapping-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/startupstrategy-enable-proc.adoc[leveloffset=+2]
+include::{enterprise-dir}/openshift/additional-server-managed-deploy-assy.adoc[leveloffset=+2]
 include::{enterprise-dir}/installation/roles-users-con.adoc[leveloffset=+1]
 
 include::{enterprise-dir}/openshift/template-overview-con.adoc[leveloffset=+1]
