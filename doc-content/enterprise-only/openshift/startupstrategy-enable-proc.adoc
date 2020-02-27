@@ -1,7 +1,14 @@
 [id='startupstrategy-enable-proc']
 = Enabling the `OpenShiftStartupStrategy` setting to connect additional {KIE_SERVERS} to {CENTRAL}
 
-In an environment deployed using {PRODUCT} authoring templates, {CENTRAL} manages one {KIE_SERVER}. The server pod can be scaled, but all the copies execute the same services.
+In an environment deployed using {PRODUCT} authoring templates, {CENTRAL} manages one {KIE_SERVER}.  
+ifdef::PAM[]
+If you use the high-avalability authoring template or if you modified the single authoring template to use a database server other than an embedded H2 database, you
+endif::PAM[]
+ifdef::DM[]
+You
+endif::DM[]
+can scale the {KIE_SERVER} pod, but all the copies execute the same services.
 
 In order to connect additional {KIE_SERVERS} to {CENTRAL}, you must enable the `OpenShiftStartupStrategy` setting in the environment. With this setting, {CENTRAL} automatically discovers {KIE_SERVERS} in the same namespace and these {KIE_SERVERS} can be configured to connect to the {CENTRAL}.
 

@@ -2,6 +2,7 @@
 ifdef::PAM[]
 = Authoring environment
 You can deploy an environment for creating and modifying processes using {CENTRAL}. It consists of {CENTRAL} for the authoring work and {KIE_SERVER} for test execution of the processes. If necessary, you can connect additional {KIE_SERVERS} to the {CENTRAL}.
+
 endif::PAM[]
 ifdef::DM[]
 = Authoring or managed server environment
@@ -15,8 +16,8 @@ For {PRODUCT}, the procedures to deploy an authoring environment and a managed s
 
 If necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}. This environment can be a managed server environment for staging and production deployment of services. 
 
-To enable {CENTRAL} to connect to additional {KIE_SERVERS}, you need to enable the `OpenShiftStartupStrategy` setting. To enable this seting, you must complete an additional manual step after deploying the authoring environment template.
 endif::DM[]
+To enable {CENTRAL} to connect to additional {KIE_SERVERS}, you need to enable the `OpenShiftStartupStrategy` setting. To enable this seting, you must complete an additional manual step after deploying the authoring environment template.
 
 Depending on your needs, you can deploy either a single authoring environment template or a high-availability (HA) authoring environment template.
 
