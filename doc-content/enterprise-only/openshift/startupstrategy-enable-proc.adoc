@@ -10,7 +10,7 @@ You
 endif::DM[]
 can scale the {KIE_SERVER} pod, but all the copies execute the same services.
 
-In order to connect additional {KIE_SERVERS} to {CENTRAL}, you must enable the `OpenShiftStartupStrategy` setting in the environment. With this setting, {CENTRAL} automatically discovers {KIE_SERVERS} in the same namespace and these {KIE_SERVERS} can be configured to connect to the {CENTRAL}.
+If you want to connect additional {KIE_SERVERS} to {CENTRAL}, you must enable the `OpenShiftStartupStrategy` setting in the environment. With this setting, {CENTRAL} automatically discovers {KIE_SERVERS} in the same namespace and these {KIE_SERVERS} can be configured to connect to the {CENTRAL}.
 
 If you enable the `OpenShiftStartupStrategy` setting, an additional limitation applies to your environment. If a user is deploying a service to the {KIE_SERVER}, no user is able to deploy another service to the same {KIE_SERVER} until the first deployment completes. Because of this limitation, the `OpenShiftStartupStrategy` setting might not be suitable for some authoring environments. 
 

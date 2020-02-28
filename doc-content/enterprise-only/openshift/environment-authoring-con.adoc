@@ -17,13 +17,13 @@ For {PRODUCT}, the procedures to deploy an authoring environment and a managed s
 If necessary, you can deploy additional {KIE_SERVER} templates in the same namespace to create an environment with multiple {KIE_SERVERS}. This environment can be a managed server environment for staging and production deployment of services. 
 
 endif::DM[]
-To enable {CENTRAL} to connect to additional {KIE_SERVERS}, you need to enable the `OpenShiftStartupStrategy` setting. To enable this seting, you must complete an additional manual step after deploying the authoring environment template.
+To connect additional {KIE_SERVERS} to {CENTRAL}, enable the `OpenShiftStartupStrategy` setting. To enable this setting, you must complete an additional manual step after deploying the authoring environment template.
 
 Depending on your needs, you can deploy either a single authoring environment template or a high-availability (HA) authoring environment template.
 
 A single authoring environment contains two pods. One of the pods runs {CENTRAL}, the other runs {KIE_SERVER}. 
 ifdef::PAM[The {KIE_SERVER} by default includes an embedded H2 database engine.]
-This environment is most suitable for single-user authoring or when your OpenShift infrastructure has limited resources. Also, it does not require persistent volumes that support the `ReadWriteMany` access mode.
+This environment is most suitable for single-user authoring or when your OpenShift infrastructure has limited resources. It does not require persistent volumes that support the `ReadWriteMany` access mode.
 
 In a single authoring environment, you cannot scale {CENTRAL}. 
 ifdef::PAM[]
