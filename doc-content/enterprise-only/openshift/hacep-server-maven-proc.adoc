@@ -1,15 +1,14 @@
-[id='hacep-server-proc']
-= Implementing the HA CEP server
+[id='hacep-server-maven-proc']
+= Implementing the HA CEP server with a Maven repository for updating the KJAR service
 
-The high-availability (HA) CEP server runs on the {OPENSHIFT} environment. It includes all necessary {PRODUCT_DROOLS} rules and other code required to process events.
+You can implement the HA CEP server with a separate Maven repository and place your KJAR service in the repository. In this case, you can update the KJAR service at any time by updating it in the Maven repository and then updating the group, artifact, and version (GAV) values in an environment variable of the server pod.
 
 You must prepare the source, build it, and then deploy it on {OPENSHIFT}. 
-
-Alternatively, you can use a different process to deploy the HA CEP server where you can update the KJAR service at any time. For instructions about this process, see <<hacep-server-maven-proc>>.
 
 .Prerequisites
 
 * You are logged into the project with administrator privilege using the `oc` command-line tool.
+* You configured a Maven repository that is accessible from your {OPENSHIFT} environment.
 
 .Procedure
 
@@ -17,11 +16,22 @@ Alternatively, you can use a different process to deploy the HA CEP server where
 . Extract the contents of the file and then uncompress the `{PRODUCT_FILE}-openshift-drools-hacep-distribution.zip` file.
 . Change to the `openshift-drools-hacep-distribution/sources` directory.
 . Review and modify the server code based on the sample project in the `sample-hacep-project/sample-hacep-project-kjar` directory. The complex event processing logic is defined by the DRL rules in the `src/main/resources/org.drools.cep` subdirectory.
+. Edit the `pom.xml` file in your server project to remove the following dependency:
++
+----
+<dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>sample-hacep-project-kjar</artifactId>
+</dependency>
+----
++
 . Build the project using the standard Maven command:
 +
 ----
 mvn clean install -DskipTests
 ----
++
+Upload the resulting KJAR and any required dependencies to the Maven repository.
 +
 . Enable the OpenShift operator for Red Hat AMQ Streams and then create an AMQ Streams (kafka) cluster in the project. For information about installing Red Hat AMQ Streams, see https://access.redhat.com/documentation/en-us/red_hat_amq/7.5/html/using_amq_streams_on_openshift/[_Using AMQ Streams on OpenShift_].
 . To create the kafka topics that are required for operation of the server, remain in the `openshift-drools-hacep-distribution/sources` directory and run the following commands:
@@ -91,6 +101,26 @@ oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}
 image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-springboot:latest
 ----
 +
+. Under the `containers:` line and the `env:` line, set environment variables as in the following example:
++
+----
+containers:
+  - env:
+    - name: UPDATABLEKJAR
+      value: "true"
+    - name: KJARGAV
+      value: <GroupID>:<ArtifactID>:<Version>
+    - name: MAVEN_LOCAL_REPO
+      value: /app/.m2/repository
+    - name: MAVEN_MIRROR_URL
+      value: http://<nexus_url>/repository/maven-releases/
+    - name: MAVEN_SETTINGS_XML
+      value: /app/.m2/settings.xml
+----
++
+In this example, replace the value of the `KJARGAV` variable with the group, artifavt and version (GAV) of your KJAR service and the value of the `MAVEN_MIRROR_URL` variable with the URL to the Maven repository that contains your KJAR service.
++
+You can optionally set other variables. For a list of supported environment variables, see <<hacep-server-environment-ref>>.
 . Save the file.
 +
 . Enter the following command to deploy the image:
@@ -98,3 +128,15 @@ image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-spri
 ----
 oc apply -f kubernetes/deployment.yaml
 ----
++
+. To update the KJAR service at any later time, complete the following steps:
+.. Upload the new KJAR service to the Maven repository.
+.. Log in to the project with the `oc` command.
+.. Use the `oc get pods` command to detect the name of the pod in which the HA CEP server is running.
+.. Enter the following command:
++
+----
+oc set env pod/<podname> KJARGAV=<gav>
+----
++
+In this command, replace `<podname>` with the name of the pod and `<gav>` with the GAV of the new KJAR service.
