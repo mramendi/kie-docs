@@ -1,9 +1,9 @@
 [id='hacep-server-maven-proc']
 = Implementing the HA CEP server with a Maven repository for updating the KJAR service
 
-You can implement the HA CEP server with a separate Maven repository and place your KJAR service in the repository. In this case, you can update the KJAR service at any time by updating it in the Maven repository and then updating the group, artifact, and version (GAV) values in an environment variable of the server pod.
+You can implement the HA CEP server that retrieves the KJAR service and all dependencies from a Maven repository that you provide. In this case, you can update the KJAR service at any time by updating it in the Maven repository and then updating the group, artifact, and version (GAV) values in an environment variable of the server pod.
 
-You must prepare the source, build it, and then deploy it on {OPENSHIFT}. 
+You must prepare the source, build it, and then deploy it on {OPENSHIFT}. You must set certain environment variables in the `deployment.yaml` file before deploying the server. To use a Maven repository, you must set the `UPDATABLEKJAR` variable to `true`.
 
 .Prerequisites
 
@@ -94,7 +94,7 @@ oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}
 +
 . Open the `kubernetes/deployment.yaml` file in a text editor.
 . Replace the existing image URL with the result of the previous command.
-. Replace `<id_iser>` with the user ID that you entered in the Docker file in a previous step.
+. Replace `<id_user>` with the user ID that you entered in the Docker file in a previous step.
 . Remove all characters at the end of the line starting with the `@` symbol, then add `:latest` to  the line. For example: 
 +
 ----
@@ -128,15 +128,5 @@ You can optionally set other variables. For a list of supported environment vari
 ----
 oc apply -f kubernetes/deployment.yaml
 ----
-+
-. To update the KJAR service at any later time, complete the following steps:
-.. Upload the new KJAR service to the Maven repository.
-.. Log in to the project with the `oc` command.
-.. Use the `oc get pods` command to detect the name of the pod in which the HA CEP server is running.
-.. Enter the following command:
-+
-----
-oc set env pod/<podname> KJARGAV=<gav>
-----
-+
-In this command, replace `<podname>` with the name of the pod and `<gav>` with the GAV of the new KJAR service.
+
+For instructions about triggering a KJAR update from the client code, see <<hacep-client-proc>>.
