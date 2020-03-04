@@ -19,7 +19,9 @@ You must adapt your CEP client code to communicate with the HA CEP server image.
             producer.updateKJarGAV("org.kie:fake-jar:0.1-SNAPSHOT");
         }
 ----
-+ 
++
+You must ensure that a KJAR with the specified GAV is available in the Maven repository when this call is executed.
++
 . In the `sample-hacep-project/sample-hacep-project-client` directory, generate a keystore, using `password` as a password. Enter the following command:
 +
 ----
