@@ -118,7 +118,7 @@ containers:
       value: /app/.m2/settings.xml
 ----
 +
-In this example, replace the value of the `KJARGAV` variable with the group, artifavt and version (GAV) of your KJAR service and the value of the `MAVEN_MIRROR_URL` variable with the URL to the Maven repository that contains your KJAR service.
+In this example, replace the value of the `KJARGAV` variable with the group, artifact and version (GAV) of your KJAR service and the value of the `MAVEN_MIRROR_URL` variable with the URL to the Maven repository that contains your KJAR service.
 +
 You can optionally set other variables. For a list of supported environment variables, see <<hacep-server-environment-ref>>.
 . Save the file.

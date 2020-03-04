@@ -1,7 +1,7 @@
 [id='hacep-server-environment-ref']
 = Optional environment variables supported by the HA CEP server
 
-You can optionally set any of the following environment variables for a HA CEP server that is configured to use a Maven repository. You can use the `deployment.yaml` file to set the variables at deployment time. You can also use the `oc set env` command to set the variables at a later time. 
+You can optionally set any of the following environment variables for a HA CEP server that is configured to use a Maven repository. You can use the `deployment.yaml` file to set the variables at deployment time. 
 
 .Optional environment variables supported by the HA CEP server
 
@@ -29,7 +29,7 @@ You can optionally set any of the following environment variables for a HA CEP s
 |The location of a custom Maven `settings.xml` file to use
 |`/root/.m2/settings.xml`
 |`__prefix___MAVEN_MIRROR_ID`
-|Identifier to be used for the specified mirror. If ommitted, a unique ID is generated.
+|Identifier to be used for the specified mirror. If omitted, a unique ID is generated.
 |`internal-mirror`
 
 |`__prefix___MAVEN_MIRROR_OF` 
@@ -73,7 +73,7 @@ You can optionally set any of the following environment variables for a HA CEP s
 |`8080`
 
 |`__prefix___MAVEN_REPO_PRIVATE_KEY`
-|Local path toa private key for connecting to the Maven repository
+|Local path to a private key for connecting to the Maven repository
 |`${user.home}/.ssh/id_dsa`
 
 |`__prefix___MAVEN_REPO_PROTOCOL` 

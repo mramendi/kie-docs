@@ -16,7 +16,7 @@ You must adapt your CEP client code to communicate with the HA CEP server image.
         TopicsConfig envConfig = TopicsConfig.getDefaultTopicsConfig();
         Properties props = getProperties();
         try (RemoteStreamingKieSession producer = RemoteStreamingKieSession.create(props, envConfig)){
-            producer.updateKJarGAV("org.kie:fake-jar:0.1-SNAPSHOT");
+            producer.updateKJarGAV("org.kie:fake-jar:0.1");
         }
 ----
 +
