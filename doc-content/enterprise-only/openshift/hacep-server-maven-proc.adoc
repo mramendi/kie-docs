@@ -15,16 +15,7 @@ You must prepare the source, build it, and then deploy it on {OPENSHIFT}. You mu
 .  Download the `{PRODUCT_FILE}-reference-implementation.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
 . Extract the contents of the file and then uncompress the `{PRODUCT_FILE}-openshift-drools-hacep-distribution.zip` file.
 . Change to the `openshift-drools-hacep-distribution/sources` directory.
-. Review and modify the server code based on the sample project in the `sample-hacep-project/sample-hacep-project-kjar` directory. The complex event processing logic is defined by the DRL rules in the `src/main/resources/org.drools.cep` subdirectory.
-. Edit the `pom.xml` file in your server project to remove the following dependency:
-+
-----
-<dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>sample-hacep-project-kjar</artifactId>
-</dependency>
-----
-+
+. Review and modify the server code based on the sample project in the `sample-hacep-project/sample-hacep-project-kjar` directory. The complex event processing logic is defined by the DRL rules in the `src/main/resources/org/drools/cep` subdirectory.
 . Build the project using the standard Maven command:
 +
 ----
@@ -61,11 +52,20 @@ oc describe project <projectname>
 +
 In this command, replace `<projectname>` with the name of your project.
 +
-In the output of the commant, find lines that list `supplemental-groups` and `uid-range`, similar to the following example:
+In the output of the command, find lines that list `supplemental-groups` and `uid-range`, similar to the following example:
 +
 ----
 openshift.io/sa.scc.supplemental-groups=1000160000/10000
 openshift.io/sa.scc.uid-range=1000160000/10000
+----
++
+. In the `springboot` directory, edit the `pom.xml` file to remove the following dependency:
++
+----
+<dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>sample-hacep-project-kjar</artifactId>
+</dependency>
 ----
 +
 . In the `springboot` directory, edit the `Dockerfile` file. Find the following line:
