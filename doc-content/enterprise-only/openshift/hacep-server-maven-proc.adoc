@@ -42,7 +42,7 @@ oc create -f kubernetes/role.yaml
 oc create -f kubernetes/role-binding.yaml
 ----
 +
-For more information about configuring role-based access control in {OPENSHIFT}, see https://access.redhat.com/documentation/en-us/openshift_container_platform/4.1/html/authentication/using-rbac[Using RBAC to define and apply permissions] in the {OPENSHIFT} product documentation.
+For more information about configuring role-based access control in {OPENSHIFT}, see https://access.redhat.com/documentation/en-us/openshift_container_platform/4.3/html/authentication/using-rbac[Using RBAC to define and apply permissions] in the {OPENSHIFT} product documentation.
 +
 . Use the `oc` command to detect the valid values for the user ID and group ID that you must set in the Docker file. Enter the following command:
 +
