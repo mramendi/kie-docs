@@ -1,7 +1,7 @@
 [id='hacep-server-environment-ref']
 = Optional environment variables supported by the HA CEP server
 
-You can optionally set any of the following environment variables for a HA CEP server that is configured to use a Maven repository. You can use the `deployment.yaml` file to set the variables at deployment time. 
+Optionally, set any of the following environment variables for a HA CEP server that is configured to use a Maven repository. Use the `deployment.yaml` file to set the variables at deployment time. 
 
 .Optional environment variables supported by the HA CEP server
 

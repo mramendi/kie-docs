@@ -3,7 +3,7 @@
 
 You can implement the HA CEP server that retrieves the KJAR service and all dependencies from a Maven repository that you provide. In this case, you can update the KJAR service at any time by updating it in the Maven repository and then making a call from the client code.
 
-You must prepare the source, build it, and then deploy it on {OPENSHIFT}. You must set certain environment variables in the `deployment.yaml` file before deploying the server. To use a Maven repository, you must set the `UPDATABLEKJAR` variable to `true`.
+Prepare the source, build it, and then deploy it on {OPENSHIFT}. Set certain environment variables in the `deployment.yaml` file before deploying the server. To use a Maven repository, you must set the `UPDATABLEKJAR` variable to `true`.
 
 .Prerequisites
 
@@ -34,7 +34,7 @@ oc apply -f kafka-topics/kiesessioninfos.yaml
 oc apply -f kafka-topics/snapshot.yaml
 ----
 +
-. In order to enable application access to the ConfigMap that is used in the leader election, you must configure role-based access control. Change to the `springboot` directory and enter the following commands:
+. In order to enable application access to the ConfigMap that is used in the leader election, configure role-based access control. Change to the `springboot` directory and enter the following commands:
 +
 ----
 oc create -f kubernetes/service-account.yaml
@@ -73,7 +73,7 @@ openshift.io/sa.scc.uid-range=1000160000/10000
 ----
 RUN groupadd -r app -g <id_group> && useradd -u <id_user> -r -g app -m -d /app -s /sbin/nologin -c "App user" app && chmod 755 /app----
 ----
-In this line, replace `<id_group>` with a value in the `supplemental-groups` interval and `<id_user>` with a value in the `uid-range` interval, as detected i nthe previous step, similar to the following example:
+In this line, replace `<id_group>` with a value in the `supplemental-groups` interval and `<id_user>` with a value in the `uid-range` interval:
 +
 ----
 RUN groupadd -r app -g 1000160001 && useradd -u 1000160001 -r -g app -m -d /app -s /sbin/nologin -c "App user" app && chmod 755 /app
@@ -93,9 +93,9 @@ oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}
 ----
 +
 . Open the `kubernetes/deployment.yaml` file in a text editor.
+. Replace `<id_user>` with the user ID that you entered in the Docker file.
 . Replace the existing image URL with the result of the previous command.
-. Replace `<id_user>` with the user ID that you entered in the Docker file in a previous step.
-. Remove all characters at the end of the line starting with the `@` symbol, then add `:latest` to  the line. For example: 
+. Remove all characters at the end of the line starting with the `@` symbol, then add `:latest` to the line. For example: 
 +
 ----
 image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-springboot:latest
@@ -118,9 +118,9 @@ containers:
       value: /app/.m2/settings.xml
 ----
 +
-In this example, replace the value of the `KJARGAV` variable with the group, artifact and version (GAV) of your KJAR service and the value of the `MAVEN_MIRROR_URL` variable with the URL to the Maven repository that contains your KJAR service.
+In this example, replace the value of the `KJARGAV` variable with the group, artifact, and version (GAV) of your KJAR service and the value of the `MAVEN_MIRROR_URL` variable with the URL to the Maven repository that contains your KJAR service.
 +
-You can optionally set other variables. For a list of supported environment variables, see <<hacep-server-environment-ref>>.
+Optionally, set other variables. For a list of supported environment variables, see <<hacep-server-environment-ref>>.
 . Save the file.
 +
 . Enter the following command to deploy the image:

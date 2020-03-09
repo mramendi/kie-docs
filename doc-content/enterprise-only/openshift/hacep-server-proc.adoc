@@ -3,9 +3,9 @@
 
 The high-availability (HA) CEP server runs on the {OPENSHIFT} environment. It includes all necessary {PRODUCT_DROOLS} rules and other code required to process events.
 
-You must prepare the source, build it, and then deploy it on {OPENSHIFT}. 
+Prepare the source, build it, and then deploy it on {OPENSHIFT}. 
 
-Alternatively, you can use a different process to deploy the HA CEP server where you can update the KJAR service at any time. For instructions about this process, see <<hacep-server-maven-proc>>.
+Alternatively, use a different process to deploy the HA CEP server where you can update the KJAR service at any time. For instructions about this process, see <<hacep-server-maven-proc>>.
 
 .Prerequisites
 
@@ -33,7 +33,7 @@ oc apply -f kafka-topics/kiesessioninfos.yaml
 oc apply -f kafka-topics/snapshot.yaml
 ----
 +
-. In order to enable application access to the ConfigMap that is used in the leader election, you must configure role-based access control. Change to the `springboot` directory and enter the following commands:
+. In order to enable application access to the ConfigMap that is used in the leader election, configure role-based access control. Change to the `springboot` directory and enter the following commands:
 +
 ----
 oc create -f kubernetes/service-account.yaml
@@ -63,7 +63,7 @@ openshift.io/sa.scc.uid-range=1000160000/10000
 ----
 RUN groupadd -r app -g <id_group> && useradd -u <id_user> -r -g app -m -d /app -s /sbin/nologin -c "App user" app && chmod 755 /app----
 ----
-In this line, replace `<id_group>` with a value in the `supplemental-groups` interval and `<id_user>` with a value in the `uid-range` interval, as detected i nthe previous step, similar to the following example:
+In this line, replace `<id_group>` with a value in the `supplemental-groups` interval and `<id_user>` with a value in the `uid-range` interval:
 +
 ----
 RUN groupadd -r app -g 1000160001 && useradd -u 1000160001 -r -g app -m -d /app -s /sbin/nologin -c "App user" app && chmod 755 /app
@@ -83,9 +83,9 @@ oc get is/openshift-kie-springboot -o template --template='{{range .status.tags}
 ----
 +
 . Open the `kubernetes/deployment.yaml` file in a text editor.
+. Replace `<id_user>` with the user ID that you entered in the Docker file.
 . Replace the existing image URL with the result of the previous command.
-. Replace `<id_user>` with the user ID that you entered in the Docker file in a previous step.
-. Remove all characters at the end of the line starting with the `@` symbol, then add `:latest` to  the line. For example: 
+. Remove all characters at the end of the line starting with the `@` symbol, then add `:latest` to the line. For example: 
 +
 ----
 image: image-registry.openshift-image-registry.svc:5000/hacep/openshift-kie-springboot:latest
