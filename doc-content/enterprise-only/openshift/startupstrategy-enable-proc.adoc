@@ -20,7 +20,7 @@ Do not complete this procedure unless you want to connect additional {KIE_SERVER
 
 [NOTE]
 ====
-In {PRODUCT} version 7.7.0 only, the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring-ha.yaml` template did not enable the `OpenShiftStartupStrategy` setting. If you deployed this version, you must complete this procedure to enable the `OpenShiftStartupStrategy` setting. The high-availability authoring environment requires this setting for stable operation of a single {KIE_SERVER} or of multiple {KEY_SERVERS}.
+In {PRODUCT} version 7.7.0 only, the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-authoring-ha.yaml` template did not enable the `OpenShiftStartupStrategy` setting. If you deployed this version, you must complete this procedure to enable the `OpenShiftStartupStrategy` setting. The high-availability authoring environment requires this setting for stable operation of a single {KIE_SERVER} or of multiple {KIE_SERVERS}.
 ====
 
 
