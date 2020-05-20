@@ -47,9 +47,9 @@ In the current version of {PRODUCT}, an HA authoring environment is supported wi
 
 * If a {CENTRAL} pod crashes during creation of an asset, the asset might be created but not indexed, so it cannot be used. The user can open the asset in {CENTRAL} and save it again to make it indexed.
 
-* If a user is deploying a service to the {KIE_SERVER}, no user is able to deploy another service to the same {KIE_SERVER} until the first deployment completes. 
+* When a user deploys a service to the {KIE_SERVER}, the {KIE_SERVER} deployment is rolled out again. No user is able to deploy another service to the same {KIE_SERVER} until the roll-out completes. 
 
-In a a high-availability authoring environment you can also deploy additional managed or immutable {KIE_SERVERS}, if required. {CENTRAL} can automatically discover any {KIE_SERVERS} in the same namespace, including immutable {KIE_SERVERS} and managed {KIE_SERVERS}.
+In a high-availability authoring environment you can also deploy additional managed or immutable {KIE_SERVERS}, if required. {CENTRAL} can automatically discover any {KIE_SERVERS} in the same namespace, including immutable {KIE_SERVERS} and managed {KIE_SERVERS}.
 
 If you want to deploy additional managed or immutable {KIE_SERVERS} in a single authoring environment, you must complete an additional manual step to enable the `OpenShiftStartupStrategy` setting in the environment, as described in <<startupstrategy-enable-proc>>. This setting enables discovery of other {KIE_SERVERS}.
 
