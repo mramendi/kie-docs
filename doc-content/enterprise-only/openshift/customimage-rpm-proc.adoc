@@ -1,0 +1,100 @@
+[id='customimage-rpm-proc']
+= Creating a custom {KIE_SERVER} image with an additional RPM package
+
+You can create a custom {KIE_SERVER} image where an additional RPM package is installed. You can push this image into your custom registry and then use it to deploy the {KIE_SERVER}.
+
+.Procedure
+
+. Download a supported {KIE_SERVER} base image by entering the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman pull registry.redhat.io/{PRODUCT_INIT}-7/_image_name_:{ENTERPRISE_VERSION_LONG}
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman pull registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
+----
++
+You can use one of the following images: (LIST TO BE ADDED)
++
+. Acquire the RPM package. This package must install on a Red Hat Enterprise Linux 8 system. For this example we use the `busybox` package from Fedora 30, which installs on Red Hat Enterprise Linux 8:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+wget \https://download-cc-rdu01.fedoraproject.org/pub/fedora/linux/releases/30/Everything/x86_64/os/Packages/b/busybox-1.28.3-3.fc30.x86_64.rpm
+----
++
+. Create a `Dockerfile` that defines a custom image based on the base image. The file must copy the RPM file and install it. The following example shows the content of the `Dockerfile` file:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:7.7.0
+COPY busybox-1.28.3-3.fc30.x86_64.rpm /tmp/
+USER root
+RUN rpm -ivh /tmp/busybox-1.28.3-3.fc30.x86_64.rpm
+RUN rm -f /tmp/busybox-1.28.3-3.fc30.x86_64.rpm
+USER 185
+----
++
+Replace the names of the base image and the RPM file as necessary.
++
+. Build the custom image using the `Dockerfile`. Supply the fully qualified name for the image, including the registry name. You must use the same version tag as the version of the base image. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman build . --tag _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} 
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman build . --tag registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
+----
++
+. After the build completes, run the image and log into it in order to check that the RPM package is installed. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman run -it --rm _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} /bin/bash
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman run -it --rm registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG} /bin/bash
+----
++
+In the shell prompt for the image, enter the command to test that the RPM is installed, then enter `exit`. For example, for `busybox`:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+[jboss@c2fab36b778e ~]$ which busybox
+/usr/sbin/busybox
+[jboss@c2fab36b778e ~]$ exit
+----
++
+. Push the custom image into your registry. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman push _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} docker://_registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG}
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman push registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG} docker://registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
+----
+
+.Next steps
+
+When deploying the {KIE_SERVER}, set the image name and namespace to point to the custom image in your registry. Click *Set KIE Server image*, change the *Kind* value to *DockerImage*, and then provide the image name including the registry name, but without the version tag, for example: `registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8`
+
+For instructions about deploying the {KIE_SERVER} using the operator, see <<operator-deploy-kieserver-proc>>.

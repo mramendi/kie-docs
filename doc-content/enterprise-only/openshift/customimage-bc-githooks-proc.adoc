@@ -1,0 +1,86 @@
+[id='customimage-bc-githooks-proc']
+= Creating a custom {CENTRAL} image with Git hooks
+
+You can create a custom {CENTRAL} image that embeds Git hooks. In an authoring environment, you can use Git hooks to facilitate interaction between the internal Git repository of {CENTRAL} and an external Git repository. 
+
+[NOTE]
+====
+You can also provide Git hooks using a persistent volume or configuration map. For instructions about this method of providing Git hooks, see <<operator-deploy-central-proc>>.
+====
+
+.Procedure
+
+. Prepare the necessary Git hooks script files. For this example we use one script file names `pre-commit`. You cam use as many files as necessary. Ensure that the script files have the execute permission set.
+. Download the supported {CENTRAL} base image by entering the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman pull registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-businesscentral-rhel8:{ENTERPRISE_VERSION_LONG}
+----
++
+. Create a `Dockerfile` that defines a custom image based on the base image. The file must copy the script files into the `/opt/kie/data/git/hooks/` directory. The following example shows the content of the `Dockerfile` file:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-businesscentral-rhel8:7.7.0
+COPY pre-commit /opt/kie/data/git/hooks/
+----
++
+. Build the custom image using the `Dockerfile`. Supply the fully qualified name for the image, including the registry name. You must use the same version tag as the version of the base image. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman build . --tag _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} 
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman build . --tag registry.example.com/custom/{PRODUCT_INIT}-businesscentral-rhel8:{ENTERPRISE_VERSION_LONG}
+----
++
+. After the build completes, run the image and log into it in order to check that the Git hooks files are present. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman run -it --rm _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} /bin/bash
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman run -it --rm registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG} /bin/bash
+----
++
+In the shell prompt for the image, list the contents of the `/opt/kie/data/git/hooks/` directory:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+[jboss@c2fab36b778e ~]$ ls /opt/kie/data/git/hooks/
+pre-commit
+[jboss@c2fab36b778e ~]$ exit
+----
++
+. Push the custom image into your registry. Enter the following command:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman push _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} docker://_registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG}
+----
++
+For example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+podman push registry.example.com/custom/{PRODUCT_INIT}-businesscentral-rhel8:{ENTERPRISE_VERSION_LONG} docker://registry.example.com/custom/{PRODUCT_INIT}-businesscentral-rhel8:{ENTERPRISE_VERSION_LONG}
+----
+
+.Next steps
+
+When deploying {CENTRAL} using the operator, set the image name and namespace to point to the custom image in your registry. Click *Set KIE Server image*, change the *Kind* value to *DockerImage*, and then provide the image name including the registry name, but without the version tag, for example: `registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8`.
+
+During the same deployment, under *GitHooks*, in the *Mount path* field enter `/opt/kie/data/git/hooks/`. Do not enter anything in the fields under *GitHooks Configuration object*.
+
+For instructions about deploying the {CENTRAL} using the operator, see <<operator-deploy-central-proc>>.
