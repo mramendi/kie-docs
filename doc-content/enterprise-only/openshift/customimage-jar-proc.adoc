@@ -1,4 +1,6 @@
 [id='customimage-jar-proc']
+:componentimage: kieserver
+:component: {KIE_SERVER}
 = Creating a custom {KIE_SERVER} image with an additional JAR file
 
 You can create a custom {KIE_SERVER} image where an additional JAR file (or several JAR files) is installed to extend the capabilities of the server. You can push this image into your custom registry and then use it to deploy the {KIE_SERVER}.
@@ -9,22 +11,7 @@ You can create a custom {KIE_SERVER} image where an additional JAR file (or seve
 ** https://developers.redhat.com/blog/2019/10/31/domain-specific-prometheus-metrics-with-red-hat-process-automation-manager-and-decision-manager/[Domain-specific Prometheus metrics with Red Hat Process Automation Manager and Decision Manager]
 ** http://mswiderski.blogspot.com/2015/12/kie-server-extend-kie-server-with.html[Extend KIE Server with additional transport]
 . Build the library using Maven, so that the JAR file is placed in the `target` directory. For this example, we use the `custom-kieserver-ext-1.0.0.Final.jar` file name.
-. Download a supported {KIE_SERVER} base image by entering the following command:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman pull registry.redhat.io/{PRODUCT_INIT}-7/_image_name_:{ENTERPRISE_VERSION_LONG}
-----
-+
-For example:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman pull registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
-----
-+
-You can use one of the following images: (LIST TO BE ADDED)
-+
+include::customimage-download-step.adoc[]
 . Create a `Dockerfile` that defines a custom image based on the base image. The file must copy the JAR file (or several JAR files) into the `/opt/eap/standalone/deployments/ROOT.war/WEB-INF/lib/` directory. The following example shows the content of the `Dockerfile` file:
 +
 [subs="attributes,verbatim,macros,quotes"]
@@ -33,36 +20,11 @@ FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:7.7.0
 COPY target/custom-kieserver-ext-1.0.0.Final.jar /opt/eap/standalone/deployments/ROOT.war/WEB-INF/lib/
 ----
 +
-. Build the custom image using the `Dockerfile`. Supply the fully qualified name for the image, including the registry name. You must use the same version tag as the version of the base image. Enter the following command:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman build . --tag _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} 
-----
-+
-For example:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman build . --tag registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
-----
-+
-. Push the custom image into your registry. Enter the following command:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman push _registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG} docker://_registry_address_/_image_name_:{ENTERPRISE_VERSION_LONG}
-----
-+
-For example:
-+
-[subs="attributes,verbatim,macros,quotes"]
-----
-podman push registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG} docker://registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
-----
+include::customimage-build-step.adoc[]
+include::customimage-push-step.adoc[]
 
 .Next steps
 
-When deploying the {KIE_SERVER}, set the image name and namespace to point to the custom image in your registry. Click *Set KIE Server image*, change the *Kind* value to *DockerImage*, and then provide the image name including the registry name, but without the version tag, for example: `registry.example.com/custom/{PRODUCT_INIT}-kieserver-rhel8`
+include::customimage-nextsteps.adoc[]
 
 For instructions about deploying the {KIE_SERVER} using the operator, see <<operator-deploy-kieserver-proc>>.
