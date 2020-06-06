@@ -1,4 +1,4 @@
-. After the build completes, run the image, log into it, and verify that the customization was successful. Enter the following command:
+. After the build completes, run the image, log in to it, and verify that the customization was successful. Enter the following command:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----

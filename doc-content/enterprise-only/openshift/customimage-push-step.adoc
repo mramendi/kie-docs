@@ -1,4 +1,4 @@
-. Push the custom image into your registry. Enter the following command:
+. To push the custom image into your registry, enter the following command:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----

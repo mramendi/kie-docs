@@ -1,4 +1,4 @@
-. Build the custom image using the `Dockerfile`. Supply the fully qualified name for the image, including the registry name. You must use the same version tag as the version of the base image. Enter the following command:
+. Build the custom image using the `Dockerfile`. Supply the fully qualified name for the image, including the registry name. You must use the same version tag as the version of the base image. To build the image, enter the following command:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----

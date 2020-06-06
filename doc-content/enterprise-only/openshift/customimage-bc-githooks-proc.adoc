@@ -1,4 +1,4 @@
-[id='customimage-bc-githooks-proc']
+[id='customimage-bc-githooks-proc_{context}']
 :componentimage: businesscentral
 :component: {CENTRAL}
 = Creating a custom {CENTRAL} image with Git hooks
@@ -12,14 +12,16 @@ You can also provide Git hooks using a persistent volume or configuration map. F
 
 .Procedure
 
-. Prepare the necessary Git hooks script files. For this example we use one script file names `pre-commit`. You cam use as many files as necessary. Ensure that the script files have the execute permission set.
+. Prepare the necessary Git hooks script files. This example shows one script file names `pre-commit`. You cam use as many files as necessary. Ensure that the execute permission is set for all script files.
+. If necessary, prepare an `.ssh` directory to enable access to the Git repository using SSH keys. 
 include::customimage-download-step.adoc[]
-. Create a `Dockerfile` that defines a custom image based on the base image. The file must copy the script files into the `/opt/kie/data/git/hooks/` directory. The following example shows the content of the `Dockerfile` file:
+. Create a `Dockerfile` that defines a custom image based on the base image. The file must copy the script files into the `/opt/kie/data/git/hooks/` directory. If you prepared an `.ssh` directory, the file must copy it into the `/home/jboss` directory. The following example shows the content of the `Dockerfile` file:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
 FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-businesscentral-rhel8:7.7.0
 COPY pre-commit /opt/kie/data/git/hooks/
+COPY .ssh /home/jboss/.ssh/
 ----
 +
 include::customimage-build-step.adoc[]
@@ -41,4 +43,4 @@ include::customimage-nextsteps.adoc[]
 
 During the same deployment, under *GitHooks*, in the *Mount path* field enter `/opt/kie/data/git/hooks/`. Do not enter anything in the fields under *GitHooks Configuration object*.
 
-For instructions about deploying the {CENTRAL} using the operator, see <<operator-deploy-central-proc>>.
+For instructions about deploying {CENTRAL} using the operator, see xref:operator-deploy-central-proc[].
