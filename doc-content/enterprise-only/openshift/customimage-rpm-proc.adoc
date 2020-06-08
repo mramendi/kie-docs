@@ -5,22 +5,22 @@
 
 You can create a custom {KIE_SERVER} image where an additional RPM package is installed. You can push this image into your custom registry and then use it to deploy the {KIE_SERVER}.
 
-You can install any package from the Red Hat Enterprise Linux repository. This example installs the `procps-ng` package, which provides the `ps` utility, but you can modify it to install other packages. 
+You can install any package from the Red Hat Enterprise Linux 8 repository. This example installs the `procps-ng` package, which provides the `ps` utility, but you can modify it to install other packages. 
 
 .Procedure
 
 include::customimage-download-step.adoc[]
-. Create a `Dockerfile` that defines a custom image based on the base image. The file must chnge the current user to `root`, install the RPM package using the `yum` command, and then revert to `USER 185`, the {EAP} user. The following example shows the content of the `Dockerfile` file:
+. Create a `Dockerfile` that defines a custom image based on the base image. The file must change the current user to `root`, install the RPM package using the `yum` command, and then revert to `USER 185`, the {EAP} user. The following example shows the content of the `Dockerfile` file:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
-FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:7.7.0
+FROM registry.redhat.io/{PRODUCT_INIT}-7/{PRODUCT_INIT}-kieserver-rhel8:{ENTERPRISE_VERSION_LONG}
 USER root
 RUN yum -y install procps-ng
 USER 185
 ----
 +
-Replace the name of the RPM file as necessary. You might need to install several RPM files, in this case, use several `RUN` commands.
+Replace the name of the RPM file as necessary. The `yum` command automatically installs all dependencies from the Red Hat Enterprise Linux 8 repository. You might need to install several RPM files, in this case, use several `RUN` commands.
 +
 include::customimage-build-step.adoc[]
 include::customimage-verify-partstep.adoc[]
