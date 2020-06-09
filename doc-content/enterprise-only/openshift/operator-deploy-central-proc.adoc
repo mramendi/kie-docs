@@ -9,7 +9,7 @@ endif::DM[]
 
 .Prerequisites
 
-* You completed basic configuration of a {PRODUCT} environment using {operator_name} in the installer wizard according to the instructions in xref::operator-deploy-basic-proc[].
+* You completed basic configuration of a {PRODUCT} environment using {operator_name} in the installer wizard according to the instructions in xref:operator-deploy-basic-proc[].
 * If you want to use RH-SSO or LDAP for authentication, you completed security configuration according to the instructions in xref:operator-deploy-security-proc[].
 
 .Procedure
