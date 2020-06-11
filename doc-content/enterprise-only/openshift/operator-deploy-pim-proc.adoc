@@ -57,4 +57,4 @@ The PIM service uses a database server for its operation.
 
 Click *Finish* and then click *Deploy* to deploy the environment.
 
-For instructions about using the PIM service, see 
+For instructions about using the PIM service, see {URL_MANAGING_PROCESSES}/process-instance-migration-con#process-instance-migration-con[Process Instance Migration] in _{MANAGING_PROCESSES}_.
