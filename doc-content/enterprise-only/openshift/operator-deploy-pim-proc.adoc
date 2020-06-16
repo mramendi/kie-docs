@@ -15,34 +15,22 @@ The PIM service uses a database server for its operation.
 ** `mysql`: A MySQL server, created in a separate pod.
 ** `postgresql`: A PostgreSQL server, created in a separate pod. Use this setting unless you have a specific reason to use any other setting.
 ** `h2`: A built-in `h2` database engine that does not require a separate pod.
-** `external`: An external database server. 
-. If you selected any database except `external`, a Persistent Volume Claim will be created to store the database. Optionally, set configuration parameters of the persistent volume to create:
+** `external`: An external database server. MySQL, PostgreSQL, and MariaDB dataase servers are supported.
+. If you selected any database type except `external`, a Persistent Volume Claim will be created to store the database. Optionally, set configuration parameters of the persistent volume to create:
 ** In the *Size* field, enter the size of the persistence volume
 ** In the *StorageClass name* field, enter the storage class name for the persistent volume
-. If you selected the `external` database and you want to use any database server except PostgreSQL or MySQL, you must provide a {KIE_SERVER} extension image with the database server driver according to instructions in <<externaldb-build-proc>>. The PIM service can use the {KIE_SERVER} extension image. To configure the PIM service to use this extension image, make the following changes:
-.. Select the *Enable extension image stream* box.
-.. In the *Extension image stream tag* field, enter the ImageStreamTag definition for the image that you created, for example, `jboss-kie-db2-extension-openshift-image:11.1.4.4`
-.. Optionally, in the *Extension image stream namespace* field, enter the namespace into which you pushed the image. If you do not enter any value in this field, the operator expects the image to be in the `openshift` namespace.
-.. Optionally, in the *Extension image install directory* field, enter the directory within the extensions image where the extensions are located. If you used the procedure in <<externaldb-build-proc>> to build the image, do not enter any value for this field.
-. If you selected an external database server, provide the following information in additional fields:
+. If you selected the `external` database type, provide the following information in additional fields:
 .. *Driver*: Enter the database server driver, depending on the server type:
 +
 *** `mysql`
 *** `postgresql`
 *** `mariadb`
-*** `mssql`
-*** `db2`
-*** `oracle`
-*** `sybase`
 +
 .. *Dialect*: Enter the Hibernate dialect for the server, depending on the server type:
 +
-*** `org.hibernate.dialect.MySQL5InnoDBDialect` (used for MySQL and MariaDB)
+*** `org.hibernate.dialect.MySQL5InnoDBDialect` (used for MySQL 5.7 and MariaDB)
+*** `org.hibernate.dialect.MySQL8Dialect`
 *** `org.hibernate.dialect.PostgreSQL82Dialect`
-*** `org.hibernate.dialect.SQLServer2012Dialect` (used for MS SQL)
-*** `org.hibernate.dialect.DB2Dialect`
-*** `org.hibernate.dialect.Oracle10gDialect`
-*** `org.hibernate.dialect.SybaseASE157Dialect`
 +
 .. *Host*: Enter the host name of the external database server.
 .. *Port*: Enter the port number of the external database server.
