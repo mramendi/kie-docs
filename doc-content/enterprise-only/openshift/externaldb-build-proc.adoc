@@ -10,7 +10,7 @@ Complete the steps in this build procedure to provide drivers for any of the fol
 * Oracle Database
 * Sybase
 
-You can also optionally use this procedure to build a new version of drivers for any of the following database servers:
+Optionally, you can use this procedure to build a new version of drivers for any of the following database servers:
 
 * MySQL
 * MariaDB
