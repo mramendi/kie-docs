@@ -1,5 +1,5 @@
 [id='customimage-con_{context}']
-= Creating custom images for  {KIE_SERVER}
+= Creating custom images for {KIE_SERVER}
 
 You can create custom images to add files to {KIE_SERVER} deployments. You must then push the images to your own Docker registry. When deploying {PRODUCT}, you can configure the operator to use the custom images.
 

@@ -12,8 +12,6 @@ To modify the environment, you must modify the YAML description of the environme
 . Click the name of a deployed environment. 
 . Select the *YAML* tab. A YAML source is displayed. 
 +
-You can edit the YAML source under `spec:` to modify the parameters
-+
 . If you want to change the deployed version of {PRODUCT}, add the following line under `spec:`
 +
 [subs="attributes,verbatim,macros,quotes"]
