@@ -15,7 +15,7 @@ You can also use {CENTRAL} to deploy the services that you develop onto a {KIE_S
 
 In a single authoring environment, only one instance of {CENTRAL} is running. Multiple users can access its web interface at the same time, however the performance can be limited and there is no failover capability.
 
-{CENTRAL} includes a built-in Maven repository that stores the built versions of the services that you develop (KJAR files/artifacts). You can use your own continuous integration and either continuous deployment (CICD) tools to retrieve these artifacts from the repository and move them as necessary.
+{CENTRAL} includes a built-in Maven repository that stores the built versions of the services that you develop (KJAR files/artifacts). You can use your continuous integration and continuous deployment (CICD) tools to retrieve these artifacts from the repository and move them as necessary.
 
 {CENTRAL} stores the source code in a built-in Git repository, stored in the `.niogit` directory. It uses a built-in indexing mechanism to index the assets in your services.
 
@@ -23,7 +23,7 @@ In a single authoring environment, only one instance of {CENTRAL} is running. Mu
 
 A single authoring environment, by default, includes one {KIE_SERVER}. 
 ifdef::PAM[]
-This {KIE_SERVER} uses a built-in H2 database engineto store the state of process services. 
+This {KIE_SERVER} uses a built-in H2 database engine to store the state of process services. 
 endif::PAM[]
 
 ifeval::["{context}"!="openshift-operator"]
@@ -34,12 +34,17 @@ A single authoring environment can use the _controller strategy_.
 endif::[]
 {CENTRAL} includes the _Controller_, a component that can manage {KIE_SERVERS}. When you configure a {KIE_SERVER} to connect to {CENTRAL}, the {KIE_SERVER} uses a REST API to connect to the Controller. This connection opens a persistent WebSocket. In an OpenShift deployment that uses the controller strategy, each {KIE_SERVER} is initially configured to connect to the {CENTRAL} Controller. 
 
-When you use the {CENTRAL} user interface to deploy or manage a service on the {KIE_SERVER}, the {KIE_SERVER} receives the request through the Controller connection WebSocket. To deploy a service, the {KIE_SERVER} can request the necessary artifact from the Maven repository that is a part of {CENTRAL}. 
+When you use the {CENTRAL} user interface to deploy or manage a service on the {KIE_SERVER}, the {KIE_SERVER} receives the request through the Controller connection WebSocket. To deploy a service, the {KIE_SERVER} requests the necessary artifact from the Maven repository that is a part of {CENTRAL}. 
 
 Client applications use a REST API to use services that run on the {KIE_SERVER}.
 
 .Architecture diagram for a single authoring environment
+ifdef::PAM[]
 image::Overview/architecture-authoring-nonha.png[]
+endif::PAM[]
+ifdef::DM[]
+image::Overview/architecture-authoring-nonha-dm.png[]
+endif::DM[]
 
 [float]
 == Clustering {KIE_SERVERS} and using multiple {KIE_SERVERS}
@@ -72,11 +77,11 @@ The client application can use services running on different {KIE_SERVERS}, but 
 
 In a high-availability (HA) authoring environment, the {CENTRAL} pod is scaled, so several instances of {CENTRAL} are running. {OPENSHIFT} provides load balancing for user requests. This environment provides optimal performance for multiple users and supports failover.
 
-Each instance of {CENTRAL} includes the Maven repository for the built artifacts and uses the ``.niogit` Git repository for source code. The instances use shared persistent storage for the repositories. A persistent volume with ReadWriteMany access is required for thsi storage.
+Each instance of {CENTRAL} includes the Maven repository for the built artifacts and uses the `.niogit` Git repository for source code. The instances use shared persistent storage for the repositories. A persistent volume with `ReadWriteMany` access is required for this storage.
 
 An instance of Red Hat DataGrid provides indexing of all projects and assets developed in {CENTRAL}.
 
-An instance of Red Hat AMQ propagates Java CDI messages between all instances of {CENTRAL}. For example, if a new project is created or when an asset is locked or modified on one of the instances, this information is immediately reflected in all other instances.
+An instance of Red Hat AMQ propagates Java CDI messages between all instances of {CENTRAL}. For example, when a new project is created or when an asset is locked or modified on one of the instances, this information is immediately reflected in all other instances.
 
 The controller strategy is not suitable for clustered deployment. In an OpenShift deployment, a high-availability {CENTRAL} must manage {KIE_SERVERS} using the _OpenShift startup strategy_.
 
@@ -89,4 +94,9 @@ You can deploy several independent {KIE_SERVERS} in your OpenShift environment. 
 You can include Smart Router in the OpenShift deployment. 
 
 .Architecture diagram for a high-availability authoring environment
+ifdef::PAM[]
 image::Overview/architecture-authoring-ha.png[]
+endif::PAM[]
+ifdef::DM[]
+image::Overview/architecture-authoring-ha-dm.png[]
+endif::DM[]
