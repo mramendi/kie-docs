@@ -126,4 +126,4 @@ mysql -u {PRODUCT_INIT} -p -h 127.0.0.1 < mysqldump.sql
 +
 When prompted, enter the recorded password. The restoration can take considerable time.
 + 
-. Stop the port forwarding in the separate window using the `Ctrl`+`C` key combination.
+. Stop the port forwarding in the separate window using the kbd:[Ctrl+C] key combination.
