@@ -6,7 +6,7 @@ If your environment in {OPENSHIFT} version 3 includes a {KIE_SERVER} that uses a
 .Prerequisites
 
 * You must have a machine that has network access to both the {OPENSHIFT} version 3 and {OPENSHIFT} version 4 infrastructures.
-* The `oc` command-line client from {OPENSHIFT} version 4 must be installed on the machine.
+* The `oc` command-line client from {OPENSHIFT} version 4 must be installed on the machine. For instructions about installing the command-line client, see https://access.redhat.com/documentation/en-us/openshift_container_platform/4.4/html/cli_tools/openshift-cli-oc#installing-the-cli[_CLI tools_] in {OPENSHIFT} documentation.
 * The `psql` and `pg_dump` client applications provided by PostgreSQL version 10 or later must be installed.
 
 .Procedure
@@ -42,6 +42,19 @@ In this file, find the user name (normally `{PRODUCT_INIT}`), password, and data
 ----
 +
 Record the user name, password, and database name. Do not make any changes to the file.
++
+[NOTE]
+====
+You can also use the following commands to retrieve the user name, password, and database name:
+----
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_USER")]}'.value
+
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_PASSWORD")]}'.value
+
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_DATABASE")]}'.value
+----
++
+====
 +
 . To view the service names in the old deployment, run the command:
 +
@@ -85,6 +98,18 @@ oc edit dc/myappnew-postgresql
 +
 In this file, find the user name (normally `{PRODUCT_INIT}`), password, , and database name (normally `{PRODUCT_INIT}7`) for the database server. Record the user name, password, and database name. Do not make any changes to the file.
 +
+[NOTE]
+====
+You can also use the following commands to retrieve the user name, password, and database name:
+----
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_USER")]}'.value
+
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_PASSWORD")]}'.value
+
+oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(@.name=="POSTGRESQL_DATABASE")]}'.value
+----
+====
++
 . To view the service names in the new deployment, run the command:
 +
 ----
@@ -108,6 +133,6 @@ psql -h 127.0.0.1 -d {PRODUCT_INIT}7 -U {PRODUCT_INIT} -W <pgdump.sql
 +
 When prompted, enter the recorded password. The restoration can take considerable time. 
 +
-Ignore database error messages. These messages are displayed because a database with the sane name already exists.
+Review any displayed database error messages. Messages about objects that already exist are normal.
 + 
 . Stop the port forwarding in the separate window using the `Ctrl`+`C` key combination.
