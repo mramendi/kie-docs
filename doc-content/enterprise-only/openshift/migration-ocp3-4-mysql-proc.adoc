@@ -65,7 +65,7 @@ Find the `mysql` service that corresponds to the {KIE_SERVER}.
 oc port-forward service/myapp-mysql 3306:3306
 ----
 +
-. Create a full database dump using the recorded username, for example:
+. Create a full database dump using the recorded user name, for example:
 +
 [subs="attributes,verbatim,macros,specialchars,replacements"]
 ----
