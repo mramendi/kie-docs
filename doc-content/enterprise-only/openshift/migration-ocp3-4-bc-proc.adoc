@@ -30,7 +30,7 @@ oc cp myapp-{PRODUCT_INIT}centr-5-689mw:/opt/kie/data/maven-repository maven-rep
 ----
 +
 . Using the `oc` command, log in to the {OPENSHIFT} version 4 infrastructure and switch to the project containing the new deployment.
-. To view the pod names in the new deployment, run the command:
+. To view the pod names in the new deployment, run the following command:
 +
 ----
 oc get pods
