@@ -124,7 +124,7 @@ Find the `postgresql` service that corresponds to the {KIE_SERVER}.
 oc port-forward service/myappnew-postgresql 5432:5432
 ----
 +
-. Restore the database dump using the recorded username and database name, for example:
+. Restore the database dump using the recorded user name and database name, for example:
 +
 [subs="attributes,verbatim,macros,specialchars,replacements"]
 ----
