@@ -135,4 +135,4 @@ When prompted, enter the recorded password. The restoration can take considerabl
 +
 Review any displayed database error messages. Messages about objects that already exist are normal.
 + 
-. Stop the port forwarding in the separate window using the `Ctrl`+`C` key combination.
+. Stop the port forwarding in the separate window using the kbd:[Ctrl+C] key combination.
