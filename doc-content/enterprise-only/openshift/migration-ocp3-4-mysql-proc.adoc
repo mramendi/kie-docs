@@ -103,7 +103,7 @@ oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(
 ----
 ====
 +
-. To view the service names in the new deployment, run the command:
+. To view the service names in the new deployment, run the following command:
 +
 ----
 oc get svc
