@@ -70,7 +70,7 @@ Find the `postgresql` service that corresponds to the {KIE_SERVER}.
 oc port-forward service/myapp-postgresql 5432:5432
 ----
 +
-. Create a dump of the database using the recorded username and database name, for example:
+. Create a dump of the database using the recorded user name and database name, for example:
 +
 [subs="attributes,verbatim,macros,specialchars,replacements"]
 ----
