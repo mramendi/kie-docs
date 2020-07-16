@@ -12,7 +12,7 @@ If your environment in {OPENSHIFT} version 3 includes a {KIE_SERVER} that uses a
 .Procedure
 
 . Ensure that no web clients and no client applications are connected to any elements of the old and new deployment, including {CENTRAL} and {KIE_SERVERS}.
-. Create a temporary directory and change into this directory.
+. Create a temporary directory and change into the new directory.
 . Using the `oc` command, log in to the {OPENSHIFT} version 3 infrastructure and switch to the project containing the old deployment.
 . To view the deployment configuration names in the old deployment, run the following command:
 +
