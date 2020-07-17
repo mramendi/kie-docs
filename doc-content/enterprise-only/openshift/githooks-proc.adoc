@@ -7,7 +7,7 @@ The typical use of Git hooks is interaction with an upstream repository. To enab
 
 .Procedure
 
-. If interaction with an upstream repository with SSH authentication is required, complete the following steps to prepare and mount a secret with the necessary files:
+. If interaction with an upstream repository using SSH authentication is required, complete the following steps to prepare and mount a secret with the necessary files:
 .. Prepare the `id_rsa` file with a private key that matches a public key stored in the repository.
 .. Prepare the `known_hosts` file with the correct name, address, and public key for the repository.
 .. Create a secret with the two files using the `oc` command, for example:
