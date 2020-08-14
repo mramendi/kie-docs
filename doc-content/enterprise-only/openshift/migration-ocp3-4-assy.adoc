@@ -9,7 +9,14 @@ Before migrating information, you must deploy a new {PRODUCT} infrastructure on 
 * For any existing immutable {KIE_SERVER}, deploy a new immutable {KIE_SERVER} with the same artifacts.
 ifdef::PAM[]
 * For any existing {KIE_SERVER} with a MySQL or PostgreSQL database pod, deploy a new {KIE_SERVER} with the same type of database pod.
-* For any existing {KIE_SERVER} that uses an external database server, deploy a new {KIE_SERVER} that uses the same external database server with the same credentials.
+* For any existing {KIE_SERVER} that uses an external database server, deploy a new {KIE_SERVER} that uses the same external database server with the same credentials. The server connects to the same database and therefore can read the process context state.
+
+[NOTE]
+====
+If a {KIE_SERVER} uses the H2 built-in database, migration of the process context state is not supported.
+====
+
+No migration is required for Smart Router. A new deployment of Smart Router automatically works with the services on the new {KIE_SERVERS}.
 endif::PAM[]
 
 include::migration-ocp3-4-bc-proc.adoc[leveloffset=+1]
