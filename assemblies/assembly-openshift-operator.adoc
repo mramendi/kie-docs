@@ -13,6 +13,11 @@ As a system engineer, you can deploy a {PRODUCT} environment on {OPENSHIFT} to p
 * At least four gigabytes of memory are available in the OpenShift environment.
 * The OpenShift project for the deployment is created.
 * You are logged in to the project using the OpenShift web console.
+* The following resources are available on the OpenShift cluster:
+** For an authoring environment, 8 gigabytes of memory and 4 virtual CPU cores for the the {CENTRAL} pod. In a high-availability deployment, these resources are required for each replica and two replicas are created by default.
+** For each {KIE_SERVER} pod, 1 gigabyte of memory and 1 virtual CPU core. If a {KIE_SERVER} pod is replicated, these resources are required for each replica. In a high-availability authoring environment, two replicas of the {KIE_SERVER} pod are created by default.
+** In a high-availability authoring deployment, for the Red Hat Data Grid pod, 2 gigabytes of memory and 1 CPU core for each replica. Two replicas are created by default.
+** For other pods, the default resource limits configured on your cluster.
 * Dynamic persistent volume (PV) provisioning is enabled. Alternatively, if dynamic PV provisioning is not enabled,  enough persistent volumes must be available. By default, the deployed components require the following PV sizes:
 ifdef::PAM[]
 ** Each {KIE_SERVER} deployment by default requires one 1Gi PV for the database. You can change the database PV size. You can deploy multiple {KIE_SERVERS}; each requires a separate database PV. This requirement does not apply if you use an external database server.
