@@ -1,5 +1,5 @@
 [id='truststore-template-proc_{context}']
-= (Optional) Providing a trust store for accessing HTTPS servers with self-signed certificates
+= (Optional) Providing a truststore for accessing HTTPS servers with self-signed certificates
 :truststore_bc!:
 ifeval::["{context}"=="openshift-authoring"]
 :truststore_bc: {CENTRAL}
@@ -25,13 +25,13 @@ ifdef::truststore_bc[]
 endif::truststore_bc[]
 {KIE_SERVER} might need to interact with an internal Nexus repository that uses a self-signed HTTPS server certificate.
 
-In this case, to ensure that HTTPS connections complete successfully, you must provide client certificates for these services using a trust store.
+In this case, to ensure that HTTPS connections complete successfully, you must provide client certificates for these services using a truststore.
 
 Skip this procedure if you do not need {PRODUCT} components to communicate with servers that use self-signed HTTPS server certificates.
 
 .Procedure
 
-. Prepare a trust store with the certificates. Use the following command to create a trust store or to add a certificate to an existing trust store. Add all the necessary certificates to one trust store.
+. Prepare a truststore with the certificates. Use the following command to create a truststore or to add a certificate to an existing truststore. Add all the necessary certificates to one truststore.
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
@@ -40,21 +40,21 @@ keytool -importcert -file _certificate-file_ -alias _alias_ -keyalg _algorithm_ 
 +
 Replace the following values:
 +
-** `_certificate-file_`: The pathname of the certificate that you want to add to the trust store.
-** `_alias_`: The alias for the certificate in the trust store. If you are adding more than one certificate to the trust store, every certificate must have a unique alias.
+** `_certificate-file_`: The pathname of the certificate that you want to add to the truststore.
+** `_alias_`: The alias for the certificate in the truststore. If you are adding more than one certificate to the truststore, every certificate must have a unique alias.
 ** `_algorithm_`: The encryption algorithm used for the certificate, typically `RSA`.
 ** `_size_`: The size of the certificate key in bytes, for example, `2048`.
-** `_truststore-password_`: The password for the trust store.
-** `_keystore-file_`: The pathname of the trust store file. If the file does not exist, the command creates a new trust store.
+** `_truststore-password_`: The password for the truststore.
+** `_keystore-file_`: The pathname of the truststore file. If the file does not exist, the command creates a new truststore.
 +
-The following example command adds a certificate from the `/var/certs/nexus.cer` file to a trust store in the `/var/keystores/custom-trustore.jks` file. The trust store password is `mykeystorepass`.
+The following example command adds a certificate from the `/var/certs/nexus.cer` file to a truststore in the `/var/keystores/custom-trustore.jks` file. The truststore password is `mykeystorepass`.
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
 keytool -importcert -file /var/certs/nexus.cer -alias nexus-cert -keyalg RSA -keysize 2048 -trustcacerts -noprompt -storetype JKS -keypass mykeystorepass -storepass mykeystorepass -keystore /var/keystores/custom-trustore.jks
 ----
 +
-. Create a secret with the trust store file using the `oc` command, for example:
+. Create a secret with the truststore file using the `oc` command, for example:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
