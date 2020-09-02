@@ -17,11 +17,10 @@ and other business assets.
 .Prerequisites
 
 * {OPENSHIFT} version 3.11 is deployed.
-* The following resources are available on the OpenShift cluster:
-** For the {CENTRAL} pod, 8 gigabytes of memory and 4 virtual CPU cores. In a high-availability deployment, these resources are required for each replica and two replicas are created by default.
-** For the {KIE_SERVER} pod, 1 gigabyte of memory and 1 virtual CPU core. In a high-availability deployment, these resources are required for each replica and two replicas are created by default.
-** In a high-availability deployment, for the Red Hat AMQ pod, the default resource limits configured on your cluster.
-** In a high-availability deployment, for the Red Hat Data Grid pod, 2 gigabytes of memory and 1 CPU core for each replica. Two replicas are created by default.
+* The following resources are available on the OpenShift cluster. Depending on the load, higher resource allocation might be necessary for acceptable performance.
+** For the {CENTRAL} pod, 4 gigabytes of memory and 2 virtual CPU cores. In a high-availability deployment, these resources are required for each replica and two replicas are created by default.
+** For the {KIE_SERVER} pod, 2 gigabytes of memory and 1 virtual CPU core. In a high-availability deployment, these resources are required for each replica and two replicas are created by default.
+** In a high-availability deployment, additional resources according to the configured defaults are required for the Red Hat AMQ and Red Hat Data Grid pods.
 
 [NOTE]
 ====
