@@ -3,7 +3,7 @@
 :component: Smart Router
 = Creating a custom Smart Router image with an additional JAR file to implement custom routing
 
-By default, Smart Router routes requests based on the container alias. If severak {KIE_SERVERS} provide a servcie with teh same container alias, Smart Router balances the load between them.
+By default, Smart Router routes requests based on the container alias. If several {KIE_SERVERS} provide a service with the same container alias, Smart Router balances the load between them.
 
 In some cases, custom routing functionality is required. You can create a custom class to implement the custom routing and then create a custom Smart Router image with the class. You can push this image into your custom registry and then use it to deploy Smart Router.
 
@@ -27,7 +27,7 @@ mvn clean package
 +
 The build process generates the following JAR file: `target/router-ext-0.0.1-SNAPSHOT.jar` 
 +
-. Create a work directory for creating the custom image, copy the generated JAR file into the directory, and then change to the directory, for example:
+. Create a working directory for creating the custom image, copy the generated JAR file into the directory, and then change to the directory, for example:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
@@ -37,7 +37,7 @@ cd /tmp/smartrouter
 ----
 +
 include::customimage-download-step.adoc[]
-. To extract the `openshift-launch.sh` file from the official Smart Router image, enter the following command:
+. Extract the `openshift-launch.sh` file from the official Smart Router image:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
@@ -134,6 +134,13 @@ podman push route-openshift-image-registry.openshift.example.com/{PRODUCT_INIT}-
 When deploying {PRODUCT}, set the following values in the *Smart Router* tab:
 
 * *Image context*: The project name, for example, `{PRODUCT_INIT}-project`
-* *Image*: The custom image name, for example, {PRODUCT_INIT}-{componentimage}-rhel8-custom
+* *Image*: The custom image name, for example, `{PRODUCT_INIT}-smartrouter-rhel8-custom`
 
-For instructions about deploying the {KIE_SERVER} using the operator, see xref:operator-deploy-kieserver-proc_{context}[].
+For instructions about deploying the Smart Router using the operator, see xref:operator-deploy-smartrouter-proc_{context}[].
+
+[NOTE]
+====
+You can also use a custom tag instead of the current version tag. However, if you use the current version tag, you can later create an image for a new version using the version tag for it. Then, when you upgrade the {PRODUCT} version, the new image is included automatically. For instructions about upgrading the {PRODUCT} version, see xref:operator-modify-proc_{context}[].
+
+If you use a custom tag, when deploying {PRODUCT}, in the *Smart Router* tab set the *Image Tag* value to the custom tag. 
+====
