@@ -21,11 +21,13 @@ For example, a purchase process in a shop can be a business process. The content
 
 Optionally, you can use the BPMN data modeler in {CENTRAL} to design the model for the data in process variables.
 
-The workflow diagram is represented in code by an XML _business process definition_. The logic of events, gateways, and subprocess calls are defined within the business process definition. However, tasks are not directly implemented within the definition. Instead, for every task activity, the {PROCESS_ENGINE} executes a call using the _Work Item Handler API_. A number of tools can implement this API, providing a flexible mechanism for implementing various tasks.
+The workflow diagram is represented in code by an XML _business process definition_. The logic of events, gateways, and subprocess calls are defined within the business process definition. 
 
-The {PROCESS_ENGINE} includes a number of predefined types of tasks and provides Work Item Handler implementations for the tasks. These types include a script task that runs user Java code, a service task that calls a Java method or a Web Service, a decision task that calls a decision engine service, and other custom tasks (for example, REST and database calls).
+Some task types (script tasks and standard decision engine rule task) are implemented in the engine. For other task types, including all custom tasks, when the task must be executed the {PROCESS_ENGINE} executes a call using the _Work Item Handler API_. COde external to the engine can implement this API, providing a flexible mechanism for implementing various tasks. 
 
-Another predefined type of task is a _human task_. A human task includes interaction with a user. The {PROCESS_ENGINE} maintains a list of user IDs and roles and allocates tasks to users with appropriate roles for every task. Every user can access a task inbox with pending tasks and execute these tasks.
+The {PROCESS_ENGINE} includes a number of predefined types of tasks. These types include a script task that runs user Java code, a service task that calls a Java method or a Web Service, a decision task that calls a decision engine service, and other custom tasks (for example, REST and database calls).
+
+Another predefined type of task is a _user task_, which includes interaction with a user. User tasks in the process can be assigned to users and groups. 
 
 The {PROCESS_ENGINE} uses the _KIE API_ to interact with other software components. You can run business processes as services on a {KIE_SERVER} and interact with them using a REST implementation of the KIE API. Alternatively, you can embed business processes in your application and interact with them using KIE API Java calls. In this case, you can run the {PROCESS_ENGINE} in any Java environment.
 
@@ -41,5 +43,5 @@ Additional features of the {PROCESS_ENGINE} include:
 
 The {PROCESS_ENGINE} can also be integrated with other independent core services:
 
-* The _human task service_ can manage human tasks when human actors need to participate in the process. It is fully pluggable and the default implementation is based on the WS-HumanTask specification. The human task service manages the lifecycle of the tasks, task lists, task forms, and some more advanced features like escalation, delegation, and rule-based assignments.
+* The _human task service_ can manage user tasks when human actors need to participate in the process. It is fully pluggable and the default implementation is based on the WS-HumanTask specification. The human task service manages the lifecycle of the tasks, task lists, task forms, and some more advanced features like escalation, delegation, and rule-based assignments.
 * The _history log_ can store all information about the execution of all the processes in the {PROCESS_ENGINE}. While runtime persistence stores the current state of all active process instances, you need the history log to ensure access to historic information. The history log contains all current and historic states of all active and completed process instances. You can use the log to query for any information related to the execution of process instances for monitoring and analysis.
