@@ -5,15 +5,15 @@ The {PROCESS_ENGINE} implements the Business Process Management (BPM) paradigm. 
 
 In BPM, a repeatable business process is represented as a workflow diagram. The Business Process Management Notation (BPMN) specification defines the available elements of this diagram. The {PROCESS_ENGINE} implements a large subset of the BPMN 2.0 specification.
 
-With {PROCESS_ENGINE}, business analysts can develop the diagram itself. Developers can implement the business logic and, when necessary, user interface of every element of the flow in code, making an executable business process. Users can execute the business process and interact with it as necessary. Then analysts can generate metrics that reflect the efficiency of the process.
+With {PROCESS_ENGINE}, business analysts can develop the diagram itself. Developers can implement the business logic of every element of the flow in code, making an executable business process. Users can execute the business process and interact with it as necessary. Then analysts can generate metrics that reflect the efficiency of the process.
 
 The workflow diagram consists of a number of nodes. The BPMN specification defined many kinds of nodes. The principal types of node are:
 
-* _Event_: nodes representing something happening outside of the process. Typical events are the start and the end of a process. An event can throw messages to other processes and catch such messages. Circles on the diagram represent events.
-* _Activity_: nodes representing an action that must be taken (whether automatically or with user involvement). Typical events are a task, which represents an action taken within the process, and a call to a subprocess. Rectangles on the diagram represent activities.
-* _Gateway_: a branching node. A typical gateway evaluates an expression and, depending on the result, continues to one of several execution paths. Diamond shapes on the diagram represent gateways.
+* _Event_: nodes representing something happening in the process or outside of the process. Typical events are the start and the end of a process. An event can throw messages to other processes and catch such messages. Circles on the diagram represent events.
+* _Activity_: nodes representing an action that must be taken (whether automatically or with user involvement). Typical events are a task, which represents an action taken within the process, and a call to a subprocess. Rounded rectangles on the diagram represent activities.
+* _Gateway_: a branching or merging node. A typical gateway evaluates an expression and, depending on the result, continues to one of several execution paths. Diamond shapes on the diagram represent gateways.
 
-When a user starts the process, a process instance is created. The process instance contains a set of data, or _context_, stored in process variables. 
+When a user starts the process, a process instance is created. The process instance contains a set of data, or _context_, stored in process variables. The _state_ of a process instance includes all the context data and also the current active node (or, in some cases, several active nodes). 
 
 Some of these variables can be initialized when a user starts the process. An activity can read from process variables and write to process variables. A gateway can evaluate process variables to determine the execution path.
 
@@ -21,7 +21,7 @@ For example, a purchase process in a shop can be a business process. The content
 
 Optionally, you can use the BPMN data modeler in {CENTRAL} to design the model for the data in process variables.
 
-The workflow diagram is represented in code by an XML _business process definition_. The logic of events, gateways, and subprocess calls are defined within the business process definition. However, tasks are not implemented within the definition. Instead, for every task activity, the {PROCESS_ENGINE} executes a call using the _Work Item Handler API_. A number of tools can implement this API, providing a flexible mechanism for implementing various tasks.
+The workflow diagram is represented in code by an XML _business process definition_. The logic of events, gateways, and subprocess calls are defined within the business process definition. However, tasks are not directly implemented within the definition. Instead, for every task activity, the {PROCESS_ENGINE} executes a call using the _Work Item Handler API_. A number of tools can implement this API, providing a flexible mechanism for implementing various tasks.
 
 The {PROCESS_ENGINE} includes a number of predefined types of tasks and provides Work Item Handler implementations for the tasks. These types include a script task that runs user Java code, a service task that calls a Java method or a Web Service, a decision task that calls a decision engine service, and other custom tasks (for example, REST and database calls).
 
