@@ -63,7 +63,7 @@ exec ${JAVA_HOME}/bin/java ${SHOW_JVM_SETTINGS} "${D_ARR[@]}" \
 +
 This change adds the extension JAR file to the Java Class Path.
 +
-. Create a `Dockerfile` file that defines a custom image based on the base image. The file must add the JAR file and the new `openshift-launch.sh` file, change the current user to `root`, set the necessary permissions for the `openshift-launch.sh` file, and then revert to `USER 185`, the {EAP} user. The following example shows the content of the `Dockerfile` file:
+. Create a `Dockerfile` file that defines a custom image based on the base image. The following example shows the content of the `Dockerfile` file:
 +
 [subs="attributes,verbatim,macros,quotes"]
 ----
@@ -77,6 +77,13 @@ RUN chown jboss. /opt/rhpam-smartrouter/router-ext-0.0.1-SNAPSHOT.jar /opt/rhpam
 RUN chmod +x /opt/rhpam-smartrouter/openshift-launch.sh
 USER 185
 ----
++
+This file includes the following actions:
++
+** Add the JAR file and the new `openshift-launch.sh` file
+** Change the current user to `root`
+** Set the necessary permissions for the `openshift-launch.sh` file
+** Revert to `USER 185`, the {EAP} user 
 +
 . Log in to your {OPENSHIFT} cluster with the `oc` command.
 . Log in to the {OPENSHIFT} cluster registry with the `podman login` command.
