@@ -29,6 +29,14 @@ In this case, to ensure that HTTPS connections complete successfully, you must p
 
 Skip this procedure if you do not need {PRODUCT} components to communicate with servers that use self-signed HTTPS server certificates.
 
+ifeval::["{context}"=="openshift-immutable"]
+[NOTE]
+====
+In {PRODUCT} {PRODUCT_VERSION}, this procedure is not effective for an immutable deployment that uses an S2I build. 
+====
+endif::[]
+
+
 .Procedure
 
 . Prepare a truststore with the certificates. Use the following command to create a truststore or to add a certificate to an existing truststore. Add all the necessary certificates to one truststore.
