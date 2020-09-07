@@ -20,9 +20,9 @@ to add and update the business assets.
 .Prerequisites
 
 * {OPENSHIFT} version 3.11 is deployed.
-* The following resources are available on the OpenShift cluster. Depending on the load, higher resource allocation might be necessary for acceptable performance.
+* The following resources are available on the OpenShift cluster. Depending on the application load, higher resource allocation might be necessary for acceptable performance.
 ifdef::PAM[]
-** 2 gigabytes of memory and 1 virtual CPU cores for each replica of the {CENTRAL} Monitoring pod.
+** 2 gigabytes of memory and 1 virtual CPU core for each replica of the {CENTRAL} Monitoring pod.
 endif::PAM[]
 ** 2 gigabytes of memory and 1 virtual CPU core for each replica of each {KIE_SERVER} pod.
 * The OpenShift project for the deployment is created.
