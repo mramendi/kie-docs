@@ -1,13 +1,13 @@
 [id='processengine-overview-con']
-= Overview of the {PROCESS_ENGINE}
+= {PROCESS_ENGINE} in {PRODUCT}
 
-The {PROCESS_ENGINE} implements the Business Process Management (BPM) paradigm. BPM is a business methodology that enables modeling, measuring, and optimizing processes within an enterprise. 
+The {PROCESS_ENGINE} implements the Business Process Management (BPM) paradigm in {PRODUCT}. BPM is a business methodology that enables modeling, measuring, and optimizing processes within an enterprise. 
 
-In BPM, a repeatable business process is represented as a workflow diagram. The Business Process Management Notation (BPMN) specification defines the available elements of this diagram. The {PROCESS_ENGINE} implements a large subset of the BPMN 2.0 specification.
+In BPM, a repeatable business process is represented as a workflow diagram. The Business Process Model and Notation (BPMN) specification defines the available elements of this diagram. The {PROCESS_ENGINE} implements a large subset of the BPMN 2.0 specification.
 
-With {PROCESS_ENGINE}, business analysts can develop the diagram itself. Developers can implement the business logic of every element of the flow in code, making an executable business process. Users can execute the business process and interact with it as necessary. Then analysts can generate metrics that reflect the efficiency of the process.
+With {PROCESS_ENGINE}, business analysts can develop the diagram itself. Developers can implement the business logic of every element of the flow in code, making an executable business process. Users can execute the business process and interact with it as necessary. Analysts can generate metrics that reflect the efficiency of the process.
 
-The workflow diagram consists of a number of nodes. The BPMN specification defined many kinds of nodes. The principal types of node are:
+The workflow diagram consists of a number of nodes. The BPMN specification defined many kinds of nodes, including the following principal types:
 
 * _Event_: nodes representing something happening in the process or outside of the process. Typical events are the start and the end of a process. An event can throw messages to other processes and catch such messages. Circles on the diagram represent events.
 * _Activity_: nodes representing an action that must be taken (whether automatically or with user involvement). Typical events are a task, which represents an action taken within the process, and a call to a subprocess. Rounded rectangles on the diagram represent activities.
@@ -33,7 +33,7 @@ The {PROCESS_ENGINE} uses the _KIE API_ to interact with other software componen
 
 {CENTRAL} includes a user interface for users executing human tasks and a form modeler for creating the web forms for human tasks. However, you can also implement a custom user interface that interacts with the {PROCESS_ENGINE} using the KIE API.
 
-Additional features of the {PROCESS_ENGINE} include:
+The {PROCESS_ENGINE} supports the following additional features:
 
 * Support for persistence of the process information using the JPA standard. Persistence preserves the state and context (data in process variables) of every process instance, so that they are not lost in case any components are restarted or taken offline for some time. You can use an SQL database engine to store the persistence information.
 * Pluggable support for transactional execution of process elements using the JTA standard. If you use a JTA transaction manager, every element of the business process starts as a transaction. If the element does not complete, the context of the process instance is restored to the state in which it was before the element started.
