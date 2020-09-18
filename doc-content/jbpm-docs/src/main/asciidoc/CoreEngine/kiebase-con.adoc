@@ -1,0 +1,24 @@
+[id='kiebase-con-{context}']
+= KIE base
+
+The KIE base includes all process definitions and other assets that your application might need to execute a business process.
+
+To create a KIE base, use a `KieHelper` to load processes from various resources, for example from the classpath or from the file system, and to create a new KIE base.
+
+The following code snippet shows how to create a KIE base consisting of only one process  definition, which is loaded from from the classpath.
+
+[source,java]
+----
+
+  KieHelper kieHelper = new KieHelper();
+  KieBase kieBase = kieHelper
+                    .addResource(ResourceFactory.newClassPathResource("MyProcess.bpmn"))
+                    .build();
+----
+
+The `ResourceFactory` class has similar methods to load resources from a file, a URL, an InputStream, a Reader, and so on.
+
+[NOTE]
+====
+This "manual" process of creating a KIE base is simple, but can make an application hard to maintain. Use other methods of creating a KIE base, such as `RuntimeManager` or the services API, for applications that you expect to develop and maintain over long periods of time.  
+====
