@@ -90,7 +90,8 @@ include::{enterprise-dir}/openshift/externaldb-build-proc.adoc[leveloffset=+2]
 endif::PAM[]
 
 // trial
-include::{enterprise-dir}/openshift/environment-trial-proc.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/environment-trial-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/environment-trial-proc.adoc[leveloffset=+2]
 
 // authoring (DM: authoring or managed) environment
 include::{enterprise-dir}/openshift/environment-authoring-con.adoc[leveloffset=+1]
