@@ -1,13 +1,13 @@
 [id='processengine-core-con_{context}']
-= Core engine API for {PROCESS_ENGINE}
+= Core engine API for the {PROCESS_ENGINE}
 
-{PROCESS_ENGINE} executes business processes. To define the processes, you create _business assets_, including process definitions and custom tasks.
+The {PROCESS_ENGINE} executes business processes. To define the processes, you create _business assets_, including process definitions and custom tasks.
 
-You can use the Core Engine API to to load, execute, and manage processes in {PROCESS_ENGINE}.
+You can use the Core Engine API to to load, execute, and manage processes in the {PROCESS_ENGINE}.
 
 Several levels of control are available:
 
-* At the lowest level, you can directly create a _KIE base_ and a _KIE session_. A KIE base represents all the assets in a business process. A KIE session in an entity in {PROCESS_ENGINE} that runs instances of a business process that is defined in a KIE base. This level provides fine-grained control, but requires explicit declaration and configuration of process instances, task handlers, event handlers, and other entities.
+* At the lowest level, you can directly create a _KIE base_ and a _KIE session_. A KIE base represents all the assets in a business process. A KIE session in an entity in the {PROCESS_ENGINE} that runs instances of a business process that is defined in a KIE base. This level provides fine-grained control, but requires explicit declaration and configuration of process instances, task handlers, event handlers, and other {PROCESS_ENGINE} entities in your code.
 
 * You can use the _RuntimeManager_ class to manage sessions and processes. This class provides sessions for required process instances using a configurable strategy. It automatically configures the interaction between the KIE session and task services. It disposes of {PROCESS_ENGINE} entities that are no longer necessary. thus ensuring optimal use of resources. You can use a fluent API to instantiate `RuntimeManager` with the necessary business assets and to configure its environment.
 

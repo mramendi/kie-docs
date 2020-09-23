@@ -1,0 +1,77 @@
+[id='service-process-con_{context}']
+= Process service
+
+The deployment and definition services prepare process data in {PROCESS_ENGINE}. To execute processes based on this data, use the process service. The process service supports interaction with the {PROCESS_ENGINE} execution environment, including the following actions:
+
+* Starting a new process instance
+* Working with an existing process instance, for example, signalling events, getting information details, and setting values of variables
+* Working with work items
+
+The process service is also a command executor. You can use it to execute commands on the ksession to extend its capabilities.
+
+[IMPORTANT]
+====
+The process service is optimized for runtime operations. Use it when you need to alter the process instance, for example, signal events or change variables. For read operations, for example, showing available process instances, use the runtime data service.
+====
+
+The following code sample shows deploying and running a process:
+
+[source,java]
+----
+KModuleDeploymentUnit deploymentUnit = new KModuleDeploymentUnit(GROUP_ID, ARTIFACT_ID, VERSION);
+
+deploymentService.deploy(deploymentUnit);
+
+long processInstanceId = processService.startProcess(deploymentUnit.getIdentifier(), "customtask");
+
+ProcessInstance pi = processService.getProcessInstance(processInstanceId);
+----
+
+The `startProcess` method expects `deploymentId` as first argument. Using this argument, you can start processes in a certain deployment when your application might have multiple deployments. 
+
+For example, you might deploy different versions of the same process from different KJAR files. You can then start the required version using the correct `deploymentId`.   
+
+The following definition shows the complete `ProcessService` interface:
+
+[source,java]
+----
+public interface ProcessService {
+
+    Long startProcess(String deploymentId, String processId);
+
+    Long startProcess(String deploymentId, String processId, Map<String, Object> params);
+
+    void abortProcessInstance(Long processInstanceId);
+
+    void abortProcessInstances(List<Long> processInstanceIds);
+
+    void signalProcessInstance(Long processInstanceId, String signalName, Object event);
+
+    void signalProcessInstances(List<Long> processInstanceIds, String signalName, Object event);
+
+    ProcessInstance getProcessInstance(Long processInstanceId);
+
+    void setProcessVariable(Long processInstanceId, String variableId, Object value);
+
+    void setProcessVariables(Long processInstanceId, Map<String, Object> variables);
+
+    Object getProcessInstanceVariable(Long processInstanceId, String variableName);
+
+    Map<String, Object> getProcessInstanceVariables(Long processInstanceId);
+
+    Collection<String> getAvailableSignals(Long processInstanceId);
+
+    void completeWorkItem(Long id, Map<String, Object> results);
+
+    void abortWorkItem(Long id);
+
+    WorkItem getWorkItem(Long id);
+
+    List<WorkItem> getWorkItemByProcessInstance(Long processInstanceId);
+
+    public <T> T execute(String deploymentId, Command<T> command);
+
+    public <T> T execute(String deploymentId, Context<?> context, Command<T> command);
+
+}
+----

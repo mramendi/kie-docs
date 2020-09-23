@@ -1,10 +1,9 @@
+[id='process-engine-configuration-ref_{context}']
+= {PROCESS_ENGINE_CAP} configuration
 
-= Configuration
+You can use several control parameters available to alter the {PROCESS_ENGINE} default behavior to suit the requirements of your environment.
 
-There are several control parameters available to alter the {PROCESS_ENGINE} default behavior.
-This allows to fine tune the execution for the environment needs and actual requirements.
-All of these parameters are set as JVM system properties, usually with -D when starting program e.g.
-application server.
+Set these parameters as JVM system properties, usually with the `-D` option when starting a program such as an application server.
 
 .Control parameters
 [cols="1,1,1,1", options="header"]
@@ -75,7 +74,7 @@ Note:  Must be valid for given runtime environment.  Do not use if there is no a
 |org.quartz.properties
 |String
 |
-|Allows to provide location of the <<_quartz_based_timer_service,quartz config file>> to activate quartz based timer service
+|Allows to provide location of the <<service-quartz-con_{context},quartz config file>> to activate quartz based timer service
 
 |jbpm.data.dir
 |String
