@@ -34,7 +34,7 @@ If you selected `LDAP`, configure LDAP authentication:
 +
 [NOTE]
 ====
-If you want to enable failover to another LDAP server, you can set two or more LDAP server addresses in the `AUTH_LDAP_URL` parameter, separated by the space character.
+If you want to enable LDAP failover, you can set two or more LDAP server addresses in the `AUTH_LDAP_URL` parameter, separated by the space character.
 ====
 
 --
