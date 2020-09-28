@@ -20,7 +20,7 @@ You must create a user with the username and password configured in the secret f
 +
 [NOTE]
 ====
-If you want to enable failover to another LDAP server, you can put set or more LDAP server addresses in the `AUTH_LDAP_URL` parameter, separated by the space character.
+If you want to enable LDAP failover, you can put set or more LDAP server addresses in the `AUTH_LDAP_URL` parameter, separated by the space character.
 ====
 +
 If the LDAP server does not define all the roles required for your deployment, you can map LDAP groups to {PRODUCT} roles. To enable LDAP role mapping, set the following parameters:
