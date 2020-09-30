@@ -1,10 +1,19 @@
 [id='operator-deploy-central-proc_{context}']
 = Setting the {CENTRAL} configuration of the environment
 
-After you set the basic and security configuration of a {PRODUCT} environment using {operator_name}, you can optionally configure settings for the {CENTRAL} or {CENTRAL} Monitoring component of the environment.
+After you set the basic and security configuration of a {PRODUCT} environment using {operator_name}, you can optionally configure settings for the {CENTRAL} 
+ifdef::PAM[]
+or {CENTRAL} Monitoring 
+endif::PAM[]
+component of the environment.
 
+All environment types except `{PRODUCT_INIT}-production-immutable` include this component.
+
+ifdef::PAM[]
+By default, the `{PRODUCT_INIT}-production-immutable` environment does not include {CENTRAL} Monitoring. To include {CENTRAL} Monitoring in this environment, you must set the number of replicas for the {CENTRAL} Monitoring pod in the *Replicas* field.
+endif::PAM[]
 ifdef::DM[]
-Do not change these settings for an immutable server environment, as this environment does not include {CENTRAL} or {CENTRAL} Monitoring.
+Do not change these settings for the `{PRODUCT_INIT}-production-immutable` environment, as this environment does not include {CENTRAL} or {CENTRAL} Monitoring.
 endif::DM[]
 
 .Prerequisites
