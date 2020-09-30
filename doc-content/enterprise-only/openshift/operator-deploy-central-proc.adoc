@@ -10,7 +10,7 @@ component of the environment.
 All environment types except `{PRODUCT_INIT}-production-immutable` include this component.
 
 ifdef::PAM[]
-By default, the `{PRODUCT_INIT}-production-immutable` environment does not include {CENTRAL} Monitoring. To include {CENTRAL} Monitoring in this environment, you must set the number of replicas for the {CENTRAL} Monitoring pod in the *Replicas* field.
+By default, the `{PRODUCT_INIT}-production-immutable` environment does not include {CENTRAL} Monitoring. To include {CENTRAL} Monitoring in this environment, you must set the number of replicas for the {CENTRAL} Monitoring pod in the *Replicas* field or make any other change to the {CENTRAL} configuration fields.
 endif::PAM[]
 ifdef::DM[]
 Do not change these settings for the `{PRODUCT_INIT}-production-immutable` environment, as this environment does not include {CENTRAL} or {CENTRAL} Monitoring.
