@@ -3,7 +3,7 @@
 
 The query service provides advanced search capabilities that are based on Dashbuilder DataSets.
 
-With this approach, you can control how to retrieve data from underlying data store. You can use complex JOIN statements with external tables such as JPA entities tables, custom systems database tables, and so on.
+With this approach, you can control how to retrieve data from underlying data store. You can use complex JOIN statements with external tables such as JPA entities tables or custom systems database tables.
 
 The query service is build around the following two sets of operations:
 

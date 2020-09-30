@@ -1,7 +1,7 @@
 [id='event-listeners-con_{context}']
 = Event Listeners
 
-You can develoip a class that implements the `ProcessEventListener`. This class can listen to process-related events, like starting or completing a process, entering and leaving a node, and so on.
+You can develoip a class that implements the `ProcessEventListener`. This class can listen to process-related events, such starting or completing a process or entering and leaving a node.
 
 {PROCESS_ENGINE} passes an event object to this class. The object provides access to related information, like the process instance and node instance linked to the event.
 

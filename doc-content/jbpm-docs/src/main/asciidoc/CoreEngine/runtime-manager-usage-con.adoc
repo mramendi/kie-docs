@@ -9,7 +9,7 @@ The typical usage scenario for `RuntimeManager` consists of the following stages
 * At request time, complete the following stages:
 ** Get `RuntimeEngine` from `RuntimeManager`, using the proper context instance as determined by the strategy of the `RuntimeManager`
 ** Get the `KieSession` and `TaskService` objects from the `RuntimeEngine`
-** Use the `KieSession` and `TaskService` objects for operations such as `startProcess`, `completeTask`, and so on
+** Use the `KieSession` and `TaskService` objects for operations such as `startProcess` or `completeTask`
 ** After completing processingm dispose `RuntimeEngine` using the `RuntimeManager.disposeRuntimeEngine` method
 
 * At application shutdown time, complete the following stage:

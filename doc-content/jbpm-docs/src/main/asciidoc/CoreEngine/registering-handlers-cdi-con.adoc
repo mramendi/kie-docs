@@ -57,7 +57,7 @@ public interface EventListenerProducer<T> {
 }
 ----
 
-Package implementations of these interfaces as a bean archive by including `beans.xml` in the `META-INF` subdirectory. Place the bean archive on the application classpath, for example, in `WEB-INF/lib` for a web application. The CDI-based `RuntimeManager` discovers the packages and registers the work item handlers and event listeners in every `KieSession` that is creates or loads from the data store.
+Package implementations of these interfaces as a bean archive by including `beans.xml` in the `META-INF` subdirectory. Place the bean archive on the application class path, for example, in `WEB-INF/lib` for a web application. The CDI-based `RuntimeManager` discovers the packages and registers the work item handlers and event listeners in every `KieSession` that is creates or loads from the data store.
 
 {PROCESS_ENGINE} provides certain parameters to the producers to enable stateful and advanced operation. For example. the handlers or listeners can use the parameters to signal the {PROCESS_ENGINE} or the process instance in case of an error. {PROCESS_ENGINE} provides the following components as parameters:
 
