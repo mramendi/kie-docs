@@ -42,7 +42,7 @@ ifdef::PAM[]
 ** {CENTRAL} Monitoring requires one 64Mi PV.
 ** Smart Router requires one 64Mi PV.
 endif::PAM[]
-* If you intend to use a high-availability authoring environment
+* If you intend to deploy a high-availability authoring
 ifdef::DM[]
 environment,
 endif::DM[]
