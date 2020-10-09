@@ -13,6 +13,8 @@ Task queries are not a part of the user task service. Use the runtime data servi
 The user task service is also a command executor. You can use it to execute custom task commands.
 
 The following example shows starting a process and interacting with a task in the process:
+
+.Starting a process and interacting with a user task in this process
 [source,java]
 ----
 long processInstanceId =

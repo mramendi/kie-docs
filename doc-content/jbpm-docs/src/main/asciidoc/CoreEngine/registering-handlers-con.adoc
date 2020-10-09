@@ -7,6 +7,7 @@ To extend runtime engines with your own handlers or listeners, you can implement
 
 The following definition shows the methods in `RegisterableItemsFactory`.
 
+.Methods in the `RegisterableItemsFactory` interface
 [source,java]
 ----
 	/**
@@ -38,10 +39,10 @@ The following definition shows the methods in `RegisterableItemsFactory`.
     List<WorkingMemoryEventListener> getWorkingMemoryEventListeners(RuntimeEngine runtime);
 ----
 
-{PROCESS_ENGINE} provides default implementations of `RegisterableItemsFactory`. You can extend these implementations to define custom handlers and listeners.
+The {PROCESS_ENGINE} provides default implementations of `RegisterableItemsFactory`. You can extend these implementations to define custom handlers and listeners.
 
 The following available implementations might be useful:
 
-* `org.jbpm.runtime.manager.impl.SimpleRegisterableItemsFactory`: The simplest possible implementation. It does not have any predefined content and USES reflection to produce instances of handlers and listeners based on given class names.
+* `org.jbpm.runtime.manager.impl.SimpleRegisterableItemsFactory`: The simplest possible implementation. It does not have any predefined content and uses reflection to produce instances of handlers and listeners based on given class names.
 * `org.jbpm.runtime.manager.impl.DefaultRegisterableItemsFactory`: An extension of the Simple implementation that introduces the same defaults as the default runtime environment builder and still provides the same capabilities as the Simple implementation.
 * `org.jbpm.runtime.manager.impl.cdi.InjectableRegisterableItemsFactory`: An extension of the Default implementation that is tailored for CDI environments and provides a CDI style approach to finding handlers and listeners via producers.

@@ -51,6 +51,7 @@ Each `QueryResultMapper` is registered with a unique string name. You can look u
 
 To reference a `QueryResultMapper` by the string name, use `NamedQueryMapper`, which is a part of the `jbpm-services-api` module. This class acts as a delegate (lazy delegate) and looks up the actual mapper when the query is performed.
 
+.Using `NamedQueryMapper`
 [source,java]
 ----
 queryService.query("my query def", new NamedQueryMapper<Collection<ProcessInstanceDesc>>("ProcessInstances"), new QueryContext());
@@ -61,11 +62,11 @@ queryService.query("my query def", new NamedQueryMapper<Collection<ProcessInstan
 
 `QueryParamBuilder` provides an advanced way of building filters for data sets.
 
-By default, when you use a query method of `QueryService` that accepts zero or more `QueryParam` instances, all of these parameters are joined with an AND operator, so a sata entry must match all of them.
+By default, when you use a query method of `QueryService` that accepts zero or more `QueryParam` instances, all of these parameters are joined with an AND operator, so a data entry must match all of them.
 
 However, sometimes more complicated relationships between parameters are required. You can use `QueryParamBuilder` to build custom builders that provide filters at the time the query is issued.
 
-One existing implementation of `QueryParamBuilder` is available in {PROCESS_ENGINE}. It covers default `QueryParams` that are based on the _core functions_.
+One existing implementation of `QueryParamBuilder` is available in the {PROCESS_ENGINE}. It covers default `QueryParams` that are based on the _core functions_.
 
 These core functions are SQL-based conditions, including the following conditions:
 
@@ -82,10 +83,11 @@ These core functions are SQL-based conditions, including the following condition
 * `IN`
 * `NOT_IN`
 
-Before invoking a query, {PROCESS_ENGINE} invokes the build method `QueryParamBuilder` interface as many times as necessary while it returns a non-null value. Because of this approach, you can build up complex filter options that could not be expressed by a simple list of `QueryParams`.
+Before invoking a query, the {PROCESS_ENGINE} invokes the build method of the `QueryParamBuilder` interface as many times as necessary while the method returns a non-null value. Because of this approach, you can build up complex filter options that could not be expressed by a simple list of `QueryParams`.
 
 The following example shows a basic implementation of `QueryParamBuilder`. It relies on the DashBuilder Dataset API.
 
+.Basic implementation of `QueryParamBuilder`
 [source,java]
 ----
 public class TestQueryParamBuilder implements QueryParamBuilder<ColumnFilter> {
@@ -119,6 +121,7 @@ public class TestQueryParamBuilder implements QueryParamBuilder<ColumnFilter> {
 
 After implementing the builder, you can use an instance of this class when performing a query via `QueryService`, as shown in the following example:
 
+.Running a query via `QueryService`
 [source,java]
 ----
 queryService.query("my query def", ProcessInstanceQueryMapper.get(), new QueryContext(), paramBuilder);

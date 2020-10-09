@@ -1,10 +1,11 @@
 [id='runtime-environment-builder-con_{context}']
 = Runtime environment builder
 
-To create aninstance of `RuntimeEnvironment` that contains the required data, use the `RuntimeEnvironmentBuilder` class. This class provides a fluent API to configure `RuntimeEnvironment` with predefined settings.
+To create an instance of `RuntimeEnvironment` that contains the required data, use the `RuntimeEnvironmentBuilder` class. This class provides a fluent API to configure `RuntimeEnvironment` with predefined settings.
 
 The following definition shows the methods in `RuntimeEnvironmentBuilder`. 
 
+.Methods in the `RuntimeEnvironmentBuilder` interface
 [source,java]
 ----
 public interface RuntimeEnvironmentBuilder {
@@ -32,10 +33,11 @@ public interface RuntimeEnvironmentBuilder {
 	public RuntimeEnvironmentBuilder schedulerService(Object globalScheduler);
 ----
 
-Use the `RuntimeEnvironmentBuilderFactory` class to obtain instances of `RuntimeEnvironmentBuilder`. Along with "empty" instances with no settings, you can get builders with several preconfigured sets of configuration options for `RuntimeManager`.
+Use the `RuntimeEnvironmentBuilderFactory` class to obtain instances of `RuntimeEnvironmentBuilder`. Along with empty instances with no settings, you can get builders with several preconfigured sets of configuration options for the runtime manager.
 
 The following definition shows the methods in `RuntimeEnvironmentBuilderFactory`. 
 
+.Methods in the `RuntimeEnvironmentBuilderFactory` interface
 [source,java,subs="attributes+"]
 ----
 public interface RuntimeEnvironmentBuilderFactory {
@@ -63,7 +65,7 @@ public interface RuntimeEnvironmentBuilderFactory {
      * <ul>
      * 	<li>DefaultRuntimeEnvironment</li>
      * </ul>
-     * but it does not have persistence for {PROCESS_ENGINE} configured so it will only store process instances in memory
+     * but does not have persistence for the {PROCESS_ENGINE} configured so it will only store process instances in memory
      * @return new instance of <code>RuntimeEnvironmentBuilder</code> that is already preconfigured with defaults
      *
      * @see DefaultRuntimeEnvironment
@@ -107,7 +109,7 @@ public interface RuntimeEnvironmentBuilderFactory {
      * <ul>
      * 	<li>DefaultRuntimeEnvironment</li>
      * </ul>
-     * This method is tailored to work smoothly with KJAR files and use the release Id defined in the KJAR
+     * This method is tailored to work smoothly with KJAR files and use the release ID defined in the KJAR
      * @param releaseId <code>ReleaseId</code> that described the kjar
      * @return new instance of <code>RuntimeEnvironmentBuilder</code> that is already preconfigured with defaults
      *
@@ -120,7 +122,7 @@ public interface RuntimeEnvironmentBuilderFactory {
      * <ul>
      * 	<li>DefaultRuntimeEnvironment</li>
      * </ul>
-		 * This method is tailored to work smoothly with KJAR files and use the kbase, ksession, and release Id settings in the KJAR
+		 * This method is tailored to work smoothly with KJAR files and use the kbase, ksession, and release ID settings in the KJAR
      * @param releaseId <code>ReleaseId</code> that described the kjar
      * @param kbaseName name of the kbase defined in kmodule.xml stored in kjar
      * @param ksessionName name of the ksession define in kmodule.xml stored in kjar
@@ -160,7 +162,7 @@ public interface RuntimeEnvironmentBuilderFactory {
     public RuntimeEnvironmentBuilder newClasspathKmoduleDefaultBuilder(String kbaseName, String ksessionName);
 ----
 
-The runtime manager also provides access to a `TaskService` object as an integrated component of a `RuntimeEngine`,m configured to communicate with the KIE session. If you use one of the default builders, the following configuration settings for the task service are present:
+The runtime manager also provides access to a `TaskService` object as an integrated component of a `RuntimeEngine` object, configured to communicate with the KIE session. If you use one of the default builders, the following configuration settings for the task service are present:
 
 * The persistence unit name is set to `org.jbpm.persistence.jpa` (for both {PROCESS_ENGINE} and task service)
 * The human task handler is registered on the KIE session

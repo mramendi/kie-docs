@@ -1,8 +1,9 @@
 [id='processruntime-con-{context}']
-= ProcessRuntime
+= ProcessRuntime interface
 
 The `KieSession` class exposes the `ProcessRuntime` interface, which defines all the session methods for interacting with processes, as the following definition shows.
 
+.Definition of the `ProcessRuntime` interface
 [source,java,subs="attributes+"]
 ----
 

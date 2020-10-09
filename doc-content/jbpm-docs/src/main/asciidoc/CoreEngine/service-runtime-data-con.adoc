@@ -10,29 +10,25 @@ This service is optimised to be as efficient as possible while providing all req
 
 The following examples show various usage of this service.
 
-* Retrieving all process definitions:
-+
+.Retrieving all process definitions
 [source,java]
 ----
 Collection definitions = runtimeDataService.getProcesses(new QueryContext());
 ----
-+
-* Retrieving active process instances:
-+
+
+.Retrieving active process instances
 [source,java]
 ----
 Collection<processinstancedesc> instances = runtimeDataService.getProcessInstances(new QueryContext());
 ----
-+
-* Retrieving active nodes for a particular process instance:
-+
+
+.Retrieving active nodes for a particular process instance
 [source,java]
 ----
 Collection<nodeinstancedesc> instances = runtimeDataService.getProcessInstanceHistoryActive(processInstanceId, new QueryContext());
 ----
-+
-* Retrieving tasks assigned to the user `john`:
-+
+
+.Retrieving tasks assigned to the user `john`
 [source,java]
 ----
 List<tasksummary> taskSummaries = runtimeDataService.getTasksAssignedAsPotentialOwner("john", new QueryFilter(0, 10));
@@ -42,6 +38,7 @@ The runtime data service methods support two important parameters, `QueryContext
 
 The following definition shows the complete `RuntimeDataService` interface:
 
+.Definition of the `RuntimeDataService` interface
 [source,java]
 ----
 public interface RuntimeDataService {

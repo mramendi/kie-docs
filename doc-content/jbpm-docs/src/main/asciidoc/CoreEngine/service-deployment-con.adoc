@@ -11,6 +11,7 @@ In a typical use case for this service, you can load and unload multiple KJARs a
 
 The following code sample shows simple use of the deployment service.
 
+.Using the deployment service
 [source,java]
 ----
 // create deployment unit by providing the GAV of the KJAR
@@ -27,6 +28,7 @@ RuntimeManager manager = deployed.getRuntimeManager();
 
 The following definition shows the complete `DeploymentService` interface:
 
+.Definition of the `DeploymentService` interface
 [source,java]
 ----
 public interface DeploymentService {

@@ -3,8 +3,9 @@
 
 If your application uses the runtime manager API and runs in a CDI environment, your classes can implement the dedicated producer interfaces to provide custom work item handlers and event listeners to all runtime engines.
 
-TO create a work item handler, implement `WorkItemHandlerProducer`.
+To create a work item handler, implement the `WorkItemHandlerProducer` interface.
 
+.Definition of the `WorkItemHandlerProducer` interface
 [source,java]
 ----
 public interface WorkItemHandlerProducer {
@@ -29,7 +30,7 @@ public interface WorkItemHandlerProducer {
 }
 ----
 
-Th create an event listener, implement `EventListenerProducer`. Annotate the event listener producer with the proper qualifier to indicate the type of listeners that it provides. Use one of the following annotations:
+To create an event listener, implement the `EventListenerProducer` interface. Annotate the event listener producer with the proper qualifier to indicate the type of listeners that it provides. Use one of the following annotations:
 
 * `@Process` for `ProcessEventListener`
 * `@Agenda` for `AgendaEventListener`
@@ -57,12 +58,12 @@ public interface EventListenerProducer<T> {
 }
 ----
 
-Package implementations of these interfaces as a bean archive by including `beans.xml` in the `META-INF` subdirectory. Place the bean archive on the application class path, for example, in `WEB-INF/lib` for a web application. The CDI-based `RuntimeManager` discovers the packages and registers the work item handlers and event listeners in every `KieSession` that is creates or loads from the data store.
+Package your implementations of these interfaces as a bean archive by including `beans.xml` in the `META-INF` subdirectory. Place the bean archive on the application class path, for example, in `WEB-INF/lib` for a web application. The CDI-based runtime manager discovers the packages and registers the work item handlers and event listeners in every `KieSession` that is creates or loads from the data store.
 
-{PROCESS_ENGINE} provides certain parameters to the producers to enable stateful and advanced operation. For example. the handlers or listeners can use the parameters to signal the {PROCESS_ENGINE} or the process instance in case of an error. {PROCESS_ENGINE} provides the following components as parameters:
+The {PROCESS_ENGINE} provides certain parameters to the producers to enable stateful and advanced operation. For example, the handlers or listeners can use the parameters to signal the {PROCESS_ENGINE} or the process instance in case of an error. The {PROCESS_ENGINE} provides the following components as parameters:
 
 * `KieSession`
 * `TaskService`
 * `RuntimeManager`
 
-In addition, the identifier of the `RuntimeManager` is provided as a parameter. You can apply filtering to the identifier to decide whether this RuntimeManager receives the handlers and listeners.
+In addition, the identifier of the `RuntimeManager` class instance is provided as a parameter. You can apply filtering to the identifier to decide whether this `RuntimeManager` instance receives the handlers and listeners.

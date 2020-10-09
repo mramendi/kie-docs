@@ -2,27 +2,28 @@
 = Deployment synchronization
 
 ifdef::DROOLS,JBPM,OP[]
-Prior to jBPM 6.2, jbpm services did not have a deployment store by default.
-When embedded in jbpm-console/kie-wb, they utilized the sistem.git VFS repository to preserve deployed units across server restarts.
-While that works fine, it comes with some drawbacks:
+Prior to jBPM 6.2, jBPM services did not have a deployment store by default.
+When embedded in jbpm-console/kie-wb, they utilized the `sistem.git` VFS repository to preserve deployed units across server restarts.
+While that approach works, it causes some drawbacks:
 
-* not available for custom systems that use services
-* requires complex setup in cluster - zookeeper and helix
+* It is not available for custom systems that use services
+* It requires a complex setup process in a cluster deployment, involving `zookeeper` and `helix`
 
-With version 6.2 jbpm services come with a deployment synchronizer
+Since version 6.2, jBPM services include a deployment synchronizer
 endif::DROOLS,JBPM,OP[]
 ifdef::PAM,DM[]
-{PROCESS_ENGINE} services include a deployment synchronizer
+{PROCESS_ENGINE_CAP} services include a deployment synchronizer
 endif::PAM,DM[]
 that stores available deployments into a database, including the deployment descriptor for every deployment.
 
 The synhronizer also monitors this table to keep it in sync with other installations that might be using the same data source.
-This functionality is especially important when running ina cluster or when {CENTRAL} and a custom application must operate on the same artifacts.
+This functionality is especially important when running in a cluster or when {CENTRAL} and a custom application must operate on the same artifacts.
 
-By default, when running as core services, you must configure synchronization. For EJB and CDI extensions, synchronization is enabled automatically. 
+By default, when running core services, you must configure synchronization. For EJB and CDI extensions, synchronization is enabled automatically. 
 
 The following code sample configures synchronization:
 
+.Configuring synchronization
 [source,java]
 ----
 TransactionalCommandService commandService = new TransactionalCommandService(emf);

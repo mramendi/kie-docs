@@ -7,6 +7,7 @@ The following procedure outlines the typical way in which your code might use th
 
 . Define the data set, which is a view of the data you want to use. Use the `QueryDefinition` class in the in services API to complete this operation:
 +
+.Defining the data set
 [source,java]
 ----
 SqlQueryDefinition query = new SqlQueryDefinition("getAllProcessInstances", "java:jboss/datasources/ExampleDS");
@@ -20,10 +21,11 @@ The constructor requires the following parameters:
 ** A unique name that identifies the query at run time
 ** A JNDI data source name to use for performing queries with this definition
 +
-The parameter of the `setExpression` method is the SQL statement that builds up the data set view. Queries in the query servcie filter data from this view.
+The parameter of the `setExpression` method is the SQL statement that builds up the data set view. Queries in the query service use data from this view and filter this data as necessary.
 +
 . Register the query:
 +
+.Registering a query
 [source,java]
 ----
 queryService.registerQuery(query);
@@ -31,6 +33,7 @@ queryService.registerQuery(query);
 +
 . If required, collect all the data from the dataset, without any filtering:
 +
+.Collecting all he data from the dataset
 [source,java]
 ----
 Collection<ProcessInstanceDesc> instances = queryService.query("getAllProcessInstances", ProcessInstanceQueryMapper.get(), new QueryContext());
@@ -38,8 +41,9 @@ Collection<ProcessInstanceDesc> instances = queryService.query("getAllProcessIns
 +
 This simple query uses defaults from `QueryContext` for paging and sorting.
 +
-. If required, use a `QueryContext` that changes the defaults of the paging and sorting:
+. If required, use a `QueryContext` object that changes the defaults of the paging and sorting:
 +
+.Changing defaults using a `QueryContext` object
 [source,java]
 ----
 QueryContext ctx = new QueryContext(0, 100, "start_date", true);
@@ -49,6 +53,7 @@ Collection<ProcessInstanceDesc> instances = queryService.query("getAllProcessIns
 +
 . If required, use the query to filter data:
 +
+.Using a query to filter data
 [source,java]
 ----
 // single filter param

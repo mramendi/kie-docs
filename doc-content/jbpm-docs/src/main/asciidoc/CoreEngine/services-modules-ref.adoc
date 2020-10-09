@@ -1,7 +1,7 @@
 [id='services-modules-ref_{context}']
 = Modules for {PROCESS_ENGINE} services
 
-The {PROCESS_ENGINE} services are provided as a set of modules. These modules are grouped by their framework dependencies. You can choose the suitable modules use only them, without making your application dependent on the frameworks that other modules use.
+The {PROCESS_ENGINE} services are provided as a set of modules. These modules are grouped by their framework dependencies. You can choose the suitable modules and use only these modules, without making your application dependent on the frameworks that other modules use.
 
 The following modules are available:
 

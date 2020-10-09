@@ -1,5 +1,4 @@
 [id='threads-process-con_{context}']
-// Stetson: shall we condition this text, or a part of it, only for community documentation?
 = Threads in the {PROCESS_ENGINE}
 
 We can refer to two types of "multi-threading":  _logical_ and _technical_. _Technical multi-threading_ involves multiple threads or processes that are started, for example, by a Java or  C program. _Logical multi-threading_ happens in a BPM process, for example, after the process reaches a parallel gateway. In execution logic, the original process splits into two processes that run in a parallel fashion.
@@ -17,7 +16,7 @@ Any code in a process that you supply is also executed synchronously and the {PR
 
 When a process reaches a service task, the {PROCESS_ENGINE} also invokes the handler for the task synchronously amd waits for the `completeWorkItem(...)` method to return before continuing execution. If your service handler is not instantaneous, implement the asynchronous execution independently in your code.
 
-For example, your service task might invoke an external service. The delay in invoking this service remotely and waiting for the results might be significant. Therefore, invoke this service  asynchronously. Your handler must only invoke the service and then return from the methos, then notify the {PROCESS_ENGINE} later when the results are available. In the meantime, the {PROCESS_ENGINE} can continue execution of the process.
+For example, your service task might invoke an external service. The delay in invoking this service remotely and waiting for the results might be significant. Therefore, invoke this service asynchronously. Your handler must only invoke the service and then return from the methos, then notify the {PROCESS_ENGINE} later when the results are available. In the meantime, the {PROCESS_ENGINE} can continue execution of the process.
 
 // there really should be more technical details here about the methods for notification, we need to do this later
 

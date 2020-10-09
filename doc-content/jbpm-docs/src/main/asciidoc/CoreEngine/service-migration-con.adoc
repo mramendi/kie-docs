@@ -15,84 +15,86 @@ A node map contains source node IDs from the old process definition mapped to ta
 
 {PRODUCT} offers several implementations of the migration service:
 
+.Methods in the `ProcessInstanceMigrationService` interface that implement the migration service
 [source,java]
 ----
 public interface ProcessInstanceMigrationService {
  /**
- * Migrates a given process instance that belongs to the source deployment into the target process id that belongs to the target deployment.
+ * Migrates a given process instance that belongs to the source deployment into the target process ID that belongs to the target deployment.
  * The following rules are enforced:
  * <ul>
- * <li>source deployment id must point to an existing deployment</li>
- * <li>process instance id must point to an existing and active process instance</li>
- * <li>target deployment must exist</li>
- * <li>target process id must exist in target deployment</li>
+ * <li>the source deployment ID must point to an existing deployment</li>
+ * <li>the process instance ID must point to an existing and active process instance</li>
+ * <li>the target deployment must exist</li>
+ * <li>the target process ID must exist in the target deployment</li>
  * </ul>
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
- * @param sourceDeploymentId deployment that process instance to be migrated belongs to
- * @param processInstanceId id of the process instance to be migrated
- * @param targetDeploymentId id of deployment that target process belongs to
- * @param targetProcessId id of the process process instance should be migrated to
+ * @param sourceDeploymentId deployment to which the process instance to be migrated belongs
+ * @param processInstanceId ID of the process instance to be migrated
+ * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetProcessId ID of the process to which the process instance should be migrated
  * @return returns complete migration report
  */
  MigrationReport migrate(String sourceDeploymentId, Long processInstanceId, String targetDeploymentId, String targetProcessId);
  /**
- * Migrates a given process instance (with node mapping) that belongs to source deployment into the target process id that belongs to the target deployment.
+ * Migrates a given process instance (with node mapping) that belongs to source deployment into the target process ID that belongs to the target deployment.
  * The following rules are enforced:
  * <ul>
- * <li>source deployment id must point to an existing deployment</li>
- * <li>process instance id must point to an existing and active process instance</li>
- * <li>target deployment must exist</li>
- * <li>target process id must exist in target deployment</li>
+ * <li>the source deployment ID must point to an existing deployment</li>
+ * <li>the process instance ID must point to an existing and active process instance</li>
+ * <li>the target deployment must exist</li>
+ * <li>the target process ID must exist in the target deployment</li>
  * </ul>
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
- * @param sourceDeploymentId deployment that process instance to be migrated belongs to
- * @param processInstanceId id of the process instance to be migrated
- * @param targetDeploymentId id of deployment that target process belongs to
- * @param targetProcessId id of the process process instance should be migrated to
- * @param nodeMapping node mapping - source and target unique ids of nodes to be mapped - from process instance active nodes to new process nodes
+ * @param sourceDeploymentId deployment to which the process instance to be migrated belongs
+ * @param processInstanceId ID of the process instance to be migrated
+ * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetProcessId ID of the process to which the process instance should be migrated
+ * @param nodeMapping node mapping - source and target unique IDs of nodes to be mapped - from process instance active nodes to new process nodes
  * @return returns complete migration report
  */
  MigrationReport migrate(String sourceDeploymentId, Long processInstanceId, String targetDeploymentId, String targetProcessId, Map<String, String> nodeMapping);
  /**
- * Migrates given process instances that belong to the source deployment into a target process id that belongs to the target deployment.
+ * Migrates given process instances that belong to the source deployment into a target process ID that belongs to the target deployment.
  * The following rules are enforced:
  * <ul>
- * <li>source deployment id must point to an existing deployment</li>
- * <li>process instance id must point to an existing and active process instance</li>
- * <li>target deployment must exist</li>
- * <li>target process id must exist in target deployment</li>
+ * <li>the source deployment ID must point to an existing deployment</li>
+ * <li>the process instance ID must point to an existing and active process instance</li>
+ * <li>the target deployment must exist</li>
+ * <li>the target process ID must exist in the target deployment</li>
  * </ul>
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
- * @param sourceDeploymentId deployment that process instance to be migrated belongs to
- * @param processInstanceIds list of process instance id to be migrated
- * @param targetDeploymentId id of deployment that target process belongs to
- * @param targetProcessId id of the process process instance should be migrated to
+ * @param sourceDeploymentId deployment to which the process instances to be migrated belong
+ * @param processInstanceIds list of process instance IDs to be migrated
+ * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetProcessId ID of the process to which the process instances should be migrated
  * @return returns complete migration report
  */
  List<MigrationReport> migrate(String sourceDeploymentId, List<Long> processInstanceIds, String targetDeploymentId, String targetProcessId);
  /**
- * Migrates given process instances (with node mapping) that belong to the source deployment into a target process id that belongs to the target deployment.
+ * Migrates given process instances (with node mapping) that belong to the source deployment into a target process ID that belongs to the target deployment.
  * The following rules are enforced:
  * <ul>
- * <li>source deployment id must point to an existing deployment</li>
- * <li>process instance id must point to an existing and active process instance</li>
- * <li>target deployment must exist</li>
- * <li>target process id must exist in target deployment</li>
+ * <li>the source deployment ID must point to an existing deployment</li>
+ * <li>the process instance ID must point to an existing and active process instance</li>
+ * <li>the target deployment must exist</li>
+ * <li>the target process ID must exist in the target deployment</li>
  * </ul>
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
- * @param sourceDeploymentId deployment that process instance to be migrated belongs to
- * @param processInstanceIds list of process instance id to be migrated
- * @param targetDeploymentId id of deployment that target process belongs to
- * @param targetProcessId id of the process process instance should be migrated to
- * @param nodeMapping node mapping - source and target unique ids of nodes to be mapped - from process instance active nodes to new process nodes
+ * @param sourceDeploymentId deployment to which the process instances to be migrated belong
+ * @param processInstanceIds list of process instance ID to be migrated
+ * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetProcessId ID of the process to which the process instances should be migrated
+ * @param nodeMapping node mapping - source and target unique IDs of nodes to be mapped - from process instance active nodes to new process nodes
  * @return returns list of migration reports one per each process instance
  */
  List<MigrationReport> migrate(String sourceDeploymentId, List<Long> processInstanceIds, String targetDeploymentId, String targetProcessId, Map<String, String> nodeMapping);
 }
 ----
 
-To migrate process instances on a {KIE_SERVER}, use the following implementations. These methods correspond with the implementations described in the previous code sample.
+To migrate process instances on a {KIE_SERVER}, use the following implementations. These methods are similar to the methods in the `ProcessInstanceMigrationService` interface, providing the same migration implementations for {KIE_SERVER} deployments.
 
+.Methods in the `ProcessAdminServicesClient` interface that implement the migration service for {KIE_SERVER} deployments
 [source,java]
 ----
 public interface ProcessAdminServicesClient {
@@ -117,6 +119,7 @@ After migration is completed, the `migrate` method returns a `MigrationReport` o
 
 The following example shows a process instance migration:
 
+.Migrating a process instance in a {KIE_SERVER} deployment
 [source,java]
 ----
 import org.kie.server.api.model.admin.MigrationReportInstance;

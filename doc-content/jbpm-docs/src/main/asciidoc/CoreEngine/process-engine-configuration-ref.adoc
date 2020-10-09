@@ -106,4 +106,15 @@ Note:  Must be valid for the given runtime environment.  Do not use this variabl
 |`org.drools.persistence.jpa.KnowledgeStoreServiceImpl`
 |Fully qualified name of the class that implements `KieStoreServices` that will be
             responsible for bootstrapping `KieSession` instances
+
+|`org.kie.jpbm.notification_listeners.exclude`
+|String
+|
+|Fully qualified names of event listeners that must be excluded even if they would otherwise be used. Separate multiple names with commas. For example, you can add `org.jbpm.services.task.deadlines.notifications.impl.email.EmailNotificationListener` to exclude the default email notification listener.
+
+|`org.kie.jpbm.notification_listeners.include`
+|String
+|
+|Fully qualified names of event listeners that must be included. Separate multiple names with commas. If you set this property, only the listeners in this property are included and all other listeners are excluded. 
+
 |===

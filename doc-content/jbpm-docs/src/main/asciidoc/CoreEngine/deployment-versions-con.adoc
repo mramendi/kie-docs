@@ -1,7 +1,7 @@
 [id='deployment-versions-con_{context}']
 = Deployments and different process versions
 
-The deployment service puts business assets into an execution environment. However, in some cases additional management is required to make the assets available in the right context. Notably, if you deploy several versions of the same process, you must ensure that process instances use the correct version.
+The deployment service puts business assets into an execution environment. However, in some cases additional management is required to make the assets available in the correct context. Notably, if you deploy several versions of the same process, you must ensure that process instances use the correct version.
 
 [float]
 == Activation and Deactivation of deployments
@@ -12,14 +12,14 @@ You might decide that new instances of this process definition must use the new 
 
 To enable this scenario, use the following methods of the deployment service:
 
-* `activate`: activates a given deployment so it can be available for interaction. You can lost its process definitions and start new process instances for this deployment.
+* `activate`: activates a given deployment so it can be available for interaction. You can list its process definitions and start new process instances for this deployment.
 
 * `deactivate`: deactivates a deployment. Disables the option to list process definitions and to start new process instances of processes in the deployment. However, you can continue working with the process instances that are already active, for example, signal events and interact with user tasks.
 
 You can use this feature for smooth transition between project versions without the need for process instance migration.
 
 [float]
-== Invoking latest version of  processes
+== Invoking the latest version of a process
 
 If you need to use the latest version of the project's process, you can use the `latest` keyword to interact with several operations in services. This approach is supported only when the process identifier remains the same in all versions.
 
@@ -36,7 +36,7 @@ If you want to call the process and enxure that you use the latest version, you 
 org.jbpm.HR:latest
 ----
 
-If you use this deployment ID, {PROCESS_ENGINE} finds the latest available version of the project. It uses the following identifiers:
+If you use this deployment ID, the {PROCESS_ENGINE} finds the latest available version of the project. It uses the following identifiers:
 
 * `groupId`: `org.jbpm`
 * `artifactId`: `HR`
@@ -44,6 +44,8 @@ If you use this deployment ID, {PROCESS_ENGINE} finds the latest available versi
 The version numbers are compared by Maven rules to find the latest version.
 
 The following code example shows deployment of multiple versions and interacting with the latest version:
+
+.Deploying multiple versions of a process and interacting with the latest version
 [source,java]
 ----
 KModuleDeploymentUnit deploymentUnitV1 = new KModuleDeploymentUnit("org.jbpm", "HR", "1.0");
@@ -68,5 +70,5 @@ assertEquals(deploymentUnitV2.getIdentifier(), piDesc.getDeploymentId());
 
 [NOTE]
 ====
-This feature is also available in the REST KIE API. When sending request with deployment id, you can use `LATEST` as the version identifier.
+This feature is also available in the REST KIE API. When sending a request with a deployment ID, you can use `LATEST` as the version identifier.
 ====
