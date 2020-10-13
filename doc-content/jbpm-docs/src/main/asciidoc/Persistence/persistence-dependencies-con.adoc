@@ -1,0 +1,48 @@
+[id='persistence-dependencies-con_{context}']
+= Providing dependencies for persistence
+
+To use persistence, you mustmake sure the necessary dependencies are available in the class path of your application
+
+By default, persistence is based on the Java Persistence API (JPA) and can work with several persistence mechanisms. By default, Hibernate is used.
+
+If youuse  the Eclipse IDE and the jBPM Eclipse plugin, make sure the necessary JARs are added to your jBPM runtime directory. If you are using the runtime that is configured by default by the {PRODUCT} installer, the JARs are normally already available.
+
+You can also download the
+ifdef::JBPM,DROOLS,OP[]
+jBPM runtime artifact from the jBPM downloads
+endif::JBPM,DROOLS,OP[]
+ifdef::PAM,DM[]
+`{PRODUCT_FILE}-maven-repository.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal
+endif::PAM,DM[]
+and configure the jBPM plugin to use the artifacts from this file.
+
+To add the necessary dependencies to your project manually, you must place the `jbpm-persistence-jpa.jar` file in your project class path. This file contains the code for saving the runtime state whenever necessary. Depending on the persistence solution and database you are using, you might need additional dependencies.
+
+For the default combination of:
+
+* Hibernate as the JPA persistence provider
+* H2 in-memory database
+* Narayana for JTA-based transaction management
+* Tomcat DBCP for connection pooling capabilities
+
+The following additional dependencies are required:
+
+* `jbpm-persistence-jpa` (`org.jbpm`)
+* `drools-persistence-jpa` (`org.drools`)
+* `persistence-api` (`javax.persistence`)
+* `hibernate-entitymanager` (`org.hibernate`)
+* `hibernate-annotations` (`org.hibernate`)
+* `hibernate-commons-annotations` (`org.hibernate`)
+* `hibernate-core` (`org.hibernate`)
+* `commons-collections` (`commons-collections`)
+* `dom4j` (`org.dom4j`)
+* `jta` (`javax.transaction`)
+* `narayana-jta` (`org.jboss.narayana.jta`)
+* `tomcat-dbcp` (`org.apache.tomcat`)
+* `jboss-transaction-api_1.2_spec` (`org.jboss.spec.javax.transaction`)
+* `javassist` (`javassist`)
+* `slf4j-api` (`org.slf4j`)
+* `slf4j-jdk14` (`org.slf4j`)
+* `simple-jndi` (`simple-jndi`)
+* `h2` (`com.h2database`)
+* `jbpm-test` (`org.jbpm`) only for testing, do not include this artifact in the production application
