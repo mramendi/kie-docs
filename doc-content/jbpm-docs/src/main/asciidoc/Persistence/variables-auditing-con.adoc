@@ -148,7 +148,7 @@ You must implement two methods for either of the interfaces:
 * `accept`: Indicates whether a type is handled by this indexer. The {PROCESS_ENGINE} expects that only one indexer can index a given variable value, so it uses the first indexer that accepts the type.
 * `index`: Indexes a value, producing a object or listy of objects (usually strings) for inclusion in the audit log.
 
-After implementing the interface, you must package this implementation as a JAR file and include this file in one of the following files:
+After implementing the interface, you must package this implementation as a JAR file and list the implementation in one of the following files:
 
 * For process variables, the `META-INF/services/org.kie.internal.process.ProcessVariableIndexer` file, which lists fully qualified class names of process variable indexers (single class name per line)
 * For task variables, the `META-INF/services/org.kie.internal.task.api.TaskVariableIndexer` file, which lists fully qualified class names of task variable indexers (single class name per line)

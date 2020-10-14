@@ -1,9 +1,7 @@
 [id='persistence-configuration-file-con_{context}']
 = Configuration in the `persistence.xml` file
 
-To use JPA prsistence, you must add a `persistence.xml` persistence configuration to your class path to configure JPA to use Hibernate and the H2 database (or any other database that you prefer). Place this file in the `META-INF` directory of your project.
-
-For more details about configuring the `persistence.xml` file, refer to JPA and Hibernate documentation.
+To use JPA persistence, you must add a `persistence.xml` persistence configuration to your class path to configure JPA to use Hibernate and the H2 database (or any other database that you prefer). Place this file in the `META-INF` directory of your project.
 
 .Sample `persistence.xml` file
 [source,xml]

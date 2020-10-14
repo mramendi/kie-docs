@@ -40,6 +40,12 @@ env.set(EnvironmentName.TASK_PERSISTENCE_CONTEXT_MANAGER, new JPATaskPersistence
 <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.WebSphereJtaPlatform"/>
 ----
 +
-. To dispose a KIE session, do not dispose it directly. Instead, execute the `org.jbpm.persistence.jta.ContainerManagedTransactionDisposeCommand` command. This commands ensures that the session is disposed at the completion of the current transaction.
+. To dispose a KIE session, do not dispose it directly. Instead, execute the `org.jbpm.persistence.jta.ContainerManagedTransactionDisposeCommand` command. This commands ensures that the session is disposed at the completion of the current transaction. In the following example, `ksession` is the `KieSession` object that you want to dispose. 
++
+.Disposing a KIE session using the `ContainerManagedTransactionDisposeCommand` command
+[source,java]
+----
+ksession.execute(new ContainerManagedTransactionDisposeCommand());
+----
 +
 Directly disposing the session causes an exception at the completion of the transaction, beacuse the {PROCESS_ENGINE} registers transaction synchronization to clean up the session state.
