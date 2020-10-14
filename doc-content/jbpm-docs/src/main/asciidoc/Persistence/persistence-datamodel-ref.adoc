@@ -31,7 +31,7 @@ The `sessioninfo` entity contains the state of the knowledge session in which th
 | Nullable
 
 |``id``
-|The primary key.
+|The primary key
 |NOT NULL
 
 |``lastmodificationdate``
@@ -105,12 +105,11 @@ The `eventtypes` entity contains information about events that a process instanc
 | Nullable
 
 |``instanceid``
-|This column references the `processinstanceinfo` primary key. There is a foreign key constraint on
- this column.
+|This column references the `processinstanceinfo` primary key. There is a foreign key constraint on this column.
 |NOT NULL
 
-|``eventTypes``
-|A text field related to an event that the process has undergone.
+|``element``
+|A text field related to an event that the process has undergone
 |
 |===
 
@@ -232,6 +231,10 @@ This entity is an internal part of the `RuntimeManager` class and can be conside
 
 |``ksession_id``
 |Identifier of the ksession mapped to this context
+|NOT NULL
+
+|``owner_id``
+|Identifier of the runtime manager
 |NOT NULL
 
 |``optlock``

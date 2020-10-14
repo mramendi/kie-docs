@@ -1,9 +1,9 @@
 [id='transaction-register-con_{context}']
-= Registering a transaction manager
+= Registration of a transaction manager
 
 You must register a transaction manager at the environment to use user-defined transactions.
 
-The following sample code registers the Narayana JTA transaction manager. Then it uses JTA calls to specify transaction boundaries.
+The following sample code registers the transaction manager. Then it uses JTA calls to specify transaction boundaries.
 
 .Registering a transaction manager and using transactions
 [source,java]
@@ -54,7 +54,7 @@ org.osjava.sj.jndi.shared=true
 This configuration assumes that the `simple-jndi:simple-jndi` artifact is present in the class path of your project. You can also use a different JNDI implementation.
 
 // the older version refered also to EAP 5.x, but that is EOL for several years now
-If you want to use a different JTA transaction manager, you can change the `persistence.xml` file to use the required transaction manager. For example, if your application runs on {EAP} version 7 or later, you can use the JBoss transaction manager. In this case, change the transaction manager property in the `persistence.xml` file:
+By default, the Narayana JTA transaction manager is used. If you want to use a different JTA transaction manager, you can change the `persistence.xml` file to use the required transaction manager. For example, if your application runs on {EAP} version 7 or later, you can use the JBoss transaction manager. In this case, change the transaction manager property in the `persistence.xml` file:
 
 .Transaction manager property in the `persistence.xml` file for the JBoss transaction manager
 [source,properties]

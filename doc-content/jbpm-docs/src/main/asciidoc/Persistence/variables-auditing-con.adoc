@@ -1,5 +1,5 @@
 [id='variables-auditing-con_{context}']
-= Auditing variables
+= Auditing of variables
 
 By default, values of process and task variables are stored in audit tables as string representations. To create string representations of non-string variable types, the {PROCESS_ENGINE} calls the `variable.toString()` method. If you use a custom class for a variable, you can implement this method for the class. In many cases this representation is sufficient.
 
@@ -134,7 +134,7 @@ The {PROCESS_ENGINE} can use this indexer to index values when they are of the `
 As a `LIKE` type query is not used, the database server can optimize the query and make it efficient on a big set of data. 
 
 [float]
-== Building and registering custom indexers
+== Custom indexers
 
 The {PROCESS_ENGINE} supports indexers for both process and task variables. However, it uses different interfaces for the indexers, because they must produce different types of objects that represent an audit view of the variable.
 

@@ -1,5 +1,5 @@
 [id='persistence-datasources-con_{context}']
-= Configuring data sources for {PROCESS_ENGINE} persistence
+= Configuration of data sources for {PROCESS_ENGINE} persistence
 
 To configure JPA persistence in the {PROCESS_ENGINE}, you must provide a data source, which represents a database backend.
 

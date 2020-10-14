@@ -20,6 +20,10 @@ The `ProcessInstanceLog` table contains the basic log information about a proces
 |The primary key and ID of the log entity
 |NOT NULL
 
+|``correlationKey``
+|The correlation of this process instance
+|
+
 |``duration``
 |Actual duration of this process instance since its start date
 |
@@ -56,8 +60,20 @@ The `ProcessInstanceLog` table contains the basic log information about a proces
 |The name of the process
 |
 
+|``processtype``
+|The type of the instance (process or case)
+|
+
 |``processversion``
 |The version of the process
+|
+
+|``sla_due_date``
+|The due date of the process according to the service level agreement (SLA)
+|
+
+|``slaCompliance``
+|The level of compliance with the SLA
 |
 
 |``start_date``
@@ -120,6 +136,14 @@ Whenever a node instance is entered from one of its incoming connections or is e
 |The process instance ID
 |NOT NULL
 
+|``sla_due_date``
+|The due date of the node according to the service level agreement (SLA)
+|
+
+|``slaCompliance``
+|The level of compliance with the SLA
+|
+
 |``type``
 |The type of the event (0 = enter, 1 = exit)
 |NOT NULL
@@ -127,6 +151,15 @@ Whenever a node instance is entered from one of its incoming connections or is e
 |``workItemId``
 |Optional, only for certain node types: The identifier of the work item
 |
+
+|``nodeContainerId``
+|The identifier of the container, if the node is inside an embedded sub-process node 
+|
+
+|``referenceId``
+|The reference identifier
+|
+
 |===
 
 
@@ -253,6 +286,11 @@ The `AuditTaskImpl` table contains information about user tasks.
 |``workItemId``
 |Identifier of the work item assigned on the process side to this task ID
 |
+
+|``lastModificationDate``
+|The date and time when the process instance state was last recorded in the persistence database
+|
+
 |===
 
 
@@ -265,7 +303,7 @@ The `BAMTaskSummary` table collects information about tasks that is used by the 
 | Description
 | Nullable
 
-|``id``
+|``pk``
 |The primary key and ID of the log entity
 |NOT NULL
 
@@ -304,6 +342,11 @@ The `BAMTaskSummary` table collects information about tasks that is used by the 
 |``userId``
 |User ID assigned to the task
 |
+
+|``optlock``
+|The version field that serves as its optimistic lock value
+|
+
 |===
 
 
@@ -390,5 +433,19 @@ Operations such as `claim`, `start`, and `stop` are stored in this table to prov
 
 |``workItemId``
 |Identifier of the work item to which the task is assigned
+|
+
+|``optlock``
+|The version field that serves as its optimistic lock value
+|
+
+|``correlationKey``
+|Correlation key of the process instance
+|
+
+|``processType``
+|Type of the process instance (process or case)
+|
+
 |===
 

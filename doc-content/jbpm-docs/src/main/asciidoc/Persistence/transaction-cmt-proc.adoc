@@ -14,9 +14,9 @@ To enable proper execution in CMT environments, the {PROCESS_ENGINE} provides a 
 During process execution your code must popagate any exceptions thrown by the engine to the container to ensure that the container rolls transactions back when necessary.
 ====
 
-.Procedure
+To configure this transaction manager, complete the steps in this procedure.
 
-To configure this transaction manager, complete the following steps:
+.Procedure
 
 . In your code, insert the transaction manager and persistence context manager into the environment before creating or loading a session: 
 +

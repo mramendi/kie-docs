@@ -1,5 +1,5 @@
 [id='persistence-runtimemanager-con_{context}']
-= Configuring the runtime manager with persistence
+= Persistence in the runtime manager
 
 If your code uses the `RuntimeManager` class, use the `RuntimeEnvironmentBuilder` class to configure the environment for persistence. By default, the runtime manager searches for the `jdbc/jbpm-ds` data source for persistence.
 
@@ -57,13 +57,14 @@ StatefulKnowledgeSession ksession = (StatefulKnowledgeSession) RuntimeManagerFac
         .getKieSession();
 ----
 
-After creating the `ksession` KIE session in this example, you can call methods in `ksession`, for example, `StartProcess()`. The {PROCESS_ENGINE} persists all runtime state in the configured data source. Use the `ksession.getId()` method to get the session identifier.
+After creating the `ksession` KIE session in this example, you can call methods in `ksession`, for example, `StartProcess()`. The {PROCESS_ENGINE} persists all runtime state in the configured data source. 
 
-You can re-create the session from the database by using the session identifier:
+You can restore a process instance from persistent storage by using the process instance ID. The runtime manager automatically re-created the required session.
 
-.Re-creating a KIE session from the persistence database
+.Re-creating a KIE session from the persistence database using a process instance ID
 [source,java]
 ----
-// recreate the session from database using the sessionId
-StatefulKnowledgeSession ksession = JPAKnowledgeService.loadStatefulKnowledgeSession(sessionId, kbase, null, env );
+RuntimeEngine runtime = manager.getRuntimeEngine(ProcessInstanceIdContext.get(processInstanceId));
+
+KieSession session = runtime.getKieSession();
 ----

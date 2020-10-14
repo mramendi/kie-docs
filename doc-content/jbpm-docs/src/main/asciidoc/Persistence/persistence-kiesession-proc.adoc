@@ -1,9 +1,11 @@
-[id='persistence-kiesession-con_{context}']
+[id='persistence-kiesession-proc_{context}']
 = Creating a KIE session with persistence
 
 If your code creates KIE sessions directly, you can use the `JPAKnowledgeService` class to create your KIE session. This approach provides full access to the underlying configuration.
 
-You can create a new KIE session using the `JPAKnowledgeService` class. based on a KIE base, a KIE session configuration (if necessary), and an environment. The environment must contain a reference to the Entity Manager Factory that you use for persistence.
+.Procedure
+
+. Create a new KIE session using the `JPAKnowledgeService` class, based on a KIE base, a KIE session configuration (if necessary), and an environment. The environment must contain a reference to the Entity Manager Factory that you use for persistence.
 
 .Creating a KIE session with persistence
 [source,java]
@@ -24,7 +26,7 @@ ksession.startProcess( "MyProcess" );
 ksession.dispose();
 ----
 
-You can also use the `JPAKnowledgeService` class to re-create a session from the database based on a specific session ID:
+. To re-create a session from the database based on a specific session ID, use the `JPAKnowledgeService.loadStatefulKnowledgeSession()` method:
 
 .Re-creating a KIE session from the persistence database
 [source,java]
