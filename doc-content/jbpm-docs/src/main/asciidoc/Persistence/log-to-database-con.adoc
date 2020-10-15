@@ -7,8 +7,7 @@ To log process history information in a database with a default data model, you 
 [source,java]
 ----
 KieSession ksession = ...;
-AbstractAuditLogger auditLogger = AuditLoggerFactory.newInstance(Type.JPA, ksession, null);
-ksession.addProcessEventListener(auditLogger);
+ksession.addProcessEventListener(AuditLoggerFactory.newInstance(Type.JPA, ksession, null));
 
 // invoke methods for your session here
 ----
