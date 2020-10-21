@@ -1,0 +1,46 @@
+[id='cdi-deployment-service-con_{context}']
+
+= The Deployment service for CDI
+
+The `DeploymentService` service  deploys and undeploys deployment units in the runtime environment. When you deploy a unit using this service, the deployment unit becomes ready for execution and a `RuntimeManager` instance is created for it. You can also use the `DeploymentService` to retrieve the following objects:
+
+* The `RuntimeManager` instance for a given deployment ID
+* The `DeployedUnit` instance that represents the complete deployment unit for the given deployment ID
+* The list of all deployed units known to the deployment service
+
+By default, the deployment service stores the deployed units in memory. You can configure persistence for {PROCESS_ENGINE} services, as described in xref:persistence-con_{context}[]. 
+
+Also, in the CDI framework, the component uses the service can save and restore deployment unit information, for example, using a database, file, system, or repository.
+
+The deployment service fires CDI events on deployment and undeployment. The component that uses the service can process these events to store deployments and remove them from the store when they are undeployed.
+
+* A `DeploymentEvent` with the `@Deploy` qualifier is fired on deployment of a unit
+* A `DeploymentEvent` with the `@Undeploy` qualifier is fired on undeployment of a unit
+
+You can use the CDI observer mechanism to get notification on these events.
+
+The following example received notification on deployment of a unit and can save the deployment:
+
+.Example of processing of a deployment event
+[source,java]
+----
+    public void saveDeployment(@Observes @Deploy DeploymentEvent event) {
+        // store deployed unit info for further needs 
+        DeployedUnit deployedUnit = event.getDeployedUnit();
+    }
+----
+
+The following example received notification on deployment of a unit and can remove the deployment from storage:
+
+.Example of processing of an undeployment event
+[source,java]
+----
+    public void removeDeployment(@Observes @Undeploy DeploymentEvent event) {
+        // remove deployment with id event.getDeploymentId()
+    }
+----
+
+Several implementations of the `DeploymentService` service are possible, so you must use qualifiers to instruct the CDI container to inject a particular implementation. A matching implementation of `DelopymentUnit` must exist for every implementation of `DeploymentService`. The {PROCESS_ENGINE} provides two implementations:
+
+* `@Kjar`: The `KmoduleDeploymentService` implementation, which is designed to work with `KmoduleDeploymentUnits`, which are small descriptors that for a part of a KJAR file. This implementation is the typical solution for most use cases.
+* `@Vfs`: The `VFSDeploymentDService` implementation, which deploys assets directly from a virtual file fystem (VFS) that is provided by the http://droolsjbpm.github.io/uberfire/[UberFire framework]. The `VFSDeploymentService` and `VFSDeploymentUnit` classes are not included in the {PROCESS_ENGINE} core modules, but are included in the `jbpm-console-ng` modules.

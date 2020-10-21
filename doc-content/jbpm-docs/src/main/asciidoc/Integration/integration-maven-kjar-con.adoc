@@ -1,0 +1,67 @@
+[id='integration-maven-kjar-con_{context}']
+== Maven artifacts as deployment units
+
+ifdef::JBPM,DROOLS,OP[]
+Since version 6, jBPM
+endif::JBPM,DROOLS,OP[]
+ifdef::PAM,DM[]
+The {PROCESS_ENGINE}
+endif::PAM,DM[]
+provides a mechanism to deploy processes from Apache Maven artifacts. These artifacts are in the JAR file format and are known as _KJAR files_, or informally _KJARs_. A KJAR file includes a descriptor that defines a KIE base and KIE session, as well as the business assets, including process definitions, that the {PROCESS_ENGINE} can load intot he KIE base.
+
+The descriptor of a KJAR file is represented an XML file named `kmodule.xml`. The descriptor can be empty, in which case the default configuration applies. It can also provide custom configuration for the KIE base and KIE session.
+
+.An empty `kmodule.xml` descriptor
+[source,xml]
+----
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.drools.org/xsd/kmodule">
+</kmodule>
+----
+
+With an empty `kmodule.xml` desctiptor, the following default configuration applies:
+
+* A single default KIE base is created with the following characteristics:
+** It contains all assets from all packages in the KJAR file
+** Its event processing mode is set to `cloud`
+** Its equality behaviour is set to `identity`
+** Its declarative agenda is disabled
+** For CDI applications, ts scope is set to `ApplicationScope`
+* A single default stateless KIE session is created with the following characteristics:
+** It is bound to the single KIE base
+** Its clock type is set to `real time`
+** For CDI applications, ts scope is set to `ApplicationScope`
+* A single default stateful KIE session is created with the following characteristics:
+** It is bound to the single KIE base
+** Its clock type is set to `real time`
+** For CDI applications, ts scope is set to `ApplicationScope`
+
+If you do not want to use the defaults, you can change all configuration settings using the `kmodule.xml` file. You can find the complete specification of all elements for this file in the https://github.com/kiegroup/droolsjbpm-knowledge/blob/{COMMUNITY_VERSION_FINAL}/kie-api/src/main/resources/org/kie/api/kmodule.xsd[xsd schema].
+
+The following sample shows a custom `kmodule.xml` file that configures the runtime engine. This example includes the options that are most commonly used for processes. Other options are also available.
+
+.Sample custom `kmodule.xml` file
+[source,xml]
+----
+<kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="https://www.drools.org/xsd/kmodule">
+  <kbase name="defaultKieBase" default="true" eventProcessingMode="cloud" equalsBehavior="identity" declarativeAgenda="disabled" scope="javax.enterprise.context.ApplicationScoped" packages="*">
+    <ksession name="defaultKieSession" type="stateful" default="true" clockType="realtime" scope="javax.enterprise.context.ApplicationScoped">
+        <workItemHandlers>
+            <workItemHandler name="CustomTask" type="FQCN_OF_HANDLER" />
+        </workItemHandlers>
+        <listeners>
+            <listener type="FQCN_OF_EVENT_LISTENER" />
+        </listeners>
+    </ksession>
+    <ksession name="defaultStatelessKieSession" type="stateless" default="true" clockType="realtime" scope="javax.enterprise.context.ApplicationScoped"/>
+  </kbase>
+</kmodule>
+----
+
+
+[NOTE]
+====
+If you use the `RuntimeManager` class, this class creates `KieSession` instances, not the `KieContainer` class. However, the `kmodule.xml` model is always used as a base of the construction process. The `KieContainer` class always creates the `KieBase` instance.
+====
+
+You can reference KJAR artifacts, like any other Maven artifacts, using the GAV (group, artifact, version) value. When deploying units from KJAR files, the {PROCESS_ENGINE} uses the GAV value as the release ID in the KIE API. You can use the GAV value to deploy KJAR artifacts into a runtime environment, for example, a {KIE_SERVER}.

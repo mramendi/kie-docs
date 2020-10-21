@@ -1,0 +1,160 @@
+[id='integration-maven-dependency-con_{context}']
+= Dependency management with Maven
+
+When you build projects that embed the {PROCESS_ENGINE}, use Apache Maven to configure all dependencies required by the {PROCESS_ENGINE}.
+
+The {PROCESS_ENGINE} provides a set of BOMs (Bill Of Material) to simplify declaring artifact dependencies.
+
+Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example incluides the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a stand-alone application.
+
+.Maven dependency management settings for embedding the {PROCESS_ENGINE}
+[source,xml]
+----
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.org.drools>{COMMUNITY_VERSION_FINAL}</version.org.drools>
+    <version.org.jbpm>6.0.0.Final</version.org.jbpm>
+    <hibernate.version>4.2.0.Final</hibernate.version>
+    <hibernate.core.version>4.2.0.Final</hibernate.core.version>
+    <slf4j.version>1.6.4</slf4j.version>
+    <jboss.javaee.version>1.0.0.Final</jboss.javaee.version>
+    <logback.version>1.0.9</logback.version>
+    <h2.version>1.3.161</h2.version>
+    <narayana.version>5.9.0.Final</narayana.version>
+    <jta.version>1.0.1.Final</jta.version>
+    <junit.version>4.8.1</junit.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <!-- define drools BOM -->
+      <dependency>
+        <groupId>org.drools</groupId>
+        <artifactId>drools-bom</artifactId>
+        <type>pom</type>
+        <version>${version.org.drools}</version>
+        <scope>import</scope>
+      </dependency>
+      <!-- define drools BOM -->
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-bom</artifactId>
+        <type>pom</type>
+        <version>${version.org.jbpm}</version>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+----
+
+Also, in modules that use the KIE API,  declare the following dependencies:
+
+.Dependencies for modules that use the KIE API
+[source,xml]
+----
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-flow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-flow-builder</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-bpmn2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-persistence-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-human-task-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-runtime-manager</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+----
+
+You can also test the workflow components before actual deployment. To enable testing the components, define the following test dependencies:
+
+.Test dependencies for the {PROCESS_ENGINE}
+[source,xml]
+----
+    <!-- test dependencies -->
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-shared-services</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>${hibernate.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.core.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>jboss-transaction-api_1.2_spec</groupId>
+      <artifactId>org.jboss.spec.javax.transaction</artifactId>
+      <version>${jta.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.narayana.jta</groupId>
+      <artifactId>narayana-jta</artifactId>
+      <version>${narayana.version}</version>
+      <scope>test</scope>
+    </dependency>
+----
+
+In the top-level `pom.xml` file, you must also define the JBoss Maven repository for artifacts resolution:
+
+.Definition of the JBoss Maven repository
+[source,xml]
+----
+  <repositories>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Repository Group</name>
+      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+----
+
+With this configuration you can embed the {PROCESS_ENGINE} in your application and use the KIE API to interact with processes, rules, and events.

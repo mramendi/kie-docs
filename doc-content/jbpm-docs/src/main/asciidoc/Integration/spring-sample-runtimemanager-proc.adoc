@@ -1,0 +1,78 @@
+[id='spring-sample-runtimemanager-proc_{context}']
+= Configuring a sample run time manager with a spring application
+
+The following is an example of a complete spring configuration for a single run time manager within a spring application.
+
+. Configuring the entity manager factory and the transaction manager
++
+[source,xml]
+----
+<bean id="jbpmEMF" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+  <property name="persistenceUnitName" value="org.jbpm.persistence.spring.jta"/>
+</bean>
+
+<bean id="jbpmEM" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+  <property name="entityManagerFactory" ref="jbpmEMF"/>
+</bean>
+
+<bean id="narayanaUserTransaction" factory-method="userTransaction" class="com.arjuna.ats.jta.UserTransaction" />
+
+<bean id="narayanaTransactionManager" factory-method="transactionManager" class="com.arjuna.ats.jta.TransactionManager" />
+
+<bean id="jbpmTxManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+  <property name="transactionManager" ref="narayanaTransactionManager" />
+  <property name="userTransaction" ref="narayanaUserTransaction" />
+</bean>
+----
++
+As a result of these settings, you have the following ready persistence configuration:
+
+*** JTA transaction manager (backed by Narayana JTA - for unit tests or servlet containers)
+*** entity manager factory for persistence unit named org.jbpm.persistence.spring.jta
+
+. Configure resource that we are going to use - business process
++
+[source,xml]
+----
+<bean id="process" factory-method="newClassPathResource" class="org.kie.internal.io.ResourceFactory">
+  <constructor-arg>
+    <value>jbpm/processes/sample.bpmn</value>
+  </constructor-arg>
+</bean>
+----
++
+this configures single process that will be available for execution - sample.bpmn that will be taken from class path.
+This is the simplest way to get your processes included when trying out jbpm.
+
+. Configure RuntimeEnvironment with our infrastructure (entity manager, transaction manager, resources)
++
+[source,xml]
+----
+<bean id="runtimeEnvironment" class="org.kie.spring.factorybeans.RuntimeEnvironmentFactoryBean">
+  <property name="type" value="DEFAULT"/>
+  <property name="entityManagerFactory" ref="jbpmEMF"/>
+  <property name="transactionManager" ref="jbpmTxManager"/>
+  <property name="assets">
+    <map>
+      <entry key-ref="process"><util:constant static-field="org.kie.api.io.ResourceType.BPMN2"/></entry>
+    </map>
+  </property>
+</bean>
+----
++
+that gives us a default runtime environment ready to be used to create an instance of a RuntimeManager.
+
+. Create RuntimeManager with the environment we just setup
++
+[source,xml]
+----
+<bean id="runtimeManager" class="org.kie.spring.factorybeans.RuntimeManagerFactoryBean" destroy-method="close">
+  <property name="identifier" value="spring-rm"/>
+  <property name="runtimeEnvironment" ref="runtimeEnvironment"/>
+</bean>
+----
++
+with just four steps you are ready to execute your processes with Spring and jBPM 6, utilizing EntityManagerFactory and JTA transaction manager.
++
+Complete Spring configuration files for different strategies can be found
+https://github.com/kiegroup/droolsjbpm-integration/blob/master/kie-spring/src/test/resources/jbpm/jta-emf/[here].
