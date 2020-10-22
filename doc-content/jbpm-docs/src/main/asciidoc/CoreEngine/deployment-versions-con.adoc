@@ -29,7 +29,7 @@ The initial deployment unit is `org.jbpm:HR:1.0`. It contains the first version 
 
 After several weeks, you develop a new version and deploy it to the execution server as `org.jbpm:HR.2.0`. It includes version 2 of the hiring process.
 
-If you want to call the process and enxure that you use the latest version, you can use following deployment ID:
+If you want to call the process and enxure that you use the latest version, you can use the following deployment ID:
 
 [source]
 ----

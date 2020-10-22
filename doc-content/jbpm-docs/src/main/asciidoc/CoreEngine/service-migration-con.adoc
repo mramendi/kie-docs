@@ -9,7 +9,7 @@ For the simplest approach to process migration, let active process instances fin
 * Data change
 * Need for node mapping
 
-Whenever possible, create backward compatible processes by extending process definitions. For example, removing nodes from the process definition breaks compatibility. In such cases, you must provide node mapping in case an active process instance is in a node that has been removed.
+Whenever possible, create backward-compatible processes by extending process definitions. For example, removing nodes from the process definition breaks compatibility. If you make such changes, you must provide node mapping. Process instance migration uses node mapping if an active process instance is in a node that has been removed.
 
 A node map contains source node IDs from the old process definition mapped to target node IDs in the new process definition. You can map nodes of the same type only, such as a user task to a user task.
 
@@ -31,7 +31,7 @@ public interface ProcessInstanceMigrationService {
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
  * @param sourceDeploymentId deployment to which the process instance to be migrated belongs
  * @param processInstanceId ID of the process instance to be migrated
- * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetDeploymentId ID of the deployment to which the target process belongs
  * @param targetProcessId ID of the process to which the process instance should be migrated
  * @return returns complete migration report
  */
@@ -48,7 +48,7 @@ public interface ProcessInstanceMigrationService {
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
  * @param sourceDeploymentId deployment to which the process instance to be migrated belongs
  * @param processInstanceId ID of the process instance to be migrated
- * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetDeploymentId ID of the deployment to which the target process belongs
  * @param targetProcessId ID of the process to which the process instance should be migrated
  * @param nodeMapping node mapping - source and target unique IDs of nodes to be mapped - from process instance active nodes to new process nodes
  * @return returns complete migration report
@@ -66,7 +66,7 @@ public interface ProcessInstanceMigrationService {
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
  * @param sourceDeploymentId deployment to which the process instances to be migrated belong
  * @param processInstanceIds list of process instance IDs to be migrated
- * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetDeploymentId ID of the deployment to which the target process belongs
  * @param targetProcessId ID of the process to which the process instances should be migrated
  * @return returns complete migration report
  */
@@ -83,7 +83,7 @@ public interface ProcessInstanceMigrationService {
  * Returns a migration report regardless of migration being successful or not; examine the report for the outcome of the migration.
  * @param sourceDeploymentId deployment to which the process instances to be migrated belong
  * @param processInstanceIds list of process instance ID to be migrated
- * @param targetDeploymentId ID of deployment to which the target process belongs
+ * @param targetDeploymentId ID of the deployment to which the target process belongs
  * @param targetProcessId ID of the process to which the process instances should be migrated
  * @param nodeMapping node mapping - source and target unique IDs of nodes to be mapped - from process instance active nodes to new process nodes
  * @return returns list of migration reports one per each process instance

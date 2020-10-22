@@ -31,19 +31,14 @@ public interface AdvanceRuntimeDataService {
     String PROCESS_ATTR_DEPLOYMENT_ID = "PROCESS_DEPLOYMENT_ID";
 
     List<ProcessInstanceWithVarsDesc> queryProcessByVariables(List<QueryParam> attributes,
-                                                              List<QueryParam> processVariables,
-                                                              QueryContext queryContext);
+      List<QueryParam> processVariables, QueryContext queryContext);
 
     List<ProcessInstanceWithVarsDesc> queryProcessByVariablesAndTask(List<QueryParam> attributes,
-                                                                     List<QueryParam> processVariables,
-                                                                     List<QueryParam> taskVariables,
-                                                                     List<String> potentialOwners,
-                                                                     QueryContext queryContext);
+       List<QueryParam> processVariables, List<QueryParam> taskVariables,
+       List<String> potentialOwners, QueryContext queryContext);
 
     List<UserTaskInstanceWithPotOwnerDesc> queryUserTasksByVariables(List<QueryParam> attributes,
-                                                                     List<QueryParam> taskVariables,
-                                                                     List<QueryParam> processVariables,
-                                                                     List<String> potentialOwners,
-                                                                     QueryContext queryContext);
+       List<QueryParam> taskVariables, List<QueryParam> processVariables,
+       List<String> potentialOwners, QueryContext queryContext);
 }
 ----

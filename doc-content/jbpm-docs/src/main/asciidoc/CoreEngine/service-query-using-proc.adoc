@@ -21,7 +21,7 @@ The constructor requires the following parameters:
 ** A unique name that identifies the query at run time
 ** A JNDI data source name to use for performing queries with this definition
 +
-The parameter of the `setExpression` method is the SQL statement that builds up the data set view. Queries in the query service use data from this view and filter this data as necessary.
+The parameter of the `setExpression()` method is the SQL statement that builds up the data set view. Queries in the query service use data from this view and filter this data as necessary.
 +
 . Register the query:
 +

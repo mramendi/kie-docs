@@ -37,13 +37,13 @@ org.quartz.jobStore.nonManagedTXDataSource=nonManagedDS
 org.quartz.jobStore.tablePrefix=QRTZ_
 org.quartz.jobStore.isClustered=true
 org.quartz.jobStore.clusterCheckinInterval = 20000
-
-#============================================================================
-# TODO: Configure Datasources
-#============================================================================
-#org.quartz.dataSource.managedDS.jndiURL=
-#org.quartz.dataSource.nonManagedDS.jndiURL=
 ----
+
+// #============================================================================
+// # TODO: Configure Datasources
+// #============================================================================
+// #org.quartz.dataSource.managedDS.jndiURL=
+// #org.quartz.dataSource.nonManagedDS.jndiURL=
 
 ifdef::JBPM,DROOLS,OP[]
 For more information about configuring a Quartz scheduler, see the documentation for the Quartz 1.8.5 distribution archive.
