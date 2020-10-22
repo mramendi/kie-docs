@@ -153,7 +153,7 @@ public class ProcessInstanceMigrationTest{
 }
 ----
 
-[float]
+[discrete]
 == Known limitations of process instance migration
 
 The following situations can cause a failure of the migration or incorrect migration:

@@ -3,7 +3,7 @@
 
 The deployment service puts business assets into an execution environment. However, in some cases additional management is required to make the assets available in the correct context. Notably, if you deploy several versions of the same process, you must ensure that process instances use the correct version.
 
-[float]
+[discrete]
 == Activation and Deactivation of deployments
 
 In some cases, a number of process instances are running on a deployment, and then you add a new version of the same process to the runtime environment.
@@ -18,7 +18,7 @@ To enable this scenario, use the following methods of the deployment service:
 
 You can use this feature for smooth transition between project versions without the need for process instance migration.
 
-[float]
+[discrete]
 == Invoking the latest version of a process
 
 If you need to use the latest version of the project's process, you can use the `latest` keyword to interact with several operations in services. This approach is supported only when the process identifier remains the same in all versions.

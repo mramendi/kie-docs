@@ -51,15 +51,15 @@ To enable more efficient searching, you can audit variables using `VariableIndex
 ----
 
 /**
- * Variable indexer that to transform a variable instance into another representation (usually string)
+ * Variable indexer that transforms a variable instance into another representation (usually string)
  * for use in log queries.
  *
- * @param <V> type of the object that will represent indexed variable
+ * @param <V> type of the object that will represent the indexed variable
  */
 public interface VariableIndexer<V> {
 
     /**
-     * Tests if a given variable can be indexed by this indexer
+     * Tests if this indexer can index a given variable
      * 
      * NOTE: only one indexer can be used for a given variable
      * 
@@ -69,14 +69,14 @@ public interface VariableIndexer<V> {
     boolean accept(Object variable);
     
     /**
-     * Performs an index/transform operation of the variable. The result of this operation can be
+     * Performs an index/transform operation on the variable. The result of this operation can be
      * either a single value or a list of values, to support complex type separation.
      * For example, when the variable is of the type Person that has name, address, and phone fields,
      * the indexer could build three entries out of it to represent individual fields:
      * person = person.name
      * address = person.address.street
      * phone = person.phone
-     * this configureation allows advanced queries for finding relevant entries.
+     * this configuration allows advanced queries for finding relevant entries.
      * @param name name of the variable
      * @param variable actual variable value 
      * @return
@@ -133,7 +133,7 @@ The {PROCESS_ENGINE} can use this indexer to index values when they are of the `
 
 As a `LIKE` type query is not used, the database server can optimize the query and make it efficient on a big set of data. 
 
-[float]
+[discrete]
 == Custom indexers
 
 The {PROCESS_ENGINE} supports indexers for both process and task variables. However, it uses different interfaces for the indexers, because they must produce different types of objects that represent an audit view of the variable.

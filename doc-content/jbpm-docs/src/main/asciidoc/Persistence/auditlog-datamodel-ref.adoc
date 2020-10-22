@@ -163,7 +163,7 @@ Whenever a node instance is entered from one of its incoming connections or is e
 |===
 
 
-The `VariableInstanceLog` table contains information about changes in variable instances. By default, the {PROCESS_ENGINE} generates generate log entries after a variable changes its value. It is also possible to log entries before the changes.
+The `VariableInstanceLog` table contains information about changes in variable instances. By default, the {PROCESS_ENGINE} generates log entries after a variable changes its value. It is also possible to log entries before the changes.
 
 .VariableInstanceLog
 [cols="1,1,1", options="header"]
@@ -240,7 +240,7 @@ The `AuditTaskImpl` table contains information about user tasks.
 |
 
 |``deploymentId``
-|Deployment ID this task is part of
+|The ID of the deployment of which this task is a part
 |
 
 |``description``
@@ -272,7 +272,7 @@ The `AuditTaskImpl` table contains information about user tasks.
 |
 
 |``processSessionId``
-|KieSession ID used to create this task
+|KIE session ID used to create this task
 |
 
 |``status``

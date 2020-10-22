@@ -1,7 +1,7 @@
 [id='transaction-register-con_{context}']
 = Registration of a transaction manager
 
-You must register a transaction manager at the environment to use user-defined transactions.
+You must register a transaction manager in the environment to use user-defined transactions.
 
 The following sample code registers the transaction manager. Then it uses JTA calls to specify transaction boundaries.
 
@@ -59,7 +59,7 @@ By default, the Narayana JTA transaction manager is used. If you want to use a d
 .Transaction manager property in the `persistence.xml` file for the JBoss transaction manager
 [source,properties]
 ----
-<property name="hibernate.transaction.jta.platform" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+<property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
 ----
 
 [WARNING]
