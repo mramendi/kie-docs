@@ -1,5 +1,4 @@
 [[jBPMCoreEngine]]
-:context: CoreEngine
 = Core Engine API
 
 include::CoreEngine/processengine-core-con.adoc[leveloffset=+1]

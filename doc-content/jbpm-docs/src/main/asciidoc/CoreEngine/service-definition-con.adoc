@@ -39,8 +39,7 @@ The following definition shows the complete `DefinitionService` interface:
 ----
 public interface DefinitionService {
 
-    ProcessDefinition buildProcessDefinition(String deploymentId, String bpmn2Content,
-			ClassLoader classLoader, boolean cache) throws IllegalArgumentException;
+    ProcessDefinition buildProcessDefinition(String deploymentId, String bpmn2Content, ClassLoader classLoader, boolean cache) throws IllegalArgumentException;
 
     ProcessDefinition getProcessDefinition(String deploymentId, String processId);
 

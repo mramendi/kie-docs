@@ -13,11 +13,11 @@ To provide such capabilities, the {PROCESS_ENGINE} uses the `CorrelationKey` int
 
       /**
       * Start a new process instance.  Use the process (definition) that 
-      * is referenced by the given process id.  You can pass parameters
+      * is referenced by the given process ID.  You can pass parameters
       * to the process instance (as name-value pairs), and these parameters set
       * variables of the process instance.
       *
-      * @param processId  the id of the process to start
+      * @param processId  the ID of the process to start
       * @param correlationKey custom correlation key that can be used to identify the process instance
       * @param parameters  the process variables to set when starting the process instance
       * @return the ProcessInstance that represents the instance of the process that was started
@@ -26,13 +26,13 @@ To provide such capabilities, the {PROCESS_ENGINE} uses the `CorrelationKey` int
 
       /**
       * Create a new process instance (but do not yet start it).  Use the process
-      * (definition) that is referenced by the given process id.
+      * (definition) that is referenced by the given process ID.
       * You can pass to the process instance (as name-value pairs),
       * and these parameters set variables of the process instance.  
       * Use this method if you need a reference to the process instance before actually
       * starting it.  Otherwise, use startProcess.
       *
-      * @param processId  the id of the process to start
+      * @param processId  the ID of the process to start
       * @param correlationKey custom correlation key that can be used to identify the process instance
       * @param parameters  the process variables to set when creating the process instance
       * @return the ProcessInstance that represents the instance of the process that was created (but not yet started)

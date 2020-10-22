@@ -27,7 +27,7 @@ This strategy has the following characteristics:
 
 [WARNING]
 ====
-A combination of the Singleton strategy and the EJB Timer Scheduler might raise Hibernate issues under load. The combination is not recommended for production use. The EJB Timer Scheduler is the default scheduler in the {KIE_SERVER}.
+A combination of the Singleton strategy and the EJB Timer Scheduler might raise Hibernate issues under load. Do not use this combination in production applications. The EJB Timer Scheduler is the default scheduler in the {KIE_SERVER}.
 ====
 --
 
@@ -36,16 +36,16 @@ Per request strategy::
 --
 This strategy instructs the runtime manager to provide a new instance of `RuntimeEngine` for every request. One or more invocations of the {PROCESS_ENGINE} within a single transaction are considered a single request.
 
-The same instance of `RuntimeEngine` must be used within single transaction to ensure correctness of state. Otherwise, an operation completed in one call would not be visible in the next call.
+The same instance of `RuntimeEngine` must be used within a single transaction to ensure correctness of state. Otherwise, an operation completed in one call would not be visible in the next call.
 
-This strategy is stateless, as process state is preserved only within the request. When a request is completed, the `RuntimeEngine` is permanently destroyed. If persistence is used, information related to the KIE session is removed from the persistence database as well.
+This strategy is stateless, as process state is preserved only within the request. When a request is completed, the `RuntimeEngine` instance is permanently destroyed. If persistence is used, information related to the KIE session is removed from the persistence database as well.
 
 This strategy has the following characteristics:
 
 * It provides completely isolated {PROCESS_ENGINE} and task service operations for every request.
 * It is completely stateless, because facts are stored only for the duration of the request.
 * It is a good fit for high-load, stateless processes, where no facts or timers must be preserved between requests.
-* In this strategy, the `KieSession` is only available during the life of a request and is destroyed at the end of the request.
+* In this strategy, the KIE session is only available during the life of a request and is destroyed at the end of the request.
 * The strategy is not contextual. When you retrieve instances of `RuntimeEngine` from a singleton `RuntimeManager`, you do not need to take the `Context` instance into account. Usually, you can use `EmptyContext.get()` as the context, although a null argument is acceptable as well
 --
 
