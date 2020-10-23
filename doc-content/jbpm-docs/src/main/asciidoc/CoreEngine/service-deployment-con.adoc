@@ -14,15 +14,15 @@ The following code sample shows simple use of the deployment service.
 .Using the deployment service
 [source,java]
 ----
-// create deployment unit by providing the GAV of the KJAR
+// Create deployment unit by providing the GAV of the KJAR
 DeploymentUnit deploymentUnit = new KModuleDeploymentUnit(GROUP_ID, ARTIFACT_ID, VERSION);
-// get the deploymentId for the deployed unit 
+// Get the deploymentId for the deployed unit 
 String deploymentId = deploymentUnit.getIdentifier();
-// deploy the unit
+// Deploy the unit
 deploymentService.deploy(deploymentUnit);
-// retrieve the deployed unit
+// Retrieve the deployed unit
 DeployedUnit deployed = deploymentService.getDeployedUnit(deploymentId);
-// get the runtime manager 
+// Get the runtime manager 
 RuntimeManager manager = deployed.getRuntimeManager();
 ----
 

@@ -1,6 +1,8 @@
 [id='service-query-keyclasses-ref_{context}']
 = Key classes of the query service
 
+The query service relies on the following key classes:
+
 * `QueryDefinition`: Represents the definition of a data set. The definition consists of a unique name, an SQL expression (the query) and the _source_, the JNDI name of the data source to use when performing queries.
 * `QueryParam`: The basic structure that represents an individual query parameter or condition. This structure consists of the column name, operator, and expected values.
 * `QueryResultMapper`: The class that maps raw dataset data (rows and columns) to an object representation.
@@ -23,7 +25,7 @@ The {PROCESS_ENGINE} supplies the following mappers:
 * `org.jbpm.kie.services.impl.query.mapper.TaskSummaryQueryMapper`, registered with the name `TaskSummaries`
 * `org.jbpm.kie.services.impl.query.mapper.RawListQueryMapper`, registered with the name `RawList`
 
-Each `QueryResultMapper` is registered with a unique string name. You can look up mappers by this name instead of referencing the full class name. This feature is especially important when using the EJB remote flavor of services, because it avoids relying on a particular implementation on the client side.
+Each `QueryResultMapper` is registered with a unique string name. You can look up mappers by this name instead of referencing the full class name. This feature is especially important when using EJB remote invocation of services, because it avoids relying on a particular implementation on the client side.
 
 To reference a `QueryResultMapper` by the string name, use `NamedQueryMapper`, which is a part of the `jbpm-services-api` module. This class acts as a delegate (lazy delegate) and looks up the actual mapper when the query is performed.
 
@@ -37,7 +39,7 @@ queryService.query("my query def", new NamedQueryMapper<Collection<ProcessInstan
 
 `QueryParamBuilder` provides an advanced way of building filters for data sets.
 
-By default, when you use a query method of `QueryService` that accepts zero or more `QueryParam` instances, all of these parameters are joined with an AND operator, so a data entry must match all of them.
+By default, when you use a query method of `QueryService` that accepts zero or more `QueryParam` instances, all of these parameters are joined with an `AND` operator, so a data entry must match all of them.
 
 However, sometimes more complicated relationships between parameters are required. You can use `QueryParamBuilder` to build custom builders that provide filters at the time the query is issued.
 

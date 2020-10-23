@@ -1,7 +1,7 @@
 [id='service-migration-con_{context}']
 = Process instance migration service
 
-The `ProcessInstanceMigrationService` service is a utility for migrating process instances from one deployment to another. Process or task variables are not affected by the migration. However, the new deployment can use a different process definition.
+The process instance migration service is a utility for migrating process instances from one deployment to another. Process or task variables are not affected by the migration. However, the new deployment can use a different process definition.
 
 For the simplest approach to process migration, let active process instances finish and start new process instances in the new deployment. If this approach is not suitable to your needs, consider the following issues before starting process instance migration:
 
@@ -158,16 +158,16 @@ public class ProcessInstanceMigrationTest{
 
 The following situations can cause a failure of the migration or incorrect migration:
 
-* A new or modified task requires inputs which are not available in the migrated process instance.
+* A new or modified task requires inputs that are not available in the migrated process instance.
 
 * You modify the tasks prior to the active task where the changes have an impact on further processing.
 
-* You remove a human task which is currently active. To replace a human task, you must map it to another human task.
+* You remove a human task that is currently active. To replace a human task, you must map it to another human task.
 
-* You add a new task parallel to the single active task. As all branches in an AND gateway are not activated, the process gets stuck.
+* You add a new task parallel to the single active task. As all branches in an `AND` gateway are not activated, the process gets stuck.
 
 * You remove active timer events (these events are not changed in the database).
 
-* You fix or update inputs and outputs in an active task (the task data is not migrated)
+* You fix or update inputs and outputs in an active task (the task data is not migrated).
 
 If you apply mapping to a task node, only the task node name and description are mapped. Other task fields, including the `TaskName` variable, are not mapped to the new task.

@@ -33,7 +33,7 @@ queryService.registerQuery(query);
 +
 . If required, collect all the data from the dataset, without any filtering:
 +
-.Collecting all he data from the dataset
+.Collecting all the data from the dataset
 [source,java]
 ----
 Collection<ProcessInstanceDesc> instances = queryService.query("getAllProcessInstances", ProcessInstanceQueryMapper.get(), new QueryContext());

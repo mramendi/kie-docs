@@ -3,9 +3,9 @@
 
 When working with processes, you might need to assign a business identifier to a process instance and then use the identifier to reference the instance  without storing the generated instance ID.
 
-To provide such capabilities, the {PROCESS_ENGINE} uses the `CorrelationKey` interface, which can define `CorrelationProperties`. A class that implements `CorrelationKey` can have either a single property describing it or a multi-property set. The value of the property or a combination of values of several properties refer to a unique instance.
+To provide such capabilities, the {PROCESS_ENGINE} uses the `CorrelationKey` interface, which can define `CorrelationProperties`. A class that implements `CorrelationKey` can have either a single property describing it or a multi-property set. The value of the property or a combination of values of several properties refers to a unique instance.
 
-`KieSession` implements the `CorrelationAwareProcessRuntime` interface to support correlation capabilities. This interface  exposes the following methods:
+The `KieSession` class implements the `CorrelationAwareProcessRuntime` interface to support correlation capabilities. This interface  exposes the following methods:
 
 .Methods of the `CorrelationAwareProcessRuntime` interface
 [source,java]

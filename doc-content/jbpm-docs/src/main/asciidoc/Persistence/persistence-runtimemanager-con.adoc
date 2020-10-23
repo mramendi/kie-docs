@@ -57,7 +57,7 @@ StatefulKnowledgeSession ksession = (StatefulKnowledgeSession) RuntimeManagerFac
         .getKieSession();
 ----
 
-After creating the `ksession` KIE session in this example, you can call methods in `ksession`, for example, `StartProcess()`. The {PROCESS_ENGINE} persists all runtime state in the configured data source. 
+After creating the `ksession` KIE session in this example, you can call methods in `ksession`, for example, `StartProcess()`. The {PROCESS_ENGINE} persists the runtime state in the configured data source. 
 
 You can restore a process instance from persistent storage by using the process instance ID. The runtime manager automatically re-creates the required session.
 

@@ -79,7 +79,7 @@ The `KieSession` class exposes the `ProcessRuntime` interface, which defines all
      * null.
      *
      * @param id the ID of the process instance
-     * @return the process instance with the given ID, or null if it can not be found
+     * @return the process instance with the given ID, or null if it cannot be found
      */
     ProcessInstance getProcessInstance(long processInstanceId);
 

@@ -85,9 +85,9 @@ public interface VariableIndexer<V> {
 }
 ----
 
-The default indexer uses the `toString()` method to produce a single audit entry for a single variable. Other indexers can returns a list of objects from indexing a single variable.
+The default indexer uses the `toString()` method to produce a single audit entry for a single variable. Other indexers can return a list of objects from indexing a single variable.
 
-To enable efficient queries for the `Person` type, you can build a custom indexer that indexes a `Person` instance into separate audit entries, one representing name and another representing age. 
+To enable efficient queries for the `Person` type, you can build a custom indexer that indexes a `Person` instance into separate audit entries, one representing the name and another representing the age. 
 
 .Sample indexer for the `Person` type
 [source,java]
@@ -128,10 +128,10 @@ public class PersonTaskVariablesIndexer implements TaskVariableIndexer {
 
 The {PROCESS_ENGINE} can use this indexer to index values when they are of the `Person` type, while all other variables are indexed with the default `toString()` method. Now, to query for process instances or tasks that refer to a person with age 34, you can use the following query:
 
-* variable name: person.age
-* variable value: 34
+* variable name: `person.age`
+* variable value: `34`
 
-As a `LIKE` type query is not used, the database server can optimize the query and make it efficient on a big set of data. 
+As a `LIKE` type query is not used, the database server can optimize the query and make it efficient on a large set of data. 
 
 [discrete]
 == Custom indexers
@@ -146,7 +146,7 @@ You must implement the following interfaces  to build custom indexers:
 You must implement two methods for either of the interfaces:
 
 * `accept`: Indicates whether a type is handled by this indexer. The {PROCESS_ENGINE} expects that only one indexer can index a given variable value, so it uses the first indexer that accepts the type.
-* `index`: Indexes a value, producing a object or listy of objects (usually strings) for inclusion in the audit log.
+* `index`: Indexes a value, producing a object or list of objects (usually strings) for inclusion in the audit log.
 
 After implementing the interface, you must package this implementation as a JAR file and list the implementation in one of the following files:
 

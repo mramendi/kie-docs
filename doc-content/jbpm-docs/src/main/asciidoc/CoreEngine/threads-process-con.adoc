@@ -1,7 +1,7 @@
 [id='threads-process-con_{context}']
 = Threads in the {PROCESS_ENGINE}
 
-We can refer to two types of "multi-threading":  _logical_ and _technical_. _Technical multi-threading_ involves multiple threads or processes that are started, for example, by a Java or  C program. _Logical multi-threading_ happens in a BPM process, for example, after the process reaches a parallel gateway. In execution logic, the original process splits into two processes that run in a parallel fashion.
+We can refer to two types of multi-threading:  _logical_ and _technical_. _Technical multi-threading_ involves multiple threads or processes that are started, for example, by a Java or  C program. _Logical multi-threading_ happens in a BPM process, for example, after the process reaches a parallel gateway. In execution logic, the original process splits into two processes that run in a parallel fashion.
 
 {PROCESS_ENGINE_CAP} code implements logical multi-threading using one technical thread.
 

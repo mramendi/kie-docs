@@ -28,7 +28,7 @@ long processInstanceId = processService.startProcess(deploymentUnit.getIdentifie
 ProcessInstance pi = processService.getProcessInstance(processInstanceId);
 ----
 
-The `startProcess` method expects `deploymentId` as first argument. Using this argument, you can start processes in a certain deployment when your application might have multiple deployments. 
+The `startProcess` method expects `deploymentId` as the first argument. Using this argument, you can start processes in a certain deployment when your application might have multiple deployments. 
 
 For example, you might deploy different versions of the same process from different KJAR files. You can then start the required version using the correct `deploymentId`.   
 

@@ -1,5 +1,5 @@
 [id='service-quartz-con_{context}']
-= Quartz-based Timer Service
+= Quartz-based timer service
 
 The {PROCESS_ENGINE} provides a cluster-ready timer service via Quartz. You can use the service to dispose or load your KIE session at any time. The service can manage how long a KIE session is active in order to fire each timer appropriately.
 

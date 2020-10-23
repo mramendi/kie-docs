@@ -5,4 +5,4 @@ If you use the {PROCESS_ENGINE} without configuring any persistence, it does not
 
 To use JPA persistence in the {PROCESS_ENGINE}, you must configure it.
 
-Configuration usually requires adding the necessary dependencies, configuring a data source, and creating the {PROCESS_ENGINE} with persistence configured.
+Configuration usually requires adding the necessary dependencies, configuring a data source, and creating the {PROCESS_ENGINE} classes with persistence configured.

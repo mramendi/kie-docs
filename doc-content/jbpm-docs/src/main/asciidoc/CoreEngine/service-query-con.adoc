@@ -1,22 +1,22 @@
 [id='service-query-con_{context}']
 = Query service
 
-The query service provides advanced search capabilities that are based on Dashbuilder DataSets.
+The query service provides advanced search capabilities that are based on Dashbuilder data sets.
 
-With this approach, you can control how to retrieve data from underlying data store. You can use complex JOIN statements with external tables such as JPA entities tables or custom systems database tables.
+With this approach, you can control how to retrieve data from underlying data store. You can use complex `JOIN` statements with external tables such as JPA entities tables or custom systems database tables.
 
-The query service is build around the following two sets of operations:
+The query service is built around the following two sets of operations:
 
 * Management operations:
-** Register query definition
-** Replace query definition
-** Unregister (remove) query definition
-** Get query definition
+** Register a query definition
+** Replace a query definition
+** Unregister (remove) a query definition
+** Get a query definition
 ** Get all registered query definitions
 * Runtime operations: 
-** simple query based on `QueryParam` as the filter provider
-** advanced query based on `QueryParamBuilder` as the filter provider
+** Simple query based on `QueryParam` as the filter provider
+** Advanced query based on `QueryParamBuilder` as the filter provider
 
-DashBuilder DataSets provide support for multiple data sources, such as CSV, SQL, and Elastic Search. However, the {PROCESS_ENGINE} uses a RDBMS based backend and focuses on SQL-based data sets.
+Dashbuilder data sets provide support for multiple data sources, such as CSV, SQL, and Elastic Search. However, the {PROCESS_ENGINE} uses a RDBMS-based backend and focuses on SQL-based data sets.
 
-Therefore, the {PROCESS_ENGINE} query service is a subset of DashBuilder DataSets capabilities that enables efficient queries with a simple API.
+Therefore, the {PROCESS_ENGINE} query service is a subset of Dashbuilder data set capabilities that enables efficient queries with a simple API.
