@@ -54,4 +54,4 @@ This example provides the simplest, or minimal, way of using `RuntimeManager` an
 
 * The `KieSession` instance is created in memory, using the `newDefaultInMemoryBuilder` builder.
 * A single process, which is added as an asset, is available for execution.
-* The `TaskService` class is configured and attached to the `KieSession` via `LocalHTWorkItemHandler` to support user task capabilities within processes.
+* The `TaskService` class is configured and attached to the `KieSession` instance through the `LocalHTWorkItemHandler` interface to support user task capabilities within processes.

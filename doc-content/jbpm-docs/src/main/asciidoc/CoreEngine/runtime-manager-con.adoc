@@ -32,7 +32,7 @@ public interface RuntimeManager {
 	 * Returns a <code>RuntimeEngine</code> instance that is fully initialized:
 	 * <ul>
 	 * 	<li>KieSession is created or loaded depending on the strategy</li>
-	 * 	<li>TaskService is initialized and attached to the KIE session (via listener)</li>
+	 * 	<li>TaskService is initialized and attached to the KIE session (through a listener)</li>
 	 * 	<li>WorkItemHandlers are initialized and registered on the KIE session</li>
 	 * 	<li>EventListeners (process, agenda, working memory) are initialized and added to the KIE session</li>
 	 * </ul>

@@ -96,9 +96,9 @@ public class TestQueryParamBuilder implements QueryParamBuilder<ColumnFilter> {
 }
 ----
 
-After implementing the builder, you can use an instance of this class when performing a query via `QueryService`, as shown in the following example:
+After implementing the builder, you can use an instance of this class when performing a query with the `QueryService` service, as shown in the following example:
 
-.Running a query via `QueryService`
+.Running a query with the `QueryService` service
 [source,java]
 ----
 queryService.query("my query def", ProcessInstanceQueryMapper.get(), new QueryContext(), paramBuilder);
