@@ -1,10 +1,13 @@
 [id='spring-sample-runtimemanager-proc_{context}']
-= Configuring a sample run time manager with a spring application
+= Configuring a sample runtime manager with a Spring application
 
-The following is an example of a complete spring configuration for a single run time manager within a spring application.
+The following procedure is an example of complete configuration for a single runtime manager within a Spring application.
 
-. Configuring the entity manager factory and the transaction manager
+.Procedure
+
+. Configure the entity manager factory and the transaction manager:
 +
+.Configuring the entity manager factory and the transaction manager in the `spring.xml` file
 [source,xml]
 ----
 <bean id="jbpmEMF" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -25,13 +28,14 @@ The following is an example of a complete spring configuration for a single run 
 </bean>
 ----
 +
-As a result of these settings, you have the following ready persistence configuration:
-
-*** JTA transaction manager (backed by Narayana JTA - for unit tests or servlet containers)
-*** entity manager factory for persistence unit named org.jbpm.persistence.spring.jta
-
-. Configure resource that we are going to use - business process
+These settings define the following persistence configuration:
 +
+*** JTA transaction manager (backed by Narayana JTA - for unit tests or servlet containers)
+*** Entity manager factory for the `org.jbpm.persistence.spring.jta` persistence unit 
++
+. Configure the business process resource:
++
+.Configuring the business process resource in the `spring.xml` file
 [source,xml]
 ----
 <bean id="process" factory-method="newClassPathResource" class="org.kie.internal.io.ResourceFactory">
@@ -41,11 +45,11 @@ As a result of these settings, you have the following ready persistence configur
 </bean>
 ----
 +
-this configures single process that will be available for execution - sample.bpmn that will be taken from class path.
-This is the simplest way to get your processes included when trying out jbpm.
-
-. Configure RuntimeEnvironment with our infrastructure (entity manager, transaction manager, resources)
+These settings define a single process that is to be available for execution. The name of the resource is `sample.bpmn` and it must be available on the class path. You can use the class path as a simple way to include resources for trying out the {PROCESS_ENGINE}.
 +
+. Configure the `RuntimeEnvironment` instance with the entity manager, transaction manager, and resources:
++
+.Configuring the `RuntimeEnvironment` instance in the `spring.xml` file
 [source,xml]
 ----
 <bean id="runtimeEnvironment" class="org.kie.spring.factorybeans.RuntimeEnvironmentFactoryBean">
@@ -60,9 +64,9 @@ This is the simplest way to get your processes included when trying out jbpm.
 </bean>
 ----
 +
-that gives us a default runtime environment ready to be used to create an instance of a RuntimeManager.
-
-. Create RuntimeManager with the environment we just setup
+These settings define a default runtime environment for the runtime manager.
++
+. Create a `RuntimeManager` instance based on the environment:
 +
 [source,xml]
 ----
@@ -71,8 +75,10 @@ that gives us a default runtime environment ready to be used to create an instan
   <property name="runtimeEnvironment" ref="runtimeEnvironment"/>
 </bean>
 ----
+
+.Result
+
+After these steps youc an use the runtime manager to execute processes in the Spring environment, using the  `EntityManagerFactory` class and the JTA transaction manager.
 +
-with just four steps you are ready to execute your processes with Spring and jBPM 6, utilizing EntityManagerFactory and JTA transaction manager.
-+
-Complete Spring configuration files for different strategies can be found
-https://github.com/kiegroup/droolsjbpm-integration/blob/master/kie-spring/src/test/resources/jbpm/jta-emf/[here].
+You can find complete Spring configuration files for different strategies in the
+https://github.com/kiegroup/droolsjbpm-integration/blob/{COMMUNITY_VERSION_FINAL}/kie-spring/src/test/resources/jbpm/jta-emf/[repository].

@@ -8,9 +8,7 @@ The `DeploymentService` service  deploys and undeploys deployment units in the r
 * The `DeployedUnit` instance that represents the complete deployment unit for the given deployment ID
 * The list of all deployed units known to the deployment service
 
-By default, the deployment service stores the deployed units in memory. You can configure persistence for {PROCESS_ENGINE} services, as described in xref:persistence-con_{context}[]. 
-
-Also, in the CDI framework, the component uses the service can save and restore deployment unit information, for example, using a database, file, system, or repository.
+By default, the deployment service stores the deployed units in memory. In the CDI framework, the component that uses the service can save and restore deployment unit information, for example, using a database, file, system, or repository.
 
 The deployment service fires CDI events on deployment and undeployment. The component that uses the service can process these events to store deployments and remove them from the store when they are undeployed.
 
