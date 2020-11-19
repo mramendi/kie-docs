@@ -113,6 +113,7 @@ If you created users on the MySQL version 8 server before enabling the `mysql_na
 endif::PAM[]
 . Optionally, depending on your needs, set environment variables. To set an environment variable, click *Add new Environment variable*, then enter the name and value for the variable in the *Name* and *Value* fields.
 ** If you want to configure your {KIE_SERVER} deployment to use Prometheus to collect and store metrics, set the `PROMETHEUS_SERVER_EXT_DISABLED` environment variable to `false`. For instructions about configuring Prometheus metrics collection, see {URL_MANAGING_SETTINGS}#prometheus-monitoring-ocp-proc_execution-server[_{MANAGING_KIE_SERVER}_].
+** If you are using {RH-SSO} authentication and your {RH-SSO} environment requires CORS support, set the `SSO_ENABLE_CORS` variable to `true`.  
 ** If you want to use an external Maven repository, set the following variables:
 *** `MAVEN_REPO_URL`: The URL for the Maven repository
 *** `MAVEN_REPO_ID`: An identifier for the Maven repository, for example, `repo-custom`
