@@ -1,5 +1,5 @@
 [id='runtimemanagerfactorybean-ref_{context}']
-= The `RuntimeManagerFactoryBean` bean
+= `RuntimeManagerFactoryBean` bean
 
 The `RuntimeManagerFactoryBean` factory bean produces `RuntimeManager` instances of a given type, based on the provided `RuntimeEnvironment` instance.
 

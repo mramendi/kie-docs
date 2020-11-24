@@ -1,5 +1,5 @@
 [id='cdi-runtime-data-service-con_{context}']
-= The Runtime data service for CDI
+= Runtime data service for CDI
 
 The `RuntimeDataService` service provides access to data that is available at runtime, including the following data:
 

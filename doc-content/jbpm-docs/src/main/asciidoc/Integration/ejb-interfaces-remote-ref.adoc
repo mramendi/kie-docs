@@ -24,12 +24,12 @@ This implementation does not include some of the methods of `java.util.Map` that
 
 These special objects perform eager serialization to bytes using an `ObjectInputStream` object. They remove the need for serialization of data in the EJB client/container. Because no serialization is needed, it is not necessary to share the custom data model with the EJB container.
 
-The followinf example code works with local types and remote EJB services:
+The following example code works with local types and remote EJB services:
 
 .Using local types with remote EJB services
 [source,java]
 ----
-// start a process with custom types via remote EJB
+// Start a process with custom types via remote EJB
 
 Map<String, Object> parameters = new RemoteMap();
 Person person = new org.jbpm.test.Person("john", 25, true);
@@ -37,7 +37,7 @@ parameters.put("person", person);
 
 Long processInstanceId = processService.startProcess(deploymentUnit.getIdentifier(), "custom-data-project.work-on-custom-data", parameters);
 
-// fetch task data and complete task with custom types via remote EJB
+// Fetch task data and complete a task with custom types via remote EJB
 Map<String, Object> data = userTaskService.getTaskInputContentByTaskId(taskId);
         
 Person fromTaskPerson = data.get("_person");
@@ -53,7 +53,7 @@ In a similar way, you can use the `RemoteObject` class to send an event to a pro
 
 [source,java]
 ----
-// send event with custom type via remote EJB
+// Send an event with a custom type via remote EJB
 Person person = new org.jbpm.test.Person("john", 25, true);
 
 RemoteObject myObject = new RemoteObject(person);

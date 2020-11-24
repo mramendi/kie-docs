@@ -1,6 +1,6 @@
 [id='taskservicefactorybean-ref_{context}']
 
-= The `TaskServiceFactoryBean` bean
+= `TaskServiceFactoryBean` bean
 
 The `TaskServiceFactoryBean` factory bean produces an instance of `TaskService` based on given properties. You must provide the following mandatory properties: 
 

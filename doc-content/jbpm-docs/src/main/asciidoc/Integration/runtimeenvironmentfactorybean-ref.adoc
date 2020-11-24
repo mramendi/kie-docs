@@ -1,6 +1,6 @@
 [id='runtimeenvironmentfactorybean-ref_{context}']
 
-= The `RuntimeEnvironmentFactoryBean` bean
+= `RuntimeEnvironmentFactoryBean` bean
 
 The `RuntimeEnvironmentFactoryBean` factory bean produces instances of `RuntimeEnvironment`. These instances are required for creating `RuntimeManager` instances.
 

@@ -74,17 +74,17 @@ The following procedure is an example of complete configuration for {PROCESS_ENG
 .Configuring {PROCESS_ENGINE} services as Spring beans in the `spring.xml` file
 [source,xml]
 ----
-<!-- definition service -->
+<!-- Definition service -->
 <bean id="definitionService" class="org.jbpm.kie.services.impl.bpmn2.BPMN2DataServiceImpl"/>
 
-<!-- runtime data service -->
+<!-- Runtime data service -->
 <bean id="runtimeDataService" class="org.jbpm.kie.services.impl.RuntimeDataServiceImpl">
   <property name="commandService" ref="transactionCmdService"/>
   <property name="identityProvider" ref="identityProvider"/>
   <property name="taskService" ref="taskService"/>
 </bean>
 
-<!-- deployment service -->
+<!-- Deployment service -->
 <bean id="deploymentService" class="org.jbpm.kie.services.impl.KModuleDeploymentService" depends-on="entityManagerFactory" init-method="onInit">
   <property name="bpmn2Service" ref="definitionService"/>
   <property name="emf" ref="entityManagerFactory"/>
@@ -93,19 +93,19 @@ The following procedure is an example of complete configuration for {PROCESS_ENG
   <property name="runtimeDataService" ref="runtimeDataService"/>
 </bean>
 
-<!-- process service -->
+<!-- Process service -->
 <bean id="processService" class="org.jbpm.kie.services.impl.ProcessServiceImpl" depends-on="deploymentService">
   <property name="dataService" ref="runtimeDataService"/>
   <property name="deploymentService" ref="deploymentService"/>
 </bean>
 
-<!-- user task service -->
+<!-- User task service -->
 <bean id="userTaskService" class="org.jbpm.kie.services.impl.UserTaskServiceImpl" depends-on="deploymentService">
   <property name="dataService" ref="runtimeDataService"/>
   <property name="deploymentService" ref="deploymentService"/>
 </bean>
 
-<!-- register runtime data service as listener on deployment service so it can receive notification about deployed and undeployed units -->
+<!-- Register the runtime data service as a listener on the deployment service so it can receive notification about deployed and undeployed units -->
 <bean id="data" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean" depends-on="deploymentService">
   <property name="targetObject" ref="deploymentService"></property>
   <property name="targetMethod"><value>addListener</value></property>

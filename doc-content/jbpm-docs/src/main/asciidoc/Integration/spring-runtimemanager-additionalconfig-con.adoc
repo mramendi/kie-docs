@@ -9,7 +9,7 @@ In addition to the configuration with the `EntityManagerFactory` class and the J
 
 If your application is configured with a Local Persistence Unit and uses the `AuditService` service to query {PROCESS_ENGINE} history data, you must add the `org.kie.api.runtime.EnvironmentName.USE_LOCAL_TRANSACTIONS` environment entry to the `RuntimeEnvironment` instance configuration:
 
-. `RuntimeEnvironment` instance configuration for a Local Persistence Unit in the `spring.xml` file
+.`RuntimeEnvironment` instance configuration for a Local Persistence Unit in the `spring.xml` file
 [source,xml]
 ----
 <bean id="runtimeEnvironment" class="org.kie.spring.factorybeans.RuntimeEnvironmentFactoryBean">

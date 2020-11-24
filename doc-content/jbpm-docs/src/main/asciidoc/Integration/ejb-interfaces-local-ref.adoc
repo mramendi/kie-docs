@@ -11,7 +11,7 @@ The following local EJB service interfaces extend core services:
 
 You must use these interfaces as injection points and annotate them with `@EJB`:
 
-.Usiing local EJB service interfaces
+.Using local EJB service interfaces
 [source,java]
 ----
 @EJB

@@ -8,5 +8,5 @@ endif::PAM,DM[]
 ifdef::JBPM,DROOLS,OP[]
 jBPM
 endif::JBPM,DROOLS,OP[]
-with several industry-standard Java frameworks.
+with several industry-standard Java frameworks, such as Apache Maven, CDI, Spring, and EJB..
 

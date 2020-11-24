@@ -1,5 +1,5 @@
 [id='cdi-runtime-manager-con_{context}']
-== The runtime manager as a CDI bean
+== Runtime manager as a CDI bean
 
 You can inject the `RuntimeManager` class as a CDI bean into any other CDI bean within your application. The `RuntimeEnvironment` class must be properly produced to enable correct initialization of the `RuntimeManager` instance.
 

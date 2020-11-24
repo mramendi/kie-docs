@@ -1,5 +1,5 @@
 [id='cdi-form-provider-service-con_{context}']
-= The Form provider service service for CDI
+= Form provider service for CDI
 
 The `FormProviderService` service provides access to form representations, which are usually displayed on the user interface for both process forms and user task forms.
 
