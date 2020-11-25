@@ -44,20 +44,20 @@ ClientServiceFactory factory = ServiceFactoryProvider.getProvider("JBoss");
 // Set the application variable to the module name
 String application = "sample-war-ejb-app";
 
-// Tetrieve the required service from the factory
+// Retrieve the required service from the factory
 DeploymentServiceEJBRemote deploymentService = factory.getService(application, DeploymentServiceEJBRemote.class);
 ----
 
 After retrieving a service you can use its methods.
 
-When working with JBoss AS and remote client you can add following maven dependency to bring in all EJB client libraries:
+When working with {EAP} and the remote client you can add the following Maven dependency to bring in all EJB client libraries:
 
-[source,xml]
+[source,xml,subs="attributes+"]
 ----
 <dependency>
   <groupId>org.jboss.as</groupId>
   <artifactId>jboss-as-ejb-client-bom</artifactId>
-  <version>7.2.0.Final</version> <!-- use valid version for the server you run on -->
+  <version>{EAP_VERSION_LONG}.Final</version> <!-- use the valid version for the server you run on -->
   <optional>true</optional>
   <type>pom</type>
 </dependency>

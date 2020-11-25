@@ -18,7 +18,7 @@ public interface FormProvider {
 }
 ----
 
-Implementations of the `FormProvider` interface must define a priority value. Then the `FormProviderService` service needs to render a form, it calls the available providers in their priority order.
+Implementations of the `FormProvider` interface must define a priority value. When the `FormProviderService` service needs to render a form, it calls the available providers in their priority order.
 
 The lower the priority value, the higher priority the provider gets. For example, a provider with a priority of 5 is evaluated before a provider with a priority of 10. For each required form, the service iterates over the available providers in the order of their priority, until one of them delivers the content. In the worst-case scenario, a simple text-based form isreturned.
 

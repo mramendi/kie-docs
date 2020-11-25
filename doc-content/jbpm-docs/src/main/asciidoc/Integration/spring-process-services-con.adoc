@@ -2,13 +2,13 @@
 
 = {PROCESS_ENGINE_CAP} services with Spring
 
-You might want to create a dynamic Spring application, where you can add ad remove business assets such as process definitions, data model, rules, and forms without restarting the application.
+You might want to create a dynamic Spring application, where you can add and remove business assets such as process definitions, data model, rules, and forms without restarting the application.
 
-In this case, use {PROCESS_ENGINE} services. {PROCESS_ENGINE_CAP} services are designed as framework-agnostic, and separate modules bring in the required and in case framework-specific addons. 
+In this case, use {PROCESS_ENGINE} services. {PROCESS_ENGINE_CAP} services are designed as framework-agnostic, and separate modules bring in the required framework-specific addons. 
 
 The `jbpm-kie-services` module contains the code logic of the services. A Spring application can consume these pure Java services.
 
-The only code you must add to your Spring app;application to configure {PROCESS_ENGINE} services is the implementation of the `IdentityProvider` interface. This implementation depends on your security configuration. The following example implementation uses Spring Security, though it might not cover all available security features for a Spring application.
+The only code you must add to your Spring application to configure {PROCESS_ENGINE} services is the implementation of the `IdentityProvider` interface. This implementation depends on your security configuration. The following example implementation uses Spring Security, though it might not cover all available security features for a Spring application.
 
 .Implementation of the `IdentityProvider` interface using Spring Security
 [source,java]

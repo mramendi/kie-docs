@@ -8,7 +8,7 @@ The `DeploymentService` service  deploys and undeploys deployment units in the r
 * The `DeployedUnit` instance that represents the complete deployment unit for the given deployment ID
 * The list of all deployed units known to the deployment service
 
-By default, the deployment service does no save information about deployed units. In the CDI framework, the component that uses the service can save and restore deployment unit information, for example, using a database, file, system, or repository.
+By default, the deployment service does not save information about deployed units to any persistent storage. In the CDI framework, the component that uses the service can save and restore deployment unit information, for example, using a database, file, system, or repository.
 
 The deployment service fires CDI events on deployment and undeployment. The component that uses the service can process these events to store deployments and remove them from the store when they are undeployed.
 
@@ -23,7 +23,7 @@ The following example receives notification on deployment of a unit and can save
 [source,java]
 ----
     public void saveDeployment(@Observes @Deploy DeploymentEvent event) {
-        // store deployed unit info for further needs 
+        // Store deployed unit information 
         DeployedUnit deployedUnit = event.getDeployedUnit();
     }
 ----
@@ -34,10 +34,10 @@ The following example receives notification on deployment of a unit and can remo
 [source,java]
 ----
     public void removeDeployment(@Observes @Undeploy DeploymentEvent event) {
-        // remove deployment with id event.getDeploymentId()
+        // Remove deployment with the ID event.getDeploymentId()
     }
 ----
 
-Several implementations of the `DeploymentService` service are possible, so you must use qualifiers to instruct the CDI container to inject a particular implementation. A matching implementation of `DelopymentUnit` must exist for every implementation of `DeploymentService`. 
+Several implementations of the `DeploymentService` service are possible, so you must use qualifiers to instruct the CDI container to inject a particular implementation. A matching implementation of `DeploymentUnit` must exist for every implementation of `DeploymentService`. 
 
-The {PROCESS_ENGINE} provides the the `KmoduleDeploymentService` implementation. This implementation is designed to work with `KmoduleDeploymentUnits`, which are small descriptors that for a part of a KJAR file. This implementation is the typical solution for most use cases. Thr qualified for this implementation is `@Kjar`.
+The {PROCESS_ENGINE} provides the the `KmoduleDeploymentService` implementation. This implementation is designed to work with `KmoduleDeploymentUnits`, which are small descriptors that are included in a KJAR file. This implementation is the typical solution for most use cases. The qualifier for this implementation is `@Kjar`.

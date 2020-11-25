@@ -14,7 +14,7 @@ As an extension of {PROCESS_ENGINE} core services, EJB services provide EJB-base
 * `UserTaskServiceEJBImpl` is implemented as a stateless session bean.
 
 [discrete]
-== Transactions
+= Transactions
 
 The EJB container manages transactions in EJB services. For this reason, you do not need to set up any transaction manager or user transaction within your application code.
 
@@ -26,7 +26,7 @@ The default identity provider is based on the `EJBContext` interface and relies 
 * `getRoles()` returns an empty list, because the `EJBContext` interface does not provide an option to fetch all roles for a particular user
 * `hasRole()` delegates to the `isCallerInRole()` method of the context
 
-To ensure valid information will be available to the EJB environment, you must follow standard JEE security practices to authenticate and authorize users. If no authentication or authorization is configured for EJB services, an anonymous user is always assumed.
+To ensure that valid information is available to the EJB environment, you must follow standard JEE security practices to authenticate and authorize users. If no authentication or authorization is configured for EJB services, an anonymous user is always assumed.
 
 If you use a different security model, you can use CDI-style injection for the `IdentityProvider` object for EJB services. In this case, create a valid CDI bean that implements the `org.kie.internal.identity.IdentityProvider` interface and make this bean available for injection with your application. This implementation will take precedence over the `EJBContext`-based identity provider.
 

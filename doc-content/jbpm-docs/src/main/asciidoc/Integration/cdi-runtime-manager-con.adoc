@@ -23,7 +23,7 @@ To use the runtime manager, you must add the `RuntimeEnvironment` class to the p
 ----
 public class EnvironmentProducer { 
    
-    //add same producers as for services
+    //Add the same producers as for services
 
     @Produces
     @Singleton

@@ -9,5 +9,5 @@ jBPM
 endif::JBPM,DROOLS,OP[]
 uses Maven for two main purposes:
 
-* To create KJAR artifacts, which are deployment units that the {PROCESS_ENGINE} can installed into a runtime environment for execution
+* To create KJAR artifacts, which are deployment units that the {PROCESS_ENGINE} can install into a runtime environment for execution
 * To manage dependencies for building applications that embed the {PROCESS_ENGINE}

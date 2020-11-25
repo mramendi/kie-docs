@@ -18,7 +18,7 @@ Globally-available types do not require any special handling. The EJB container 
 The {PROCESS_ENGINE} EJB services provide a mechanism to work with custom types. They provide the following two additional types:
 
 * `org.jbpm.services.ejb.remote.api.RemoteObject`: A serializable wrapper class for single-value parameters
-* `org.jbpm.services.ejb.remote.api.RemoteMap`: A dedicated `java.util.Map` implementation to simplify remote invocation of service methods that accept custom object input. The internal implementation of the map holds content that is already serialized, in order to to avoid additional serialization at sending time. 
+* `org.jbpm.services.ejb.remote.api.RemoteMap`: A dedicated `java.util.Map` implementation to simplify remote invocation of service methods that accept custom object input. The internal implementation of the map holds content that is already serialized, in order to avoid additional serialization at sending time. 
 +
 This implementation does not include some of the methods of `java.util.Map` that are usually not used when sending data.
 

@@ -1,7 +1,7 @@
 [id='spring-runtimemanager-additionalconfig-con_{CONTEXT}']
 = Additional configuration options for the runtime manager in the Spring framework
 
-In addition to the configuration with the `EntityManagerFactory` class and the JTA transaction manager, as defined in xref:spring-sample-runtimemanager-proc_{context}[], you can use other configuration options for the runtime manager in the Spring framework:
+In addition to the configuration with the `EntityManagerFactory` class and the JTA transaction manager, as described in xref:spring-sample-runtimemanager-proc_{context}[], you can use other configuration options for the runtime manager in the Spring framework:
 
 * JTA and the `SharedEntityManager` class
 * Local Persistence Unit and the `EntityManagerFactory` class

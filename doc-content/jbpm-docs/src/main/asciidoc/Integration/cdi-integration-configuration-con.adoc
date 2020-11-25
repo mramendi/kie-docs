@@ -11,7 +11,7 @@ Several beans can be required, depending on the usage scenario:
 
 When running in a JEE environment, such as {EAP}, the following producer bean satisfies all requirements of the `jbpm-services-cdi` module.
 
-.The produces bean that satisfies all requirements of the `jbpm-services-cdi` module in a JEE environment 
+.The producer bean that satisfies all requirements of the `jbpm-services-cdi` module in a JEE environment 
 [source,java]
 ----
 public class EnvironmentProducer { 
@@ -93,18 +93,18 @@ Optionally, you can provide several other producers provided to deliver `WorkIte
 [source,java]
 ----
 /**
- * Allows to provide custom implementations to deliver WorkItem name and WorkItemHandler instance pairs
+ * Enables providing custom implementations to deliver WorkItem name and WorkItemHandler instance pairs
  * for the runtime.
  * <br/>
- * It will be invoked by RegisterableItemsFactory implementation (especially InjectableRegisterableItemsFactory 
- * in the CDI framework) for every KieSession. Always produce new instances to avoid unexpected 
+ * This interface is invoked by the RegisterableItemsFactory implementation (in particular InjectableRegisterableItemsFactory 
+ * in the CDI framework) for every KieSession. Always return new instances of objects to avoid unexpected 
  * results. 
  *
  */
 public interface WorkItemHandlerProducer {
 
     /**
-     * Returns map of (key = work item name, value work item handler instance) of work items 
+     * Returns map of work items(key = work item name, value = work item handler instance) 
      * to be registered on KieSession
      * <br/>
      * The following parameters might be given:
@@ -127,11 +127,11 @@ public interface WorkItemHandlerProducer {
 [source,java]
 ----
 /**
- * Allows defining custom producers for known EventListeners. There might be several
+ * Enables defining custom producers for known EventListeners. There might be several
  * implementations that might provide a different listener instance based on the context in which they are executed. 
  * <br/>
- * It will be invoked by the RegisterableItemsFactory implementation (especially InjectableRegisterableItemsFactory 
- * in the CDI framework) for every KieSession. A produce new instances to avoid unexpected results.
+ * This interface is invoked by the RegisterableItemsFactory implementation (in particular, InjectableRegisterableItemsFactory 
+ * in the CDI framework) for every KieSession. Always return new instances of objects to avoid unexpected results.
  *
  * @param <T> type of the event listener - ProcessEventListener, AgendaEventListener, WorkingMemoryEventListener
  */
@@ -140,7 +140,7 @@ public interface EventListenerProducer<T> {
     /**
      * Returns list of instances for given (T) type of listeners
      * <br/>
-     * Parameters that might be given are as follows:
+     * Parameters that might be given are:
      * <ul>
      *  <li>ksession</li>
      *  <li>taskService</li>
@@ -155,7 +155,7 @@ public interface EventListenerProducer<T> {
 }
 ----
 
-The beans implementing these two interfaces are collected at run time and invoked when the `RuntimeManager` class builds a `KieSession` instance.
+The beans implementing these two interfaces are collected at runtime and invoked when the `RuntimeManager` class builds a `KieSession` instance.
 
 ifdef::DROOLS,JBPM,OP[]
 A complete runnable example of an application built with CDI can be found https://github.com/jsvitak/jbpm-6-examples/tree/master/rewards-cdi-jsf[here].
