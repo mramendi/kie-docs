@@ -65,7 +65,7 @@ If you configure an external Maven repository (`MAVEN_REPO_URL`), change `MAVEN_
 +
 If your authoring environment uses a built-in {CENTRAL} Maven repository, change `MAVEN_MIRROR_OF` to exclude the artifacts in this repository from the mirror: `external:*,!repo-{PRODUCT_INIT}centr`.
 +
-** In some cases, you might want to persist the Maven repository cache for {CENTRAL}. By default, the cache is not persisted, so when you restart or scale a {CENTRAL} pod, all Maven artifacts are downloaded again. If you enable persistence for the cache, the download is not necessary and startup time can improve in some situations. However, significant additional space on the {CENTRAL} persistence volume is required.
+** In some cases, you might want to persist the Maven repository cache for {CENTRAL}. By default, the cache is not persisted, so when you restart or scale a {CENTRAL} pod, all Maven artifacts are downloaded again and all projects within {CENTRAL} must be built again. If you enable persistence for the cache, the download is not necessary and startup time can improve in some situations. However, significant additional space on the {CENTRAL} persistence volume is required.
 +
 To enable persistence for the Maven repository cache, set the `KIE_PERSIST_MAVEN_REPO` environment variable to `true`.
 +
