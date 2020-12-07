@@ -46,7 +46,6 @@ ifdef::PAM[]
 In the simplified mode, {CENTRAL} Monitoring does not require a persistent volume claim. You can use this mode in environments that do not support `ReadWriteMany` access to persistent storage. You can not use {CENTRAL} Monitoring in the simplified mode to design custom dashboards.
 +
 endif::PAM[]
-** If you are using {RH-SSO} authentication and your {RH-SSO} environment requires CORS support, set the `SSO_ENABLE_CORS` variable to `true`.
 ** If you want to use an external Maven repository, set the following variables:
 *** `MAVEN_REPO_URL`: The URL for the Maven repository
 *** `MAVEN_REPO_ID`: An identifier for the Maven repository, for example, `repo-custom`
