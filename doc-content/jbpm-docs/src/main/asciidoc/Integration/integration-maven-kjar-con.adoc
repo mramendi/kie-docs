@@ -9,7 +9,7 @@ The {PROCESS_ENGINE}
 endif::PAM,DM[]
 provides a mechanism to deploy processes from Apache Maven artifacts. These artifacts are in the JAR file format and are known as _KJAR files_, or informally _KJARs_. A KJAR file includes a descriptor that defines a KIE base and KIE session. It also contains the business assets, including process definitions, that the {PROCESS_ENGINE} can load into the KIE base.
 
-The descriptor of a KJAR file is represented an XML file named `kie-deployment-descriptor.xml`. The descriptor can be empty, in which case the default configuration applies. It can also provide custom configuration for the KIE base and KIE session.
+The descriptor of a KJAR file is represented by an XML file named `kie-deployment-descriptor.xml`. The descriptor can be empty, in which case the default configuration applies. It can also provide custom configuration for the KIE base and KIE session.
 
 .An empty `kie-deployment-descriptor.xml` descriptor
 [source,xml]
@@ -33,22 +33,22 @@ The descriptor of a KJAR file is represented an XML file named `kie-deployment-d
 </deployment-descriptor>
 ----
 
-With an empty `kie-deployment-descriptor.xml` desctiptor, the following default configuration applies:
+With an empty `kie-deployment-descriptor.xml` descriptor, the following default configuration applies:
 
 * A single default KIE base is created with the following characteristics:
 ** It contains all assets from all packages in the KJAR file
 ** Its event processing mode is set to `cloud`
 ** Its equality behaviour is set to `identity`
 ** Its declarative agenda is disabled
-** For CDI applications, ts scope is set to `ApplicationScope`
+** For CDI applications, its scope is set to `ApplicationScope`
 * A single default stateless KIE session is created with the following characteristics:
 ** It is bound to the single KIE base
 ** Its clock type is set to `real time`
-** For CDI applications, ts scope is set to `ApplicationScope`
+** For CDI applications, its scope is set to `ApplicationScope`
 * A single default stateful KIE session is created with the following characteristics:
 ** It is bound to the single KIE base
 ** Its clock type is set to `real time`
-** For CDI applications, ts scope is set to `ApplicationScope`
+** For CDI applications, its scope is set to `ApplicationScope`
 
 If you do not want to use the defaults, you can change all configuration settings using the `kie-deployment-descriptor.xml` file. You can find the complete specification of all elements for this file in the https://github.com/kiegroup/droolsjbpm-knowledge/blob/{COMMUNITY_VERSION_FINAL}/kie-internal/src/main/resources/deployment-descriptor.xsd[XSD schema].
 

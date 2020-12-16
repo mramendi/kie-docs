@@ -26,6 +26,6 @@ For the `DEFAULT`, `DEFAULT_KJAR`, and `DEFAULT_KJAR_CL` types, you must also co
 
 The transaction manager must be the Spring transaction manager, because persistence and transaction support is configured based on this transaction manager.
 
-Optionally, you can provide an `EntityManager` instance instead of creating  anew instance from `EntityManagerFactory`, for example, you might use a shared entity manager from Spring.
+Optionally, you can provide an `EntityManager` instance instead of creating a new instance from `EntityManagerFactory`, for example, you might use a shared entity manager from Spring.
 
 All other properties are optional. They can override defaults that are determined by the selected type of the runtime environment.

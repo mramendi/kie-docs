@@ -59,7 +59,7 @@ The required implementation of `UserGroupCallback` and `UserInfo` interfaces mig
 * `org.jbpm.ht.userinfo`: This property selects the implementation for the `UserInfo` interface:
 ** `ldap`: The LDAP-based implementation. This implementation requires additional configuration in the `jbpm-user.info.properties` file.
 ** `db`: The database-based implementation. This implementation requires additional configuration in the `jbpm-user.info.properties` file.
-** `props`: A simple property-based callback. This implementation requires an additional properties file that contains all user information.
+** `props`: A simple property-based implementation. This implementation requires an additional properties file that contains all user information.
 ** `custom`: A custom implementation. You must provide the fully-qualified class name of the implementation in the `org.jbpm.ht.custom.userinfo` system property.
 
 Typically, set the system properties in the startup configuration of the application server  or JVM. You can also set the properties in the code before using the services. For example, you can provide a custom `@Startup` bean that configures these system properties.

@@ -18,7 +18,7 @@ The following modules provide EJB services:
 
 The EJB layer is based on {PROCESS_ENGINE} services. It  provides almost the same capabilities as the core module, though  some limitations exist if you use the remote interface.
 
-The main limitation affects the deployment service, which, if it is uses as a remote EJB service, supports only the following methods:
+The main limitation affects the deployment service, which, if it is used as a remote EJB service, supports only the following methods:
 
 * `deploy()`
 * `undeploy()`
@@ -26,6 +26,6 @@ The main limitation affects the deployment service, which, if it is uses as a re
 * `deactivate()`
 * `isDeployed()`
 
-Other methods are excluded because they return instances runtime objects, such as `RuntimeManager`, which can not be used over the remote interface.
+Other methods are excluded because they return instances of runtime objects, such as `RuntimeManager`, which can not be used over the remote interface.
 
 All other services provide the same functionality over EJB as the versions included in the core module.

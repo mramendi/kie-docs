@@ -27,5 +27,5 @@ private ProcessServiceEJBLocal processService;
 private RuntimeDataServiceEJBLocal runtimeDataService;
 ----
 
-After injecting these interfaces, invoke operations on them in the same was as on core modules. No restrictions exist for using local interfaces.
+After injecting these interfaces, invoke operations on them in the same way as on core modules. No restrictions exist for using local interfaces.
 

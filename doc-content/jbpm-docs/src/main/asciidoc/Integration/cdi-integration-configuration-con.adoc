@@ -62,9 +62,9 @@ public class EnvironmentProducer {
 }
 ----
 
-The `beans.xml` file for the application must enable a proper alternative for user group callback. This alternative is taken based on the `@Selectable` qualifier.
+The `beans.xml` file for the application must enable a proper alternative for user group info callback. This alternative is taken based on the `@Selectable` qualifier.
 
-.Definition of the alternative for user group callback in the `beans.xml` file`
+.Definition of the alternative for user group info callback in the `beans.xml` file`
 [source,xml]
 ----
 <beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -87,7 +87,7 @@ See the xref:_jbpmtaskservice[Human Task section] for more alternatives for `Use
 endif::JPBM,DROOLS,OP[]
 ====
 
-Optionally, you can provide several other producers provided to deliver `WorkItemHandlers` and `Process`, `Agenda`, `WorkingMemory` event listeners. You can provide these components can be provided by implementing the following interfaces:
+Optionally, you can provide several other producers to deliver `WorkItemHandlers` and `Process`, `Agenda`, `WorkingMemory` event listeners. You can provide these components by implementing the following interfaces:
 
 .Work item handler producer interface for {PROCESS_ENGINE} integration with CDI
 [source,java]
