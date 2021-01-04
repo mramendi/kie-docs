@@ -1,0 +1,10 @@
+[id='kieserver-kafka-proc_{context}']
+= Configuring a {KIE_SERVER} to integrate with {KAFKA}
+
+To run a process that sends or receives {KAFKA} messages, you must use a {KIE_SERVER}. You must configure this {KIE_SERVER} to integrate with {KAFKA}.
+
+.Procedure
+
+. To enable integration with {KAFKA}, set the `org.kie.kafka.server.ext.disabled` system property of the {KIE_SERVER} to `false`.
+. To configure the connection to the {KAFKA} broker *what does one do?**
+
