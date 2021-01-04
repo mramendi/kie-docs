@@ -107,6 +107,10 @@ For a complete list of supported dialects, see the _Hibernate SQL Dialects_ tabl
 .. *Host*: Enter the host name of the external database server.
 .. *Port*: Enter the port number of the external database server.
 .. *Jdbc URL*: Enter the JDBC URL for the external database server.
+[NOTE]
+====
+If you are using the EntrepriseDB Postgres database server, do not use an URL starting with `jdbc:edb://`. Instead, use an URL starting with `jdbc:postgresql://`.
+====
 .. *NonXA*: Select this box if you want to configure the data source in non-XA mode.
 .. *JNDI name*: Enter the JNDI name that the application uses for the data source.
 .. *User name* and *Password*: Enter the user name and password for the external database server.
