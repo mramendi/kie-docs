@@ -8,12 +8,12 @@ The {PROCESS_ENGINE} provides a set of BOMs (Bill Of Material) to simplify decla
 Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example includes the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a stand-alone application.
 
 .Maven dependency management settings for embedding the {PROCESS_ENGINE}
-[source,xml,attributes+]
+[source,xml,subs="attributes,verbatim,macros,quotes"]
 ----
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.org.drools>{COMMUNITY_VERSION_FINAL}</version.org.drools>
-    <version.org.jbpm>6.0.0.Final</version.org.jbpm>
+    <version.org.drools>{MAVEN_ARTIFACT_VERSION}</version.org.drools>
+    <version.org.jbpm>{MAVEN_ARTIFACT_VERSION}</version.org.jbpm>
     <hibernate.version>4.2.0.Final</hibernate.version>
     <hibernate.core.version>4.2.0.Final</hibernate.core.version>
     <slf4j.version>1.6.4</slf4j.version>
