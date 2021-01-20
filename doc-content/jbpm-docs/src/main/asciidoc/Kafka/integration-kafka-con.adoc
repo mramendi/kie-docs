@@ -15,5 +15,7 @@ You can create business processes using {PRODUCT} that send and receive {KAFKA} 
 
 * Create an end event or intermediate throw event of the type _message_ or _signal_. When the process triggers the event, the {KIE_SERVER} sends a {KAFKA} message in the topic that is defined in the message or signal. The message contains the data that is configured in the event. 
 
-* Add the `KafkaPublishMessages` custom task to the process. This task does not require the {KIE_SERVER} Kafka capability. It also supports complicated message workflows, such as executing a Kafka work item and retrieving the results. However, it is significantly more complicated to configure than signal or message events. 
+* Add the `KafkaPublishMessages` custom task to the process. This task does not require the {KIE_SERVER} Kafka capability. However, it is significantly more complicated to configure than signal or message events. 
+
+* Configure your service and the {KIE_SERVER} to emit {KAFKA} messages about every completed process, case, and task when transactions are committed.
 

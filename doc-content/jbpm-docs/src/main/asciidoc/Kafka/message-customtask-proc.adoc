@@ -1,11 +1,26 @@
 [id='message-customtask-proc_{context}']
 = Adding a custom task that sends {KAFKA} messages 
 
-You can add a `KafkaPublishMessages` custom task to your process. This task sends {KAFKA} messages and supports complicated message workflows, such as executing a Kafka work item and retrieving the results. It does not use the {KIE_SERVER} Kafka capability, so you can use this task in processes that do not run on a {KIE_SERVER}.
+You can add a `KafkaPublishMessages` custom task to your process. This task sends {KAFKA} messages. It does not use the {KIE_SERVER} Kafka capability, so you can use this task in processes that do not run on a {KIE_SERVER}. However, it is more complicated to configure than other {KAFKA} integration options.
 
 .Procedure
 
+. In the {CENTRAL} administrative settings menu, as the administrative user, select *Custom Tasks Administration*.
+. Ensure that *KafkaPublishMessages* is set to *On*. 
+. In the {CENTRAL} main menu, select *Projects*.
+. Select your space and your project.
+. Select the *Settings* tab and then the *Custom Tasks* tab.
+. In the *KafkaPublishMessages* line, click *Install*.
+. Enter the following information:
+** *Bootstrap Servers*: The host and port of the Kafka server, for example, `localhost:9092`. You can use a comma-separated list of multiple host:port pairs.
+** *Client ID*: An identifier string to pass to the server when making requests. The server uses this string for logging.
+** *Key Serializer class*: The class that provides the key serializer. Enter the standard serializer class name: `org.apache.kafka.common.serialization.StringSerializer`.
+** *Value Serializer class*: The class that provides the value serializer. Enter the standard serializer class name: `org.apache.kafka.common.serialization.StringSerializer`.
+. Select the *Deployments* tab and then the *Work item handlers* tab.
+. Click *Add work item handler*.
+. *I could not work out how to add dependencies and how to add the work item handler* 
 . Open the project that contains your business process in {CENTRAL}.
 . Select the business process and open the business process designer.
 . Add the `KafkaPublishMessages` custom task, available under *Custom Tasks* in the BPMN modeler palette.
-. *I was not able to work out the details of what and where to set; despite being present in 7.9 docs, this custom task was not found in 7.9 BC*
+. In the properties of the custom task, open the data assignments.
+. Assign the *Key*, *Topic*, and *Value* inputs to define the message.

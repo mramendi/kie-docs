@@ -1,7 +1,7 @@
 [id='kieserver-kafka-proc_{context}']
-= Configuring a {KIE_SERVER} to integrate with {KAFKA}
+= Configuring a {KIE_SERVER} to send and receive {KAFKA} messages from the process
 
-To run a process that sends or receives {KAFKA} messages, you must use a {KIE_SERVER}. You must configure this {KIE_SERVER} to integrate with {KAFKA}.
+To run a process that sends or receives {KAFKA} messages (except when using the custom task), you must use a {KIE_SERVER}. You must configure this {KIE_SERVER} to integrate with {KAFKA}.
 
 .Procedure
 
