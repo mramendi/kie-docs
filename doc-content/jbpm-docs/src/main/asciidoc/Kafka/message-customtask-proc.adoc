@@ -16,9 +16,6 @@ You can add a `KafkaPublishMessages` custom task to your process. This task send
 ** *Client ID*: An identifier string to pass to the server when making requests. The server uses this string for logging.
 ** *Key Serializer class*: The class that provides the key serializer. Enter the standard serializer class name: `org.apache.kafka.common.serialization.StringSerializer`.
 ** *Value Serializer class*: The class that provides the value serializer. Enter the standard serializer class name: `org.apache.kafka.common.serialization.StringSerializer`.
-. Select the *Deployments* tab and then the *Work item handlers* tab.
-. Click *Add work item handler*.
-. *I could not work out how to add dependencies and how to add the work item handler* 
 . Open the project that contains your business process in {CENTRAL}.
 . Select the business process and open the business process designer.
 . Add the `KafkaPublishMessages` custom task, available under *Custom Tasks* in the BPMN modeler palette.
