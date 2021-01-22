@@ -5,7 +5,9 @@ When you build projects that embed the {PROCESS_ENGINE}, use Apache Maven to con
 
 The {PROCESS_ENGINE} provides a set of BOMs (Bill Of Material) to simplify declaring artifact dependencies.
 
-Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example includes the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a stand-alone application.
+Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example includes the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a stand-alone application. 
+
+This example also includes version properties for components that applications using the {PROCESS_ENGINE} commonly need. Adjust the list of components and versions as necessary. 
 
 .Maven dependency management settings for embedding the {PROCESS_ENGINE}
 [source,xml,subs="attributes,verbatim,macros,quotes"]
@@ -14,15 +16,15 @@ Use the top-level `pom.xml` file of your project to define dependency management
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.org.drools>{MAVEN_ARTIFACT_VERSION}</version.org.drools>
     <version.org.jbpm>{MAVEN_ARTIFACT_VERSION}</version.org.jbpm>
-    <hibernate.version>4.2.0.Final</hibernate.version>
-    <hibernate.core.version>4.2.0.Final</hibernate.core.version>
-    <slf4j.version>1.6.4</slf4j.version>
+    <hibernate.version>5.3.17.Final</hibernate.version>
+    <hibernate.core.version>5.3.17.Final</hibernate.core.version>
+    <slf4j.version>1.7.26</slf4j.version>
     <jboss.javaee.version>1.0.0.Final</jboss.javaee.version>
-    <logback.version>1.0.9</logback.version>
-    <h2.version>1.3.161</h2.version>
+    <logback.version>1.2.9</logback.version>
+    <h2.version>1.3.173</h2.version>
     <narayana.version>5.9.0.Final</narayana.version>
     <jta.version>1.0.1.Final</jta.version>
-    <junit.version>4.8.1</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -46,7 +48,7 @@ Use the top-level `pom.xml` file of your project to define dependency management
   </dependencyManagement>
 ----
 
-Also, in modules that use the KIE API,  declare the following dependencies:
+In modules that use the {PROCESS_ENGINE} Java API (KIE API), declare the necessary {PROCESS_ENGINE} dependencies and other components that the modules require, as in the following example:
 
 .Dependencies for modules that use the KIE API
 [source,xml]
@@ -82,9 +84,11 @@ Also, in modules that use the KIE API,  declare the following dependencies:
     </dependency>
 ----
 
-You can also test the workflow components before actual deployment. To enable testing the components, define the following test dependencies:
+If your application uses persistence and transactions, you must add artifacts that implement the JTA and JPA frameworks. Additional dependencies are required for testing the workflow components before actual deployment.
 
-.Test dependencies for the {PROCESS_ENGINE}
+The following example defines the dependencies that include Hibernate for JPA, the H2 database for persistence, Narayana for JTA, and the components needed for testing. Adjust this example as necessary for your application.
+
+.Example test module dependencies for the {PROCESS_ENGINE}
 [source,xml]
 ----
     <!-- test dependencies -->
