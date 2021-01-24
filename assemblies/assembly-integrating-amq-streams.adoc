@@ -1,5 +1,5 @@
 [id='assembly-integrating-amq-streams']
-= Integrating {PRODUCT} with {KAFKA} 
+= Integrating {PRODUCT} with {KAFKA_PRODUCT} 
 ifdef::context[:parent-context: {context}]
 // Context attribute is assembly specific and enables module reuse between assemblies.
 :context: integrating-amq-streams
