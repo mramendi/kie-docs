@@ -3,9 +3,9 @@
 
 When you build projects that embed the {PROCESS_ENGINE}, use Apache Maven to configure all dependencies required by the {PROCESS_ENGINE}.
 
-The {PROCESS_ENGINE} provides a set of BOMs (Bill Of Material) to simplify declaring artifact dependencies.
+The {PROCESS_ENGINE} provides a set of BOMs (Bills of Material) to simplify declaring artifact dependencies.
 
-Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example includes the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a stand-alone application. 
+Use the top-level `pom.xml` file of your project to define dependency management for embedding the {PROCESS_ENGINE}, as shown in the following example. The example includes the main runtime dependencies, which are applicable  whether the application is deployed on an application server, in a servlet container, or as a standalone application. 
 
 This example also includes version properties for components that applications using the {PROCESS_ENGINE} commonly need. Adjust the list of components and versions as necessary. You can view the third-party dependency versions that the product team tests in the https://github.com/kiegroup/droolsjbpm-build-bootstrap/blob/{COMMUNITY_VERSION_FINAL}/pom.xml[parent `pom.xml` file in the Github repository].
 
@@ -86,7 +86,7 @@ In modules that use the {PROCESS_ENGINE} Java API (KIE API), declare the necessa
 
 If your application uses persistence and transactions, you must add artifacts that implement the JTA and JPA frameworks. Additional dependencies are required for testing the workflow components before actual deployment.
 
-The following example defines the dependencies that include Hibernate for JPA, the H2 database for persistence, Narayana for JTA, and the components needed for testing. This example uses the `test` scope. Adjust this example as necessary for your application; for production use, remove the `test` scope.
+The following example defines the dependencies that include Hibernate for JPA, the H2 database for persistence, Narayana for JTA, and the components needed for testing. This example uses the `test` scope. Adjust this example as necessary for your application. For production use, remove the `test` scope.
 
 .Example test module dependencies for the {PROCESS_ENGINE}
 [source,xml]
