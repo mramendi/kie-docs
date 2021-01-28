@@ -1,6 +1,7 @@
 [id='installing-on-fuse-eap-proc']
 = Installing {FUSE} on {EAP_LONG}
-Install {FUSE_LONG} {FUSE_VERSION} on {EAP} {FUSE_EAP_VERSION} to use with {PRODUCT} to deploy integrated services where required.
+
+Install {FUSE_LONG} {FUSE_VERSION} on {EAP} {FUSE_EAP_VERSION} to integrate it with {PRODUCT}.
 
 .Prerequisites
 * A {PRODUCT} installation on {EAP_LONG} {EAP_VERSION} is available. For installation instructions, see {URL_INSTALLING_AND_CONFIGURING}#assembly-install-on-eap[_{INSTALLING_ON_EAP}_].
