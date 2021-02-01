@@ -77,7 +77,7 @@ In this example:
 The RH-SSO server converts the user names to lower case. Therefore, after integration with RH-SSO, your user name will appear in lower case in {PRODUCT}. If you have user names in upper case hard coded in business processes, the application might not be able to identify the upper case user.
 ====
 +
-If you want to use client roles, also add the following setting udner `<secure-deployment>`:
+If you want to use client roles, also add the following setting under `<secure-deployment>`:
 +
 [source,xml,subs="attributes+"]
 ----
