@@ -27,4 +27,4 @@ For instructions about using `org.kie.server.jbpm-kafka.ext.topics.*` system pro
 
 .Next steps
 
-To enable {KAFKA} integration when running the process, you must configure the {KIE_SERVER} according to instructions in xref:kieserver-kafka-proc_{context}[].
+To enable {KAFKA_PRODUCT} integration when running the process, you must configure the {KIE_SERVER} according to instructions in xref:kieserver-kafka-proc_{context}[].
