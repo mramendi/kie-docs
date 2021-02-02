@@ -18,9 +18,15 @@ endif::JBPM,DROOLS,OP[]
 . Select the *Settings* -> *Deployments* -> *Work Item Handlers* tab.
 . Click *Add Work Item Handler*.
 . Enter the following values in the new empty line:
-** *Name*: `Send Task`
+** *Name*: `Send Task` if you are going to create a message event or `External Send Task` if you are going to create a signal event
 ** *Value* : `new org.jbpm.bpmn2.handler.SendTaskHandler()`
 ** *Resolver type*: `MVEL`
++
+[NOTE]
+====
+You can create two work item handlers with the names `Send Task` and `External Send Task` to support creating both message and signal events.  
+====
++
 . Select the business process and open the business process designer.
 . Add an intermediate throw event or an end event of the type _message_ or _signal_.
 . Open the properties of the event.
