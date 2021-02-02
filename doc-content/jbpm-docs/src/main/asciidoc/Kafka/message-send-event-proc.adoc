@@ -15,6 +15,12 @@ endif::PAM,DM[]
 ifdef::JBPM,DROOLS,OP[]
 xref:jBPMBPMN2[].
 endif::JBPM,DROOLS,OP[]
+. Select the *Settings* -> *Deployments* -> *Work Item Handlers* tab.
+. Click *Add Work Item Handler*.
+. Enter the following values in the new empty line:
+** *Name*: `Send Task`
+** *Value* : `new org.jbpm.bpmn2.handler.SendTaskHandler()`
+** *Resolver type*: `MVEL`
 . Select the business process and open the business process designer.
 . Add an intermediate throw event or an end event of the type _message_ or _signal_.
 . Open the properties of the event.
