@@ -142,6 +142,10 @@ include::{enterprise-dir}/openshift/githooks-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/truststore-template-proc.adoc[leveloffset=+2]
 include::{enterprise-dir}/openshift/rolemapping-proc.adoc[leveloffset=+2]
 
+include::{enterprise-dir}/openshift/template-version-upgrade-con.adoc[leveloffset=+1]
+include::{enterprise-dir}/openshift/imagestreams-upgrade-proc.adoc[leveloffset=+2]
+
+
 // roles and users for reference
 include::{enterprise-dir}/installation/roles-users-con.adoc[leveloffset=+1]
 

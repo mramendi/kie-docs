@@ -1,0 +1,124 @@
+[id='imagestreams-upgrade-proc_{context}']
+= Upgrading image streams in an existing deployment
+
+To upgrade a templates-based deployment of {PRODUCT} on {OPENSHIFT}, you can upgrade the image streams in the existing deployment.
+
+Use this procedure to upgrade to a point release (such as 7.9.0 to 7.9.1) or to the next minor release (such as 7.9 to 7.10). 
+
+If you want to upgrade over several minor releases (such as 7.7 to 7.10) or to change settings that were added in the new version, do not use this procedure. Instead, deploy a new environment and then follow procedures described in {URL_DEPLOYING_ON_OPENSHIFT}#migration-ocp3-4-assy-openshift-operator[{DEPLOYING_OPENSHIFT_OPERATOR}] to move your data into the new environment.
+
+The following procedure assumes that you are upgrading image streams to version {ENTERPRISE_VERSION_LONG}. To use a different version, adjust the commands.
+
+.Prerequisites
+
+* You are logged in to your OpenShift environment using the `oc` command. 
+* Your project is active.
+
+.Procedure
+
+. To determine if the image streams for the target version are available in your {OPENSHIFT} environment, enter the following commands:
++
+ifdef::DM[]
+[subs="attributes,verbatim,macros"]
+----
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-{CENTRAL_ONEWORD}-openshift
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-kieserver-openshift
+----
+endif::DM[]
+ifdef::PAM[]
+[subs="attributes,verbatim,macros"]
+----
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}-{CENTRAL_ONEWORD} | grep {ENTERPRISE_VERSION}
+$ oc get imagestreamtag -n openshift | grep {PRODUCT_INIT}-kieserver | grep {ENTERPRISE_VERSION}
+----
+endif::PAM[]
++
+If the outputs of both commands are not empty, the required image streams are available in the `openshift` namespace.
++
+. If the output of one or both of the commands is empty, complete the following steps:
+.. Download the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page and extract the `{PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml` file.
+..  Enter the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+$ oc apply -f {PRODUCT_INIT}{ENTERPRISE_VERSION_SHORT}-image-streams.yaml
+----
++
+[NOTE]
+====
+If you complete these steps, the image streams are available in the project namespace and not the `openshift` namespace. You must ensure you use the correct namespace in subsequent steps.
+====
++
+. To list the deployment configs in your environment, enter the following command:
++
+[subs="attributes,verbatim,macros"]
+----
+$ oc get dc
+----
++
+. Scale all `{PRODUCT_INIT}centr` and `kieserver` deployment configs to zero replicas:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+$ oc scale deploymentconfig --replicas=0 _myapp_-kieserver _myapp_-`{PRODUCT_INIT}centr`
+----
++
+. For every `{PRODUCT_INIT}centr` and `kieserver` deployment config, except any immutable `kieserver` deployment configs that are built using the S2I process, complete the following steps:
+.. Open the configuration YAML file for editing:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+$ oc edit deploymentconfig/_deployment-config-name_
+----
++
+.. In the file, find the following line:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+    kind: ImageStreamTag
+----
++
+Under this line, `name:` and `namespace:` tags are present, for example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+    name: {PRODUCT_INIT}-kieserver-rhel8:7.9.1
+    namespace: openshift
+----
++
+.. In the `name:` line change the version to the target version, for example, `{ENTERPRISE_VERSION_LONG}`.
+.. Ensure that the `namespace:` line points to the correct namespace. If the new image streams are available in the `openshift` namespace, enter `openshift`. If you installed the new image streams in the project namespace, enter the name of the project.
+.. Save the file and exit your editor.
+. For every immutable `kieserver` deployment config built using the S2I process, complete the following steps:
+.. Open the configuration YAML file for editing:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+$ oc edit deploymentconfig/_deployment-config-name_
+----
++
+.. In the file, find the following line:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+    sourceStrategy:
+----
++
+Under this line, find the `kind: ImageStreamTag`, `name:` and `namespace:` lines, for example:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+    kind: ImageStreamTag
+    name: {PRODUCT_INIT}-kieserver-rhel8:7.9.1
+    namespace: openshift
+----
++
+.. In the `name:` line change the version to the target version, for example, `{ENTERPRISE_VERSION_LONG}`.
+.. Ensure that the `namespace:` line points to the correct namespace. If the new image streams are available in the `openshift` namespace, enter `openshift`. If you installed the new image streams in the project namespace, enter the name of the project.
+.. Save the file and exit your editor.
+. Scale all `{PRODUCT_INIT}centr` and `kieserver` deployment configs to one replica:
++
+[subs="attributes,verbatim,macros,quotes"]
+----
+$ oc scale deploymentconfig --replicas=1 _myapp_-kieserver _myapp_-`{PRODUCT_INIT}centr`
+----

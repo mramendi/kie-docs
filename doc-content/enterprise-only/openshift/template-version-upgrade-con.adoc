@@ -1,0 +1,12 @@
+[id='template-version-upgrade-con-{context}']
+= {PRODUCT} version upgrades on {OPENSHIFT} using templates
+
+Templates on {OPENSHIFT} are deprecated since version 7.5. To upgrade to a new product version, you can deploy this new version on {OPENSHIFT} version 4 using operators and then move your {PRODUCT} data to the new deployment. For instructions about moving your data to a new deployment on {OPENSHIFT} version 4, see {URL_DEPLOYING_ON_OPENSHIFT}#migration-ocp3-4-assy-openshift-operator[{DEPLOYING_OPENSHIFT_OPERATOR}].
+
+The operator can complete future minor and point release upgrades automatically.
+
+If you are using {OPENSHIFT} version 3.11 and templates, you can complete upgrades manually in the following ways:
+
+* To upgrade to a new point release or to the next minor release, update the image streams of your existing deployment to the new version. 
+
+* To upgrade over several minor releases, to use configuration settings that are available with a new release, or if an upgrade using image streams is not successful, deploy a new {PRODUCT} infrastructure in a separate namespace and then move your {PRODUCT} data to the new deployment. Follow the instructions for moving data to a new deployment in {URL_DEPLOYING_ON_OPENSHIFT}#migration-ocp3-4-assy-openshift-operator[{DEPLOYING_OPENSHIFT_OPERATOR}].
