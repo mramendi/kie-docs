@@ -1,0 +1,168 @@
+[id='openshift-springboot-proc_{context}']
+= Running a SpringBoot business application on {OPENSHIFT}
+
+To run your {PRODUCT} SpringBoot business application on {OPENSHIFT}, create an immutable image and push this image to your {OPENSHIFT} environment.
+
+
+ifdef::PAM[]
+Optionally, you can also use {CENTRAL} Monitoring to monitor the execution of business processes in your application.
+endif::PAM[]
+
+.Prerequisites
+
+. You developed a {PRODUCT} SpringBoot business application. For instructions about creating the application, see xref:bus-app-create_{context}[].
+. If necessary, you configured Spring security for the application. For instructions about configuring Spring security, see xref:bus-app-security-con_{context}[].
+. You are logged on to your {OPENSHIFT} environment using the `oc` command and the required project is active.
+ifdef::PAM[]
+. If you want to use {CENTRAL} Monitoring, you installed {CENTRAL} Monitoring using the operator. For instructions about installing {CENTRAL} Monitoring and other {PRODUCT} components using the operator, see {URL_DEPLOYING_ON_OPENSHIFT}#assembly-openshift-operator[_{DEPLOYING_OPENSHIFT_OPERATOR}_].
++
+[IMPORTANT]
+====
+You must configure {CENTRAL} Monitoring to use the controller startup strategy. To enable the controller strategy on {CENTRAL} Monitoring, in the *Console* tab of the operator configuration, add a `KIE_SERVER_CONTROLLER_OPENSHIFT_ENABLED` environment variable and set it to `false`.
+====
+endif::PAM[]
+
+.Procedure
+
+. In the `business-application-kjar` project directory, create a `business-application-service.xml` file with the following content:
++
+[source,xml]
+----
+<kie-server-state>
+ <controllers/>
+ <configuration/>
+ <containers>
+   <container>
+     <containerId>@project.name@_@project.version@</containerId>
+     <releaseId>
+       <groupId>@project.groupId@</groupId>
+       <artifactId>@project.name@</artifactId>
+       <version>@project.version@</version>
+     </releaseId>
+     <status>STARTED</status>
+     <scanner>
+       <status>STOPPED</status>
+     </scanner>
+     <configItems>
+       <config-item>
+         <name>KBase</name>
+         <value></value>
+         <type>BPM</type>
+       </config-item>
+       <config-item>
+         <name>KSession</name>
+         <value></value>
+         <type>BPM</type>
+       </config-item>
+       <config-item>
+         <name>MergeMode</name>
+         <value>MERGE_COLLECTIONS</value>
+         <type>BPM</type>
+       </config-item>
+       <config-item>
+         <name>RuntimeStrategy</name>
+         <value>PER_PROCESS_INSTANCE</value>
+         <type>BPM</type>
+       </config-item>
+     </configItems>
+     <messages/>
+     <containerAlias>@project.name@</containerAlias>
+   </container>
+ </containers>
+</kie-server-state>
+----
++
+. In the `business-application-kjar` project directory, edit the `pom.xml` file. Under the `<build>` tag, add the following lines:
++
+[source,xml]
+----
+  <resources>
+    <resource>
+      <directory>${basedir}</directory>
+      <includes>
+        <include>business-application-service.xml</include>
+      </includes>
+      <filtering>true</filtering>
+    </resource>
+  </resources>
+----
++
+. Outside the project directories, create an `ocp-image` directory with the following subdirectories:
++
+----
+ocp-image
+|--/root
+  |--/opt
+    |-- /m2
+      |--  /repo
+    |-- /spring-service
+----
++
+. In the `root/opt/m2` subdirectory, create a `settings.xml` file with the following content:
++
+[source,xml]
+----
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <localRepository>/opt/m2/repo</localRepository>
+  <offline>true</offline>
+</settings>
+----
++
+. Build the `business-application-service` project and copy the built service it into the `root/opt/spring-service` subdirectory, for example:
++
+----
+cd ../business-application-service
+mvn clean package
+mv target/business-application-service-1.0-SNAPSHOT.jar ../ocp-image/root/opt/spring-service/
+----
++
+. Build the `business-application-kjar` project and copy the built and deployed artifacts into the `root/opt/m2/repo` subdirectory, for example:
++
+----
+cd ../business-application-kjar/
+mvn clean install -P docker
+cp -R target/local-repository/maven/* ../ocp-image/root/opt/m2/repo/
+cp target/classes/business-application-service.xml ../ocp-image/root/opt/spring-service/
+----
++
+[NOTE]
+====
+This step relies on the `docker` POM configuration profile that is available in standard {PRODUCT} business applications available from http://start.jbpm.org.
+====
++
+. From the same built `business-application-kjar` project, copy the `business-application-service.xml` {KIE_SERVER} status file:
++
+----
+cp target/classes/business-application-service.xml ../ocp-image/root/opt/spring-service/
+----
++
+. In the `ocp-image` directory, create a `Dockerfile` file with the following content:
++
+----
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.0
+RUN microdnf install --nodocs java-1.8.0-openjdk-headless && microdnf clean all
+ENV M2_HOME=/opt/m2 GC_MAX_METASPACE_SIZE=512
+COPY root /
+EXPOSE 8090
+WORKDIR /opt/spring-service/
+CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.controller=${KIESERVER_CONTROLLERS} -Dorg.kie.server.controller.user=${KIE_SERVER_CONTROLLER_USER} -Dorg.kie.server.controller.pwd=${KIE_SERVER_CONTROLLER_PWD} -Dorg.kie.server.mode=PRODUCTION -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dkie.maven.settings.custom=/opt/m2/settings.xml -Dorg.guvnor.m2repo.dir=/opt/m2/repo -jar /opt/spring-service/business-application-service-1.0-SNAPSHOT.jar"]
+----
++
+. To build the image and deploy it in your {OPENSHIFT} environment, run the following commands in the `ocp-image` directory:
++
+----
+oc new-build --binary --strategy=docker --name openshift-kie-springboot
+oc start-build openshift-kie-springboot --from-dir=. --follow
+oc new-app openshift-kie-springboot
+----
++
+You can replace `openshift-kie-springboot` with a custom application name.
++
+. If you already built the image and need to update it, run the following command in the `ocp-image` directory:
++
+----
+oc start-build openshift-kie-springboot --from-dir=. --follow
+----
++
+You can replace `openshift-kie-springboot` with a custom application name.
