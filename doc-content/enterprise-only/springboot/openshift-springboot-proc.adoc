@@ -3,7 +3,6 @@
 
 To run your {PRODUCT} SpringBoot business application on {OPENSHIFT}, create an immutable image and push this image to your {OPENSHIFT} environment.
 
-
 ifdef::PAM[]
 Optionally, you can also use {CENTRAL} Monitoring to monitor the execution of business processes in your application.
 endif::PAM[]
@@ -12,6 +11,7 @@ endif::PAM[]
 
 . You developed a {PRODUCT} SpringBoot business application. For instructions about creating the application, see xref:bus-app-create_{context}[].
 . If necessary, you configured Spring security for the application. For instructions about configuring Spring security, see xref:bus-app-security-con_{context}[].
+. You completed other Spring configuration for the business application, as necessary. For instructions about Spring configuration for your business application, see
 . You are logged on to your {OPENSHIFT} environment using the `oc` command and the required project is active.
 ifdef::PAM[]
 . If you want to use {CENTRAL} Monitoring, you installed {CENTRAL} Monitoring using the operator. For instructions about installing {CENTRAL} Monitoring and other {PRODUCT} components using the operator, see {URL_DEPLOYING_ON_OPENSHIFT}#assembly-openshift-operator[_{DEPLOYING_OPENSHIFT_OPERATOR}_].
@@ -140,8 +140,7 @@ cp target/classes/business-application-service.xml ../ocp-image/root/opt/spring-
 . In the `ocp-image` directory, create a `Dockerfile` file with the following content:
 +
 ----
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.0
-RUN microdnf install --nodocs java-1.8.0-openjdk-headless && microdnf clean all
+FROM registry.access.redhat.com/ubi8/openjdk-11:latest
 ENV M2_HOME=/opt/m2 GC_MAX_METASPACE_SIZE=512
 COPY root /
 EXPOSE 8090
