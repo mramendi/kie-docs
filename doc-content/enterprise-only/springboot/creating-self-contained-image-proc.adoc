@@ -1,17 +1,21 @@
 [id='creating-self-contained-image-proc_{context}']
 = Creating a self-contained {PRODUCT} Spring Boot JAR file
 
-You can create a self-contained {PRODUCT} Spring Boot JAR file that contains a complete service, including the {KIE_SERVER} and one or several KJAR files. This JAR file does not depend on loading any KJAR files at runtime.
+You can create a single self-contained {PRODUCT} Spring Boot JAR file that contains a complete service, including {KIE_SERVER} and one or several KJAR files. The {PRODUCT} Spring Boot JAR file does not depend on any KJAR files loading at runtime.
 
-If necessary, the JAR file can contain multiple versions of the same KJAR file, including modules. These are files that have the same `artifactID` and `groupID` attribute values, but have different `version` values. The KJAR files are separated from the `BOOT-INF/lib` JAR files to avoid class loader collisions. Each KJAR classpath container file is isolated from other KJAR classpath container files and does not rely on the Spring Boot class loader.
+If necessary, the {PRODUCT} Spring Boot JAR file can contain multiple versions of the same KJAR file, including modules. These KJAR files can have the same `artifactID` and `groupID` attribute values, but have different `version` values.
+
+The included KJAR files are separated from any JAR files in the `BOOT-INF/lib` directory to avoid class loader collisions. Each KJAR classpath container file is isolated from other KJAR classpath container files and does not rely on the Spring Boot class loader.
 
 .Prerequisites
 * You have an existing {PRODUCT} Spring Boot project.
 * You have completed development of one or more KJAR files for the project.
 
 .Procedure
-. Build every KJAR files for the project. In the default business application, the KJAR source is contained in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-kjar` directory. Your project might include other KJAR source directories. For every KJAR source directory, complete the following steps:
-.. Change into the directory.
+. Build every KJAR files for the project. In the default business application, the KJAR source is contained in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-kjar` directory. Your project might include other KJAR source directories.
++
+To build the KJAR files, for every KJAR source directory, complete the following steps:
+.. Change into the KJAR source directory.
 .. Enter the following command:
 +
 [source]
@@ -122,7 +126,7 @@ The following example adds two version of the `Evaluation` artifact:
   <build>
 ----
 ifdef::PAM[]
-. Optional: if you want to be abe to configure the {KIE_SERVER} to communicate with a {CENTRAL} Monitoring instance, add the following lines to the `pom.xml` file under the `<dependencies>` tag:
+. Optional: if you want to be able to configure the {KIE_SERVER} to communicate with a {CENTRAL} Monitoring instance, add the following lines to the `pom.xml` file under the `<dependencies>` tag:
 +
 [source, xml]
 ----
@@ -151,20 +155,20 @@ java -jar <FILENAME>.jar
 In this command, replace `<FILENAME>` with the name of the JAR file.
 ifdef::PAM[]
 +
-To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance and run the image, use the following command:
+To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance and run the image, enter the following command:
 +
 [source]
 ----
 java -jar <FILENAME>.jar -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy
--Dorg.kie.server.controller=ws://<bc-hostname>:<bc-port>/websocket/controller
--Dorg.kie.server.controller.user=<user> -Dorg.kie.server.controller.pwd=<password>
+-Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller
+-Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD>
 ----
 +
 In this command, replace the following values:
 +
 ** `<FILENAME>` with the name of the JAR file
-** `<bc-hostname>` with the fully qualified name of the {CENTRAL} Monitoring instance
-** `<bc-port>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
-** `<user>` with the username of a user configured on the {CENTRAL} Monitoring instance
-** `<password>` with the password of the user configured on the {CENTRAL} Monitoring instance
+** `<BC-HOSTNAME>` with the fully qualified name of the {CENTRAL} Monitoring instance
+** `<BC-PORT>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
+** `<USER>` with the username of a user configured on the {CENTRAL} Monitoring instance
+** `<PASSWORD>` with the password of the user configured on the {CENTRAL} Monitoring instance
 endif::PAM[]
