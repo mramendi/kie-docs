@@ -33,7 +33,7 @@ endif::[]
 ====
 You can also install {FUSE_LONG} on SpringBoot. {PRODUCT} provides no special integration for this scenario. However, your application that runs on {FUSE_LONG} on SpringBoot can use the `kie-server-client` library to communicate with {PRODUCT} services that run on a {KIE_SERVER}. The following limitations apply, because of library version conflicts between {FUSE_LONG} and {PRODUCT}:
 
-* You cannot use the JSON marshalling format, because of incompatible versions of Jackson.
+* You cannot use `MarshallingFormat.JSON`, because of incompatible versions of Jackson.
 * You cannot use JMS messaging, because of incompatible versions of ActiveMQ.
 
 For instructions about using the `kie-server-client` library, see {URL_INTEGRATING}#kie-server-java-api-con_kie-apis[{KIE_APIS}].
