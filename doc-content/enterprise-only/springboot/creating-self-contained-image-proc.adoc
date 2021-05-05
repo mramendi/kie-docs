@@ -12,15 +12,15 @@ The included KJAR files are separated from any JAR files in the `BOOT-INF/lib` d
 * You have completed development of one or more KJAR files for the project.
 
 .Procedure
-. Build every KJAR files for the project. In the default business application, the KJAR source is contained in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-kjar` directory. Your project might include other KJAR source directories.
+. Build all KJAR files for the project. In the default business application, the KJAR source is contained in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-kjar` directory, where `BUSINESS-APPLICATION` is the name of the business application. Your project might include other KJAR source directories.
 +
 To build the KJAR files, for every KJAR source directory, complete the following steps:
++
 .. Change into the KJAR source directory.
 .. Enter the following command:
 +
-[source]
 ----
-maven install
+mvn install
 ----
 +
 This command builds the KJAR file and places it into the local Maven repository. By default, this repository is located in the `~/.m2/repo` directory.
@@ -126,7 +126,8 @@ The following example adds two version of the `Evaluation` artifact:
   <build>
 ----
 ifdef::PAM[]
-. Optional: if you want to be able to configure the {KIE_SERVER} to communicate with a {CENTRAL} Monitoring instance, add the following lines to the `pom.xml` file under the `<dependencies>` tag:
++
+. Optional: if you want to be able to configure the {KIE_SERVER} to communicate with a {CENTRAL} Monitoring instance using WebSockets, add the following lines to the `pom.xml` file under the `<dependencies>` tag:
 +
 [source, xml]
 ----
@@ -136,13 +137,15 @@ ifdef::PAM[]
   <version>${version.org.kie}</version>
 </dependency>
 ----
++
+WebSockets communication with a {CENTRAL} Monitoring instance is supported in all cases, including running the instance on {OPENSHIFT}.
 endif::PAM[]
 +
 . To build the self-contained Spring Boot image, enter the following command in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-service` directory:
 +
 [source]
 ----
-maven install
+mvn install
 ----
 +
 . Optional: to run the self-contained Spring Boot image, locate the JAR file in the `target` subdirectory and enter the following command:
@@ -155,7 +158,7 @@ java -jar <FILENAME>.jar
 In this command, replace `<FILENAME>` with the name of the JAR file.
 ifdef::PAM[]
 +
-To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance and run the image, enter the following command:
+To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance using WebSockets and run the image, enter the following command:
 +
 [source]
 ----
