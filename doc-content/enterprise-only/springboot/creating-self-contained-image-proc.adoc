@@ -1,7 +1,7 @@
 [id='creating-self-contained-image-proc_{context}']
 = Creating a self-contained {PRODUCT} Spring Boot JAR file
 
-You can create a single self-contained {PRODUCT} Spring Boot JAR file that contains a complete service, including {KIE_SERVER} and one or several KJAR files. The {PRODUCT} Spring Boot JAR file does not depend on any KJAR files loading at runtime.
+You can create a single self-contained {PRODUCT} Spring Boot JAR file that contains a complete service, including {KIE_SERVER} and one or more KJAR files. The {PRODUCT} Spring Boot JAR file does not depend on any KJAR files loading at runtime.
 
 If necessary, the {PRODUCT} Spring Boot JAR file can contain multiple versions of the same KJAR file, including modules. These KJAR files can have the same `artifactID` and `groupID` attribute values, but have different `version` values.
 
@@ -16,7 +16,7 @@ The included KJAR files are separated from any JAR files in the `BOOT-INF/lib` d
 +
 To build the KJAR files, for every KJAR source directory, complete the following steps:
 +
-.. Change into the KJAR source directory.
+.. Change to the KJAR source directory.
 .. Enter the following command:
 +
 ----
