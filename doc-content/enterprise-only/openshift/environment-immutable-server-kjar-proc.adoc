@@ -25,10 +25,10 @@ You can extract these template files
 endif::PAM[]
 from the `{PRODUCT_FILE}-openshift-templates.zip` product deliverable file. You can download the file from the {PRODUCT_DOWNLOAD_LINK}[Software Downloads] page of the Red Hat Customer Portal.
 
-In this method of deployment, the {KIE_SERVER} retrieves all the required KJAR files during the startup of the pod.
+In this method of deployment, {KIE_SERVER} retrieves all the required KJAR files during the startup of the pod.
 
 ifdef::PAM[]
-You can configure the {KIE_SERVER} to connect to Smart Router and to {LOCAL_CENTRAL}. If you use the server with {LOCAL_CENTRAL}, you must ensure that the same versions of KJAR files are uploaded to the Maven repository that the {LOCAL_CENTRAL} instance uses.
+You can configure {KIE_SERVER} to connect to Smart Router and to {LOCAL_CENTRAL}. If you use the server with {LOCAL_CENTRAL}, you must ensure that the same versions of KJAR files are uploaded to the Maven repository that the {LOCAL_CENTRAL} instance uses.
 
 endif::PAM[]
 .Procedure
@@ -51,7 +51,7 @@ In this command line:
 +
 . Set the following parameters as necessary:
 ** *KIE Server Keystore Secret Name* (`KIE_SERVER_HTTPS_SECRET`): The name of the secret for {KIE_SERVER}, as created in <<secrets-kie-create-proc_{context}>>.
-** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URL for {KIE_SERVER}. OpenShift uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. Also, the application name determines the name of the server configuration (server template) on the {CENTRAL} that the {KIE_SERVER} is to join. If you are deploying several {KIE_SERVERS}, you must ensure each of the servers has a different application name.
+** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URL for {KIE_SERVER}. OpenShift uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. Also, the application name determines the name of the server configuration (server template) on the {CENTRAL} that this {KIE_SERVER} is to join. If you are deploying several {KIE_SERVERS}, you must ensure each of the servers has a different application name.
 ** *KIE Server Certificate Name* (`KIE_SERVER_HTTPS_NAME`): The name of the certificate in the keystore that you created in <<secrets-kie-create-proc_{context}>>.
 ** *KIE Server Keystore Password* (`KIE_SERVER_HTTPS_PASSWORD`): The password for the keystore that you created in <<secrets-kie-create-proc_{context}>>.
 ** *KIE Server Mode* (`KIE_SERVER_MODE`): Set to `DEVELOPMENT` if you need to deploy a `SNAPSHOT` version of a KJAR artifact.

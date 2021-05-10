@@ -1,6 +1,6 @@
 ** *{CENTRAL} Server Keystore Secret Name* (`{CENTRAL_CAPITAL_UNDER}_HTTPS_SECRET`): The name of the secret for {CENTRAL}, as created in <<secrets-central-create-proc_{context}>>.
 ** *KIE Server Keystore Secret Name* (`KIE_SERVER_HTTPS_SECRET`): The name of the secret for {KIE_SERVER}, as created in <<secrets-kie-create-proc_{context}>>.
-** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URLs for {CENTRAL} and {KIE_SERVER}. OpenShift uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. Also, the application name determines the name of the server configuration (server template) on the {CENTRAL} that the {KIE_SERVER} is to join.
+** *Application Name* (`APPLICATION_NAME`): The name of the OpenShift application. It is used in the default URLs for {CENTRAL} and {KIE_SERVER}. OpenShift uses the application name to create a separate set of deployment configurations, services, routes, labels, and artifacts. You can deploy several applications using the same template into the same project, as long as you use different application names. Also, the application name determines the name of the server configuration (server template) on the {CENTRAL} that this {KIE_SERVER} is to join.
 ** *{CENTRAL} Server Certificate Name* (`{CENTRAL_CAPITAL_UNDER}_HTTPS_NAME`): The name of the certificate in the keystore that you created in <<secrets-central-create-proc_{context}>>.
 ** *{CENTRAL} Server Keystore Password* (`{CENTRAL_CAPITAL_UNDER}_HTTPS_PASSWORD`): The password for the keystore that you created in <<secrets-central-create-proc_{context}>>.
 ** *KIE Server Certificate Name* (`KIE_SERVER_HTTPS_NAME`): The name of the certificate in the keystore that you created in <<secrets-kie-create-proc_{context}>>.
@@ -9,7 +9,7 @@
 +
 You can also set the following user names and passwords:
 ** *KIE Admin User* (`KIE_ADMIN_USER`) and *KIE Admin Password* (`KIE_ADMIN_PWD`): The user name and password for the administrative user in {CENTRAL}.
-** *KIE Server User* (`KIE_SERVER_USER`) and *KIE Server Password* (`KIE_SERVER_PWD`): The user name and password that a client application must use to connect to the {KIE_SERVER}.
+** *KIE Server User* (`KIE_SERVER_USER`) and *KIE Server Password* (`KIE_SERVER_PWD`): The user name and password that a client application must use to connect to {KIE_SERVER}.
 +
 ifdef::DM[]
 . If you want to deploy additional {KIE_SERVERS} and connect them to this {CENTRAL}, set the following parameters:
