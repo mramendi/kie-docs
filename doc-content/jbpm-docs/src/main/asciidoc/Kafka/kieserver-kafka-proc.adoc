@@ -6,7 +6,7 @@ To run a process that sends or receives Kafka messages (except when using the cu
 .Procedure
 
 . To enable integration with {KAFKA_PRODUCT}, set the following system properties according to your environment:
-** If you are using the {KIE_SERVER} on {EAP}, set the `org.kie.kafka.server.ext.disabled` system property of the {KIE_SERVER} to `false`.
+** If you are using {KIE_SERVER} on {EAP}, set the `org.kie.kafka.server.ext.disabled` {KIE_SERVER} system property of to `false`.
 ** If you are using Spring Boot, set the `kieserver.kafka.enabled` system property to `true`.
 +
 . To configure the connection to the Kafka broker, set the `org.kie.server.jbpm-kafka.ext.bootstrap.servers` system property to the host and port of the broker. The default value is `localhost:9092`. You can use a comma-separated list of multiple host:port pairs.
@@ -19,4 +19,3 @@ To run a process that sends or receives Kafka messages (except when using the cu
 . Optional: Set any of the following system properties to configure sending Kafka messages:
 ** `org.kie.server.jbpm-kafka.ext.acks`: The number of acknowledgements that the Kafka leader must receive before marking the request as complete. The default value is `1`, which means the leader writes the record to its local log and then responds to the {PROCESS_ENGINE}, without waiting for full acknowledgement from all followers.
 ** `org.kie.server.jbpm-kafka.ext.max.block.ms`: The number of milliseconds for which the publish method blocks. After this time, the {PROCESS_ENGINE} can resume execution of the business process. The default value is `2000` (2 seconds).
-

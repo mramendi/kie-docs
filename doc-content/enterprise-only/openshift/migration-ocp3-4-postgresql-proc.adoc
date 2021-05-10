@@ -20,7 +20,7 @@ If your environment in {OPENSHIFT} version 3 includes a {KIE_SERVER} that uses a
 oc get dc
 ----
 +
-Find the `postgresql` deployment configuration that corresponds to the {KIE_SERVER}.
+Find the `postgresql` deployment configuration that corresponds to the needed {KIE_SERVER}.
 +
 . View the configuration YAML of the deployment configuration, for example:
 +
@@ -62,7 +62,7 @@ oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(
 oc get svc
 ----
 +
-Find the `postgresql` service that corresponds to the {KIE_SERVER}.
+Find the `postgresql` service that corresponds to the needed {KIE_SERVER}.
 +
 . In a separate terminal window, start port forwarding from the local host to the `postgresql` service, using the name and port number displayed for the service, for example:
 +
@@ -78,7 +78,7 @@ pg_dump {PRODUCT_INIT}7 -h 127.0.0.1 -U {PRODUCT_INIT} -W > pgdump.sql
 ----
 +
 When prompted, enter the recorded password. The dump creation can take considerable time.
-+ 
++
 . Stop the port forwarding in the separate window using the *Ctrl+C* key combination.
 . Using the `oc` command, log in to the {OPENSHIFT} version 4 infrastructure and switch to the project containing the new deployment.
 . To view the deployment configuration names in the new deployment, run the following command:
@@ -87,7 +87,7 @@ When prompted, enter the recorded password. The dump creation can take considera
 oc get dc
 ----
 +
-Find the `postgresql` deployment configuration that corresponds to the {KIE_SERVER}.
+Find the `postgresql` deployment configuration that corresponds to the needed {KIE_SERVER}.
 +
 . View the configuration YAML of the deployment configuration, for example:
 +
@@ -116,7 +116,7 @@ oc get dc/myapp-postgresql -ojsonpath='{.spec.template.spec.containers[0].env[?(
 oc get svc
 ----
 +
-Find the `postgresql` service that corresponds to the {KIE_SERVER}.
+Find the `postgresql` service that corresponds to the needed {KIE_SERVER}.
 +
 . In a separate terminal window, start port forwarding from the local host to the `postgresql` service, using the name and port number displayed for the service, for example:
 +
@@ -128,11 +128,11 @@ oc port-forward service/myappnew-postgresql 5432:5432
 +
 [subs="attributes,verbatim,macros,specialchars,replacements"]
 ----
-psql -h 127.0.0.1 -d {PRODUCT_INIT}7 -U {PRODUCT_INIT} -W < pgdump.sql 
+psql -h 127.0.0.1 -d {PRODUCT_INIT}7 -U {PRODUCT_INIT} -W < pgdump.sql
 ----
 +
-When prompted, enter the recorded password. The restoration can take considerable time. 
+When prompted, enter the recorded password. The restoration can take considerable time.
 +
 Review any displayed database error messages. Messages about objects that already exist are normal.
-+ 
++
 . Stop the port forwarding in the separate window using the *Ctrl+C* key combination.

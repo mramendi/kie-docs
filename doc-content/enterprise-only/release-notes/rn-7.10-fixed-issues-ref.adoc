@@ -24,7 +24,7 @@ endif::[]
 
 ifdef::PAM[]
 
-* Some issues appear when starting up the {KIE_SERVER} while executing a long query [https://issues.redhat.com/browse/RHPAM-3342[RHPAM-3342]]
+* Some issues appear when starting up {KIE_SERVER} while executing a long query [https://issues.redhat.com/browse/RHPAM-3342[RHPAM-3342]]
 * When a specified time is reached, a `start timer` event in a process model creates duplicate process instances [https://issues.redhat.com/browse/RHPAM-3189[RHPAM-3189]]
 * When you generate a form with a components slider, various form options including `DocumentCollection`, `MultipleInput`, and `MultipleSelector`, are not rendering in an API response [https://issues.redhat.com/browse/RHPAM-2330[RHPAM-2330]]
 
