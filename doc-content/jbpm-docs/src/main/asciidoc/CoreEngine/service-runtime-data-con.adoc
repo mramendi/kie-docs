@@ -193,8 +193,8 @@ public interface RuntimeDataService {
     Collection<ProcessInstanceDesc> getProcessInstancesByParent(Long parentProcessInstanceId, List<Integer> states, QueryContext queryContext);
 
     /**
-     * Returns a list of process instance descriptions
-     * @param processInstanceId id of the parent process instance
+     * Returns a list of process instance descriptions that are subprocesses of the specified process, or their subprocesses, and so on. The list includes the full hierarchy of subprocesses under the specified parent process.
+     * @param processInstanceId ID of the parent process instance
      * @return A list of {@link ProcessInstanceDesc} instances representing the full hierarchy of this process
      */
     Collection<ProcessInstanceDesc> getProcessInstancesWithSubprocessByProcessInstanceId(Long processInstanceId, List<Integer> states, QueryContext queryContext);
@@ -253,7 +253,7 @@ public interface RuntimeDataService {
     Collection<NodeInstanceDesc> getNodeInstancesByNodeType(long processInstanceId, List<String> nodeTypes, QueryContext queryContext);
 
     /**
-     * Returns a trace of all nodes for a given node types and correlation key
+     * Returns a trace of all nodes for the given node types and correlation key
      * @param correlationKey correlation key
      * @param states list of states
      * @param nodeTypes list of node types to filter nodes of process instance
@@ -264,19 +264,19 @@ public interface RuntimeDataService {
 
 
     /**
-     * Returns collections of all process variables current value for the given process instance
-     * @param processInstanceId The process instance id.
+     * Returns a collection of all process variables and their current values for the given process instance
+     * @param processInstanceId The process instance ID.
      * @return Information about variables in the specified process instance,
      *         represented by a list of {@link VariableDesc} instances.
      */
     Collection<VariableDesc> getVariablesCurrentState(long processInstanceId);
 
     /**
-     * Returns collection of changes to given variable within scope of process instance
-     * @param processInstanceId The process instance id.
+     * Returns a collection of changes to the given variable within the scope of a process instance
+     * @param processInstanceId The process instance ID.
      * @param variableId The ID of the variable
      * @param queryContext control parameters for the result, such as sorting and paging
-     * @return Information about the variable with the given id in the specified process instance,
+     * @return Information about the variable with the given ID in the specified process instance,
      *         represented by a list of {@link VariableDesc} instances.
      */
     Collection<VariableDesc> getVariableHistory(long processInstanceId, String variableId, QueryContext queryContext);
@@ -298,7 +298,7 @@ public interface RuntimeDataService {
      * Returns a list of process definitions that match the given filter
      * @param filter A regular expression.
      * @param queryContext control parameters for the result, such as sorting and paging
-     * @return A list of {@link ProcessDefinition} instances whose name or id matches the given regular expression.
+     * @return A list of {@link ProcessDefinition} instances with a name or ID that matches the given regular expression.
      */
     Collection<ProcessDefinition> getProcessesByFilter(String filter, QueryContext queryContext);
 
@@ -321,7 +321,7 @@ public interface RuntimeDataService {
      * Deprecated since 6.3 as it does return only first ProcessDefinition even if there are more
      * that reside in different deployments. Use <code>getProcessesById(String processId)</code> instead
      * <br/>
-     * Returns process definition for the given process id
+     * Returns process definition for the given process ID
      * @param processId The ID of the process
      * @return A {@link ProcessDefinition} instance, representing the {@link Process}
      *         with the specified (process) id.
@@ -333,10 +333,10 @@ public interface RuntimeDataService {
     ProcessDefinition getProcessById(String processId);
 
     /**
-     * Returns process definitions for the given process id regardless of the deployment
+     * Returns process definitions for the given process ID regardless of the deployment
      * @param processId The ID of the process
-     * @return A {@link ProcessDefinition} instance, representing the {@link Process}
-     *         with the specified (process) id.
+     * @return Collection of {@link ProcessDefinition} instances representing the {@link Process}
+     *         with the specified (process) ID.
      */
     Collection<ProcessDefinition> getProcessesById(String processId);
 
@@ -380,8 +380,8 @@ public interface RuntimeDataService {
 	 * operations as task stakeholders. Business administrators may also observe
 	 * the progress of notifications.
 	 *
-	 * @param userId
-	 * @param filter
+	 * @param userId the identifier of the Business Administrator user
+	 * @param filter a filter for the list of assigned tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsBusinessAdministrator(String userId, QueryFilter filter);
@@ -389,76 +389,76 @@ public interface RuntimeDataService {
 	/**
      * Return a list of assigned tasks as a Business Administrator for with one of the listed
      * statuses
-     * @param userId
-     * @param statuses
-     * @param filter
+     * @param userId the identifier of the Business Administrator user
+     * @param statuses the statuses of the tasks to return
+     * @param filter a filter for the list of assigned tasks
      * @return list of @{@link TaskSummary} task summaries
      */
 	List<TaskSummary> getTasksAssignedAsBusinessAdministratorByStatus(String userId, List<Status> statuses, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user is eligible for.
+	 * Return a list of tasks that a user is eligible to own.
 	 *
-	 * @param userId
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsPotentialOwner(String userId, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user or groups are eligible for.
+	 * Return a list of tasks the user or user groups are eligible to own.
 	 *
-	 * @param userId
-	 * @param groupIds
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param groupIds a list of identifiers of the groups
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsPotentialOwner(String userId, List<String> groupIds, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user is eligible for with one of the listed
+	 * Return a list of tasks the user is eligible to own and that are in one of the listed
 	 * statuses.
 	 *
-	 * @param userId
-	 * @param status
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param status a list of task statuses
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsPotentialOwnerByStatus(String userId, List<Status> status, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user or groups are eligible for with one of the listed
+	 * Return a list of tasks the user or groups are eligible to own and that are in one of the listed
 	 * statuses.
-	 * @param userId
-	 * @param groupIds
-	 * @param status
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param groupIds a list of identifiers of the groups
+	 * @param status a list of task statuses
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsPotentialOwner(String userId, List<String> groupIds, List<Status> status, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user is eligible for with one of the listed
-	 * statuses and expiration date starting at <code>from</code>. Tasks that do not have expiration date set
+	 * Return a list of tasks the user is eligible to own, that are in one of the listed
+	 * statuses, and that have an expiration date starting at <code>from</code>. Tasks that do not have expiration date set
 	 * will also be included in the result set.
 	 *
-	 * @param userId
-	 * @param status
-	 * @param from
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param status a list of task statuses
+	 * @param from the earliest expiration date for the tasks
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksAssignedAsPotentialOwnerByExpirationDateOptional(String userId, List<Status> status, Date from, QueryFilter filter);
 
 	/**
-	 * Return a list of tasks the user has claimed with one of the listed
-	 * statuses and expiration date starting at <code>from</code>. Tasks that do not have expiration date set
+	 * Return a list of tasks the user has claimed, that are in one of the listed
+	 * statuses, and that have an expiration date starting at <code>from</code>. Tasks that do not have expiration date set
 	 * will also be included in the result set.
 	 *
-	 * @param userId
-	 * @param strStatuses
-	 * @param from
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param strStatuses a list of task statuses
+	 * @param from the earliest expiration date for the tasks
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksOwnedByExpirationDateOptional(String userId, List<Status> strStatuses, Date from, QueryFilter filter);
@@ -466,8 +466,8 @@ public interface RuntimeDataService {
 	/**
 	 * Return a list of tasks the user has claimed.
 	 *
-	 * @param userId
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksOwned(String userId, QueryFilter filter);
@@ -476,9 +476,9 @@ public interface RuntimeDataService {
 	 * Return a list of tasks the user has claimed with one of the listed
 	 * statuses.
 	 *
-	 * @param userId
-	 * @param status
-	 * @param filter
+	 * @param userId the identifier of the user
+	 * @param status a list of task statuses
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksOwnedByStatus(String userId, List<Status> status, QueryFilter filter);
@@ -486,24 +486,24 @@ public interface RuntimeDataService {
 	/**
 	 * Get a list of tasks the Process Instance is waiting on.
 	 *
-	 * @param processInstanceId
-	 * @return list of task ids
+	 * @param processInstanceId identifier of the process instance
+	 * @return list of task identifiers
 	 */
 	List<Long> getTasksByProcessInstanceId(Long processInstanceId);
 
 	/**
-	 * Get a list of tasks the Process Instance is waiting on with one of the
+	 * Get a list of tasks the Process Instance is waiting on that are in one of the
 	 * listed statuses.
 	 *
-	 * @param processInstanceId
-	 * @param status
-	 * @param filter
+	 * @param processInstanceId identifier of the process instance
+	 * @param status a list of task statuses
+	 * @param filter a filter for the list of tasks
 	 * @return list of @{@link TaskSummary} task summaries
 	 */
 	List<TaskSummary> getTasksByStatusByProcessInstanceId(Long processInstanceId, List<Status> status, QueryFilter filter);
 
     /**
-	 * Get a list of tasks audit logs for the user provides applying the query filter
+	 * Get a list of tasks audit logs for the user, provides applying the query filter
 	 * listed statuses.
 	 *
 	 * @param userId
@@ -545,14 +545,14 @@ public interface RuntimeDataService {
 
     /**
      * Gets a list of task events for the given task
-     * @param taskId
-     * @param filter
+     * @param taskId identifier of the task
+     * @param filter for the list of events
 	 * @return list of @{@link TaskEvent} task events
      */
     List<TaskEvent> getTaskEvents(long taskId, QueryFilter filter);
 
     /**
-     * Query on {@link TaskSummary} instaances.
+     * Query on {@link TaskSummary} instances.
      * @param userId The user associated with the tasks queried.
      * @return A {@link TaskSummaryQueryBuilder} used to create the query.
      */
