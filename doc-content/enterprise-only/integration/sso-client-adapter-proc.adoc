@@ -75,10 +75,9 @@ In this example:
 * `realm-public-key` is the public key of the realm you created. You can find the key in the *Keys* tab in the *Realm settings* page of the realm you created in the RH-SSO Admin Console. If you do not provide a value for `realm-public-key`, the server retrieves it automatically.
 * `auth-server-url` is the  URL for the RH-SSO authentication server.
 * `enable-basic-auth` is the  setting to enable basic authentication mechanism, so that the clients can use both token-based and basic authentication approaches to perform the requests.
-* `resource` is the  name for the client that you created.
+* `resource` is the name for the client that you created. If you want to use client roles with a different client resource name, replace `kie` with the client resource name, for example, `<resource>customClient</resource>`.
 * `credential name` is the  secret key for the client you created. You can find the key in the *Credentials* tab on the *Clients* page of the RH-SSO Admin Console.
 * `principal-attribute` is the login name of the user. If you do not provide this value, your User Id is displayed in the application instead of your user name.
-* `kie` is the client resource name. If you want to use client roles with a different client resource name, replace `kie` with the client resource name, for example, `<resource>customClient</resource>`.
 +
 [NOTE]
 ====
