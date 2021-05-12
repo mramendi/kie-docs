@@ -32,7 +32,7 @@ NOTE: Install the adapter with the `-Dserver.config=standalone-full.xml` propert
 ----
 --
 +
-. Optional: If you want to use client roles, also add the following system property:
+. Optional: If you want to use client roles, add the following system property:
 +
 --
 [source,xml,subs="attributes+"]
