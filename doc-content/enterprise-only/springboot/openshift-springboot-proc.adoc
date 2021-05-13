@@ -48,7 +48,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:latest
 COPY root /
 EXPOSE 8090
 WORKDIR /opt/spring-service/
-CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.mode=PRODUCTION --jar /opt/spring-service/FILENAME.jar"]
+CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.mode=PRODUCTION -jar /opt/spring-service/FILENAME.jar"]
 ----
 +
 Replace `FILENAME.jar` with the name of the single JAR file for your business application.
@@ -61,7 +61,7 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:latest
 COPY root /
 EXPOSE 8090
 WORKDIR /opt/spring-service/
-CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.controller=${KIESERVER_CONTROLLERS} -Dorg.kie.server.controller.user=${KIE_SERVER_CONTROLLER_USER} -Dorg.kie.server.controller.pwd=${KIE_SERVER_CONTROLLER_PWD} -Dorg.kie.server.mode=PRODUCTION -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dkie.maven.settings.custom=/opt/m2/settings.xml --jar /opt/spring-service/FILENAME.jar"]
+CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.controller=${KIESERVER_CONTROLLERS} -Dorg.kie.server.controller.user=${KIE_SERVER_CONTROLLER_USER} -Dorg.kie.server.controller.pwd=${KIE_SERVER_CONTROLLER_PWD} -Dorg.kie.server.mode=PRODUCTION -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dkie.maven.settings.custom=/opt/m2/settings.xml -jar /opt/spring-service/FILENAME.jar"]
 ----
 +
 Replace `FILENAME.jar` with the name of the single JAR file for your business application.
@@ -98,6 +98,12 @@ In this command, replace the following values:
 ** `<PASSWORD>` with the password of the user configured on the {CENTRAL} Monitoring instance
 +
 endif::PAM[]
+.. To expose the route for the image, run the following command:
++
+----
+oc expose service/openshift-kie-springboot --port=8090
+----
++
 . If you already built and deployed the image and need to update it, run the following command in the `ocp-image` directory:
 +
 ----
