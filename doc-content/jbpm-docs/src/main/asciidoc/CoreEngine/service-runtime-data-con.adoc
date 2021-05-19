@@ -136,7 +136,7 @@ public interface RuntimeDataService {
 
     /**
      * Returns process instance descriptions, filtered by their states, that were found for the given correlation key. If none are found, returns an empty list.
-     * This query uses 'LIKE' to match correlation key so it accepts partial keys. Matching
+     * This query uses 'LIKE' to match correlation keys so it accepts partial keys. Matching
      * is performed based on a 'starts with' criterion
      * @param correlationKey correlation key assigned to process instance
      * @param states A list of possible state (int) values that the {@link ProcessInstance} can have.
