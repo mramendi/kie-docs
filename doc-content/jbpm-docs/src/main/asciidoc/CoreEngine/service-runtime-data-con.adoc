@@ -204,7 +204,7 @@ public interface RuntimeDataService {
     /**
      * Returns the active node instance descriptor for the given work item ID, if exists.
      * @param workItemId identifier of the work item
-     * @return returns NodeInstanceDesc for work item if exists and is still active, otherwise null
+     * @return returns NodeInstanceDesc for work item if it exists and is still active, otherwise null.
      */
     NodeInstanceDesc getNodeInstanceForWorkItem(Long workItemId);
 
