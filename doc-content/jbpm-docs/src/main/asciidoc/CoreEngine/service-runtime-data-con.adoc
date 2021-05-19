@@ -117,7 +117,7 @@ public interface RuntimeDataService {
 
     /**
      * Returns the active process instance description found for the given correlation key. If none is found, returns null. At the same time it
-     * fetches all active tasks (in status: Ready, Reserved, InProgress) to provide information about what user task is keeping each instance
+     * fetches all active tasks (in status: Ready, Reserved, InProgress) to provide information about which user task is keeping each instance
      * and who owns the task (if the task is already claimed by a user).
      * @param correlationKey correlation key assigned to the process instance
      * @return Process instance information, in the form of a {@link ProcessInstanceDesc} instance.
