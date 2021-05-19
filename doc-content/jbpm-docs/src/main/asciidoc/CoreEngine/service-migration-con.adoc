@@ -5,7 +5,7 @@ The process instance migration service is a utility for migrating process instan
 
 When migrating a process, the process instance migration service also automatically migrates all its subprocesses, subprocesses of its subprocesses, and so on. If you attempt to migrate a subprocess without migrating the parent process, the migration fails.
 
-For the simplest approach to process migration, let active process instances finish and start new process instances in the new deployment. If this approach is not suitable to your needs, consider the following issues before starting process instance migration:
+For the simplest approach to process migration, let active process instances finish and start new process instances in the new deployment. If this approach is not suitable for your needs, consider the following issues before starting process instance migration:
 
 * Backward compatibility
 * Data change
