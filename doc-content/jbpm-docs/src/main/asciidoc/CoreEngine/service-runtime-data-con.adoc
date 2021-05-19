@@ -125,7 +125,7 @@ public interface RuntimeDataService {
     ProcessInstanceDesc getProcessInstanceByCorrelationKey(CorrelationKey correlationKey);
 
     /**
-     * Returns process instances descriptions (regardless of their states) found for the given correlation key. If none are found, returns an empty list.
+     * Returns process instances descriptions (regardless of their states) found for the given correlation key. If no descriptions are found, an empty list is returned.
      * This query uses 'LIKE' to match correlation key so it accepts partial keys. Matching
      * is performed based on a 'starts with' criterion
      * @param correlationKey correlation key assigned to the process instance
