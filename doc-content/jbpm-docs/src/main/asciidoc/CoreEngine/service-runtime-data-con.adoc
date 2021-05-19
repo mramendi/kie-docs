@@ -237,7 +237,7 @@ public interface RuntimeDataService {
      * Returns a complete trace of all events of the given type (START, END, ABORTED, SKIPPED, OBSOLETE or ERROR) for the given process instance.
      * @param processInstanceId unique identifier of the process instance
      * @param queryContext control parameters for the result, such as sorting and paging
-     * @param type the type of events to be returned (START, END, ABORTED, SKIPPED, OBSOLETE or ERROR). To return all events use {@link #getProcessInstanceFullHistory(long, QueryContext)}
+     * @param type the type of events to be returned (START, END, ABORTED, SKIPPED, OBSOLETE or ERROR). To return all events, use {@link #getProcessInstanceFullHistory(long, QueryContext)}.
      * @return collection of node instance descriptions
      */
     Collection<NodeInstanceDesc> getProcessInstanceFullHistoryByType(long processInstanceId, EntryType type, QueryContext queryContext);
