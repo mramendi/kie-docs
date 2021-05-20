@@ -296,7 +296,7 @@ public interface RuntimeDataService {
 
     /**
      * Returns a list of process definitions that match the given filter
-     * @param filter regular expression.
+     * @param filter regular expression
      * @param queryContext control parameters for the result, such as sorting and paging
      * @return list of {@link ProcessDefinition} instances with a name or ID that matches the given regular expression.
      */
