@@ -266,7 +266,7 @@ public interface RuntimeDataService {
     /**
      * Returns a collection of all process variables and their current values for the given process instance
      * @param processInstanceId process instance ID
-     * @return Information about variables in the specified process instance,
+     * @return information about variables in the specified process instance,
      *         represented by a list of {@link VariableDesc} instances
      */
     Collection<VariableDesc> getVariablesCurrentState(long processInstanceId);
