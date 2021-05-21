@@ -104,7 +104,7 @@ If you want to view process information from {CENTRAL} Monitoring, you must ensu
 ====
 +
 endif::PAM[]
-.. To expose the route for the image, run the following command:
+.. Optional: To expose the route for the image, run the following command:
 +
 ----
 oc expose service/openshift-kie-springboot --port=8090
