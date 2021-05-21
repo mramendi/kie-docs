@@ -15,7 +15,7 @@ endif::PAM[]
 * You created a single JAR file for the business application. For instructions about creating a single JAR file for your SpringBoot business application, see xref:creating-self-contained-image-proc_{context}[].
 * You are logged on to your {OPENSHIFT} environment using the `oc` command and the required project is active.
 ifdef::PAM[]
-* If you want to use {CENTRAL} Monitoring, you installed {CENTRAL} Monitoring using the operator. For instructions about installing {CENTRAL} Monitoring and other {PRODUCT} components using the operator, see {URL_DEPLOYING_ON_OPENSHIFT}#assembly-openshift-operator[_{DEPLOYING_OPENSHIFT_OPERATOR}_].
+* If you want to use {CENTRAL} Monitoring, you installed {CENTRAL} Monitoring using the operator. For instructions about installing {CENTRAL} Monitoring and other {PRODUCT} components using the operator, see {URL_DEPLOYING_ON_OPENSHIFT}#assembly-openshift-operator[_{DEPLOYING_OPENSHIFT_OPERATOR}_]. For convenience, use the same project/namespace to deploy {CENTRAL} Monitoring and your business application.
 +
 [IMPORTANT]
 ====
@@ -48,10 +48,10 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:latest
 COPY root /
 EXPOSE 8090
 WORKDIR /opt/spring-service/
-CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.mode=PRODUCTION -jar /opt/spring-service/FILENAME.jar"]
+CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.mode=PRODUCTION -jar /opt/spring-service/<FILENAME>.jar"]
 ----
 +
-Replace `FILENAME.jar` with the name of the single JAR file for your business application.
+Replace `<FILENAME>.jar` with the name of the single JAR file for your business application.
 +
 ifdef::PAM[]
 Alternatively, if you want to configure communication with {CENTRAL} Monitoring, use the following content for `Dockerfile`:
@@ -61,10 +61,10 @@ FROM registry.access.redhat.com/ubi8/openjdk-11:latest
 COPY root /
 EXPOSE 8090
 WORKDIR /opt/spring-service/
-CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.controller=${KIESERVER_CONTROLLERS} -Dorg.kie.server.controller.user=${KIE_SERVER_CONTROLLER_USER} -Dorg.kie.server.controller.pwd=${KIE_SERVER_CONTROLLER_PWD} -Dorg.kie.server.mode=PRODUCTION -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy -Dkie.maven.settings.custom=/opt/m2/settings.xml -jar /opt/spring-service/FILENAME.jar"]
+CMD ["sh","-c", "java ${JAVA_OPTIONS} -Dorg.kie.server.location=${KIESERVER_LOCATION} -Dorg.kie.server.controller=${KIESERVER_CONTROLLERS} -Dorg.kie.server.controller.user=${KIE_SERVER_CONTROLLER_USER} -Dorg.kie.server.controller.pwd=${KIE_SERVER_CONTROLLER_PWD} -Dorg.kie.server.mode=PRODUCTION -jar /opt/spring-service/<FILENAME>.jar"]
 ----
 +
-Replace `FILENAME.jar` with the name of the single JAR file for your business application.
+Replace `<FILENAME>.jar` with the name of the single JAR file for your business application.
 +
 endif::PAM[]
 . To build the initial image and deploy it in your {OPENSHIFT} environment, complete the following steps:
@@ -75,7 +75,7 @@ oc new-build --binary --strategy=docker --name openshift-kie-springboot
 oc start-build openshift-kie-springboot --from-dir=. --follow
 ----
 +
-Optionally, replace `openshift-kie-springboot` with a custom application name in these commands and all subsequent commands.
+Optional: replace `openshift-kie-springboot` with a custom application name in these commands and all subsequent commands.
 +
 .. To deploy the image in the {OPENSHIFT} environment, run the following command:
 +
@@ -87,15 +87,21 @@ ifdef::PAM[]
 Alternatively, to deploy the image and configure it to communicate with {CENTRAL} Monitoring, run the following command:
 +
 ----
-oc new-app openshift-kie-springboot -p KIESERVER_CONTROLERS=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -p KIE_SERVER_CONTROLLER_USER=USER -p  KIE_SERVER_CONTROLLER_PWD=PASSWORD
+oc new-app openshift-kie-springboot -e KIESERVER_LOCATION=https://<LOCATION>:8090 -e KIESERVER_CONTROLLERS=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -e KIE_SERVER_CONTROLLER_USER=USER -e KIE_SERVER_CONTROLLER_PWD=PASSWORD
 ----
 +
 In this command, replace the following values:
 +
-** `<BC-HOSTNAME>` with the fully qualified name of the {CENTRAL} Monitoring instance
+** `<LOCATION>` with the fully qualified host name for accessing your service. {CENTRAL} Monitoring will display a URL for your service with this host name
+** `<BC-HOSTNAME>` with the host name for accessing the {CENTRAL} Monitoring instance. If your application is deployed in the same project/namespace as the {CENTRAL} Monitoring instance, use the service name for {CENTRAL} Monitoring, for example, `myapp-rhpamcentrmon`. Otherwise, you can use use the fully qualified host name of a route for the {CENTRAL} Monitoring instance.
 ** `<BC-PORT>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
 ** `<USER>` with the username of a user configured on the {CENTRAL} Monitoring instance
 ** `<PASSWORD>` with the password of the user configured on the {CENTRAL} Monitoring instance
++
+[NOTE]
+====
+If you want to view process information from {CENTRAL} Monitoring, you must ensure that the user that is logged into {CENTRAL} Monitoring can also be authenticated with your service using the same password.
+====
 +
 endif::PAM[]
 .. To expose the route for the image, run the following command:

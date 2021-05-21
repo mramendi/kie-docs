@@ -52,7 +52,7 @@ kieserver.autoScanDeployments=true
 +
 When both of these properties are set to `true`, the Spring Boot {KIE_SERVER} automatically scans for deployable artifacts that are packaged within the Spring Boot application using the `package-dependencies-kjar` Maven goal of the `kie-maven-plugin` plug-in.
 +
-. In the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-service` directory, add the following Maven plug-in in the Spring Boot `service/pom.xml` file where `<GROUP_ID>`, `<ARTIFACT_ID>`, and `<VERSION>` are the group, artifact, and version (GAV) of a KJAR artifact that your project uses. You can find these values in the `pom.xml` file that is located in the KJAR source directory.
+. In the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-service` directory, add the following Maven plug-in in the Spring Boot `pom.xml` file where `<GROUP_ID>`, `<ARTIFACT_ID>`, and `<VERSION>` are the group, artifact, and version (GAV) of a KJAR artifact that your project uses. You can find these values in the `pom.xml` file that is located in the KJAR source directory.
 +
 NOTE: You can add more than one version of an artifact.
 +
@@ -127,7 +127,8 @@ The following example adds two version of the `Evaluation` artifact:
 ----
 ifdef::PAM[]
 +
-. Optional: if you want to be able to configure the {KIE_SERVER} to communicate with a {CENTRAL} Monitoring instance using WebSockets, add the following lines to the `pom.xml` file under the `<dependencies>` tag:
+. Optional: if you want to be able to configure the {KIE_SERVER} to communicate with a {CENTRAL} monitoring instance using WebSockets, make the following changes:
+.. Add the following lines to the `pom.xml` file under the `<dependencies>` tag:
 +
 [source, xml]
 ----
@@ -138,7 +139,14 @@ ifdef::PAM[]
 </dependency>
 ----
 +
-WebSockets communication with a {CENTRAL} Monitoring instance is supported in all cases, including running the instance on {OPENSHIFT}.
+WebSockets communication with a {CENTRAL} monitoring instance is supported in all cases, including running the instance on {OPENSHIFT}.
+.. In the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-service/src/main/resources/application.properties` file, add or change the following properties:
++
+[source]
+----
+kieserver.location=${org.kie.server.location}
+kieserver.controllers=${org.kie.server.controller}
+----
 endif::PAM[]
 +
 . To build the self-contained Spring Boot image, enter the following command in the `<BUSINESS-APPLICATION>/<BUSINESS-APPLICATION>-service` directory:
@@ -162,16 +170,20 @@ To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance usin
 +
 [source]
 ----
-java -jar <FILENAME>.jar -Dorg.kie.server.startup.strategy=LocalContainersStartupStrategy
--Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller
--Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD>
+java -Dorg.kie.server.location=https://<LOCATION>:8090 -Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD> -jar <FILENAME>.jar
 ----
 +
 In this command, replace the following values:
 +
-** `<FILENAME>` with the name of the JAR file
-** `<BC-HOSTNAME>` with the fully qualified name of the {CENTRAL} Monitoring instance
+** `<LOCATION>` with the host name at which the application is available. {CENTRAL} monitoring will display a URL for your service with this host name
+** `<BC-HOSTNAME>` with the fully qualified name of the {CENTRAL} monitoring instance
 ** `<BC-PORT>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
-** `<USER>` with the username of a user configured on the {CENTRAL} Monitoring instance
-** `<PASSWORD>` with the password of the user configured on the {CENTRAL} Monitoring instance
+** `<USER>` with the username of a user configured on the {CENTRAL} monitoring instance
+** `<PASSWORD>` with the password of the user configured on the {CENTRAL} monitoring instance
+** `<FILENAME>` with the name of the JAR file
++
+[NOTE]
+====
+If you want to view process information from {CENTRAL} monitoring, you must ensure that the user that is logged into {CENTRAL} can also be authenticated with your service using the same password.
+====
 endif::PAM[]
