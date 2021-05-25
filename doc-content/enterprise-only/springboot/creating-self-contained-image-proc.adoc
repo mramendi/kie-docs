@@ -170,7 +170,7 @@ To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance usin
 +
 [source]
 ----
-java -Dorg.kie.server.location=http://<LOCATION>:8090/rest/server -Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD> -jar <FILENAME>.jar
+java -Dorg.kie.server.location=http://<LOCATION>:<PORT>/rest/server -Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD> -jar <FILENAME>.jar
 ----
 +
 In this command, replace the following values:
