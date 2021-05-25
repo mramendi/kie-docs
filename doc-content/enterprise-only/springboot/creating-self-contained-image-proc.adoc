@@ -77,7 +77,7 @@ NOTE: You can add more than one version of an artifact.
           <artifactItems>
             <artifactItem>
               <groupId><GROUP_ID></groupId>
-              <artifactId><ARTIFACT_ID>/artifactId>
+              <artifactId><ARTIFACT_ID></artifactId>
               <version><VERSION></version>
             </artifactItem>
           </artifactItems>
@@ -170,17 +170,23 @@ To configure the {KIE_SERVER} to connect to a {CENTRAL} monitoring instance usin
 +
 [source]
 ----
-java -Dorg.kie.server.location=https://<LOCATION>:8090 -Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD> -jar <FILENAME>.jar
+java -Dorg.kie.server.location=http://<LOCATION>:8090/rest/server -Dorg.kie.server.controller=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -Dorg.kie.server.controller.user=<USER> -Dorg.kie.server.controller.pwd=<PASSWORD> -jar <FILENAME>.jar
 ----
 +
 In this command, replace the following values:
 +
-** `<LOCATION>` with the host name at which the application is available. {CENTRAL} monitoring will display a URL for your service with this host name
+** `<LOCATION>` with the fully qualified host name for accessing your service. {CENTRAL} monitoring accesses the service to retrieve process information and displays a URL for the service with this host name
+** `<PORT>` with the port for accessing your service, for example, `8090`
 ** `<BC-HOSTNAME>` with the fully qualified name of the {CENTRAL} monitoring instance
 ** `<BC-PORT>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
 ** `<USER>` with the username of a user configured on the {CENTRAL} monitoring instance
 ** `<PASSWORD>` with the password of the user configured on the {CENTRAL} monitoring instance
 ** `<FILENAME>` with the name of the JAR file
++
+[NOTE]
+====
+This configuration uses unsecured HTTP communication for your service. If you configure your Spring Boot business application with a valid SSL certificate, you can replace `http:` with `https:` to use secure HTTPS communication. For more information about configuring SSL on Spring Boot, see https://docs.spring.io/spring-boot/docs/{SPRING_BOOT_VERSION}.RELEASE/reference/html/howto.html#howto-configure-ssl[Spring Boot documentation].
+====
 +
 [NOTE]
 ====

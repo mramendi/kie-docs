@@ -87,16 +87,22 @@ ifdef::PAM[]
 Alternatively, to deploy the image and configure it to communicate with {CENTRAL} Monitoring, run the following command:
 +
 ----
-oc new-app openshift-kie-springboot -e KIESERVER_LOCATION=https://<LOCATION>:8090 -e KIESERVER_CONTROLLERS=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -e KIE_SERVER_CONTROLLER_USER=USER -e KIE_SERVER_CONTROLLER_PWD=PASSWORD
+oc new-app openshift-kie-springboot -e KIESERVER_LOCATION=http://<LOCATION>:<PORT>/rest/server -e KIESERVER_CONTROLLERS=ws://<BC-HOSTNAME>:<BC-PORT>/websocket/controller -e KIE_SERVER_CONTROLLER_USER=USER -e KIE_SERVER_CONTROLLER_PWD=PASSWORD
 ----
 +
 In this command, replace the following values:
 +
-** `<LOCATION>` with the fully qualified host name for accessing your service. {CENTRAL} Monitoring will display a URL for your service with this host name
+** `<LOCATION>` with the fully qualified host name for accessing your service. {CENTRAL} Monitoring accesses the service to retrieve process information and displays a URL for the service with this host name
+** `<PORT>` with the port for accessing your service, for example, `8090`
 ** `<BC-HOSTNAME>` with the host name for accessing the {CENTRAL} Monitoring instance. If your application is deployed in the same project/namespace as the {CENTRAL} Monitoring instance, use the service name for {CENTRAL} Monitoring, for example, `myapp-rhpamcentrmon`. Otherwise, you can use use the fully qualified host name of a route for the {CENTRAL} Monitoring instance.
 ** `<BC-PORT>` with the port of the {CENTRAL} Monitoring instance, for example, `8080`
 ** `<USER>` with the username of a user configured on the {CENTRAL} Monitoring instance
 ** `<PASSWORD>` with the password of the user configured on the {CENTRAL} Monitoring instance
++
+[NOTE]
+====
+This configuration uses unsecured HTTP communication for your service. If you configure your Spring Boot business application with a valid SSL certificate, you can replace `http:` with `https:` to use secure HTTPS communication. For more information about configuring SSL on Spring Boot, see https://docs.spring.io/spring-boot/docs/{SPRING_BOOT_VERSION}.RELEASE/reference/html/howto.html#howto-configure-ssl[Spring Boot documentation].
+====
 +
 [NOTE]
 ====
