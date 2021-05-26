@@ -122,8 +122,8 @@ The following example adds two version of the `Evaluation` artifact:
           </artifactItems>
         </configuration>
       </plugin>
-    <plugins>
-  <build>
+    </plugins>
+  </build>
 ----
 ifdef::PAM[]
 +
