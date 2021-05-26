@@ -4,7 +4,7 @@
     Changes to .adoc or HTML files may be overwritten! Please change the
     generator or the input template (https://github.com/jboss-container-images/jboss-kie-modules/tree/master/tools/gen-template-doc/*.in)
 ////
-[id='rhdm711-trial-ephemeral-ref']
+[id='rhdm711-trial-ephemeral-ref_{context}']
 = rhdm711-trial-ephemeral.yaml template
 
 Application template for an ephemeral authoring and testing environment, for Red Hat Decision Manager 7.11 - Deprecated
