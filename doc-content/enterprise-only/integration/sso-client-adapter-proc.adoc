@@ -91,7 +91,7 @@ If you want to use client roles, also add the following setting under `<secure-d
 <use-resource-role-mappings>true</use-resource-role-mappings>
 ----
 +
-. Optional: The Elytron subsystem provides a built-in policy provider based on JACC specification. To enable the JACC manually in the `standalone.xml` or in the file where Elytron is installed, do any of the following tasks:
+. The Elytron subsystem provides a built-in policy provider based on JACC specification. To enable the JACC manually in the `standalone.xml` or in the file where Elytron is installed, do any of the following tasks:
 
 * To create the policy provider, enter the following commands in the management command-line interface (CLI) of {EAP}:
 +
