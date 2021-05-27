@@ -1,7 +1,7 @@
 [id='transaction-retry-con_{context}']
 = Transaction retries
 
-When the {PROCESS_ENGINE} commits a transaction, sometimes the committing fails because another transaction is being committed at the same time. In this case, the {PROCESS_ENGINE} needs to retry the transaction.
+When the {PROCESS_ENGINE} commits a transaction, sometimes the commit operation fails because another transaction is being committed at the same time. In this case, the {PROCESS_ENGINE} must retry the transaction.
 
 If several retries fail, the transaction fails permanently.
 
