@@ -34,25 +34,25 @@ kieserver.classPathContainer=true
 When this property is set to `true`, {KIE_SERVER} uses the class loader used by the container to load KJAR files and their dependencies.
 +
 . Complete one of the following actions to ensure that the {KIE_SERVER} loads the necessary KJAR modules:
-** Add the following property to the `application.properties` file:
+** To configure {KIE_SERVER} to scans and deploy all KJAR modules available in the Spring Boot application, add the following property to the `application.properties` file:
 +
 [source]
 ----
 kieserver.autoScanDeployments=true
 ----
 +
-When this property is set to `true`, {KIE_SERVER} scans and deploys all KJAR modules available in the Spring Boot application, whether they are declared programmatically or through the Maven plug-in.
+When this property is set to `true`, {KIE_SERVER} deploys all KJAR modules available in the application, whether they are declared programmatically or through the Maven plug-in.
 +
 This option is the simplest method to include all KJAR modules. However, it has two drawbacks:
 +
 --
 *** The application sets all container IDs and aliases automatically, based on the group, artifact, and version (GAV) of every KJAR module. You cannot set a custom container ID or alias for a KJAR module.
-*** At startup time, the application scans the JAR file and the class path for KJAR modules. Therefore, the duration of startup might be   increased.
+*** At startup time, the application scans the JAR file and the class path for KJAR modules. Therefore, the duration of startup might be increased.
 --
 +
-If you need to avoid these drawbacks, use one of the other options to configure every KJAR module individually.
+To avoid these drawbacks, you can configure every KJAR module individually using the `application.properties` file or using Java source code, as described in one of the following options.
 +
-** For each of the KJAR modules that you want to include in the service, add the following properties to the `application.properties` file:
+** To configure every KJAR module individually using the `application.properties` file, for each of the KJAR modules that you want to include in the service, add the following properties to the `application.properties` file:
 +
 [source]
 ----
@@ -91,7 +91,7 @@ kieserver.deployments[1].groupId=com.myspace
 kieserver.deployments[1].version=2.0.0-SNAPSHOT
 ----
 +
-** In your business application service source code, create the `KieContainerDeployer` class, as in the following example:
+** To configure every KJAR module individually using Java source code, create the `KieContainerDeployer` class in your business application service, similar to the following example:
 +
 [source,java]
 ----
