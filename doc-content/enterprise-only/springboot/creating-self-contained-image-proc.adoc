@@ -91,7 +91,7 @@ kieserver.deployments[1].groupId=com.myspace
 kieserver.deployments[1].version=2.0.0-SNAPSHOT
 ----
 +
-** To configure every KJAR module individually using Java source code, create the `KieContainerDeployer` class in your business application service, similar to the following example:
+** To configure every KJAR module individually using Java source code, create a class in your business application service, similar to the following example:
 +
 [source,java]
 ----
