@@ -1,7 +1,7 @@
 [id='kieserver-kafka-emit-proc_{context}']
 = Configuring a service and the {KIE_SERVER} to emit Kafka messages when a transaction is committed
 
-You can configure the {KIE_SERVER} to emit Kafka messages about every event when a process, case, or task is completed and when the status of a task is changed. The {KIE_SERVER} sends the messages when it commits transactions.
+You can configure the {KIE_SERVER} to emit Kafka messages automatically. In this case, the {KIE_SERVER} sends a message every time a task, process, case, or variable is created, updated, or deleted. The Kafka message contains information about the modified object. The {KIE_SERVER} sends the message when it commits the transaction with the change.
 
 You can use this functionality with any business process or case. You do not need to change anything in the process design.
 
